@@ -2,21 +2,20 @@
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { useI18n } from '@/lib/i18n'
 
 export default function PrivacyPage() {
+  const { t } = useI18n()
   return (
     <>
       <Navbar />
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-        <h1 className="font-pixel text-lg text-text-primary">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-text-muted">Last updated: July 2026</p>
+        <h1 className="font-pixel text-lg text-text-primary">{t('privacy.title')}</h1>
+        <p className="mt-2 text-sm text-text-muted">{t('privacy.lastUpdated')}</p>
 
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-text-secondary">
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">1. Information We Collect</h2>
-            <p>
-              When you use PetGen, we may collect the following types of information:
-            </p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s1title')}</h2>
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li><strong>Account information</strong> — If you sign in with Google, we receive your name, email address, and profile picture from Google.</li>
               <li><strong>Uploaded images</strong> — The images you upload for pet generation are processed and temporarily stored to generate your pet.</li>
@@ -26,8 +25,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">2. How We Use Your Information</h2>
-            <p>We use the collected information to:</p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s2title')}</h2>
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li>Provide, maintain, and improve PetGen</li>
               <li>Generate pixel pets from your uploaded images</li>
@@ -38,27 +36,23 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">3. Data Sharing</h2>
-            <p>We do not sell your personal data. We may share data with:</p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s3title')}</h2>
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li><strong>Supabase</strong> — for account management and file storage</li>
               <li><strong>Vercel</strong> — for hosting and deployment</li>
               <li><strong>PostHog</strong> — for product analytics</li>
               <li><strong>Google Analytics</strong> — for website traffic analysis</li>
-              <li><strong>OpenAI / Bailian (Alibaba Cloud)</strong> — for AI image generation (images are processed but not stored by these providers)</li>
+              <li><strong>OpenAI / Bailian (Alibaba Cloud)</strong> — for AI image generation</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">4. Data Retention</h2>
-            <p>
-              Uploaded images are deleted after the generation process completes. Account data is retained until you delete your account. Analytics data is retained per the retention policies of PostHog and Google Analytics.
-            </p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s4title')}</h2>
+            <p>Uploaded images are deleted after the generation process completes. Account data is retained until you delete your account. Analytics data is retained per the retention policies of PostHog and Google Analytics.</p>
           </section>
 
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">5. Your Rights</h2>
-            <p>Depending on your jurisdiction, you may have the right to:</p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s5title')}</h2>
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li>Access the personal data we hold about you</li>
               <li>Request deletion of your data</li>
@@ -68,11 +62,8 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-2 font-semibold text-text-primary">6. Contact</h2>
-            <p>
-              If you have questions about this privacy policy, please contact us at{' '}
-              <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.
-            </p>
+            <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s6title')}</h2>
+            <p>If you have questions about this privacy policy, please contact us at <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.</p>
           </section>
         </div>
       </main>

@@ -45,7 +45,37 @@ export const ja: Dict = {
     s7title: '7. 知的財産権', s7text: 'PetGenサービスは弊社の知的財産です。生成されたペットはプランに応じて自由に使用できます。',
     s8title: '8. 責任の制限', s8text: 'PetGenは「現状のまま」提供され、いかなる保証もありません。',
     s9title: '9. 契約の終了', s9text: '本規約に違反した場合、サービスの停止または終了の権利を留保します。',
-    s10title: '10. お問い合わせ', s10text: '本規約に関するお問い合わせは：'}} as Dict
-
-
-
+    s10title: '10. お問い合わせ', s10text: '本規約に関するお問い合わせは：'},
+  hero: {
+    badge: 'AI搭載ペットジェネレーター',
+    titlePrefix: '写真をワンクリックで',
+    titleHighlight: 'デスクトップの仲間に',
+    subtitle: 'Codex向けに設計。spritesheet.webpとpet.jsonを出力し、Codexカスタムペットと互換性があります。写真をアップロードし、キャラクターを承認、アニメーションを生成して、ターミナルからインストール。',
+    uploading: 'アップロード中…',
+    demo: 'デモを試す（アップロード不要）',
+    baseTime: '約90秒',
+    statesCount: '9種類のアニメーション',
+    zipDownload: 'ZIPダウンロード',
+    ready: 'インストール可能！',
+  },
+  steps: { upload: 'アップロード', base: 'ベース', animate: 'アニメーション', install: 'インストール' },
+  howItWorks: {
+    title: '使い方', desc: '写真からデスクトップの仲間になるまでの4ステップ。',
+    s1title: 'アップロード', s1desc: 'ペットやアバターの写真をドロップ。JPG、PNG、WebP対応。',
+    s2title: 'ベース承認', s2desc: 'AIがピクセルキャラクターに変換。見た目を承認するか再生成。',
+    s3title: 'アニメーションZIPを取得', s3desc: '9種類のアニメーションをspritesheet.webp + pet.jsonに合成。',
+    s4title: 'ターミナルからインストール', s4desc: '~/.codex/pets/にコピーして、Codexを再起動。',
+  },
+  whatYouGet: {
+    title: '得られるもの', desc: 'Codex対応パッケージ：透過スプライトシート＋メタデータ。',
+    spritesheetTitle: 'spritesheet.webp', spritesheetMeta: '1536 × 1872',
+    spritesheetDesc: '9状態×8フレーム、透過背景。Codexが読み取るグリッド。',
+    jsonTitle: 'pet.json', jsonMeta: 'metadata',
+    jsonDesc: '4つのフィールドでCodexがペットを認識。',
+    jsonCompatible: 'OpenAI Codexカスタムペット対応。',
+  },
+  upload: {
+    drop: '画像をドロップ', dropActive: 'ドロップ！', or: 'または',
+    clickToBrowse: 'クリックして選択', jpg: 'JPG', png: 'PNG', webp: 'WebP', maxSize: '最大10MB',
+  },
+} as Dict

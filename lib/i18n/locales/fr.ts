@@ -45,7 +45,13 @@ export const fr: Dict = {
     s7title: '7. Propriété intellectuelle', s7text: 'PetGen est notre propriété intellectuelle. Les pets générés sont utilisables selon votre forfait.',
     s8title: '8. Limitation de responsabilité', s8text: 'PetGen est fourni "en l\'état" sans garantie.',
     s9title: '9. Résiliation', s9text: 'Nous nous réservons le droit de suspendre ou résilier l\'accès en cas de violation.',
-    s10title: '10. Contact', s10text: 'Pour toute question sur ces conditions :'}} as Dict
-
-
-
+    s10title: '10. Contact', s10text: 'Pour toute question sur ces conditions :'},
+  hero: {
+    badge: 'Générateur de pets IA',
+    titlePrefix: 'Transformez une photo en',
+    titleHighlight: 'compagnon de code installable',
+    subtitle: 'Conçu pour Codex. Produit spritesheet.webp + pet.json compatible avec les pets personnalisés Codex.',
+    uploading: 'Téléchargement…', demo: 'Essayer la démo', baseTime: '~90s', statesCount: '9 animations', zipDownload: 'Téléchargement ZIP', ready: 'Prêt à installer !',
+  },
+  steps: { upload: 'Upload', base: 'Base', animate: 'Animer', install: 'Installer' },
+} as Dict

@@ -45,7 +45,13 @@ export const ko: Dict = {
     s7title: '7. 지식 재산권', s7text: 'PetGen 서비스는 당사의 지식 재산입니다. 생성된 펫은 플랜에 따라 자유롭게 사용할 수 있습니다.',
     s8title: '8. 책임 제한', s8text: 'PetGen은 "있는 그대로" 제공되며 어떠한 보증도 하지 않습니다.',
     s9title: '9. 해지', s9text: '본 약관 위반 시 서비스 접근을 중단하거나 종료할 권리가 있습니다.',
-    s10title: '10. 문의', s10text: '본 약관에 관한 문의는:'}} as Dict
-
-
-
+    s10title: '10. 문의', s10text: '본 약관에 관한 문의는:'},
+  hero: {
+    badge: 'AI 기반 펫 제너레이터',
+    titlePrefix: '사진을 한 장 올리면',
+    titleHighlight: '설치 가능한 코딩 친구로',
+    subtitle: 'Codex를 위해 제작되었습니다. spritesheet.webp와 pet.json을 출력하며 Codex 커스텀 펫과 호환됩니다.',
+    uploading: '업로드 중…', demo: '데모 체험하기', baseTime: '약 90초', statesCount: '9가지 애니메이션', zipDownload: 'ZIP 다운로드', ready: '설치 준비 완료!',
+  },
+  steps: { upload: '업로드', base: '베이스', animate: '애니메이션', install: '설치' },
+} as Dict

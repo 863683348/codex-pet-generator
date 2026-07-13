@@ -45,7 +45,13 @@ export const de: Dict = {
     s7title: '7. Geistiges Eigentum', s7text: 'PetGen ist unser geistiges Eigentum. Generierte Tiere können je nach Plan frei genutzt werden.',
     s8title: '8. Haftungsbeschränkung', s8text: 'PetGen wird "wie besehen" ohne Gewährleistung bereitgestellt.',
     s9title: '9. Kündigung', s9text: 'Wir behalten uns vor, den Zugang bei Verstoß gegen diese Bedingungen zu sperren oder zu beenden.',
-    s10title: '10. Kontakt', s10text: 'Bei Fragen zu diesen Bedingungen:'}} as Dict
-
-
-
+    s10title: '10. Kontakt', s10text: 'Bei Fragen zu diesen Bedingungen:'},
+  hero: {
+    badge: 'KI-gestützter Pet-Generator',
+    titlePrefix: 'Verwandle ein Foto in einen',
+    titleHighlight: 'installierbaren Code-Begleiter',
+    subtitle: 'Für Codex entwickelt. Erzeugt spritesheet.webp + pet.json kompatibel mit Codex-Benutzerpets.',
+    uploading: 'Lade hoch…', demo: 'Demo testen', baseTime: '~90s', statesCount: '9 Animationen', zipDownload: 'ZIP-Download', ready: 'Installationsbereit!',
+  },
+  steps: { upload: 'Hochladen', base: 'Basis', animate: 'Animieren', install: 'Installieren' },
+} as Dict
