@@ -9,6 +9,10 @@ export const en = {
     madeWith: 'Made with for Codex users',
     compatible: 'OpenAI Codex Compatible',
     copyright: '© 2026 PetGen',
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Service',
+    faq: 'FAQ',
+    contact: 'Contact',
   },
   lang: {
     en: 'EN',

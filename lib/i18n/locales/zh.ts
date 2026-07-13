@@ -8,6 +8,10 @@ export const zh: Dict = {
     madeWith: '为 Codex 用户倾心打造',
     compatible: '兼容 OpenAI Codex',
     copyright: '© 2026 PetGen',
+    privacy: '隐私政策',
+    terms: '服务条款',
+    faq: '常见问题',
+    contact: '联系我们',
   },
   lang: {
     en: 'EN',
