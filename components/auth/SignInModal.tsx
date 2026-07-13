@@ -18,8 +18,8 @@ export default function SignInModal({ open, onClose }: { open: boolean; onClose:
   }
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative w-full max-w-sm rounded-2xl border border-border bg-bg-base p-8 shadow-2xl">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={onClose}>
+      <div className="relative w-full max-w-sm rounded-2xl border border-border bg-bg-base p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute right-4 top-4 rounded-full p-1 text-text-muted transition-colors hover:bg-bg-elevated hover:text-text-primary"
