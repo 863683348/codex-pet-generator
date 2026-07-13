@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Navbar from '@/components/layout/Navbar'
@@ -14,6 +14,9 @@ import { PetTask } from '@/types/pet'
 import { POLL_INTERVAL } from '@/lib/utils/constants'
 import { useI18n } from '@/lib/i18n'
 import { Sparkles, Zap, FileImage, FileJson, Play } from 'lucide-react'
+import { getSupabaseClient } from '@/lib/supabase/client'
+import SignInModal from '@/components/auth/SignInModal'
+import type { User } from '@supabase/supabase-js'
 
 // Standalone SVG pet used as the demo "base" image (no backend needed).
 const DEMO_BASE =
@@ -41,6 +44,9 @@ export default function Home() {
   const [isApproving, setIsApproving] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
   const [demo, setDemo] = useState(false)
+  const [user, setUser] = useState<User | null>(null)
+  const [usageRemaining, setUsageRemaining] = useState<number | null>(null)
+  const [showSignIn, setShowSignIn] = useState(false)
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const startPolling = useCallback((taskId: string) => {
@@ -69,12 +75,36 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = getSupabaseClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      setUser(session?.user ?? null)
+      if (session?.access_token) {
+        try {
+          const res = await fetch('/api/pets/usage', { headers: { authorization: 'Bearer ' + session.access_token } })
+          if (res.ok) { const d = await res.json(); setUsageRemaining(d.remaining) }
+        } catch {}
+      }
+    }
+    checkAuth()
+  }, [])
+
+  useEffect(() => {
     return () => {
       if (pollRef.current) clearInterval(pollRef.current)
     }
   }, [])
 
   const handleFileSelected = async (file: File) => {
+    if (!user) {
+      setShowSignIn(true)
+      return
+    }
+    if (usageRemaining !== null && usageRemaining <= 0) {
+      const msg = 'You have used all your free generations. Please upgrade for more.'
+      setTask({ taskId: '', status: 'failed', progress: 0, baseImageUrl: null, spritesheetUrl: null, zipUrl: null, petJson: null, error: msg, errorCode: 'LIMIT_REACHED' })
+      return
+    }
     setIsUploading(true)
     setTask(null)
 
@@ -442,3 +472,4 @@ function localizeError(
       return t('error.unknown')
   }
 }
+
