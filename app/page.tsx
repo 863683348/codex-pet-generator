@@ -8,6 +8,7 @@ import StepIndicator from '@/components/pet/StepIndicator'
 import GenerationWorkspace from '@/components/pet/GenerationWorkspace'
 import HowItWorks from '@/components/layout/HowItWorks'
 import WhatYouGet from '@/components/layout/WhatYouGet'
+import PricingSection from '@/components/layout/PricingSection'
 import PixelPet from '@/components/pet/PixelPet'
 import { PetTask } from '@/types/pet'
 import { POLL_INTERVAL } from '@/lib/utils/constants'
@@ -411,6 +412,7 @@ export default function Home() {
           <>
             <HowItWorks />
             <WhatYouGet />
+            <PricingSection />
           </>
         )}
       </main>
