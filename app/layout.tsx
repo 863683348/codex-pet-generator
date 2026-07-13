@@ -21,6 +21,17 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
           rel="stylesheet"
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ67FK64M9" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EQ67FK64M9');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-bg-base text-text-primary grid-bg">
         <LanguageProvider>{children}</LanguageProvider>
