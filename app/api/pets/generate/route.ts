@@ -1,0 +1,168 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { getSupabaseServer } from '@/lib/supabase/server'
+import { validateImageFile } from '@/lib/utils/validation'
+import { getServerT } from '@/lib/i18n/server'
+import { generateBaseImage } from '@/lib/ai/image-generator'
+import { uploadBaseImage, uploadSourceImage } from '@/lib/storage/storage'
+
+export const runtime = 'nodejs'
+export const maxDuration = 300
+
+// Exported so the client can show a precise message and recovery action.
+export type GenerateErrorCode =
+  | 'NO_FILE'
+  | 'INVALID_FILE'
+  | 'MISSING_BACKEND_CONFIG'
+  | 'OPENAI_NOT_CONFIGURED'
+  | 'DB_ERROR'
+  | 'INTERNAL'
+
+interface ErrorResponse {
+  error: GenerateErrorCode
+  message: string
+  details?: string
+}
+
+function hasBackendConfig(): boolean {
+  return Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
+  )
+}
+
+function hasImageGenConfig(): boolean {
+  return Boolean(process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY)
+}
+
+export async function POST(req: NextRequest): Promise<NextResponse<ErrorResponse | object>> {
+  try {
+    const formData = await req.formData()
+    const file = formData.get('image') as File | null
+    const email = formData.get('email') as string | null
+
+    if (!file) {
+      return NextResponse.json(
+        { error: 'NO_FILE', message: 'No image file provided' },
+        { status: 400 }
+      )
+    }
+
+    const t = getServerT()
+    const validation = validateImageFile(file, t)
+    if (!validation.valid) {
+      return NextResponse.json(
+        { error: 'INVALID_FILE', message: validation.error },
+        { status: 400 }
+      )
+    }
+
+    // Fail fast with a useful code when the backend is not configured.
+    // This is the most common reason first-time users see "Something went wrong".
+    if (!hasBackendConfig()) {
+      return NextResponse.json(
+        {
+          error: 'MISSING_BACKEND_CONFIG',
+          message:
+            'Backend not configured. Add NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to .env.local.',
+          details:
+            'Supabase URL and service role key are required to store images and task state.',
+        },
+        { status: 503 }
+      )
+    }
+
+    if (!hasImageGenConfig()) {
+      return NextResponse.json(
+        {
+          error: 'OPENAI_NOT_CONFIGURED',
+          message:
+            'Image generation not configured. Add BAILIAN_API_KEY (recommended) or OPENAI_API_KEY to .env.local.',
+          details:
+            'A Bailian (Qwen-Image) or OpenAI key is required to generate pixel art from photos.',
+        },
+        { status: 503 }
+      )
+    }
+
+    const supabase = getSupabaseServer()
+
+    // Convert File to Buffer
+    const arrayBuffer = await file.arrayBuffer()
+    const fileBuffer = Buffer.from(arrayBuffer)
+
+    // Insert pet record
+    const { data: pet, error: dbError } = await supabase
+      .from('pets')
+      .insert({
+        status: 'processing',
+        style: 'pixel',
+        email: email || null,
+      })
+      .select()
+      .single()
+
+    if (dbError || !pet) {
+      console.error('DB insert error:', dbError)
+      return NextResponse.json(
+        { error: 'DB_ERROR', message: 'Failed to create task' },
+        { status: 500 }
+      )
+    }
+
+    const taskId = pet.id
+
+    // Upload source image
+    try {
+      const sourcePath = await uploadSourceImage(taskId, fileBuffer)
+      const sourceUrl = supabase.storage.from('pet-assets').getPublicUrl(sourcePath).data.publicUrl
+
+      await supabase
+        .from('pets')
+        .update({ source_image_path: sourcePath, source_image_url: sourceUrl })
+        .eq('id', taskId)
+    } catch (err) {
+      console.error('Source upload error:', err)
+    }
+
+    // Fire-and-forget: generate base image
+    ;(async () => {
+      try {
+        const baseBuffer = await generateBaseImage(fileBuffer)
+        const { path, url } = await uploadBaseImage(taskId, baseBuffer)
+
+        await supabase
+          .from('pets')
+          .update({
+            base_image_path: path,
+            base_image_url: url,
+            status: 'awaiting_approval',
+          })
+          .eq('id', taskId)
+      } catch (err) {
+        console.error('Base generation error:', err)
+        await supabase
+          .from('pets')
+          .update({
+            status: 'failed',
+            error: err instanceof Error ? err.message : 'Unknown error during base generation',
+          })
+          .eq('id', taskId)
+      }
+    })()
+
+    return NextResponse.json({
+      taskId,
+      status: 'processing',
+      estimatedSeconds: 90,
+    })
+  } catch (err) {
+    console.error('Generate API error:', err)
+    return NextResponse.json(
+      {
+        error: 'INTERNAL',
+        message: 'Something went wrong',
+        details: err instanceof Error ? err.message : undefined,
+      },
+      { status: 500 }
+    )
+  }
+}

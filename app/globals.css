@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0F0F23;
+  --bg-surface: #1A1A2E;
+  --bg-elevated: #252542;
+  --primary: #6C5CE7;
+  --accent: #00D9FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-base);
+  color: #E8E8F0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: #2D2D4A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3D3D5A;
+}
+
+/* Pixel font smoothing */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: pixelated;
+}
+
+/* Sprite animation container */
+.sprite-container {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(45, 45, 74, 0.5);
+}
+
+/* Glow border on hover */
+.glow-border {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-border:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(108, 92, 231, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 92, 231, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Animated gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6C5CE7 0%, #00D9FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sprite animation — uses CSS custom properties set by SpritePlayer */
+@keyframes spriteAnimation {
+  from {
+    background-position-x: var(--sprite-start-x, 0);
+  }
+  to {
+    background-position-x: var(--sprite-end-x, -768px);
+  }
+}
+
+.sprite-player {
+  animation: spriteAnimation var(--sprite-duration, 0.72s) steps(var(--sprite-frames, 6), end) infinite;
+}
+
+/* ---- Pixel pet mascot + per-state motions ---- */
+.pixel-pet {
+  image-rendering: pixelated;
+}
+.motion-idle { animation: petBounce 1.1s ease-in-out infinite; }
+.motion-running,
+.motion-running-right,
+.motion-running-left { animation: petSlide 1.1s ease-in-out infinite; }
+.motion-jumping { animation: petJump 0.7s ease-in-out infinite; }
+.motion-waving { animation: petWave 1s ease-in-out infinite; }
+.motion-waiting { animation: petPulse 1.6s ease-in-out infinite; }
+.motion-failed { animation: petShake 0.6s ease-in-out infinite; }
+.motion-review { animation: petTilt 2s ease-in-out infinite; }
+
+@keyframes petBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8%); } }
+@keyframes petSlide { 0%, 100% { transform: translateX(-12%); } 50% { transform: translateX(12%); } }
+@keyframes petJump { 0%, 100% { transform: translateY(0); } 40%, 60% { transform: translateY(-18%); } }
+@keyframes petWave { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@keyframes petPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.94); opacity: 0.8; } }
+@keyframes petShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6%); } 75% { transform: translateX(6%); } }
+@keyframes petTilt { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
+
+/* Shimmer for loading state cells */
+.shimmer {
+  background: linear-gradient(100deg, #1A1A2E 30%, #252542 50%, #1A1A2E 70%);
+  background-size: 200% 100%;
+  animation: shimmerMove 1.4s linear infinite;
+}
+@keyframes shimmerMove {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* Floating chips in hero showcase */
+.float-chip { animation: floatY 3s ease-in-out infinite; }
+.float-chip.delay { animation-delay: 1.5s; }
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* Hero radial glow */
+.hero-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(108, 92, 231, 0.18), transparent 60%);
+}
