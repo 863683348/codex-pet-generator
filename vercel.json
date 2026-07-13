@@ -1,0 +1,17 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "npm install",
+  "regions": ["hkg1"],
+  "github": {
+    "autoAlias": true,
+    "enabled": true,
+    "silent": false
+  },
+  "functions": {
+    "app/api/pets/generate/route.ts": {
+      "memory": 1024,
+      "maxDuration": 120
+    }
+  }
+}
