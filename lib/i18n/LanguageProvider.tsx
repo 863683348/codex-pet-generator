@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import {
   createContext,
@@ -10,10 +10,14 @@ import {
 } from 'react'
 import { en, type Dict } from './locales/en'
 import { zh } from './locales/zh'
+import { ja } from './locales/ja'
+import { ko } from './locales/ko'
+import { fr } from './locales/fr'
+import { de } from './locales/de'
 
-export type Lang = 'en' | 'zh'
+export type Lang = 'en' | 'zh' | 'ja' | 'ko' | 'fr' | 'de'
 
-const DICTS: Record<Lang, Dict> = { en, zh }
+const DICTS: Record<Lang, Dict> = { en, zh, ja, ko, fr, de }
 const STORAGE_KEY = 'petgen-lang'
 
 type Params = Record<string, string | number>
@@ -43,20 +47,19 @@ function lookup(dict: unknown, path: string): string | undefined {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Default to 'en' on first render so SSR and first client render match
-  // (avoids hydration mismatch). Real preference is read from localStorage in effect.
   const [lang, setLangState] = useState<Lang>('en')
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved === 'en' || saved === 'zh') {
+    if (saved === 'en' || saved === 'zh' || saved === 'ja' || saved === 'ko' || saved === 'fr' || saved === 'de') {
       setLangState(saved)
     }
   }, [])
 
   const applyDomLang = useCallback((l: Lang) => {
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en'
+      const map: Record<Lang, string> = { en: 'en', zh: 'zh-CN', ja: 'ja', ko: 'ko', fr: 'fr', de: 'de' }
+      document.documentElement.lang = map[l]
     }
   }, [])
 
@@ -78,7 +81,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       let str = lookup(DICTS[lang], key) ?? lookup(DICTS.en, key) ?? key
       if (params) {
         for (const [k, v] of Object.entries(params)) {
-          str = str.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v))
+          str = str.replace(new RegExp('\\{' + k + '\\}', 'g'), String(v))
         }
       }
       return str

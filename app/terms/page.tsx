@@ -83,7 +83,7 @@ export default function TermsPage() {
             <h2 className="mb-2 font-semibold text-text-primary">10. Contact</h2>
             <p>
               For questions about these terms, contact us at{' '}
-              <a href="mailto:support@petgen.app" className="text-primary underline">support@petgen.app</a>.
+              <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.
             </p>
           </section>
         </div>
@@ -92,3 +92,4 @@ export default function TermsPage() {
     </>
   )
 }
+

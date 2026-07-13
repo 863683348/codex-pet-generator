@@ -1,9 +1,8 @@
-import type { Dict } from './en'
+﻿import type { Dict } from './en'
 
 export const zh: Dict = {
   nav: {
-    github: 'GitHub',
-  },
+    github: 'GitHub'},
   footer: {
     madeWith: '为 Codex 用户倾心打造',
     compatible: '兼容 OpenAI Codex',
@@ -11,12 +10,14 @@ export const zh: Dict = {
     privacy: '隐私政策',
     terms: '服务条款',
     faq: '常见问题',
-    contact: '联系我们',
-  },
+    contact: '联系我们'},
   lang: {
     en: 'EN',
     zh: '中',
-  },
+    ja: '日',
+    ko: '한',
+    fr: 'FR',
+    de: 'DE'},
   hero: {
     badge: 'AI 驱动的宠物生成器',
     titlePrefix: '把一张照片变成桌面上的',
@@ -28,14 +29,12 @@ export const zh: Dict = {
     baseTime: '约 90 秒生成基底',
     statesCount: '9 种动画状态',
     zipDownload: 'ZIP 下载',
-    ready: '已可安装！',
-  },
+    ready: '已可安装！'},
   steps: {
     upload: '上传',
     base: '基底',
     animate: '动画',
-    install: '安装',
-  },
+    install: '安装'},
   howItWorks: {
     title: '工作原理',
     desc: '从一张照片到桌面上的编程伙伴，只需四步。',
@@ -46,8 +45,7 @@ export const zh: Dict = {
     s3title: '解锁动画压缩包',
     s3desc: '9 种动画状态合成进 spritesheet.webp + pet.json。',
     s4title: '从终端安装',
-    s4desc: '复制到 ~/.codex/pets/，你的伙伴就会出现在屏幕上。',
-  },
+    s4desc: '复制到 ~/.codex/pets/，你的伙伴就会出现在屏幕上。'},
   whatYouGet: {
     title: '你会得到什么',
     desc: '一份 Codex 就绪的打包文件：透明精灵图 + 元数据文件。',
@@ -57,8 +55,7 @@ export const zh: Dict = {
     jsonTitle: 'pet.json',
     jsonMeta: 'metadata',
     jsonDesc: '四个字段告诉 Codex 如何命名并定位你的宠物。就这么简单。',
-    jsonCompatible: '兼容 OpenAI Codex 自定义宠物。',
-  },
+    jsonCompatible: '兼容 OpenAI Codex 自定义宠物。'},
   upload: {
     drop: '拖拽图片到这里',
     dropActive: '松手放下！',
@@ -67,8 +64,7 @@ export const zh: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
-    maxSize: '最大 10MB',
-  },
+    maxSize: '最大 10MB'},
   error: {
     unsupportedFormat: '不支持的格式：{type}。请使用 JPG、PNG 或 WebP。',
     fileTooLarge: '文件过大：{size}MB。最大 10MB。',
@@ -80,8 +76,7 @@ export const zh: Dict = {
     dbError: '数据库错误。请检查 Supabase 的 pets 表和 storage bucket 是否已创建。',
     unknown: '出了点问题。请重试，或切换到演示模式。',
     bailianQuotaExhausted:
-      '百炼免费额度已用尽。请完成实名认证并充值，或在百炼控制台「模型用量 → 免费额度」关闭「免费额度用完即停」开关。',
-  },
+      '百炼免费额度已用尽。请完成实名认证并充值，或在百炼控制台「模型用量 → 免费额度」关闭「免费额度用完即停」开关。'},
   workspace: {
     generatingBase: '正在生成基底',
     sketching: 'AI 正在绘制你的像素角色…',
@@ -100,32 +95,26 @@ export const zh: Dict = {
       '点击下方按钮下载 ZIP —— 内含 spritesheet.webp（透明精灵图）与 pet.json（元数据），可直接安装到 Codex。',
     petJsonTitle: 'pet.json',
     installMac: '安装 — macOS / Linux',
-    installWin: '安装 — Windows',
-  },
+    installWin: '安装 — Windows'},
   basePreview: {
     title: '你的宠物基底',
     desc: '这是你宠物的基底形象。确认以生成全部 9 种动画状态，或重新生成换一个样子。',
     regenerating: '重新生成中...',
     approve: '确认并生成',
-    regenerate: '重新生成',
-  },
+    regenerate: '重新生成'},
   download: {
     preparing: '准备中...',
-    download: '下载 ZIP',
-  },
+    download: '下载 ZIP'},
   errorCard: {
     title: '生成失败',
     retry: '再试一次',
-    tryDemo: '试试演示',
-  },
+    tryDemo: '试试演示'},
   animationPreview: {
     title: '动画预览',
-    desc: '已生成 9 种动画状态。点击任意状态播放。',
-  },
+    desc: '已生成 9 种动画状态。点击任意状态播放。'},
   code: {
     copy: '复制',
-    copied: '已复制',
-  },
+    copied: '已复制'},
   animation: {
     idle: '待机',
     'running-right': '向右跑',
@@ -135,10 +124,80 @@ export const zh: Dict = {
     failed: '失败',
     waiting: '等待',
     running: '奔跑',
-    review: '审阅',
-  },
+    review: '审阅'},
   demo: {
     banner:
-      '演示模式 — 后端未配置。当前用你上传的图片预览完整流程。在 .env.local 中配置 Supabase 与 BAILIAN_API_KEY 或 OPENAI_API_KEY 后，可生成真实像素宠物。',
+      '演示模式 — 后端未配置。当前用你上传的图片预览完整流程。在 .env.local 中配置 Supabase 与 BAILIAN_API_KEY 或 OPENAI_API_KEY 后，可生成真实像素宠物。'},
+    pricing: {
+    title: '简单定价',
+    desc: '选择适合你的方案，无隐藏费用。',
+    popular: '热门推荐',
+    starter: { name: '入门版', price: '免费', period: '永久', desc: '试试 PetGen 的基础功能。', cta: '开始使用', f1: '3 次宠物生成', f2: '9 种动画状态', f3: '标准画质精灵图', f4: 'WebP 下载', f5: '社区支持' },
+    pro: { name: '专业版', price: '¥59', period: '/月', desc: '给追求更多控制与品质的创作者。', cta: '订阅专业版', f1: '每月 15 次生成', f2: '9 种动画状态', f3: '高清精灵图 (2x)', f4: 'WebP + ZIP 下载', f5: '优先支持', f6: 'pet.json 自定义' },
+    unlimited: { name: '无限版', price: '¥199', period: '/月', desc: '给重度用户和团队。', cta: '订阅无限版', f1: '无限次生成', f2: '9 种动画状态', f3: '高清 + 4K 精灵图', f4: '所有下载格式', f5: '商用授权', f6: '专属支持', f7: '自定义调色板' },
   },
-}
+  faq: {
+    title: '常见问题',
+    desc: '关于 PetGen 你需要知道的一切。',
+    q1: '什么是 PetGen？', a1: 'PetGen 是一款 AI 工具，能把你的照片变成可在 OpenAI Codex 中使用的像素动画宠物。',
+    q2: '宠物生成是如何工作的？', a2: '上传照片后，AI 会创建一个像素基底角色。你可以确认外观，然后生成 9 种动画状态。',
+    q3: '支持哪些图片格式？', a3: '支持 JPG、PNG 和 WebP 格式。最大文件大小为 10MB。',
+    q4: '生成需要多长时间？', a4: '基底角色约需 90 秒，完整动画集需要 2-5 分钟。',
+    q5: '如何将宠物安装到 Codex？', a5: '下载 ZIP 并解压，将文件夹复制到 ~/.codex/pets/，重启 Codex 即可。',
+    q6: '生成的宠物可以商用吗？', a6: '无限版用户可商用，入门版和专业版仅限个人使用。',
+    q7: '支持哪些支付方式？', a7: '支持主流信用卡和 PayPal。',
+    q8: '可以取消订阅吗？', a8: '随时可以取消，你的权益将持续到当前计费周期结束。',
+    q9: '上传的图片会怎么处理？', a9: '上传的图片由 AI 处理后即删除，不会存储或用于其他目的。',
+    q10: '有免费方案吗？', a10: '有。入门版免费，包含 3 次标准质量的宠物生成。'},
+  contact: {
+    title: '联系我们',
+    desc: '有问题、建议或需要帮助？我们很乐意听取你的意见。',
+    emailTitle: '邮箱',
+    emailDesc: 'cruzreese459228@gmail.com',
+    emailReply: '24 小时内回复。',
+    githubTitle: 'GitHub Issues',
+    githubDesc: '报告问题或请求新功能。',
+    githubLabel: '公开问题追踪。',
+    businessTitle: '商务合作',
+    businessText: '有关合作、赞助或其他商业问题，请发送邮件至'},
+  privacy: {
+    title: '隐私政策',
+    lastUpdated: '最后更新：2026 年 7 月',
+    s1title: '1. 我们收集的信息',
+    s1items: ['账户信息 — 如果你用 Google 登录，我们会收到你的姓名、邮箱和头像。', '上传的图片 — 你上传的图片会被处理并临时存储以生成宠物。', '使用数据 — 我们使用 PostHog 和 Google Analytics 收集匿名使用数据。', 'Cookie — 我们使用必要的 Cookie 用于认证和分析。'],
+    s2title: '2. 我们如何使用你的信息',
+    s2items: ['提供、维护和改进 PetGen', '从你上传的图片生成像素宠物', '验证你的账户并管理订阅', '分析使用模式以改进产品', '响应你的支持请求'],
+    s3title: '3. 数据共享',
+    s3items: ['Supabase — 账户管理及文件存储', 'Vercel — 托管与部署', 'PostHog — 产品分析', 'Google Analytics — 网站流量分析', 'OpenAI / 百炼 — AI 图像生成'],
+    s4title: '4. 数据保留',
+    s4text: '上传的图片在生成完成后即删除。账户数据保留至你删除账户为止。',
+    s5title: '5. 你的权利',
+    s5items: ['访问我们持有的你的个人数据', '要求删除你的数据', '选择退出分析追踪', '撤回数据处理同意'],
+    s6title: '6. 联系我们',
+    s6text: '如果你对本隐私政策有疑问，请联系我们：'},
+  terms: {
+    title: '服务条款',
+    lastUpdated: '最后更新：2026 年 7 月',
+    s1title: '1. 接受条款',
+    s1text: '访问或使用 PetGen 即表示你同意受本服务条款约束。',
+    s2title: '2. 服务描述',
+    s2text: 'PetGen 是一款 AI 工具，可将上传的图片转换为兼容 OpenAI Codex 的像素艺术宠物精灵图。',
+    s3title: '3. 用户账户',
+    s3text: '你可以使用 Google 认证登录。你负责维护账户的保密性。',
+    s4title: '4. 订阅与支付',
+    s4text: '付费方案按月计费。你可随时取消订阅。',
+    s5title: '5. 用户内容',
+    s5text: '你保留上传图片和生成宠物的所有权。',
+    s6title: '6. 可接受使用',
+    s6items: ['上传非法或有害内容', '逆向工程或滥用服务', '使用自动化脚本', '违反适用法律'],
+    s7title: '7. 知识产权',
+    s7text: 'PetGen 服务是我们的知识产权。根据你的方案，生成的宠物可自由使用。',
+    s8title: '8. 责任限制',
+    s8text: 'PetGen 按"现状"提供，不提供任何形式的担保。',
+    s9title: '9. 终止',
+    s9text: '如违反本条款，我们保留暂停或终止访问服务的权利。',
+    s10title: '10. 联系我们',
+    s10text: '如有关于这些条款的问题，请联系我们：'}}
+
+
+

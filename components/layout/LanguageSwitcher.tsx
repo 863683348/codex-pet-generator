@@ -2,7 +2,7 @@
 
 import { useI18n, type Lang } from '@/lib/i18n'
 
-const LANGS: Lang[] = ['en', 'zh']
+const LANGS: Lang[] = ['en', 'zh', 'ja', 'ko', 'fr', 'de']
 
 export default function LanguageSwitcher() {
   const { lang, setLang, t } = useI18n()

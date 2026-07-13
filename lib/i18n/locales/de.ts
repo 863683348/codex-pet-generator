@@ -1,0 +1,51 @@
+﻿import type { Dict } from './en'
+
+export const de: Dict = {
+  lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
+  footer: { madeWith: 'Hergestellt für Codex-Benutzer', compatible: 'OpenAI Codex kompatibel', copyright: '© 2026 PetGen', privacy: 'Datenschutz', terms: 'AGB', faq: 'FAQ', contact: 'Kontakt' },
+    pricing: {
+    title: 'Einfache Preise', desc: 'Wählen Sie den Plan, der zu Ihnen passt. Keine versteckten Kosten.', popular: 'BELIEBT',
+    starter: { name: 'Starter', price: 'Kostenlos', period: 'für immer', desc: 'Testen Sie PetGen.', cta: 'Loslegen', f1: '3 Generationen', f2: '9 Zustände', f3: 'Standard', f4: 'WebP-Download', f5: 'Community-Support' },
+    pro: { name: 'Pro', price: '12 €', period: '/Monat', desc: 'Für Kreative.', cta: 'Pro abonnieren', f1: '15/Monat', f2: '9 Zustände', f3: 'HD (2x)', f4: 'WebP+ZIP', f5: 'Priorität', f6: 'pet.json' },
+    unlimited: { name: 'Unbegrenzt', price: '35 €', period: '/Monat', desc: 'Für Teams.', cta: 'Unbegrenzt abonnieren', f1: 'Unbegrenzt', f2: '9 Zustände', f3: 'HD+4K', f4: 'Alle Formate', f5: 'Gewerblich', f6: 'Dediziert', f7: 'Palette' },
+  },
+  faq: {
+    title: 'Häufig gestellte Fragen', desc: 'Alles, was Sie über PetGen wissen müssen.',
+    q1: 'Was ist PetGen?', a1: 'PetGen ist ein KI-Tool, das Ihre Fotos in animierte Pixel-Tiere für OpenAI Codex verwandelt.',
+    q2: 'Wie funktioniert die Generierung?', a2: 'Laden Sie ein Foto hoch, die KI erstellt eine Pixel-Basisfigur. Nach Ihrer Freigabe werden 9 Animationen generiert.',
+    q3: 'Welche Bildformate werden unterstützt?', a3: 'Wir unterstützen JPG, PNG und WebP. Maximale Dateigröße: 10 MB.',
+    q4: 'Wie lange dauert die Generierung?', a4: 'Die Basisfigur benötigt ca. 90 Sekunden, die vollständigen Animationen 2–5 Minuten.',
+    q5: 'Wie installiere ich das Tier in Codex?', a5: 'Laden Sie das ZIP herunter, entpacken Sie es und kopieren Sie den Ordner nach ~/.codex/pets/. Starten Sie Codex neu.',
+    q6: 'Kann ich die Tiere kommerziell nutzen?', a6: 'Ja, mit dem Unbegrenzt-Plan. Starter und Pro sind nur für den persönlichen Gebrauch.',
+    q7: 'Welche Zahlungsmethoden akzeptieren Sie?', a7: 'Wir akzeptieren gängige Kreditkarten und PayPal.',
+    q8: 'Kann ich mein Abo kündigen?', a8: 'Jederzeit kündbar. Ihr Zugang bleibt bis zum Ende des Abrechnungszeitraums bestehen.',
+    q9: 'Was passiert mit meinen hochgeladenen Bildern?', a9: 'Die Bilder werden nach der Generierung gelöscht. Sie werden nicht gespeichert oder anderweitig verwendet.',
+    q10: 'Gibt es einen kostenlosen Plan?', a10: 'Ja. Der Starter-Plan ist kostenlos und beinhaltet 3 Generierungen.'},
+  contact: {
+    title: 'Kontaktieren Sie uns', desc: 'Haben Sie eine Frage, einen Vorschlag oder brauchen Hilfe? Wir freuen uns auf Ihre Nachricht.',
+    emailTitle: 'E-Mail', emailDesc: 'cruzreese459228@gmail.com', emailReply: 'Wir antworten innerhalb von 24 Stunden.',
+    githubTitle: 'GitHub Issues', githubDesc: 'Fehler melden oder Funktionen vorschlagen.', githubLabel: 'Öffentliches Issue-Tracking.',
+    businessTitle: 'Geschäftliche Anfragen', businessText: 'Für Partnerschaften, Sponsoring oder andere geschäftliche Fragen senden Sie uns bitte eine E-Mail an'},
+  privacy: {
+    title: 'Datenschutzerklärung', lastUpdated: 'Zuletzt aktualisiert: Juli 2026',
+    s1title: '1. Erhobene Informationen', s1items: ['Kontoinformationen — bei Google-Login erhalten wir Name, E-Mail und Profilbild.', 'Hochgeladene Bilder — werden zur Generierung verarbeitet und temporär gespeichert.', 'Nutzungsdaten — PostHog und Google Analytics für anonymisierte Nutzungsdaten.', 'Cookies — Authentifizierungs- und Analyse-Cookies.'],
+    s2title: '2. Nutzung der Informationen', s2items: ['Bereitstellung und Verbesserung von PetGen', 'Generierung von Pixel-Tieren', 'Kontoauthentifizierung und Aboverwaltung', 'Analyse von Nutzungsmustern', 'Bearbeitung von Support-Anfragen'],
+    s3title: '3. Datenweitergabe', s3items: ['Supabase — Kontoverwaltung und Dateispeicher', 'Vercel — Hosting und Deployment', 'PostHog — Produktanalysen', 'Google Analytics — Website-Traffic', 'OpenAI / Bailian — KI-Bildgenerierung'],
+    s4title: '4. Datenspeicherung', s4text: 'Hochgeladene Bilder werden nach der Generierung gelöscht. Kontodaten bleiben bis zur Kontolöschung erhalten.',
+    s5title: '5. Ihre Rechte', s5items: ['Zugriff auf Ihre persönlichen Daten', 'Löschung Ihrer Daten', 'Widerspruch gegen Analysen', 'Widerruf der Einwilligung'],
+    s6title: '6. Kontakt', s6text: 'Bei Fragen zu dieser Datenschutzerklärung:'},
+  terms: {
+    title: 'Allgemeine Geschäftsbedingungen', lastUpdated: 'Zuletzt aktualisiert: Juli 2026',
+    s1title: '1. Annahme der Bedingungen', s1text: 'Durch die Nutzung von PetGen stimmen Sie diesen AGB zu.',
+    s2title: '2. Dienstbeschreibung', s2text: 'PetGen wandelt hochgeladene Bilder in OpenAI Codex-kompatible Pixel-Art-Tier-Sprites um.',
+    s3title: '3. Benutzerkonten', s3text: 'Sie können sich per Google anmelden. Sie sind für die Vertraulichkeit Ihres Kontos verantwortlich.',
+    s4title: '4. Abonnements und Zahlungen', s4text: 'Bezahlte Pläne werden monatlich abgerechnet. Sie können jederzeit kündigen.',
+    s5title: '5. Benutzerinhalte', s5text: 'Sie behalten das Eigentum an Ihren hochgeladenen Bildern und generierten Tieren.',
+    s6title: '6. Zulässige Nutzung', s6items: ['Hochladen illegaler oder schädlicher Inhalte', 'Reverse Engineering', 'Verwendung automatisierter Skripte', 'Verstoß gegen geltende Gesetze'],
+    s7title: '7. Geistiges Eigentum', s7text: 'PetGen ist unser geistiges Eigentum. Generierte Tiere können je nach Plan frei genutzt werden.',
+    s8title: '8. Haftungsbeschränkung', s8text: 'PetGen wird "wie besehen" ohne Gewährleistung bereitgestellt.',
+    s9title: '9. Kündigung', s9text: 'Wir behalten uns vor, den Zugang bei Verstoß gegen diese Bedingungen zu sperren oder zu beenden.',
+    s10title: '10. Kontakt', s10text: 'Bei Fragen zu diesen Bedingungen:'}} as Dict
+
+
+
