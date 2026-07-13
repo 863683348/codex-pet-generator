@@ -1,6 +1,7 @@
 import { Gamepad2, Github } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '@/lib/i18n'
+import UserButton from '@/components/auth/UserButton'
 
 export default function Navbar() {
   const { t } = useI18n()
@@ -16,6 +17,7 @@ export default function Navbar() {
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
+          <UserButton />
           <a
             href="https://github.com"
             target="_blank"
