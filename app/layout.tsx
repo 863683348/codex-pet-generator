@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
+import { PostHogProvider } from '@/lib/posthog'
 
 export const metadata: Metadata = {
   title: 'Codex Pet Generator — Turn Your Photo Into a Coding Companion',
@@ -34,7 +35,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-bg-base text-text-primary grid-bg">
-        <LanguageProvider>{children}</LanguageProvider>
+        <PostHogProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </PostHogProvider>
       </body>
     </html>
   )
