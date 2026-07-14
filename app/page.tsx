@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import UploadDropzone from '@/components/pet/UploadDropzone'
@@ -15,7 +16,6 @@ import { POLL_INTERVAL } from '@/lib/utils/constants'
 import { useI18n } from '@/lib/i18n'
 import { Sparkles, Zap, FileImage, FileJson, Play } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
-import SignInModal from '@/components/auth/SignInModal'
 import type { User } from '@supabase/supabase-js'
 
 // Standalone SVG pet used as the demo "base" image (no backend needed).
@@ -46,7 +46,7 @@ export default function Home() {
   const [demo, setDemo] = useState(false)
   const [user, setUser] = useState<User | null>(null)
   const [usageRemaining, setUsageRemaining] = useState<number | null>(null)
-  const [showSignIn, setShowSignIn] = useState(false)
+  const router = useRouter()
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const startPolling = useCallback((taskId: string) => {
@@ -97,7 +97,7 @@ export default function Home() {
 
   const handleFileSelected = async (file: File) => {
     if (!user) {
-      setShowSignIn(true)
+      router.push('/signin')
       return
     }
     if (usageRemaining !== null && usageRemaining <= 0) {

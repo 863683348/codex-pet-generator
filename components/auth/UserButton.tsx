@@ -1,15 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { LogIn, LogOut, User as UserIcon } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
-import SignInModal from './SignInModal'
 
 export default function UserButton() {
+  const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
-  const [showSignIn, setShowSignIn] = useState(false)
 
   useEffect(() => {
     const supabase = getSupabaseClient()
@@ -67,13 +67,12 @@ export default function UserButton() {
   return (
     <>
       <button
-        onClick={() => setShowSignIn(true)}
+        onClick={() => router.push('/signin')}
         className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
       >
         <LogIn className="h-4 w-4" />
         <span className="hidden sm:inline">Sign in</span>
       </button>
-      <SignInModal open={showSignIn} onClose={() => setShowSignIn(false)} />
     </>
   )
 }

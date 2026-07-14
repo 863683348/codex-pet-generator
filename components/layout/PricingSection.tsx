@@ -1,10 +1,9 @@
-﻿'use client'
+'use client'
 
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
-import SignInModal from '@/components/auth/SignInModal'
 import { getSupabaseClient } from '@/lib/supabase/client'
 
 const PLAN_KEYS = ['starter', 'pro', 'unlimited'] as const
@@ -14,7 +13,6 @@ export default function PricingSection() {
   const { t } = useI18n()
   const router = useRouter()
   const [loading, setLoading] = useState<string | null>(null)
-  const [showSignIn, setShowSignIn] = useState(false)
 
   const handleSubscribe = async (plan: string) => {
     if (plan === 'starter') {
@@ -25,7 +23,7 @@ export default function PricingSection() {
     const supabase = getSupabaseClient()
     const { data: { session } } = await supabase.auth.getSession()
     if (!session) {
-      setShowSignIn(true)
+      router.push('/signin')
       return
     }
 
@@ -116,7 +114,6 @@ export default function PricingSection() {
           })}
         </div>
       </section>
-      <SignInModal open={showSignIn} onClose={() => setShowSignIn(false)} />
     </>
   )
 }

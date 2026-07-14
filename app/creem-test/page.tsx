@@ -4,7 +4,7 @@ export default function CreemTestPage() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState('')
-  const handleTest = async (plan) => {
+  const handleTest = async (plan: string) => {
     setLoading(true); setErr(''); setUrl('')
     try {
       const r = await fetch('/api/creem/checkout', {
