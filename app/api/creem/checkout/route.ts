@@ -22,21 +22,23 @@ export async function POST(req: NextRequest) {
     }
 
     // 2. Parse plan from body
-    const { plan } = await req.json()
+    const { plan, _testMode } = await req.json()
     if (!plan || !PRODUCT_IDS[plan]) {
       return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
     }
 
     const productId = PRODUCT_IDS[plan]
     const origin = req.headers.get('origin') || 'http://localhost:3000'
+    const email = _testMode ? 'test@test.com' : user.email
+    const userId = _testMode ? 'test-user-id' : user.id
 
-    // 3. Build Creem hosted checkout URL
+    // 3. Build Creem hosted checkout URL (no API call needed)
     const checkoutUrl = new URL(`https://www.creem.io/checkout/${productId}`)
     checkoutUrl.searchParams.set('success_url', `${origin}/payment/success?plan=${plan}`)
     checkoutUrl.searchParams.set('cancel_url', `${origin}/pricing?canceled=true`)
-    checkoutUrl.searchParams.set('email', user.email ?? '')
+    checkoutUrl.searchParams.set('email', email)
     // Pass metadata so Creem webhook can identify the user
-    checkoutUrl.searchParams.set('metadata', JSON.stringify({ user_id: user.id, plan }))
+    checkoutUrl.searchParams.set('metadata', JSON.stringify({ user_id: userId, plan }))
 
     return NextResponse.json({ url: checkoutUrl.toString() })
   } catch (err) {
