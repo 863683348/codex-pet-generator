@@ -1,8 +1,7 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, Suspense } from 'react'
 import { useRouter } from 'next/navigation'
-import { getSupabaseClient } from '@/lib/supabase/client'
 
 function AuthCallbackInner() {
   const router = useRouter()
@@ -12,36 +11,35 @@ function AuthCallbackInner() {
     if (exchanged.current) return
     exchanged.current = true
 
-    const supabase = getSupabaseClient()
+    ;(async () => {
+      try {
+        // Dynamic import — never throws during SSR/build
+        const mod = await import('@/lib/supabase/client')
+        const supabase = mod.getSupabaseClient()
 
-    async function handleCallback() {
-      // Try PKCE flow first — extract `code` from URL query params
-      const params = new URLSearchParams(window.location.search)
-      const code = params.get('code')
+        const params = new URLSearchParams(window.location.search)
+        const code = params.get('code')
 
-      if (code) {
-        const { error } = await supabase.auth.exchangeCodeForSession(code)
-        if (error) {
-          console.error('Auth callback code exchange error:', error)
-          router.push('/?auth_error=code_exchange')
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code)
+          if (error) {
+            console.error('Auth callback error:', error)
+            router.push('/?auth_error=code_exchange')
+            return
+          }
+          router.push('/')
           return
         }
-        router.push('/')
-        return
+
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) { router.push('/'); return }
+
+        router.push('/?auth_error=missing_code')
+      } catch (e) {
+        console.error('Auth init error:', e)
+        router.push('/?auth_error=config')
       }
-
-      // No code param — check if session was already established (e.g. implicit flow)
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        router.push('/')
-        return
-      }
-
-      // Neither — something went wrong
-      router.push('/?auth_error=missing_code')
-    }
-
-    handleCallback()
+    })()
   }, [router])
 
   return null
