@@ -6,12 +6,13 @@ import { getSupabaseClient } from '@/lib/supabase/client'
 
 function AuthCallbackInner() {
   const router = useRouter()
-  const supabase = getSupabaseClient()
   const exchanged = useRef(false)
 
   useEffect(() => {
     if (exchanged.current) return
     exchanged.current = true
+
+    const supabase = getSupabaseClient()
 
     async function handleCallback() {
       // Try PKCE flow first — extract `code` from URL query params
