@@ -97,7 +97,7 @@ export default function Home() {
 
   const handleFileSelected = async (file: File) => {
     if (!user) {
-      router.push('/signin')
+      router.push('/signup')
       return
     }
     if (usageRemaining !== null && usageRemaining <= 0) {

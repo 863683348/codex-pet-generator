@@ -23,7 +23,7 @@ export default function PricingSection() {
     const supabase = getSupabaseClient()
     const { data: { session } } = await supabase.auth.getSession()
     if (!session) {
-      router.push('/signin')
+      router.push('/signup')
       return
     }
 

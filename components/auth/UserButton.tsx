@@ -67,7 +67,7 @@ export default function UserButton() {
   return (
     <>
       <button
-        onClick={() => router.push('/signin')}
+        onClick={() => router.push('/signup')}
         className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
       >
         <LogIn className="h-4 w-4" />
