@@ -13,25 +13,24 @@ export async function POST(req: NextRequest) {
     // }
 
     const body = await req.json()
-    const event = body.type || body.event
+    const event = body.type || body.event || ''
 
     console.log('Creem webhook received:', event)
 
     // 2. Handle checkout.completed
-    if (event === 'checkout.completed') {
-      const session = body.data || body
+    if (event === 'checkout.completed' || event === 'subscription.created') {
+      const session = body.data?.object || body.data || body
       const metadata = session.metadata || {}
       const userId = metadata.user_id
-      const plan = metadata.plan
-      const email = session.customer_email
+      const plan = metadata.plan || session.plan
+      const email = session.customer_email || metadata.email
 
       if (!userId || !plan) {
+        console.log('Webhook skipped - missing metadata:', { userId, plan })
         return NextResponse.json({ error: 'Missing metadata' }, { status: 400 })
       }
 
       const supabase = getSupabaseServer()
-
-      // Upsert user_usage record with the new plan
       await supabase
         .from('user_usage')
         .upsert(

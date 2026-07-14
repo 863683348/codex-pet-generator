@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
 
-// Creem API base
-const CREEM_API = 'https://api.creem.io'
-
-// Map plan keys to Creem price / product IDs
 const PRODUCT_IDS: Record<string, string | undefined> = {
   pro: process.env.CREEM_PRO_PRICE_ID,
   unlimited: process.env.CREEM_UNLIMITED_PRICE_ID,
@@ -34,36 +30,15 @@ export async function POST(req: NextRequest) {
     const productId = PRODUCT_IDS[plan]
     const origin = req.headers.get('origin') || 'http://localhost:3000'
 
-    // 3. Create Creem checkout session
-    const creemRes = await fetch(`${CREEM_API}/checkout/sessions`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.CREEM_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        price_id: productId,
-        mode: 'subscription',       // or 'payment' for one-time
-        success_url: `${origin}/payment/success?plan=${plan}`,
-        cancel_url: `${origin}/pricing?canceled=true`,
-        customer_email: user.email,
-        metadata: {
-          user_id: user.id,     // <-- Creem webhook will include this
-          plan,                 // <-- so we can update the correct user
-        },
-      }),
-    })
+    // 3. Build Creem hosted checkout URL
+    const checkoutUrl = new URL(`https://www.creem.io/checkout/${productId}`)
+    checkoutUrl.searchParams.set('success_url', `${origin}/payment/success?plan=${plan}`)
+    checkoutUrl.searchParams.set('cancel_url', `${origin}/pricing?canceled=true`)
+    checkoutUrl.searchParams.set('email', user.email ?? '')
+    // Pass metadata so Creem webhook can identify the user
+    checkoutUrl.searchParams.set('metadata', JSON.stringify({ user_id: user.id, plan }))
 
-    if (!creemRes.ok) {
-      const err = await creemRes.text()
-      console.error('Creem API error:', err)
-      return NextResponse.json({ error: 'Failed to create checkout', details: err }, { status: 502 })
-    }
-
-    const session = await creemRes.json()
-
-    // 4. Return the checkout URL
-    return NextResponse.json({ url: session.url })
+    return NextResponse.json({ url: checkoutUrl.toString() })
   } catch (err) {
     console.error('Checkout error:', err)
     return NextResponse.json({ error: 'Failed to create checkout', details: String(err) }, { status: 500 })
