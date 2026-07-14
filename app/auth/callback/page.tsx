@@ -42,7 +42,7 @@ function AuthCallbackInner() {
     }
 
     handleCallback()
-  }, [router, supabase])
+  }, [router])
 
   return null
 }
