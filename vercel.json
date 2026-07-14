@@ -12,6 +12,22 @@
     "app/api/pets/generate/route.ts": {
       "memory": 1024,
       "maxDuration": 120
+    },
+    "app/api/pets/[taskId]/approve/route.ts": {
+      "memory": 2048,
+      "maxDuration": 300
+    },
+    "app/api/pets/[taskId]/download/route.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "app/api/creem/checkout/route.ts": {
+      "memory": 512,
+      "maxDuration": 30
+    },
+    "app/api/creem/webhook/route.ts": {
+      "memory": 512,
+      "maxDuration": 30
     }
   }
 }
