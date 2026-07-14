@@ -16,8 +16,13 @@ Required env vars:
 - `NEXT_PUBLIC_SUPABASE_URL` — Supabase project URL
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Supabase anon key
 - `SUPABASE_SERVICE_ROLE_KEY` — Supabase service role key (server-only)
-- `OPENAI_API_KEY` — OpenAI API key
-- `OPENAI_IMAGE_MODEL` — Image model (default: `gpt-image-1`)
+- `BAILIAN_API_KEY` — BaiLian (Aliyun DashScope) API key
+- `BAILIAN_IMAGE_MODEL` — Image model (default: `qwen-image-2.0`)
+- `BAILIAN_BASE_URL` — DashScope multimodal-generation endpoint
+- `IMAGE_PROVIDER` — `bailian` (default) or `openai`
+- `OPENAI_API_KEY` — OpenAI key (only needed when `IMAGE_PROVIDER=openai`)
+- `CREEM_API_KEY` / `CREEM_PRO_PRICE_ID` / `CREEM_UNLIMITED_PRICE_ID` / `CREEM_WEBHOOK_SECRET` — Creem billing (optional, for the pricing page)
+- `NEXT_PUBLIC_APP_URL` — public base URL (used for auth callbacks + Creem redirects)
 
 ### 2. Database Setup
 
@@ -34,6 +39,69 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Deploy to Vercel
+
+> No code refactoring needed — `sharp`, `archiver`, and Node.js `stream` all work on Vercel's **Node.js runtime** (not Edge). The only constraint is the long-running `approve` step (9 frames + spritesheet + ZIP, ~2–5 min).
+
+### 1. Import from GitHub
+
+1. Go to [vercel.com](https://vercel.com) and sign in with **GitHub** (recommended over email signup).
+2. **Add New → Project** → select the `codex-pet-generator` repo (authorize Vercel to access GitHub on first use).
+3. Framework is auto-detected as Next.js. Click **Deploy**.
+
+The repo already ships `vercel.json` with per-route `maxDuration` / `memory` tuned for this app:
+
+| Route | Memory | maxDuration |
+|-------|--------|-------------|
+| `api/pets/generate` | 1024 MB | 120 s |
+| `api/pets/[taskId]/approve` | 2048 MB | 300 s |
+| `api/pets/[taskId]/download` | 1024 MB | 60 s |
+| `api/creem/checkout` | 512 MB | 30 s |
+| `api/creem/webhook` | 512 MB | 30 s |
+
+`package.json` also pins `engines.node = 22.x`, so Vercel builds on Node 22.
+
+### 2. Environment Variables
+
+After the first deploy, go to **Settings → Environment Variables** and add every variable from your local `.env.local` (the file is gitignored, so secrets never hit the repo). Paste them in **Raw Editor**:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_xxx
+SUPABASE_SERVICE_ROLE_KEY=sb_secret_xxx
+OPENAI_API_KEY=
+OPENAI_IMAGE_MODEL=gpt-image-1
+BAILIAN_API_KEY=sk-xxx
+BAILIAN_IMAGE_MODEL=qwen-image-2.0
+BAILIAN_BASE_URL=https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
+IMAGE_PROVIDER=bailian
+NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
+NEXT_PUBLIC_POSTHOG_KEY=
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+CREEM_API_KEY=creem_test_xxx
+CREEM_PRO_PRICE_ID=prod_xxx
+CREEM_UNLIMITED_PRICE_ID=prod_xxx
+CREEM_WEBHOOK_SECRET=whsec_xxx
+```
+
+Notes:
+- `IMAGE_PROVIDER=bailian` activates the Qwen-Image path (set to `openai` to use OpenAI instead).
+- `NEXT_PUBLIC_APP_URL` must be your real Vercel domain — it's used for Creem success/cancel redirects and Supabase auth callbacks. Update it after you get the domain, then redeploy.
+- `OPENAI_API_KEY` can stay empty when using Bailian.
+
+### 3. Redeploy & Verify
+
+1. Save the variables, then **Redeploy** (from the Deployments tab or push a commit).
+2. Once live, open the `.vercel.app` domain and walk the flow: upload → generate base → approve → wait for frames → download ZIP.
+
+### ⚠️ Hobby plan timeout
+
+Vercel's **Hobby plan caps functions at 60 s**. The `approve` route is configured for 300 s, but Hobby will still cut it off — the base generation, approval UI, and ZIP download all work, but the 9-frame composition will fail on Hobby. To run the full pipeline you need the **Pro plan** ($20/mo), which honors the 300 s limit.
+
+### Creem "Payment system not initialized"
+
+If the Creem checkout page shows *"Payment system not initialized"*, that's a **seller-side** issue in your [Creem dashboard](https://dashboard.creem.io) — finish onboarding, connect a payment processor (Stripe / bank), and make the product `active`. It is unrelated to Vercel and will persist on any host until the dashboard is set up.
+
 ## Tech Stack
 
 | Layer | Tech |
@@ -41,7 +109,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | Framework | Next.js 16 (App Router) |
 | Database | Supabase (PostgreSQL + Storage) |
 | Styling | TailwindCSS 3 |
-| AI | OpenAI Images API (gpt-image-1) |
+| AI | BaiLian / Qwen-Image (default) or OpenAI Images API |
 | Image Processing | Sharp |
 | ZIP | Archiver |
 | Icons | Lucide React |
@@ -116,13 +184,14 @@ This is the Phase 1 MVP. See `../codex-pet-mvp-and-roadmap.md` for the full road
 - Animation preview (CSS sprite)
 - Install command display (macOS/Windows)
 - Polling-based status updates (3s interval)
+- Email/password + Google auth (`/signin`, `/signup`, `/auth/callback`)
+- Creem billing integration (Pro / Unlimited plans)
 - Dark cyberpunk pixel theme
 - Responsive layout
 
 ### Excluded (planned for later phases)
 - Supabase Realtime (using polling instead)
 - Email notifications
-- User authentication
 - Community gallery
 - Multiple art styles
 - Quality auto-validation
