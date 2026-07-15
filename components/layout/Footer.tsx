@@ -1,3 +1,5 @@
+'use client'
+
 import { Heart } from 'lucide-react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
@@ -11,6 +13,7 @@ export default function Footer() {
           <Link href="/privacy" className="transition-colors hover:text-text-primary">{t('footer.privacy')}</Link>
           <Link href="/terms" className="transition-colors hover:text-text-primary">{t('footer.terms')}</Link>
           <Link href="/faq" className="transition-colors hover:text-text-primary">{t('footer.faq')}</Link>
+          <Link href="/blog" className="transition-colors hover:text-text-primary">Blog</Link>
           <Link href="/contact" className="transition-colors hover:text-text-primary">{t('footer.contact')}</Link>
         </nav>
         <div className="mt-4 flex flex-col items-center gap-2 text-text-muted">

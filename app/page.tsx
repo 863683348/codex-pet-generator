@@ -17,6 +17,8 @@ import { useI18n } from '@/lib/i18n'
 import { Sparkles, Zap, FileImage, FileJson, Play } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SITE } from '@/lib/seo'
 
 // Standalone SVG pet used as the demo "base" image (no backend needed).
 const DEMO_BASE =
@@ -36,6 +38,22 @@ const DEMO_BASE =
       "<rect x='31' y='48' width='2' height='2' fill='#0F0F23'/>" +
       '</svg>'
   )
+
+const appJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: SITE.fullName,
+  url: SITE.url,
+  description: SITE.description,
+  operatingSystem: 'Web, macOS, Windows, Linux',
+  applicationCategory: 'MultimediaApplication',
+  offers: [
+    { '@type': 'Offer', name: 'Starter', price: '0', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Pro', price: '9', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Unlimited', price: '29', priceCurrency: 'USD' },
+  ],
+  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+}
 
 export default function Home() {
   const { t } = useI18n()
@@ -337,6 +355,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <JsonLd data={appJsonLd} />
 
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {/* ---- Hero ---- */}

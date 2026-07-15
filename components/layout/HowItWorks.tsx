@@ -1,3 +1,5 @@
+'use client'
+
 import { Upload, MousePointerClick, Package, Terminal } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import PixelPet from '@/components/pet/PixelPet'
 import { ANIMATION_STATES } from '@/types/pet'
 import { useI18n } from '@/lib/i18n'

@@ -1,4 +1,7 @@
+'use client'
+
 import { Gamepad2, Github } from 'lucide-react'
+import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '@/lib/i18n'
 import UserButton from '@/components/auth/UserButton'
@@ -18,6 +21,12 @@ export default function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
           <UserButton />
+          <Link
+            href="/blog"
+            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
+          >
+            Blog
+          </Link>
           <a
             href="https://github.com"
             target="_blank"
