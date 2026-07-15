@@ -2,6 +2,7 @@
 
 export const ja: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
+  nav: { github: 'GitHub', home: 'ホームへ', blog: 'ブログ', signIn: 'ログイン', signOut: 'ログアウト' },
   footer: { madeWith: 'Codexユーザーのために', compatible: 'OpenAI Codex対応', copyright: '© 2026 PetGen', privacy: 'プライバシーポリシー', terms: '利用規約', faq: 'よくある質問', contact: 'お問い合わせ' },
     pricing: {
     title: 'シンプルな料金', desc: 'ニーズに合ったプランを選んでください。隠れた費用はありません。', popular: 'おすすめ',
@@ -23,7 +24,7 @@ export const ja: Dict = {
     q10: '無料プランはありますか？', a10: 'はい。スタータープランは無料で3回の生成を提供します。'},
   contact: {
     title: 'お問い合わせ', desc: 'ご質問、ご提案、ご不明な点がございましたら、お気軽にお問い合わせください。',
-    emailTitle: 'メール', emailDesc: 'cruzreese459228@gmail.com', emailReply: '24時間以内に返信いたします。',
+    emailTitle: 'メール', emailDesc: 'ahmedlzany423@gmail.com', emailReply: '24時間以内に返信いたします。',
     githubTitle: 'GitHub Issues', githubDesc: 'バグ報告や機能リクエスト', githubLabel: '公開イシュートラッカー',
     businessTitle: 'ビジネスに関するお問い合わせ', businessText: 'パートナーシップ、スポンサーシップ、その他のビジネスに関するご質問は、こちらまでメールをお送りください。'},
   privacy: {
@@ -77,5 +78,28 @@ export const ja: Dict = {
   upload: {
     drop: '画像をドロップ', dropActive: 'ドロップ！', or: 'または',
     clickToBrowse: 'クリックして選択', jpg: 'JPG', png: 'PNG', webp: 'WebP', maxSize: '最大10MB',
+  },
+  auth: {
+    signInTitle: 'おかえりなさい',
+    signInSubtitle: 'PetGen アカウントにログイン',
+    signUpTitle: 'アカウントを作成',
+    signUpSubtitle: '登録してピクセルペットの生成を始めましょう',
+    emailPlaceholder: 'メールアドレス',
+    passwordPlaceholder: 'パスワード（6文字以上）',
+    signIn: 'ログイン',
+    signUp: 'アカウント作成',
+    or: 'または',
+    continueWithGoogle: 'Google で続行',
+    haveAccount: 'すでにアカウントをお持ちですか？',
+    noAccount: 'アカウントをお持ちでない方',
+    accountCreated: 'アカウントを作成しました！メールを確認してアドレスを認証してください。',
+  },
+  blog: {
+    indexTitle: 'PetGen ブログ',
+    indexSubtitle: 'AI ペットジェネレーター、ピクセルアバター、コーディング仲間に関するガイドと比較、深掘り記事。',
+    backToBlog: 'ブログに戻る',
+    tryItYourself: '自分で試してみる',
+    tryItYourselfDesc: 'あなたの写真をピクセルアートのペットに変えてみませんか？PetGen にアップロードすれば、数分で spritesheet + pet.json を入手できます。',
+    generateYourPet: '今すぐペットを生成 →',
   },
 } as Dict

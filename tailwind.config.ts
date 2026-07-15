@@ -9,26 +9,26 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#6C5CE7',
-          hover: '#5A4BD1',
+          DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+          hover: 'rgb(var(--primary-hover) / <alpha-value>)',
         },
-        accent: '#00D9FF',
-        success: '#00B894',
-        warning: '#FDCB6E',
-        danger: '#FF6B6B',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        success: 'rgb(var(--success) / <alpha-value>)',
+        warning: 'rgb(var(--warning) / <alpha-value>)',
+        danger: 'rgb(var(--danger) / <alpha-value>)',
         bg: {
-          base: '#0F0F23',
-          surface: '#1A1A2E',
-          elevated: '#252542',
+          base: 'rgb(var(--bg-base) / <alpha-value>)',
+          surface: 'rgb(var(--bg-surface) / <alpha-value>)',
+          elevated: 'rgb(var(--bg-elevated) / <alpha-value>)',
         },
         text: {
-          primary: '#E8E8F0',
-          secondary: '#8888AA',
-          muted: '#555570',
+          primary: 'rgb(var(--text-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--text-secondary) / <alpha-value>)',
+          muted: 'rgb(var(--text-muted) / <alpha-value>)',
         },
         border: {
-          DEFAULT: '#2D2D4A',
-          focus: '#6C5CE7',
+          DEFAULT: 'rgb(var(--border) / <alpha-value>)',
+          focus: 'rgb(var(--border-focus) / <alpha-value>)',
         },
       },
       fontFamily: {

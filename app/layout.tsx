@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/lib/i18n'
 import { PostHogProvider } from '@/lib/posthog'
 import { SITE } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { ThemeProvider } from '@/lib/theme/ThemeProvider'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -89,6 +90,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -111,7 +117,9 @@ export default function RootLayout({
         <JsonLd data={orgJsonLd} />
         <JsonLd data={siteJsonLd} />
         <PostHogProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <ThemeProvider>
+            <LanguageProvider>{children}</LanguageProvider>
+          </ThemeProvider>
         </PostHogProvider>
       </body>
     </html>

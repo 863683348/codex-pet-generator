@@ -16,7 +16,7 @@ export default function ContactPage() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           <a
-            href="mailto:cruzreese459228@gmail.com"
+            href="mailto:ahmedlzany423@gmail.com"
             className="glass-card flex items-start gap-4 rounded-lg border border-border p-5 transition-colors hover:bg-bg-elevated"
           >
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -24,7 +24,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h2 className="font-medium text-text-primary">{t('contact.emailTitle')}</h2>
-              <p className="mt-1 text-sm text-text-secondary">cruzreese459228@gmail.com</p>
+              <p className="mt-1 text-sm text-text-secondary">ahmedlzany423@gmail.com</p>
               <p className="mt-0.5 text-xs text-text-muted">{t('contact.emailReply')}</p>
             </div>
           </a>
@@ -50,7 +50,7 @@ export default function ContactPage() {
           <h2 className="font-medium text-text-primary">{t('contact.businessTitle')}</h2>
           <p className="mt-2 text-sm text-text-secondary">
             {t('contact.businessText')}{' '}
-            <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.
+            <a href="mailto:ahmedlzany423@gmail.com" className="text-primary underline">ahmedlzany423@gmail.com</a>.
           </p>
         </div>
       </main>

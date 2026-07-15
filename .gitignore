@@ -26,6 +26,14 @@ _page_check.html
 # vercel
 .vercel
 
+# static export output (for local preview only)
+/dist/
+
+# playwright test artifacts
+.playwright-cli/
+homepage*.png
+homepage*.yml
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

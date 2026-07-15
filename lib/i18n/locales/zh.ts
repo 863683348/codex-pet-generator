@@ -2,7 +2,11 @@
 
 export const zh: Dict = {
   nav: {
-    github: 'GitHub'},
+    github: 'GitHub',
+    home: '回到首页',
+    blog: '博客',
+    signIn: '登录',
+    signOut: '退出'},
   footer: {
     madeWith: '为 Codex 用户倾心打造',
     compatible: '兼容 OpenAI Codex',
@@ -153,7 +157,7 @@ export const zh: Dict = {
     title: '联系我们',
     desc: '有问题、建议或需要帮助？我们很乐意听取你的意见。',
     emailTitle: '邮箱',
-    emailDesc: 'cruzreese459228@gmail.com',
+    emailDesc: 'ahmedlzany423@gmail.com',
     emailReply: '24 小时内回复。',
     githubTitle: 'GitHub Issues',
     githubDesc: '报告问题或请求新功能。',
@@ -197,7 +201,32 @@ export const zh: Dict = {
     s9title: '9. 终止',
     s9text: '如违反本条款，我们保留暂停或终止访问服务的权利。',
     s10title: '10. 联系我们',
-    s10text: '如有关于这些条款的问题，请联系我们：'}}
+    s10text: '如有关于这些条款的问题，请联系我们：',
+  },
+  auth: {
+    signInTitle: '欢迎回来',
+    signInSubtitle: '登录你的 PetGen 账户',
+    signUpTitle: '创建账户',
+    signUpSubtitle: '注册开始生成像素宠物',
+    emailPlaceholder: '邮箱',
+    passwordPlaceholder: '密码（至少 6 位）',
+    signIn: '登录',
+    signUp: '创建账户',
+    or: '或',
+    continueWithGoogle: '使用 Google 继续',
+    haveAccount: '已经有账户了？',
+    noAccount: '还没有账户？',
+    accountCreated: '账户已创建！请查收邮件确认你的地址。',
+  },
+  blog: {
+    indexTitle: 'PetGen 博客',
+    indexSubtitle: '关于 AI 宠物生成器、像素头像和编程伴侣的指南、对比与深度解析。',
+    backToBlog: '返回博客',
+    tryItYourself: '亲自试试',
+    tryItYourselfDesc: '准备好把你自己的照片变成像素宠物了吗？在 PetGen 上传照片，几分钟内就能拿到 spritesheet + pet.json。',
+    generateYourPet: '立即生成你的宠物 →',
+  },
+}
 
 
 

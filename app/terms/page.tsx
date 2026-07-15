@@ -23,7 +23,7 @@ export default function TermsPage() {
           <section><h2 className="mb-2 font-semibold text-text-primary">{t('terms.s7title')}</h2><p>The PetGen service, including its code, design, and AI models, is our intellectual property. Generated pets may be used freely for personal and commercial purposes depending on your plan.</p></section>
           <section><h2 className="mb-2 font-semibold text-text-primary">{t('terms.s8title')}</h2><p>PetGen is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the service.</p></section>
           <section><h2 className="mb-2 font-semibold text-text-primary">{t('terms.s9title')}</h2><p>We reserve the right to suspend or terminate access to the service for violation of these terms. Upon termination, your data may be deleted.</p></section>
-          <section><h2 className="mb-2 font-semibold text-text-primary">{t('terms.s10title')}</h2><p>For questions about these terms, contact us at <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.</p></section>
+          <section><h2 className="mb-2 font-semibold text-text-primary">{t('terms.s10title')}</h2><p>For questions about these terms, contact us at <a href="mailto:ahmedlzany423@gmail.com" className="text-primary underline">ahmedlzany423@gmail.com</a>.</p></section>
         </div>
       </main>
       <Footer />

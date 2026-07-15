@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { buildMetadata, SITE } from '@/lib/seo'
 import { posts } from '@/lib/blog/posts'
 import { JsonLd } from '@/components/seo/JsonLd'
+import BlogIndexView from '@/components/blog/BlogIndexView'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Blog',
@@ -29,28 +29,7 @@ export default function BlogIndex() {
     <>
       <Navbar />
       <JsonLd data={listJsonLd} />
-      <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-        <h1 className="font-pixel text-lg text-text-primary">PetGen Blog</h1>
-        <p className="mt-2 text-sm text-text-muted">
-          Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.
-        </p>
-        <div className="mt-8 space-y-6">
-          {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="glass-card rounded-lg border border-border p-5 transition-colors hover:bg-bg-elevated"
-            >
-              <Link href={`/blog/${post.slug}`} className="block">
-                <h2 className="font-pixel text-xs text-text-primary hover:text-primary">
-                  {post.title}
-                </h2>
-                <p className="mt-2 text-sm text-text-secondary">{post.description}</p>
-                <p className="mt-3 text-xs text-text-muted">{post.date}</p>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </main>
+      <BlogIndexView posts={posts} />
       <Footer />
     </>
   )

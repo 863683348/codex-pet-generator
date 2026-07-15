@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import { buildMetadata, SITE } from '@/lib/seo'
 import { posts } from '@/lib/blog/posts'
 import { JsonLd } from '@/components/seo/JsonLd'
+import BlogPostCta from '@/components/blog/BlogPostCta'
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }))
@@ -84,25 +85,8 @@ export default async function BlogPostPage({
               </section>
             ))}
           </div>
-          <div className="mt-10 rounded-lg border border-accent/30 bg-accent/10 p-5">
-            <h2 className="font-pixel text-[10px] text-accent">Try it yourself</h2>
-            <p className="mt-2 text-sm text-text-secondary">
-              Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your
-              spritesheet + pet.json in minutes.
-            </p>
-            <Link
-              href="/"
-              className="mt-3 inline-block text-sm font-medium text-primary underline hover:text-accent"
-            >
-              Generate your pet now →
-            </Link>
-          </div>
+          <BlogPostCta />
         </article>
-        <div className="mt-8">
-          <Link href="/blog" className="text-sm text-text-muted hover:text-text-primary">
-            ← Back to blog
-          </Link>
-        </div>
       </main>
       <Footer />
     </>

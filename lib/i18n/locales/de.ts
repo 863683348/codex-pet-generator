@@ -2,6 +2,7 @@
 
 export const de: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
+  nav: { github: 'GitHub', home: 'Startseite', blog: 'Blog', signIn: 'Anmelden', signOut: 'Abmelden' },
   footer: { madeWith: 'Hergestellt für Codex-Benutzer', compatible: 'OpenAI Codex kompatibel', copyright: '© 2026 PetGen', privacy: 'Datenschutz', terms: 'AGB', faq: 'FAQ', contact: 'Kontakt' },
   pricing: {
     title: 'Einfache Preise', desc: 'Wählen Sie den Plan, der zu Ihnen passt. Keine versteckten Kosten.', popular: 'BELIEBT',
@@ -24,7 +25,7 @@ export const de: Dict = {
   },
   contact: {
     title: 'Kontaktieren Sie uns', desc: 'Haben Sie eine Frage, einen Vorschlag oder brauchen Hilfe?',
-    emailTitle: 'E-Mail', emailDesc: 'cruzreese459228@gmail.com', emailReply: 'Wir antworten innerhalb von 24 Stunden.',
+    emailTitle: 'E-Mail', emailDesc: 'ahmedlzany423@gmail.com', emailReply: 'Wir antworten innerhalb von 24 Stunden.',
     githubTitle: 'GitHub Issues', githubDesc: 'Fehler melden oder Funktionen vorschlagen.', githubLabel: 'Öffentliches Issue-Tracking.',
     businessTitle: 'Geschäftliche Anfragen', businessText: 'Für Partnerschaften, Sponsoring oder andere geschäftliche Fragen senden Sie uns bitte eine E-Mail an',
   },
@@ -72,5 +73,28 @@ export const de: Dict = {
     jsonTitle: 'pet.json', jsonMeta: 'metadata',
     jsonDesc: 'Vier Felder für Codex zur Identifikation.',
     jsonCompatible: 'Kompatibel mit OpenAI Codex.',
+  },
+  auth: {
+    signInTitle: 'Willkommen zurück',
+    signInSubtitle: 'Melden Sie sich bei Ihrem PetGen-Konto an',
+    signUpTitle: 'Konto erstellen',
+    signUpSubtitle: 'Registrieren Sie sich, um Pixel-Tiere zu erzeugen',
+    emailPlaceholder: 'E-Mail',
+    passwordPlaceholder: 'Passwort (min. 6)',
+    signIn: 'Anmelden',
+    signUp: 'Konto erstellen',
+    or: 'ODER',
+    continueWithGoogle: 'Mit Google fortfahren',
+    haveAccount: 'Haben Sie bereits ein Konto?',
+    noAccount: 'Noch kein Konto?',
+    accountCreated: 'Konto erstellt! Bitte bestätigen Sie Ihre Adresse per E-Mail.',
+  },
+  blog: {
+    indexTitle: 'PetGen Blog',
+    indexSubtitle: 'Anleitungen, Vergleiche und Tiefenanalysen zu KI-Pet-Generatoren, Pixel-Avataren und Code-Begleitern.',
+    backToBlog: 'Zurück zum Blog',
+    tryItYourself: 'Probieren Sie es selbst',
+    tryItYourselfDesc: 'Bereit, Ihr Foto in ein Pixel-Art-Tier zu verwandeln? Laden Sie es auf PetGen hoch und erhalten Sie in wenigen Minuten Ihr spritesheet + pet.json.',
+    generateYourPet: 'Jetzt Ihr Tier erzeugen →',
   },
 } as Dict

@@ -2,6 +2,7 @@
 
 export const ko: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
+  nav: { github: 'GitHub', home: '홈으로', blog: '블로그', signIn: '로그인', signOut: '로그아웃' },
   footer: { madeWith: 'Codex 사용자를 위해 제작', compatible: 'OpenAI Codex 호환', copyright: '(c) 2026 PetGen', privacy: '개인정보처리방침', terms: '이용약관', faq: '자주 묻는 질문', contact: '문의하기' },
   pricing: {
     title: '간단한 요금제', desc: '필요에 맞는 플랜을 선택하세요. 숨은 비용은 없습니다.', popular: '인기',
@@ -24,7 +25,7 @@ export const ko: Dict = {
   },
   contact: {
     title: '문의하기', desc: '질문, 제안 또는 도움이 필요하신가요?',
-    emailTitle: '이메일', emailDesc: 'cruzreese459228@gmail.com', emailReply: '24시간 이내에 답변드립니다.',
+    emailTitle: '이메일', emailDesc: 'ahmedlzany423@gmail.com', emailReply: '24시간 이내에 답변드립니다.',
     githubTitle: 'GitHub Issues', githubDesc: '버그 신고 또는 기능 요청', githubLabel: '공개 이슈 트래커',
     businessTitle: '비즈니스 문의', businessText: '파트너십, 스폰서십 또는 기타 비즈니스 관련 문의는 이메일을 보내주세요.',
   },
@@ -72,5 +73,28 @@ export const ko: Dict = {
     jsonTitle: 'pet.json', jsonMeta: 'metadata',
     jsonDesc: '네 개의 필드로 Codex가 펫을 인식하고 찾을 수 있습니다.',
     jsonCompatible: 'OpenAI Codex 커스텀 펫과 호환됩니다.',
+  },
+  auth: {
+    signInTitle: '다시 오신 것을 환영합니다',
+    signInSubtitle: 'PetGen 계정에 로그인하세요',
+    signUpTitle: '계정 만들기',
+    signUpSubtitle: '가입하고 픽셀 펫 생성을 시작하세요',
+    emailPlaceholder: '이메일',
+    passwordPlaceholder: '비밀번호 (6자 이상)',
+    signIn: '로그인',
+    signUp: '계정 만들기',
+    or: '또는',
+    continueWithGoogle: 'Google로 계속하기',
+    haveAccount: '이미 계정이 있으신가요?',
+    noAccount: '계정이 없으신가요?',
+    accountCreated: '계정이 생성되었습니다! 이메일을 확인하여 주소를 인증해 주세요.',
+  },
+  blog: {
+    indexTitle: 'PetGen 블로그',
+    indexSubtitle: 'AI 펫 생성기, 픽셀 아바타, 코딩 친구에 대한 가이드, 비교, 심층 분석.',
+    backToBlog: '블로그로 돌아가기',
+    tryItYourself: '직접 체험하기',
+    tryItYourselfDesc: '당신의 사진을 픽셀 아트 펫으로 바꿔보세요. PetGen에 업로드하면 몇 분 안에 spritesheet + pet.json을 받을 수 있습니다.',
+    generateYourPet: '지금 펫 생성하기 →',
   },
 } as Dict

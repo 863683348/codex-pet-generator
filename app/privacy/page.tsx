@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s6title')}</h2>
-            <p>If you have questions about this privacy policy, please contact us at <a href="mailto:cruzreese459228@gmail.com" className="text-primary underline">cruzreese459228@gmail.com</a>.</p>
+            <p>If you have questions about this privacy policy, please contact us at <a href="mailto:ahmedlzany423@gmail.com" className="text-primary underline">ahmedlzany423@gmail.com</a>.</p>
           </section>
         </div>
       </main>

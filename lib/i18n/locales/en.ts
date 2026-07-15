@@ -3,7 +3,11 @@
 
 export const en = {
   nav: {
-    github: 'GitHub'},
+    github: 'GitHub',
+    home: 'Go to homepage',
+    blog: 'Blog',
+    signIn: 'Sign in',
+    signOut: 'Sign out'},
   footer: {
     madeWith: 'Made with for Codex users',
     compatible: 'OpenAI Codex Compatible',
@@ -154,7 +158,7 @@ export const en = {
     title: 'Contact Us',
     desc: 'Have a question, suggestion, or need help? We would love to hear from you.',
     emailTitle: 'Email',
-    emailDesc: 'cruzreese459228@gmail.com',
+    emailDesc: 'ahmedlzany423@gmail.com',
     emailReply: 'We reply within 24 hours.',
     githubTitle: 'GitHub Issues',
     githubDesc: 'Report bugs or request features.',
@@ -198,7 +202,32 @@ export const en = {
     s9title: '9. Termination',
     s9text: 'We reserve the right to suspend or terminate access for violation of these terms.',
     s10title: '10. Contact',
-    s10text: 'For questions about these terms, contact us at'}}
+    s10text: 'For questions about these terms, contact us at',
+  },
+  auth: {
+    signInTitle: 'Welcome back',
+    signInSubtitle: 'Sign in to your PetGen account',
+    signUpTitle: 'Create your account',
+    signUpSubtitle: 'Sign up to start generating pixel pets',
+    emailPlaceholder: 'Email',
+    passwordPlaceholder: 'Password (min 6)',
+    signIn: 'Sign In',
+    signUp: 'Create Account',
+    or: 'OR',
+    continueWithGoogle: 'Continue with Google',
+    haveAccount: 'Already have an account?',
+    noAccount: "Don't have an account?",
+    accountCreated: 'Account created! Check your email to confirm your address.',
+  },
+  blog: {
+    indexTitle: 'PetGen Blog',
+    indexSubtitle: 'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.',
+    backToBlog: 'Back to blog',
+    tryItYourself: 'Try it yourself',
+    tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
+    generateYourPet: 'Generate your pet now →',
+  },
+}
 
 export type Dict = typeof en
 
