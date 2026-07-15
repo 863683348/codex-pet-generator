@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Mail, Lock, Loader2, AlertCircle, Gamepad2 } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import { useI18n } from '@/lib/i18n'
@@ -18,6 +18,26 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const err = searchParams.get('error')
+    if (err) setError(decodeURIComponent(err))
+  }, [searchParams])
+
+  useEffect(() => {
+    let mounted = true
+    const checkSession = async () => {
+      try {
+        const { data: { session } } = await getSupabaseClient().auth.getSession()
+        if (mounted && session) router.replace('/')
+      } catch (e) {
+        // ignore session check errors
+      }
+    }
+    checkSession()
+    return () => { mounted = false }
+  }, [router])
 
   const isSignup = mode === 'signup'
 
@@ -103,46 +123,49 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
             <div className="mb-4 rounded-lg bg-green-500/10 px-3 py-2 text-center text-sm text-green-500">{success}</div>
           )}
 
-          <form onSubmit={handleSubmit} className="mb-4 space-y-3">
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
-              <input
-                type="email"
-                placeholder={t('auth.emailPlaceholder')}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full rounded-xl border border-border bg-bg-elevated py-3 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-            </div>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
-              <input
-                type="password"
-                placeholder={t('auth.passwordPlaceholder')}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={6}
-                className="w-full rounded-xl border border-border bg-bg-elevated py-3 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-white transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-60"
-            >
-              {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              {isSignup ? t('auth.signUp') : t('auth.signIn')}
-            </button>
-          </form>
+          {false && (
+            <form onSubmit={handleSubmit} className="mb-4 space-y-3">
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
+                <input
+                  type="email"
+                  placeholder={t('auth.emailPlaceholder')}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-border bg-bg-elevated py-3 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+              </div>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
+                <input
+                  type="password"
+                  placeholder={t('auth.passwordPlaceholder')}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={6}
+                  className="w-full rounded-xl border border-border bg-bg-elevated py-3 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-white transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-60"
+              >
+                {loading && <Loader2 className="h-4 w-4 animate-spin" />}
+                {isSignup ? t('auth.signUp') : t('auth.signIn')}
+              </button>
+            </form>
+          )}
 
-          <div className="mb-4 flex items-center gap-3">
-            <div className="h-px flex-1 bg-border" />
-            <span className="text-xs text-text-muted">{t('auth.or')}</span>
-            <div className="h-px flex-1 bg-border" />
-          </div>
-
+          {false && (
+            <div className="mb-4 flex items-center gap-3">
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-xs text-text-muted">{t('auth.or')}</span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+          )}
           <button
             onClick={handleGoogle}
             className="flex w-full items-center justify-center gap-3 rounded-xl border border-border bg-white px-6 py-3 text-sm font-medium text-[#1f1f1f] transition-all hover:bg-gray-50 active:scale-[0.98]"
@@ -156,19 +179,21 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
             {t('auth.continueWithGoogle')}
           </button>
 
-          <p className="mt-6 text-center text-xs text-text-muted">
-            {isSignup ? (
-              <>
-                {t('auth.haveAccount')}{' '}
-                <Link href="/signin" className="text-primary hover:underline">{t('auth.signIn')}</Link>
-              </>
-            ) : (
-              <>
-                {t('auth.noAccount')}{' '}
-                <Link href="/signup" className="text-primary hover:underline">{t('auth.signUp')}</Link>
-              </>
-            )}
-          </p>
+          {false && (
+            <p className="mt-6 text-center text-xs text-text-muted">
+              {isSignup ? (
+                <>
+                  {t('auth.haveAccount')}{' '}
+                  <Link href="/signin" className="text-primary hover:underline">{t('auth.signIn')}</Link>
+                </>
+              ) : (
+                <>
+                  {t('auth.noAccount')}{' '}
+                  <Link href="/signup" className="text-primary hover:underline">{t('auth.signUp')}</Link>
+                </>
+              )}
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -13,6 +13,16 @@ export default function AuthCallback() {
     const supabase = getSupabaseClient()
     const params = new URLSearchParams(window.location.search)
     const code = params.get('code')
+    const oauthError = params.get('error')
+    const oauthErrorDesc = params.get('error_description')
+
+    if (oauthError) {
+      const msg = oauthErrorDesc || oauthError
+      console.error('[AuthCallback] OAuth error from provider:', msg)
+      setStatus('OAuth error: ' + msg)
+      const t = setTimeout(() => router.replace('/signin?error=' + encodeURIComponent(msg)), 2500)
+      return () => clearTimeout(t)
+    }
 
     if (!code) {
       setStatus('No verification code found. Redirecting to sign in...')
@@ -24,15 +34,20 @@ export default function AuthCallback() {
       .exchangeCodeForSession(code)
       .then(({ error }) => {
         if (error) {
+          console.error('[AuthCallback] exchangeCodeForSession error:', error)
           setStatus('Verification failed: ' + error.message)
-          setTimeout(() => router.replace('/signin'), 2500)
+          setTimeout(() => router.replace('/signin?error=' + encodeURIComponent(error.message)), 2500)
         } else {
+          console.log('[AuthCallback] session exchanged successfully')
+          router.refresh()
           router.replace('/')
         }
       })
       .catch((e: any) => {
-        setStatus('Verification error: ' + (e?.message || 'unknown'))
-        setTimeout(() => router.replace('/signin'), 2500)
+        console.error('[AuthCallback] exception:', e)
+        const msg = e?.message || 'unknown'
+        setStatus('Verification error: ' + msg)
+        setTimeout(() => router.replace('/signin?error=' + encodeURIComponent(msg)), 2500)
       })
   }, [router])
 
