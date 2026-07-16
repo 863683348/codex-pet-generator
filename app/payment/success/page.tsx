@@ -6,32 +6,58 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { CheckCircle } from 'lucide-react'
+import { getSupabaseClient } from '@/lib/supabase/client'
 
 function PaymentSuccessContent() {
   const searchParams = useSearchParams()
   const plan = searchParams.get('plan') || ''
   const provider = searchParams.get('provider') || ''
   const [name, setName] = useState('')
+  const [authed, setAuthed] = useState<boolean | null>(null)
 
   useEffect(() => {
     if (plan === 'pro') setName('Pro')
     else if (plan === 'unlimited') setName('Unlimited')
   }, [plan])
 
+  useEffect(() => {
+    const supabase = getSupabaseClient()
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setAuthed(!!session)
+    })
+  }, [])
+
+  const isLoggedIn = authed === true
+
   return (
     <main className="mx-auto flex min-h-[60vh] max-w-lg flex-col items-center justify-center px-4 text-center">
       <CheckCircle className="mb-4 h-14 w-14 text-success" />
       <h1 className="font-pixel text-lg text-text-primary">Payment Successful!</h1>
-      <p className="mt-3 text-sm text-text-secondary">
-        {provider === 'paypal' ? 'Your payment via PayPal was successful. ' : ''}
-        Your {name} plan is now active. You can start generating unlimited pets right away.
-      </p>
-      <Link
-        href="/"
-        className="mt-8 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-      >
-        Go to Homepage
-      </Link>
+      {isLoggedIn ? (
+        <p className="mt-3 text-sm text-text-secondary">
+          {provider === 'paypal' ? 'Your payment via PayPal was successful. ' : ''}
+          Your {name} plan is now active. You can start generating unlimited pets right away.
+        </p>
+      ) : (
+        <p className="mt-3 text-sm text-text-secondary">
+          Thank you! Your payment was successful and we&apos;ve recorded it. Sign in to your account to access your plan.
+        </p>
+      )}
+      {isLoggedIn ? (
+        <Link
+          href="/"
+          className="mt-8 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
+        >
+          Go to Homepage
+        </Link>
+      ) : (
+        <Link
+          href="/signup"
+          className="mt-8 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
+        >
+          Sign in to access your plan
+        </Link>
+      )}
     </main>
   )
 }
