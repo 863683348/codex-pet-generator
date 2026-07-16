@@ -87,6 +87,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  // 仅在生产环境加载 GA：避免 localhost 开发与 Vercel preview 污染真实数据
+  const isProd = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview'
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -101,17 +104,21 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
           rel="stylesheet"
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ67FK64M9" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-EQ67FK64M9');
-            `,
-          }}
-        />
+        {GA_ID && isProd && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="min-h-screen bg-bg-base text-text-primary grid-bg">
         <JsonLd data={orgJsonLd} />
