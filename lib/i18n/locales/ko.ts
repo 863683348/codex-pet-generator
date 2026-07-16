@@ -31,9 +31,9 @@ export const ko: Dict = {
   },
   privacy: {
     title: '개인정보처리방침', lastUpdated: '최종 업데이트: 2026년 7월',
-    s1title: '1. 수집하는 정보', s1items: ['계정 정보 - Google 로그인 시 이름, 이메일, 프로필 사진을 받습니다.', '업로드 이미지 - 펫 생성을 위해 처리되고 임시 저장됩니다.', '사용 데이터 - PostHog 및 Google Analytics로 익명화된 사용 데이터를 수집합니다.', '쿠키 - 인증 및 분석을 위해 쿠키를 사용합니다.'],
+    s1title: '1. 수집하는 정보', s1items: ['계정 정보 - Google 로그인 시 이름, 이메일, 프로필 사진을 받습니다.', '업로드 이미지 - 펫 생성을 위해 처리되고 임시 저장됩니다.', '사용 데이터 - Google Analytics로 익명화된 사용 데이터를 수집합니다.', '쿠키 - 인증 및 분석을 위해 쿠키를 사용합니다.'],
     s2title: '2. 정보 사용 방법', s2items: ['PetGen 제공, 유지 및 개선', '업로드 이미지로 픽셀 펫 생성', '계정 인증 및 구독 관리', '사용 패턴 분석', '지원 요청 응대'],
-    s3title: '3. 데이터 공유', s3items: ['Supabase - 계정 관리 및 파일 저장', 'Vercel - 호스팅 및 배포', 'PostHog - 제품 분석', 'Google Analytics - 웹사이트 트래픽 분석', 'OpenAI / Bailian - AI 이미지 생성'],
+    s3title: '3. 데이터 공유', s3items: ['Supabase - 계정 관리 및 파일 저장', 'Vercel - 호스팅 및 배포', 'Google Analytics - 웹사이트 트래픽 분석', 'OpenAI / Bailian - AI 이미지 생성'],
     s4title: '4. 데이터 보유', s4text: '업로드된 이미지는 생성 완료 후 삭제됩니다. 계정 데이터는 계정 삭제 시까지 보유됩니다.',
     s5title: '5. 사용자 권리', s5items: ['개인 데이터 액세스', '데이터 삭제 요청', '분석 추적 거부', '동의 철회'],
     s6title: '6. 문의', s6text: '본 개인정보처리방침에 관한 문의는:',

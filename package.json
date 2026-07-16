@@ -12,13 +12,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@posthog/wizard": "^2.41.0",
     "@supabase/supabase-js": "^2.45.0",
     "archiver": "^7.0.1",
     "lucide-react": "^0.468.0",
     "next": "^16.2.10",
     "openai": "^4.70.0",
-    "posthog-js": "^1.399.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "^0.33.5"

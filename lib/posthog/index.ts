@@ -1,1 +1,0 @@
-export { PostHogProvider } from './provider'

@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
-import { PostHogProvider } from '@/lib/posthog'
 import { SITE } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { ThemeProvider } from '@/lib/theme/ThemeProvider'
@@ -123,11 +122,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-bg-base text-text-primary grid-bg">
         <JsonLd data={orgJsonLd} />
         <JsonLd data={siteJsonLd} />
-        <PostHogProvider>
-          <ThemeProvider>
-            <LanguageProvider>{children}</LanguageProvider>
-          </ThemeProvider>
-        </PostHogProvider>
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

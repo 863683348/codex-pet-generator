@@ -19,7 +19,7 @@ export default function PrivacyPage() {
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li><strong>Account information</strong> — If you sign in with Google, we receive your name, email address, and profile picture from Google.</li>
               <li><strong>Uploaded images</strong> — The images you upload for pet generation are processed and temporarily stored to generate your pet.</li>
-              <li><strong>Usage data</strong> — We use PostHog and Google Analytics to collect anonymized usage data such as page views, feature usage, and error events.</li>
+              <li><strong>Usage data</strong> — We use Google Analytics to collect anonymized usage data such as page views, feature usage, and error events.</li>
               <li><strong>Cookies</strong> — We use essential cookies for authentication and analytics cookies (with your consent where required).</li>
             </ul>
           </section>
@@ -40,7 +40,6 @@ export default function PrivacyPage() {
             <ul className="mt-2 list-disc pl-5 space-y-1">
               <li><strong>Supabase</strong> — for account management and file storage</li>
               <li><strong>Vercel</strong> — for hosting and deployment</li>
-              <li><strong>PostHog</strong> — for product analytics</li>
               <li><strong>Google Analytics</strong> — for website traffic analysis</li>
               <li><strong>OpenAI / Bailian (Alibaba Cloud)</strong> — for AI image generation</li>
             </ul>
@@ -48,7 +47,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="mb-2 font-semibold text-text-primary">{t('privacy.s4title')}</h2>
-            <p>Uploaded images are deleted after the generation process completes. Account data is retained until you delete your account. Analytics data is retained per the retention policies of PostHog and Google Analytics.</p>
+            <p>Uploaded images are deleted after the generation process completes. Account data is retained until you delete your account. Analytics data is retained per the retention policies of Google Analytics.</p>
           </section>
 
           <section>

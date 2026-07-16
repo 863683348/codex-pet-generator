@@ -31,9 +31,9 @@ export const fr: Dict = {
   },
   privacy: {
     title: 'Politique de confidentialite', lastUpdated: 'Derniere mise a jour : juillet 2026',
-    s1title: '1. Informations collectees', s1items: ['Informations de compte - via Google, nous recevons votre nom, email et photo.', 'Images telechargees - traitees et stockees temporairement pour la generation.', "Donnees d'utilisation - PostHog et Google Analytics pour des donnees anonymisees.", 'Cookies - cookies essentiels et analytiques.'],
+    s1title: '1. Informations collectees', s1items: ['Informations de compte - via Google, nous recevons votre nom, email et photo.', 'Images telechargees - traitees et stockees temporairement pour la generation.', "Donnees d'utilisation - Google Analytics pour des donnees anonymisees.", 'Cookies - cookies essentiels et analytiques.'],
     s2title: "2. Utilisation des informations", s2items: ['Fournir, maintenir et ameliorer PetGen', 'Generer des pets pixel-art', 'Authentifier votre compte et gerer votre abonnement', 'Analyser les tendances', 'Repondre a vos demandes'],
-    s3title: '3. Partage des donnees', s3items: ['Supabase - gestion de compte et stockage', 'Vercel - hebergement et deploiement', 'PostHog - analyses produit', 'Google Analytics - trafic web', 'OpenAI / Bailian - generation IA'],
+    s3title: '3. Partage des donnees', s3items: ['Supabase - gestion de compte et stockage', 'Vercel - hebergement et deploiement', 'Google Analytics - trafic web', 'OpenAI / Bailian - generation IA'],
     s4title: '4. Conservation des donnees', s4text: 'Les images telechargees sont supprimees apres generation. Les donnees de compte sont conservees jusqu a la suppression du compte.',
     s5title: '5. Vos droits', s5items: ['Acceder a vos donnees personnelles', 'Demander la suppression', 'Refuser le suivi analytique', 'Retirer votre consentement'],
     s6title: '6. Contact', s6text: 'Pour toute question sur cette politique :',

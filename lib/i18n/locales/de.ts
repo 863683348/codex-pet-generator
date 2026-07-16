@@ -31,9 +31,9 @@ export const de: Dict = {
   },
   privacy: {
     title: 'Datenschutzerklärung', lastUpdated: 'Zuletzt aktualisiert: Juli 2026',
-    s1title: '1. Erhobene Informationen', s1items: ['Kontoinformationen — bei Google-Login erhalten wir Name, E-Mail und Profilbild.', 'Hochgeladene Bilder — werden zur Generierung verarbeitet und temporär gespeichert.', 'Nutzungsdaten — PostHog und Google Analytics für anonymisierte Nutzungsdaten.', 'Cookies — Authentifizierungs- und Analyse-Cookies.'],
+    s1title: '1. Erhobene Informationen', s1items: ['Kontoinformationen — bei Google-Login erhalten wir Name, E-Mail und Profilbild.', 'Hochgeladene Bilder — werden zur Generierung verarbeitet und temporär gespeichert.', 'Nutzungsdaten — Google Analytics für anonymisierte Nutzungsdaten.', 'Cookies — Authentifizierungs- und Analyse-Cookies.'],
     s2title: '2. Nutzung der Informationen', s2items: ['Bereitstellung und Verbesserung von PetGen', 'Generierung von Pixel-Tieren', 'Kontoauthentifizierung und Aboverwaltung', 'Analyse von Nutzungsmustern', 'Bearbeitung von Support-Anfragen'],
-    s3title: '3. Datenweitergabe', s3items: ['Supabase — Kontoverwaltung und Dateispeicher', 'Vercel — Hosting und Deployment', 'PostHog — Produktanalysen', 'Google Analytics — Website-Traffic', 'OpenAI / Bailian — KI-Bildgenerierung'],
+    s3title: '3. Datenweitergabe', s3items: ['Supabase — Kontoverwaltung und Dateispeicher', 'Vercel — Hosting und Deployment', 'Google Analytics — Website-Traffic', 'OpenAI / Bailian — KI-Bildgenerierung'],
     s4title: '4. Datenspeicherung', s4text: 'Hochgeladene Bilder werden nach der Generierung gelöscht. Kontodaten bleiben bis zur Kontolöschung erhalten.',
     s5title: '5. Ihre Rechte', s5items: ['Zugriff auf Ihre persönlichen Daten', 'Löschung Ihrer Daten', 'Widerspruch gegen Analysen', 'Widerruf der Einwilligung'],
     s6title: '6. Kontakt', s6text: 'Bei Fragen zu dieser Datenschutzerklärung:',
