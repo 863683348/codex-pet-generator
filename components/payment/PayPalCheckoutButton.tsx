@@ -16,6 +16,7 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+  const mode = process.env.NEXT_PUBLIC_PAYPAL_MODE || 'sandbox'
 
   useEffect(() => {
     if (!clientId) {
@@ -79,7 +80,8 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
       renderButtons()
     } else if (!existing) {
       const script = document.createElement('script')
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture`
+      const sdkHost = mode === 'live' ? 'www.paypal.com' : 'www.sandbox.paypal.com'
+      script.src = `https://${sdkHost}/sdk/js?client-id=${clientId}&currency=USD&intent=capture`
       script.dataset.paypalSdk = 'true'
       script.onload = renderButtons
       script.onerror = () => {
