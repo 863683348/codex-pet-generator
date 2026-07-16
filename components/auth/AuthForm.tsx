@@ -123,8 +123,7 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
             <div className="mb-4 rounded-lg bg-green-500/10 px-3 py-2 text-center text-sm text-green-500">{success}</div>
           )}
 
-          {false && (
-            <form onSubmit={handleSubmit} className="mb-4 space-y-3">
+          <form onSubmit={handleSubmit} className="mb-4 space-y-3">
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
                 <input
@@ -157,15 +156,13 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
                 {isSignup ? t('auth.signUp') : t('auth.signIn')}
               </button>
             </form>
-          )}
 
-          {false && (
-            <div className="mb-4 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
               <span className="text-xs text-text-muted">{t('auth.or')}</span>
               <div className="h-px flex-1 bg-border" />
             </div>
-          )}
+
           <button
             onClick={handleGoogle}
             className="flex w-full items-center justify-center gap-3 rounded-xl border border-border bg-white px-6 py-3 text-sm font-medium text-[#1f1f1f] transition-all hover:bg-gray-50 active:scale-[0.98]"
@@ -179,8 +176,7 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
             {t('auth.continueWithGoogle')}
           </button>
 
-          {false && (
-            <p className="mt-6 text-center text-xs text-text-muted">
+          <p className="mt-6 text-center text-xs text-text-muted">
               {isSignup ? (
                 <>
                   {t('auth.haveAccount')}{' '}
@@ -193,7 +189,7 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
                 </>
               )}
             </p>
-          )}
+
         </div>
       </div>
     </div>
