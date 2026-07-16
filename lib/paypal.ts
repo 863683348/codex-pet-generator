@@ -14,11 +14,11 @@ export function payPalBase(): string {
 
 export const PLAN_PRICES: Record<string, { price: string; label: string }> = {
   pro: {
-    price: process.env.PAYPAL_PRO_PRICE || '9.99',
+    price: process.env.PAYPAL_PRO_PRICE || '9',
     label: 'PetGen Pro — monthly quota',
   },
   unlimited: {
-    price: process.env.PAYPAL_UNLIMITED_PRICE || '19.99',
+    price: process.env.PAYPAL_UNLIMITED_PRICE || '29',
     label: 'PetGen Unlimited — monthly quota',
   },
 }
