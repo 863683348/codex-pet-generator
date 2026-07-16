@@ -15,12 +15,30 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
   const containerRef = useRef<HTMLDivElement>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
+  const [authed, setAuthed] = useState<boolean | null>(null)
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
   const mode = process.env.NEXT_PUBLIC_PAYPAL_MODE || 'sandbox'
+
+  // Track auth state so the PayPal button is only shown to logged-in users
+  useEffect(() => {
+    const supabase = getSupabaseClient()
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setAuthed(!!session)
+    })
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setAuthed(!!session)
+    })
+    return () => sub.subscription.unsubscribe()
+  }, [])
 
   useEffect(() => {
     if (!clientId) {
       setError('PayPal is not configured.')
+      setLoading(false)
+      return
+    }
+    // Only load/render PayPal when the user is actually logged in
+    if (authed !== true) {
       setLoading(false)
       return
     }
@@ -108,15 +126,30 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
     return () => {
       if (containerRef.current) containerRef.current.innerHTML = ''
     }
-  }, [clientId, plan, router])
+  }, [clientId, plan, router, authed])
 
   if (error) {
     return <p className="mt-6 text-center text-xs text-danger">{error}</p>
   }
 
+  // Logged out: show a clear sign-in prompt instead of a broken PayPal button
+  if (authed === false) {
+    return (
+      <button
+        type="button"
+        onClick={() => router.push('/signup')}
+        className="mt-6 flex h-11 w-full items-center justify-center rounded-lg bg-black text-sm font-semibold text-white transition hover:opacity-90"
+      >
+        Sign in to pay
+      </button>
+    )
+  }
+
   return (
     <div className="mt-6">
-      {loading && <div className="h-11 animate-pulse rounded-lg bg-bg-surface" />}
+      {(loading || authed === null) && (
+        <div className="h-11 animate-pulse rounded-lg bg-bg-surface" />
+      )}
       <div ref={containerRef} className="paypal-button-container" />
     </div>
   )
