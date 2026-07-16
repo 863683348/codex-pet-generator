@@ -80,8 +80,8 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
       renderButtons()
     } else if (!existing) {
       const script = document.createElement('script')
-      const sdkHost = mode === 'live' ? 'www.paypal.com' : 'www.sandbox.paypal.com'
-      script.src = `https://${sdkHost}/sdk/js?client-id=${clientId}&currency=USD&intent=capture`
+      // PayPal JS SDK 统一走 www.paypal.com；client-id 决定沙盒/生产环境
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture`
       script.dataset.paypalSdk = 'true'
       script.onload = renderButtons
       script.onerror = () => {
