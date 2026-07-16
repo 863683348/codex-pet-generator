@@ -10,6 +10,7 @@ import { CheckCircle } from 'lucide-react'
 function PaymentSuccessContent() {
   const searchParams = useSearchParams()
   const plan = searchParams.get('plan') || ''
+  const provider = searchParams.get('provider') || ''
   const [name, setName] = useState('')
 
   useEffect(() => {
@@ -22,6 +23,7 @@ function PaymentSuccessContent() {
       <CheckCircle className="mb-4 h-14 w-14 text-success" />
       <h1 className="font-pixel text-lg text-text-primary">Payment Successful!</h1>
       <p className="mt-3 text-sm text-text-secondary">
+        {provider === 'paypal' ? 'Your payment via PayPal was successful. ' : ''}
         Your {name} plan is now active. You can start generating unlimited pets right away.
       </p>
       <Link

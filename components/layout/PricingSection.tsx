@@ -1,10 +1,9 @@
 'use client'
 
 import { Check } from 'lucide-react'
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
-import { getSupabaseClient } from '@/lib/supabase/client'
+import PayPalCheckoutButton from '@/components/payment/PayPalCheckoutButton'
 
 const PLAN_KEYS = ['starter', 'pro', 'unlimited'] as const
 const FEATURE_COUNTS: Record<string, number> = { starter: 5, pro: 6, unlimited: 7 }
@@ -12,45 +11,6 @@ const FEATURE_COUNTS: Record<string, number> = { starter: 5, pro: 6, unlimited: 
 export default function PricingSection() {
   const { t } = useI18n()
   const router = useRouter()
-  const [loading, setLoading] = useState<string | null>(null)
-
-  const handleSubscribe = async (plan: string) => {
-    if (plan === 'starter') {
-      router.push('/')
-      return
-    }
-
-    const supabase = getSupabaseClient()
-    const { data: { session } } = await supabase.auth.getSession()
-    if (!session) {
-      router.push('/signup')
-      return
-    }
-
-    setLoading(plan)
-    try {
-      const res = await fetch('/api/creem/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + session.access_token,
-        },
-        body: JSON.stringify({ plan }),
-      })
-      const data = await res.json()
-      if (data.url) {
-        window.location.href = data.url
-      } else {
-        console.error('Checkout error:', data)
-        alert('Failed to create checkout. Please try again.')
-      }
-    } catch (err) {
-      console.error('Checkout error:', err)
-      alert('Failed to create checkout. Please try again.')
-    } finally {
-      setLoading(null)
-    }
-  }
 
   const features = (k: string): string[] => {
     const cnt = FEATURE_COUNTS[k]
@@ -64,7 +24,7 @@ export default function PricingSection() {
 
   return (
     <>
-      <section className="mt-16">
+      <section id="pricing" className="mt-16 scroll-mt-20">
         <div className="mb-10 text-center">
           <h2 className="font-pixel text-sm text-text-primary">{t('pricing.title')}</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-text-secondary">{t('pricing.desc')}</p>
@@ -102,13 +62,16 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => handleSubscribe(k)}
-                  disabled={loading !== null}
-                  className={'mt-6 w-full rounded-lg py-2.5 text-sm font-medium transition-all active:scale-[0.98] disabled:opacity-50 ' + (popular ? 'bg-accent text-white hover:bg-accent/90' : 'border border-border bg-bg-elevated text-text-primary hover:bg-bg-surface')}
-                >
-                  {loading === k ? 'Processing...' : cta}
-                </button>
+                {k === 'starter' ? (
+                  <button
+                    onClick={() => router.push('/')}
+                    className={'mt-6 w-full rounded-lg py-2.5 text-sm font-medium transition-all active:scale-[0.98] ' + (popular ? 'bg-accent text-white hover:bg-accent/90' : 'border border-border bg-bg-elevated text-text-primary hover:bg-bg-surface')}
+                  >
+                    {cta}
+                  </button>
+                ) : (
+                  <PayPalCheckoutButton plan={k} />
+                )}
               </div>
             )
           })}
