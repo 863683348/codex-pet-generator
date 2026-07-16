@@ -40,6 +40,12 @@ export default function PayPalCheckoutButton({ plan }: { plan: 'pro' | 'unlimite
         .Buttons({
           style: { layout: 'vertical', color: 'gold', shape: 'rect', label: 'pay', height: 44 },
           createOrder: async (): Promise<string> => {
+            const supabase = getSupabaseClient()
+            const { data: { session } } = await supabase.auth.getSession()
+            if (!session) {
+              router.push('/signup')
+              throw new Error('Please sign in to continue with PayPal.')
+            }
             const res = await fetch('/api/paypal/order', {
               method: 'POST',
               headers: await authHeaders(),
