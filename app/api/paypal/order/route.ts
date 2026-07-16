@@ -66,6 +66,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing order id from PayPal' }, { status: 502 })
     }
 
+    // Persist the order -> user/plan mapping immediately so the webhook can
+    // resolve the payer even if the client-side capture callback never fires.
+    try {
+      await supabase.from('paypal_orders').insert({
+        order_id: order.id,
+        user_id: user.id,
+        email: user.email,
+        plan,
+        status: 'CREATED',
+      })
+    } catch (auditErr) {
+      console.error('paypal_orders create write failed (non-fatal):', auditErr)
+    }
+
     return NextResponse.json({ orderID: order.id })
   } catch (err) {
     console.error('PayPal order error:', err)

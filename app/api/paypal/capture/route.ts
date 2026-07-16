@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
-import { getPayPalAccessToken, payPalBase } from '@/lib/paypal'
-
-const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
+import { getPayPalAccessToken, grantMonthlyQuota, payPalBase } from '@/lib/paypal'
 
 // Capture a previously created PayPal order and grant the monthly quota.
+// The PayPal webhook provides a redundant, server-verified grant path.
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
@@ -26,17 +25,6 @@ export async function POST(req: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser(token)
     if (authError || !user) {
       return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
-    }
-
-    // Idempotency: if this order was already captured, don't double-grant.
-    const { data: existing } = await supabase
-      .from('paypal_orders')
-      .select('*')
-      .eq('order_id', orderID)
-      .maybeSingle()
-
-    if (existing && existing.status === 'COMPLETED') {
-      return NextResponse.json({ success: true, alreadyProcessed: true })
     }
 
     const accessToken = await getPayPalAccessToken()
@@ -62,41 +50,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: `Payment not completed: ${status}` }, { status: 400 })
     }
 
-    // Record the order (non-fatal if the audit table isn't migrated yet).
-    try {
-      await supabase.from('paypal_orders').upsert(
-        {
-          order_id: orderID,
-          user_id: user.id,
-          email: user.email,
-          plan,
-          status: 'COMPLETED',
-          captured_at: new Date().toISOString(),
-        },
-        { onConflict: 'order_id' }
-      )
-    } catch (auditErr) {
-      console.error('paypal_orders audit write failed (non-fatal):', auditErr)
+    const result = await grantMonthlyQuota(supabase, {
+      user_id: user.id,
+      email: user.email,
+      plan,
+      order_id: orderID,
+    })
+
+    if (result.alreadyProcessed) {
+      return NextResponse.json({ success: true, alreadyProcessed: true })
     }
-
-    // Grant one-time monthly quota via user_usage (mirrors Creem webhook behavior).
-    const expiresAt = new Date(Date.now() + THIRTY_DAYS_MS).toISOString()
-    const { error: usageErr } = await supabase.from('user_usage').upsert(
-      {
-        user_id: user.id,
-        email: user.email,
-        plan,
-        plan_expires_at: expiresAt,
-        generations: 0,
-      },
-      { onConflict: 'user_id', ignoreDuplicates: false }
-    )
-
-    if (usageErr) {
-      console.error('user_usage upsert failed:', usageErr)
-      return NextResponse.json({ error: 'Failed to grant quota' }, { status: 500 })
-    }
-
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('PayPal capture error:', err)
