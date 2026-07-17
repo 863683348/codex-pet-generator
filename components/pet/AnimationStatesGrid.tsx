@@ -50,7 +50,7 @@ export default function AnimationStatesGrid({
                 : 'border-border bg-bg-surface/30'
             }`}
           >
-            <div className="relative flex h-[104px] w-[96px] items-center justify-center overflow-hidden rounded border border-border bg-bg-elevated">
+            <div className="relative flex h-[104px] w-full items-center justify-center overflow-hidden rounded border border-border bg-bg-elevated">
               {real ? (
                 <SpritePlayer
                   spritesheetUrl={spritesheetUrl as string}
