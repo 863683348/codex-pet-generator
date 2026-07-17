@@ -365,7 +365,7 @@ export default function Home() {
               <Sparkles className="h-4 w-4 text-accent" />
               <span className="font-pixel text-[10px] text-accent">{t('hero.badge')}</span>
             </div>
-            <h1 className="font-pixel text-lg leading-relaxed text-text-primary sm:text-xl">
+            <h1 className="break-words font-pixel text-base leading-relaxed text-text-primary sm:text-lg">
               {t('hero.titlePrefix')}{' '}
               <span className="gradient-text">{t('hero.titleHighlight')}</span>
             </h1>

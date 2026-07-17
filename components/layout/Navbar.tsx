@@ -19,7 +19,7 @@ export default function Navbar() {
         >
           <Gamepad2 className="h-6 w-6 text-primary" />
           <span className="font-pixel text-sm text-text-primary">PetGen</span>
-          <span className="ml-1 rounded-md bg-primary/10 px-2 py-0.5 font-pixel text-[10px] text-primary">
+          <span className="ml-1 hidden rounded-md bg-primary/10 px-2 py-0.5 font-pixel text-[10px] text-primary sm:inline">
             BETA
           </span>
         </Link>
@@ -29,7 +29,7 @@ export default function Navbar() {
           <UserButton />
           <Link
             href="/blog"
-            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
+            className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary sm:flex"
           >
             {t('nav.blog')}
           </Link>
