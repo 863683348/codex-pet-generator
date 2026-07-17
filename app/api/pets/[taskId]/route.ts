@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
+import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 import { Pet, PetStatus } from '@/types/pet'
 
 export const runtime = 'nodejs'
@@ -21,6 +22,10 @@ export async function GET(
   { params }: { params: Promise<{ taskId: string }> }
 ) {
   try {
+    // H1: status polling requires an authenticated user.
+    const user = await getAuthenticatedUser(req)
+    if (!user) return unauthorized()
+
     const { taskId } = await params
     const supabase = getSupabaseServer()
 

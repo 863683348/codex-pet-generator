@@ -7,13 +7,12 @@ import { getPayPalAccessToken, grantMonthlyQuota, payPalBase } from '@/lib/paypa
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { orderID, plan } = body
+    // H2: `plan` is intentionally NOT read from the request body. A client could
+    // otherwise buy the $9 "pro" order and claim the $29 "unlimited" plan.
+    const { orderID } = body
 
     if (!orderID) {
       return NextResponse.json({ error: 'Missing orderID' }, { status: 400 })
-    }
-    if (!plan || (plan !== 'pro' && plan !== 'unlimited')) {
-      return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
     }
 
     const authHeader = req.headers.get('authorization')
@@ -25,6 +24,29 @@ export async function POST(req: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser(token)
     if (authError || !user) {
       return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
+    }
+
+    // Resolve the plan + payer from the server-side order mapping that the
+    // order-creation route persisted. This is the single source of truth.
+    const { data: orderRow, error: orderErr } = await supabase
+      .from('paypal_orders')
+      .select('user_id, plan, status')
+      .eq('order_id', orderID)
+      .maybeSingle()
+
+    if (orderErr || !orderRow) {
+      console.error('PayPal capture: no matching order mapping', orderID)
+      return NextResponse.json({ error: 'Unknown order' }, { status: 400 })
+    }
+
+    // The captured order must belong to the authenticated user.
+    if (orderRow.user_id !== user.id) {
+      return NextResponse.json({ error: 'Order does not belong to this user' }, { status: 403 })
+    }
+
+    const plan = orderRow.plan
+    if (!plan || (plan !== 'pro' && plan !== 'unlimited')) {
+      return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
     }
 
     const accessToken = await getPayPalAccessToken()

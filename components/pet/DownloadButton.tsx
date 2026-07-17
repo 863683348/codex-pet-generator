@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Download, Loader2, FileArchive } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
+import { getSupabaseClient } from '@/lib/supabase/client'
 
 interface DownloadButtonProps {
   href: string
@@ -14,15 +15,33 @@ export default function DownloadButton({ href, petId, size = 'lg' }: DownloadBut
   const { t } = useI18n()
   const [loading, setLoading] = useState(false)
 
-  const handleClick = () => {
+  const handleClick = async () => {
     setLoading(true)
-    const a = document.createElement('a')
-    a.href = href
-    a.download = petId ? `${petId}.zip` : 'pet.zip'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    setTimeout(() => setLoading(false), 2000)
+    try {
+      // The download endpoint now requires auth, so we fetch with the session
+      // token and hand the bytes to the browser as a blob download.
+      const token = (await getSupabaseClient().auth.getSession()).data.session?.access_token
+      const res = await fetch(href, {
+        headers: token ? { authorization: `Bearer ${token}` } : undefined,
+      })
+      if (!res.ok) {
+        console.error('Download failed:', res.status)
+        return
+      }
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = petId ? `${petId}.zip` : 'pet.zip'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    } catch (err) {
+      console.error('Download error:', err)
+    } finally {
+      setTimeout(() => setLoading(false), 800)
+    }
   }
 
   const sizing =

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
+import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 import { uploadBaseImage, uploadSpritesheet, uploadZip } from '@/lib/storage/storage'
 import { generateBaseImage, generateAnimationFrames, generateCharacterDescription } from '@/lib/ai/image-generator'
 import { composeSpritesheet, createZipBundle } from '@/lib/ai/sprite-composer'
@@ -13,6 +14,11 @@ export async function POST(
   { params }: { params: Promise<{ taskId: string }> }
 ) {
   try {
+    // H1: approving triggers the paid AI animation generation, so it must be
+    // behind authentication.
+    const user = await getAuthenticatedUser(req)
+    if (!user) return unauthorized()
+
     const { taskId } = await params
     const body = await req.json()
     const { approved } = body

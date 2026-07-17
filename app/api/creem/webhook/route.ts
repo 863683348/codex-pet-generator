@@ -1,18 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createHmac, timingSafeEqual } from 'crypto'
 import { getSupabaseServer } from '@/lib/supabase/server'
 
-// Creem webhook secret — set in Vercel env vars / .env.local
-// const WEBHOOK_SECRET = process.env.CREEM_WEBHOOK_SECRET
+const PRODUCT_IDS: Record<string, string | undefined> = {
+  pro: process.env.CREEM_PRO_PRICE_ID,
+  unlimited: process.env.CREEM_UNLIMITED_PRICE_ID,
+}
+
+const WEBHOOK_SECRET = process.env.CREEM_WEBHOOK_SECRET
+
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
 
 export async function POST(req: NextRequest) {
   try {
-    // 1. Validate webhook signature (optional, uncomment when you have the secret)
-    // const signature = req.headers.get('creem-signature')
-    // if (!signature || !WEBHOOK_SECRET) {
-    //   // For now, just log and continue
-    // }
+    // C1: signature verification is mandatory. If the secret is not configured
+    // we refuse to trust any payload rather than silently granting quota.
+    if (!WEBHOOK_SECRET) {
+      console.error('Creem webhook disabled: CREEM_WEBHOOK_SECRET is not set')
+      return NextResponse.json({ error: 'Webhook verification not configured' }, { status: 501 })
+    }
 
-    const body = await req.json()
+    // Read the RAW body — the signature is computed over the exact bytes.
+    const rawBody = await req.text()
+    const signature = req.headers.get('creem-signature')
+    if (!signature) {
+      return NextResponse.json({ error: 'Missing signature' }, { status: 401 })
+    }
+
+    const expected = createHmac('sha256', WEBHOOK_SECRET).update(rawBody).digest('hex')
+    const sigBuf = Buffer.from(signature)
+    const expBuf = Buffer.from(expected)
+    if (sigBuf.length !== expBuf.length || !timingSafeEqual(sigBuf, expBuf)) {
+      console.error('Creem webhook signature mismatch')
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+    }
+
+    const body = JSON.parse(rawBody)
     const event = body.type || body.event || ''
 
     console.log('Creem webhook received:', event)
@@ -23,7 +46,18 @@ export async function POST(req: NextRequest) {
       const metadata = session.metadata || {}
       const userId = metadata.user_id
       const plan = metadata.plan || session.plan
-      const email = session.customer_email || metadata.email
+      const email =
+        session.customer?.email || session.customer_email || metadata.email || null
+
+      // Verify the product in the event matches a configured Creem product/price.
+      // Prevents a forged (but correctly signed) payload from granting an
+      // arbitrary plan via a product id we don't recognize.
+      const productId = session.product?.id || session.product_id
+      const validProductIds = Object.values(PRODUCT_IDS).filter(Boolean) as string[]
+      if (productId && validProductIds.length > 0 && !validProductIds.includes(productId)) {
+        console.error('Creem webhook product mismatch:', productId)
+        return NextResponse.json({ error: 'Unknown product' }, { status: 400 })
+      }
 
       if (!userId || !plan) {
         console.log('Webhook skipped - missing metadata:', { userId, plan })
@@ -31,10 +65,11 @@ export async function POST(req: NextRequest) {
       }
 
       const supabase = getSupabaseServer()
+      const expiresAt = new Date(Date.now() + THIRTY_DAYS_MS).toISOString()
       await supabase
         .from('user_usage')
         .upsert(
-          { user_id: userId, email, plan, generations: 0 },
+          { user_id: userId, email, plan, plan_expires_at: expiresAt, generations: 0 },
           { onConflict: 'user_id', ignoreDuplicates: false }
         )
 

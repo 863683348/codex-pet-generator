@@ -22,6 +22,13 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const { plan, _testMode } = body
 
+    // M5: the test-mode auth bypass must never be available in production.
+    // In dev it lets local testing skip auth; in prod it is a privilege-escalation
+    // backdoor (anyone could mint a real Creem checkout under a fake user).
+    if (_testMode && process.env.NODE_ENV === 'production') {
+      return NextResponse.json({ error: 'Test mode is not available in production' }, { status: 403 })
+    }
+
     let email = 'test@test.com'
     let userId = 'test-user-id'
 

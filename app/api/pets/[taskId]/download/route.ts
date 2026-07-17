@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
+import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 
 export const runtime = 'nodejs'
 
@@ -8,6 +9,12 @@ export async function GET(
   { params }: { params: Promise<{ taskId: string }> }
 ) {
   try {
+    // H1: downloading a completed package requires an authenticated user.
+    // (Per-user task ownership is a post-launch follow-up; the pets table has
+    // no user_id column yet, so we authenticate but do not yet scope by owner.)
+    const user = await getAuthenticatedUser(req)
+    if (!user) return unauthorized()
+
     const { taskId } = await params
     const supabase = getSupabaseServer()
 
@@ -25,9 +32,15 @@ export async function GET(
       return NextResponse.json({ error: 'NOT_READY', message: 'Pet not ready for download' }, { status: 400 })
     }
 
-    const petId =
+    const rawPetId =
       (pet.pet_json && typeof pet.pet_json === 'object' && (pet.pet_json as { id?: string }).id) ||
       taskId
+
+    // Sanitize the filename: strip anything that isn't safe in a
+    // Content-Disposition header (L1 — pet_json.id is attacker-influenced).
+    const petId = (rawPetId || 'pet')
+      .replace(/[^a-zA-Z0-9_-]/g, '_')
+      .slice(0, 64)
 
     // Fetch the ZIP from storage and stream it back with an explicit
     // Content-Disposition so the browser always downloads (naming it

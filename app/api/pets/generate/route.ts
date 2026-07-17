@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
+import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 import { validateImageFile } from '@/lib/utils/validation'
 import { getServerT } from '@/lib/i18n/server'
 import { generateBaseImage } from '@/lib/ai/image-generator'
@@ -33,8 +34,12 @@ function hasImageGenConfig(): boolean {
   return Boolean(process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY)
 }
 
-export async function POST(req: NextRequest): Promise<NextResponse<ErrorResponse | object>> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
+    // H1: the entire generation chain requires an authenticated user.
+    const user = await getAuthenticatedUser(req)
+    if (!user) return unauthorized()
+
     const formData = await req.formData()
     const file = formData.get('image') as File | null
     const email = formData.get('email') as string | null
@@ -85,6 +90,33 @@ export async function POST(req: NextRequest): Promise<NextResponse<ErrorResponse
 
     const supabase = getSupabaseServer()
 
+    // H1: server-side quota enforcement. The client shows a soft limit, but the
+    // server is authoritative — an over-quota request is rejected here no matter
+    // what the client believes.
+    await supabase
+      .from('user_usage')
+      .upsert({ user_id: user.id, email: user.email }, { onConflict: 'user_id', ignoreDuplicates: false })
+
+    const { data: usageRow } = await supabase
+      .from('user_usage')
+      .select('plan, generations')
+      .eq('user_id', user.id)
+      .maybeSingle()
+
+    const plan = usageRow?.plan || 'free'
+    const genCount = usageRow?.generations || 0
+    const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : 3
+    if (genCount >= maxGen) {
+      return NextResponse.json(
+        {
+          error: 'QUOTA_EXCEEDED',
+          message:
+            'You have used all your generations for this plan. Please upgrade to continue.',
+        },
+        { status: 403 }
+      )
+    }
+
     // Convert File to Buffer
     const arrayBuffer = await file.arrayBuffer()
     const fileBuffer = Buffer.from(arrayBuffer)
@@ -95,7 +127,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ErrorResponse
       .insert({
         status: 'processing',
         style: 'pixel',
-        email: email || null,
+        email: user.email ?? email ?? null,
       })
       .select()
       .single()
@@ -106,6 +138,17 @@ export async function POST(req: NextRequest): Promise<NextResponse<ErrorResponse
         { error: 'DB_ERROR', message: 'Failed to create task' },
         { status: 500 }
       )
+    }
+
+    // Count this generation against the user's quota only after the row exists,
+    // so a failed insert never consumes a generation.
+    try {
+      await supabase
+        .from('user_usage')
+        .update({ generations: genCount + 1 })
+        .eq('user_id', user.id)
+    } catch (incErr) {
+      console.error('Usage increment failed (non-fatal):', incErr)
     }
 
     const taskId = pet.id

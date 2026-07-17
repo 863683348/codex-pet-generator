@@ -63,16 +63,23 @@ export default function Home() {
   const [regenerating, setRegenerating] = useState(false)
   const [demo, setDemo] = useState(false)
   const [user, setUser] = useState<User | null>(null)
+  const tokenRef = useRef<string | null>(null)
   const [usageRemaining, setUsageRemaining] = useState<number | null>(null)
   const router = useRouter()
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Build the Authorization header from the live session token. Uses a ref so
+  // the long-lived polling callback always sees the current token (no stale
+  // closure from useCallback's empty deps).
+  const authHeaders = (): Record<string, string> =>
+    tokenRef.current ? { authorization: 'Bearer ' + tokenRef.current } : {}
 
   const startPolling = useCallback((taskId: string) => {
     if (pollRef.current) clearInterval(pollRef.current)
 
     const poll = async () => {
       try {
-        const res = await fetch(`/api/pets/${taskId}`)
+        const res = await fetch(`/api/pets/${taskId}`, { headers: authHeaders() })
         if (!res.ok) return
         const data = await res.json()
         setTask(data)
@@ -97,6 +104,7 @@ export default function Home() {
       const supabase = getSupabaseClient()
       const { data: { session } } = await supabase.auth.getSession()
       setUser(session?.user ?? null)
+      tokenRef.current = session?.access_token ?? null
       if (session?.access_token) {
         try {
           const res = await fetch('/api/pets/usage', { headers: { authorization: 'Bearer ' + session.access_token } })
@@ -133,6 +141,7 @@ export default function Home() {
       const res = await fetch('/api/pets/generate', {
         method: 'POST',
         body: formData,
+        headers: authHeaders(),
       })
 
       if (!res.ok) {
@@ -198,7 +207,7 @@ export default function Home() {
       }
       const res = await fetch(`/api/pets/${task.taskId}/approve`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({ approved: true }),
       })
       if (!res.ok) throw new Error('Approve failed')
@@ -221,7 +230,7 @@ export default function Home() {
       }
       const res = await fetch(`/api/pets/${task.taskId}/approve`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({ approved: false }),
       })
       if (!res.ok) throw new Error('Regenerate failed')
@@ -477,6 +486,8 @@ function localizeError(
   t: (key: string, params?: Record<string, string | number>) => string
 ): string {
   switch (code) {
+    case 'QUOTA_EXCEEDED':
+      return t('error.quotaExceeded')
     case 'MISSING_BACKEND_CONFIG':
       return t('error.missingBackendConfig')
     case 'OPENAI_NOT_CONFIGURED':

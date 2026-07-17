@@ -78,6 +78,7 @@ export const en = {
       'Backend not configured. Add NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to .env.local, then restart the server.',
     openaiNotConfigured: 'Image generation API key is missing. Add BAILIAN_API_KEY or OPENAI_API_KEY to .env.local.',
     noFile: 'No image file was selected.',
+    quotaExceeded: 'You have used all your generations for this plan. Please upgrade to continue.',
     dbError: 'Database error. Check that the Supabase pets table and storage bucket exist.',
     unknown: 'Something went wrong. Try again or switch to the demo.',
     bailianQuotaExhausted:
