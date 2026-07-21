@@ -78,6 +78,7 @@ export const zh: Dict = {
     openaiNotConfigured: '缺少图像生成 API 密钥。请在 .env.local 中添加 BAILIAN_API_KEY 或 OPENAI_API_KEY。',
     noFile: '没有选择图片文件。',
     quotaExceeded: '当前方案的生成次数已用尽，请升级以继续。',
+    sessionExpired: '登录状态已过期，请重新登录后再试。',
     dbError: '数据库错误。请检查 Supabase 的 pets 表和 storage bucket 是否已创建。',
     unknown: '出了点问题。请重试，或切换到演示模式。',
     bailianQuotaExhausted:

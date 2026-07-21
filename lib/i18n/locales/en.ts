@@ -79,6 +79,7 @@ export const en = {
     openaiNotConfigured: 'Image generation API key is missing. Add BAILIAN_API_KEY or OPENAI_API_KEY to .env.local.',
     noFile: 'No image file was selected.',
     quotaExceeded: 'You have used all your generations for this plan. Please upgrade to continue.',
+    sessionExpired: 'Your session has expired. Please sign in again and retry.',
     dbError: 'Database error. Check that the Supabase pets table and storage bucket exist.',
     unknown: 'Something went wrong. Try again or switch to the demo.',
     bailianQuotaExhausted:

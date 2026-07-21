@@ -100,8 +100,9 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    const supabase = getSupabaseClient()
+
     const checkAuth = async () => {
-      const supabase = getSupabaseClient()
       const { data: { session } } = await supabase.auth.getSession()
       setUser(session?.user ?? null)
       tokenRef.current = session?.access_token ?? null
@@ -113,6 +114,15 @@ export default function Home() {
       }
     }
     checkAuth()
+
+    // Keep the token ref fresh when the user signs in/out or the session is
+    // refreshed by Supabase (e.g. after the 1-hour access_token expires).
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+      tokenRef.current = session?.access_token ?? null
+    })
+
+    return () => subscription.unsubscribe()
   }, [])
 
   useEffect(() => {
@@ -126,6 +136,21 @@ export default function Home() {
       router.push('/signup')
       return
     }
+
+    // Always use a live token: the cached ref may hold an expired access_token.
+    // getSession() will auto-refresh if a refresh_token is available.
+    const supabase = getSupabaseClient()
+    const { data: { session } } = await supabase.auth.getSession()
+    const liveToken = session?.access_token ?? null
+    tokenRef.current = liveToken
+
+    if (!liveToken) {
+      // Session could not be refreshed (e.g. user signed out elsewhere).
+      setUser(null)
+      router.push('/signup')
+      return
+    }
+
     if (usageRemaining !== null && usageRemaining <= 0) {
       const msg = 'You have used all your free generations. Please upgrade for more.'
       setTask({ taskId: '', status: 'failed', progress: 0, baseImageUrl: null, spritesheetUrl: null, zipUrl: null, petJson: null, error: msg, errorCode: 'LIMIT_REACHED' })
@@ -486,6 +511,9 @@ function localizeError(
   t: (key: string, params?: Record<string, string | number>) => string
 ): string {
   switch (code) {
+    case 'NOT_AUTHENTICATED':
+    case 'Not authenticated':
+      return t('error.sessionExpired')
     case 'QUOTA_EXCEEDED':
       return t('error.quotaExceeded')
     case 'MISSING_BACKEND_CONFIG':

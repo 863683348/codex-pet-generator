@@ -24,5 +24,8 @@ export async function getAuthenticatedUser(
 }
 
 export function unauthorized(): NextResponse {
-  return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+  return NextResponse.json(
+    { error: 'NOT_AUTHENTICATED', message: 'Not authenticated' },
+    { status: 401 }
+  )
 }
