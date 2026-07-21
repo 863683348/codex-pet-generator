@@ -27,7 +27,7 @@ const base =
 const clientId = env.PAYPAL_CLIENT_ID
 const secret = env.PAYPAL_CLIENT_SECRET
 const webhookUrl =
-  process.argv[2] || env.PAYPAL_WEBHOOK_URL || 'https://codex-pet-generator.vercel.app/api/paypal/webhook'
+  process.argv[2] || env.PAYPAL_WEBHOOK_URL || 'https://codexpetgenerator.com/api/paypal/webhook'
 
 if (!clientId || !secret) {
   console.error('Missing PAYPAL_CLIENT_ID / PAYPAL_CLIENT_SECRET')

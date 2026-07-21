@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 // The canonical production URL is injected via NEXT_PUBLIC_SITE_URL (set in Vercel /
 // .env.local). Falls back to a sane default so local builds still produce valid tags.
 const rawSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://codex-pet-generator.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://codexpetgenerator.com'
 
 export const SITE_URL = rawSiteUrl.replace(/\/+$/, '')
 

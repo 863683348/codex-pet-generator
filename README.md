@@ -75,7 +75,7 @@ BAILIAN_API_KEY=sk-xxx
 BAILIAN_IMAGE_MODEL=qwen-image-2.0
 BAILIAN_BASE_URL=https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 IMAGE_PROVIDER=bailian
-NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
+NEXT_PUBLIC_APP_URL=https://codexpetgenerator.com
 NEXT_PUBLIC_POSTHOG_KEY=
 NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 CREEM_API_KEY=creem_test_xxx
@@ -86,13 +86,13 @@ CREEM_WEBHOOK_SECRET=whsec_xxx
 
 Notes:
 - `IMAGE_PROVIDER=bailian` activates the Qwen-Image path (set to `openai` to use OpenAI instead).
-- `NEXT_PUBLIC_APP_URL` must be your real Vercel domain — it's used for Creem success/cancel redirects and Supabase auth callbacks. Update it after you get the domain, then redeploy.
+- `NEXT_PUBLIC_APP_URL` must be your real production domain (https://codexpetgenerator.com) — it's used for Creem success/cancel redirects and Supabase auth callbacks. Set it, then redeploy.
 - `OPENAI_API_KEY` can stay empty when using Bailian.
 
 ### 3. Redeploy & Verify
 
 1. Save the variables, then **Redeploy** (from the Deployments tab or push a commit).
-2. Once live, open the `.vercel.app` domain and walk the flow: upload → generate base → approve → wait for frames → download ZIP.
+2. Once live, open the production domain (https://codexpetgenerator.com) and walk the flow: upload → generate base → approve → wait for frames → download ZIP.
 
 ### ⚠️ Hobby plan timeout
 
