@@ -43,7 +43,7 @@ export default function UserButton() {
           {user.user_metadata?.avatar_url ? (
             <img
               src={user.user_metadata.avatar_url}
-              alt=""
+              alt="User avatar"
               className="h-7 w-7 rounded-full"
             />
           ) : (

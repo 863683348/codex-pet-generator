@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/lib/theme/ThemeProvider'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.fullName} — Turn a Photo Into a Pixel-Art Coding Companion`,
+    default: `${SITE.fullName} — Turn Photos to Pixel Pets`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE.url + '/',
     siteName: SITE.fullName,
-    title: `${SITE.fullName} — Turn a Photo Into a Pixel-Art Coding Companion`,
+    title: `${SITE.fullName} — Turn Photos to Pixel Pets`,
     description: SITE.description,
     locale: SITE.locale,
     images: [
