@@ -101,6 +101,7 @@ export default function Home() {
 
   useEffect(() => {
     const supabase = getSupabaseClient()
+    if (!supabase) return
 
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession()
@@ -140,6 +141,14 @@ export default function Home() {
     // Always use a live token: the cached ref may hold an expired access_token.
     // getSession() will auto-refresh if a refresh_token is available.
     const supabase = getSupabaseClient()
+    if (!supabase) {
+      setTask({
+        taskId: '', status: 'failed', progress: 0, baseImageUrl: null, spritesheetUrl: null, zipUrl: null, petJson: null,
+        error: 'Supabase client not available in this environment',
+        errorCode: 'INTERNAL',
+      })
+      return
+    }
     const { data: { session } } = await supabase.auth.getSession()
     const liveToken = session?.access_token ?? null
     tokenRef.current = liveToken
