@@ -1,12 +1,12 @@
-import OpenAI from 'openai'
+﻿import OpenAI from 'openai'
 import { ANIMATION_STATES } from '@/types/pet'
 
 // ---------------------------------------------------------------------------
 // Image generation provider abstraction.
 //
 // Two providers are supported:
-//  - "bailian" : Alibaba Cloud Model Studio (百炼) Qwen-Image, via the
-//                "千问-图像编辑" synchronous multimodal endpoint.
+//  - "bailian" : Alibaba Cloud Model Studio (鐧剧偧) Qwen-Image, via the
+//                "鍗冮棶-鍥惧儚缂栬緫" synchronous multimodal endpoint.
 //                Default when BAILIAN_API_KEY is present.
 //  - "openai"  : OpenAI gpt-image-1 images.edit (img2img). Fallback.
 //
@@ -93,7 +93,7 @@ async function bailianEdit(source: Buffer, prompt: string): Promise<Buffer> {
         {
           role: 'user',
           content: [
-            { image: `data:image/png;base64,${source.toString('base64')}` },
+            { image: `${source.toString('base64')}` },
             { text: prompt },
           ],
         },
@@ -202,3 +202,4 @@ export async function generateAnimationFrames(
 export function generateCharacterDescription(): string {
   return 'a cute pixel art character with consistent colors and proportions'
 }
+
