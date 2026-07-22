@@ -29,13 +29,6 @@
       "memory": 512,
       "maxDuration": 30
     }
-  },
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://codexpetgenerator.com/$1",
-      "permanent": true
-    }
-  ]
+  }
 }
 
