@@ -166,37 +166,47 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       console.error('Source upload error:', err)
     }
 
-    // Fire-and-forget: generate base image
-    ;(async () => {
-      try {
-        const baseBuffer = await generateBaseImage(fileBuffer)
-        const { path, url } = await uploadBaseImage(taskId, baseBuffer)
+    // Synchronous base generation: Vercel does not guarantee that a
+    // fire-and-forget task keeps running after the HTTP response is sent, so we
+    // await the base image before responding. The frontend still polls for the
+    // rare case where the request times out, but normally it returns as soon as
+    // the base is ready.
+    try {
+      const baseBuffer = await generateBaseImage(fileBuffer)
+      const { path, url } = await uploadBaseImage(taskId, baseBuffer)
 
-        await supabase
-          .from('pets')
-          .update({
-            base_image_path: path,
-            base_image_url: url,
-            status: 'awaiting_approval',
-          })
-          .eq('id', taskId)
-      } catch (err) {
-        console.error('Base generation error:', err)
-        await supabase
-          .from('pets')
-          .update({
-            status: 'failed',
-            error: err instanceof Error ? err.message : 'Unknown error during base generation',
-          })
-          .eq('id', taskId)
-      }
-    })()
+      await supabase
+        .from('pets')
+        .update({
+          base_image_path: path,
+          base_image_url: url,
+          status: 'awaiting_approval',
+        })
+        .eq('id', taskId)
 
-    return NextResponse.json({
-      taskId,
-      status: 'processing',
-      estimatedSeconds: 90,
-    })
+      return NextResponse.json({
+        taskId,
+        status: 'awaiting_approval',
+        estimatedSeconds: 90,
+      })
+    } catch (err) {
+      console.error('Base generation error:', err)
+      await supabase
+        .from('pets')
+        .update({
+          status: 'failed',
+          error: err instanceof Error ? err.message : 'Unknown error during base generation',
+        })
+        .eq('id', taskId)
+
+      return NextResponse.json(
+        {
+          error: 'INTERNAL',
+          message: err instanceof Error ? err.message : 'Base generation failed',
+        },
+        { status: 500 }
+      )
+    }
   } catch (err) {
     console.error('Generate API error:', err)
     return NextResponse.json(
