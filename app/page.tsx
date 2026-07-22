@@ -551,8 +551,16 @@ function localizeError(
       return t('error.noFile')
     case 'DB_ERROR':
       return t('error.dbError')
-    default:
+    default: {
+      // For unknown / INTERNAL codes, surface the actual backend message when
+      // it carries real information (API key errors, provider quota issues,
+      // network failures, etc.) instead of masking it with a generic
+      // "Something went wrong" line.
+      if (fallback && fallback !== 'Upload failed' && fallback !== t('error.generationFailed')) {
+        return fallback
+      }
       return t('error.unknown')
+    }
   }
 }
 
