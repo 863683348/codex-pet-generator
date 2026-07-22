@@ -1,4 +1,4 @@
-{
+﻿{
   "framework": "nextjs",
   "buildCommand": "next build",
   "installCommand": "npm install",
@@ -11,7 +11,7 @@
   "functions": {
     "app/api/pets/generate/route.ts": {
       "memory": 1024,
-      "maxDuration": 120
+      "maxDuration": 300
     },
     "app/api/pets/[taskId]/approve/route.ts": {
       "memory": 2048,
@@ -38,3 +38,4 @@
     }
   ]
 }
+
