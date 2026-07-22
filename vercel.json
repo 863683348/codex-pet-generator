@@ -32,7 +32,7 @@
   },
   "redirects": [
     {
-      "source": "https://www.codexpetgenerator.com/(.*)",
+      "source": "/(.*)",
       "destination": "https://codexpetgenerator.com/$1",
       "permanent": true
     }
