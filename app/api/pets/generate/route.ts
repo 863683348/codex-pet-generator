@@ -190,7 +190,14 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         estimatedSeconds: 90,
       })
     } catch (err) {
-      console.error('Base generation error:', err)
+      const provider = process.env.IMAGE_PROVIDER
+        ?? (process.env.BAILIAN_API_KEY ? 'bailian' : process.env.OPENAI_API_KEY ? 'openai' : 'unknown')
+      const baseMsg = err instanceof Error ? err.message : 'Base generation failed'
+      const causeMsg =
+        err instanceof Error && (err as Error & { cause?: unknown }).cause
+          ? JSON.stringify((err as Error & { cause?: unknown }).cause)
+          : ''
+      console.error('Base generation error (provider=' + provider + '):', err, 'cause:', causeMsg)
       await supabase
         .from('pets')
         .update({
@@ -202,7 +209,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json(
         {
           error: 'INTERNAL',
-          message: err instanceof Error ? err.message : 'Base generation failed',
+          message: 'Base image generation failed (' + provider + '): ' + baseMsg + (causeMsg ? ' [' + causeMsg + ']' : ''),
+          details: causeMsg || undefined,
         },
         { status: 500 }
       )
