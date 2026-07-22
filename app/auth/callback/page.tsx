@@ -1,9 +1,12 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
+
+// Prevent Vercel build-time prerendering
+export const dynamic = 'force-dynamic'
 
 export default function AuthCallback() {
   const router = useRouter()
@@ -11,6 +14,11 @@ export default function AuthCallback() {
 
   useEffect(() => {
     const supabase = getSupabaseClient()
+    if (!supabase) {
+      setStatus('Auth service unavailable. Redirecting...')
+      setTimeout(() => router.replace('/signin'), 1500)
+      return
+    }
     const params = new URLSearchParams(window.location.search)
     const code = params.get('code')
     const oauthError = params.get('error')
