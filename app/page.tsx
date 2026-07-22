@@ -152,8 +152,7 @@ export default function Home() {
     }
 
     if (usageRemaining !== null && usageRemaining <= 0) {
-      const msg = 'You have used all your free generations. Please upgrade for more.'
-      setTask({ taskId: '', status: 'failed', progress: 0, baseImageUrl: null, spritesheetUrl: null, zipUrl: null, petJson: null, error: msg, errorCode: 'LIMIT_REACHED' })
+      setTask({ taskId: '', status: 'failed', progress: 0, baseImageUrl: null, spritesheetUrl: null, zipUrl: null, petJson: null, error: t('error.quotaExceeded'), errorCode: 'LIMIT_REACHED' })
       return
     }
     setIsUploading(true)
