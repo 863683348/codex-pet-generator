@@ -162,11 +162,22 @@ export default function Home() {
       const formData = new FormData()
       formData.append('image', file)
 
-      const res = await fetch('/api/pets/generate', {
-        method: 'POST',
-        body: formData,
-        headers: authHeaders(),
-      })
+      // Bounded wait: if the serverless function hangs (e.g. Vercel plan
+      // timeout, slow AI provider), abort after 90s so the user gets a clear
+      // error instead of staring at "Generating base" forever.
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 90_000)
+      let res: Response
+      try {
+        res = await fetch('/api/pets/generate', {
+          method: 'POST',
+          body: formData,
+          headers: authHeaders(),
+          signal: controller.signal,
+        })
+      } finally {
+        clearTimeout(timeoutId)
+      }
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}))
@@ -178,9 +189,15 @@ export default function Home() {
       }
 
       const data = await res.json()
+      // Use the status the backend actually returned. With the synchronous base
+      // generation in place, the API can return 'awaiting_approval' directly,
+      // and we should jump straight to the base preview without waiting for
+      // the first poll to catch up.
+      const initialStatus: 'processing' | 'awaiting_approval' =
+        data.status === 'awaiting_approval' ? 'awaiting_approval' : 'processing'
       setTask({
         taskId: data.taskId,
-        status: 'processing',
+        status: initialStatus,
         progress: 15,
         baseImageUrl: null,
         spritesheetUrl: null,
