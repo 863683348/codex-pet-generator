@@ -195,7 +195,11 @@ async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffe
       },
     ],
     output_format: 'png',
-    resolution: '1K',
+    // Seedream 4.5 requires the output image to be at least ~3.69 MP
+    // (≈ 1920×1920). 1K (1024×1024 = 1.05 MP) triggers a 400, so default
+    // to 2K. Override via OPENROUTER_RESOLUTION if a model needs a
+    // different value.
+    resolution: process.env.OPENROUTER_RESOLUTION || '2K',
     aspect_ratio: '1:1',
   }
   // Only send background when the model actually supports it, otherwise the
