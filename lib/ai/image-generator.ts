@@ -181,13 +181,19 @@ async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffe
   const key = process.env.OPENROUTER_API_KEY
   if (!key) throw new Error('Missing OPENROUTER_API_KEY')
 
-  // OpenRouter Image API accepts references as base64 data URLs or HTTP(S) URLs.
+  // OpenRouter Image API: input_references is an array of { type, image_url } objects
+  // (same shape as OpenAI chat-completion image content), NOT bare strings.
   const dataUrl = `data:image/png;base64,${source.toString('base64')}`
 
   const body: Record<string, unknown> = {
     model: OPENROUTER_MODEL,
     prompt,
-    input_references: [dataUrl],
+    input_references: [
+      {
+        type: 'image_url',
+        image_url: { url: dataUrl },
+      },
+    ],
     output_format: 'png',
     resolution: '1K',
     aspect_ratio: '1:1',
