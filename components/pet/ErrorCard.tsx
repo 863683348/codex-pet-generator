@@ -2,9 +2,7 @@
 
 import { AlertTriangle, RefreshCw, Play, ArrowUpRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import { useI18n } from '@/lib/i18n'
-import { getSupabaseClient } from '@/lib/supabase/client'
 
 interface ErrorCardProps {
   message: string
@@ -26,45 +24,10 @@ export default function ErrorCard({
 }: ErrorCardProps) {
   const { t } = useI18n()
   const router = useRouter()
-  const [upgrading, setUpgrading] = useState(false)
-  const [upgradeError, setUpgradeError] = useState('')
   const showUpgrade = code ? UPGRADE_CODES.has(code) : false
 
-  const handleUpgrade = async () => {
-    setUpgradeError('')
-    const supabase = getSupabaseClient()
-    const { data: { session } } = await supabase.auth.getSession()
-    if (!session?.access_token) {
-      // Not signed in — bounce to auth so the user can sign up / log in
-      // before paying.
-      router.push('/auth?next=' + encodeURIComponent(window.location.pathname))
-      return
-    }
-    setUpgrading(true)
-    try {
-      const res = await fetch('/api/paypal/order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
-        },
-        body: JSON.stringify({ plan: 'pro' }),
-      })
-      if (!res.ok) {
-        const text = await res.text().catch(() => '')
-        throw new Error(text || `PayPal order failed (${res.status})`)
-      }
-      const data = (await res.json()) as { orderID?: string; approvalUrl?: string | null }
-      if (!data.approvalUrl) {
-        throw new Error('PayPal did not return an approval URL')
-      }
-      // Hard redirect to the PayPal hosted checkout. The user lands back on
-      // /payment/success?provider=paypal&plan=pro after approving.
-      window.location.href = data.approvalUrl
-    } catch (err) {
-      setUpgradeError(err instanceof Error ? err.message : 'Failed to start checkout')
-      setUpgrading(false)
-    }
+  const handleUpgrade = () => {
+    router.push('/pricing')
   }
 
   // Surface a short, human-friendly code label instead of raw machine codes.
@@ -93,15 +56,11 @@ export default function ErrorCard({
             {showUpgrade && (
               <button
                 onClick={handleUpgrade}
-                disabled={upgrading}
-                className="flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent/90 active:scale-[0.98]"
               >
                 <ArrowUpRight className="h-4 w-4" />
-                {upgrading ? 'Opening checkout…' : t('error.upgrade')}
+                {t('error.upgrade')}
               </button>
-            )}
-            {upgradeError && (
-              <span className="font-mono text-[10px] text-danger/80">{upgradeError}</span>
             )}
             {onRetry && (
               <button
