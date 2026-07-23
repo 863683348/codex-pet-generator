@@ -83,8 +83,7 @@ export async function POST(
       .update({ status: 'generating_animation', base_approved: true })
       .eq('id', taskId)
 
-    // Fire-and-forget: generate animation
-    ;(async () => {
+    // Synchronous animation generation (no fire-and-forget — Vercel kills it).
       try {
         const characterDesc = generateCharacterDescription()
 
@@ -132,9 +131,7 @@ export async function POST(
           })
           .eq('id', taskId)
       }
-    })()
-
-    return NextResponse.json({ taskId, status: 'generating_animation' })
+      return NextResponse.json({ taskId, status: 'completed' })
   } catch (err) {
     console.error('Approve API error:', err)
     return NextResponse.json(

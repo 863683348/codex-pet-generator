@@ -20,19 +20,41 @@ const BAILIAN_BASE_URL =
   'https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation'
 const BAILIAN_MODEL = process.env.BAILIAN_IMAGE_MODEL || 'qwen-image-2.0'
 
-type Provider = 'openai' | 'bailian'
+// ---------------------------------------------------------------------------
+// OpenRouter provider (unified Image API).
+//
+// Why: Vercel serverless cannot reach mainland-China endpoints (Bailian /
+// Volcano Engine time out with UND_ERR_CONNECT_TIMEOUT), and OpenAI direct
+// access is region-blocked for some billing addresses. OpenRouter hosts the
+// same ByteDance Seedream model on overseas edge nodes, reachable from Vercel,
+// and Seedream is NOT on the OpenAI/Anthropic/Google region-block list.
+// ---------------------------------------------------------------------------
+const OPENROUTER_MODEL = process.env.OPENROUTER_IMAGE_MODEL || 'bytedance-seed/seedream-4.5'
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/images'
+// Models that accept the `background: transparent` parameter on OpenRouter.
+const OPENROUTER_TRANSPARENT_MODELS = new Set<string>([
+  'sourceful/riverflow-v2.5-pro',
+  'sourceful/riverflow-v2.5-fast',
+  'openai/gpt-image-1',
+  'openai/gpt-image-1-mini',
+])
+
+type Provider = 'openai' | 'bailian' | 'openrouter'
 
 /** True when at least one image-generation provider has a key configured. */
 export function hasImageGenConfig(): boolean {
-  return Boolean(process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY)
+  return Boolean(
+    process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY
+  )
 }
 
 function resolveProvider(): Provider {
   const forced = process.env.IMAGE_PROVIDER
-  if (forced === 'openai' || forced === 'bailian') return forced
+  if (forced === 'openai' || forced === 'bailian' || forced === 'openrouter') return forced
   if (process.env.BAILIAN_API_KEY) return 'bailian'
   if (process.env.OPENAI_API_KEY) return 'openai'
-  throw new Error('No image generation provider configured (set BAILIAN_API_KEY or OPENAI_API_KEY)')
+  if (process.env.OPENROUTER_API_KEY) return 'openrouter'
+  throw new Error('No image generation provider configured (set BAILIAN_API_KEY, OPENAI_API_KEY, or OPENROUTER_API_KEY)')
 }
 
 // ----------------------------- OpenAI provider -----------------------------
@@ -153,12 +175,62 @@ async function bailianPollTask(taskId: string): Promise<Buffer> {
   throw new Error('Bailian task timed out after polling')
 }
 
+// ----------------------------- OpenRouter provider -------------------------
+
+async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffer> {
+  const key = process.env.OPENROUTER_API_KEY
+  if (!key) throw new Error('Missing OPENROUTER_API_KEY')
+
+  // OpenRouter Image API accepts references as base64 data URLs or HTTP(S) URLs.
+  const dataUrl = `data:image/png;base64,${source.toString('base64')}`
+
+  const body: Record<string, unknown> = {
+    model: OPENROUTER_MODEL,
+    prompt,
+    input_references: [dataUrl],
+    output_format: 'png',
+    resolution: '1K',
+    aspect_ratio: '1:1',
+  }
+  // Only send background when the model actually supports it, otherwise the
+  // request is rejected with 400 by OpenRouter.
+  if (OPENROUTER_TRANSPARENT_MODELS.has(OPENROUTER_MODEL)) {
+    body.background = 'transparent'
+  }
+
+  const res = await fetch(OPENROUTER_URL, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+      'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'https://codexpetgenerator.com',
+      'X-Title': 'Codex Pet Generator',
+    },
+    body: JSON.stringify(body),
+  })
+
+  if (!res.ok) {
+    const txt = await res.text().catch(() => '')
+    throw new Error(`OpenRouter API ${res.status}: ${txt.slice(0, 600)}`)
+  }
+
+  const json = await res.json()
+  const item = json?.data?.[0]
+  if (item?.b64_json) return Buffer.from(item.b64_json, 'base64')
+  if (item?.url) {
+    const r = await fetch(item.url)
+    if (!r.ok) throw new Error(`OpenRouter result fetch failed: ${r.status}`)
+    return Buffer.from(await r.arrayBuffer())
+  }
+  throw new Error('OpenRouter returned no image: ' + JSON.stringify(json).slice(0, 600))
+}
+
 // ------------------------------- Public API --------------------------------
 
 export async function generateBaseImage(sourceImageBuffer: Buffer): Promise<Buffer> {
-  if (resolveProvider() === 'bailian') {
-    return bailianEdit(sourceImageBuffer, BASE_PROMPT)
-  }
+  const provider = resolveProvider()
+  if (provider === 'bailian') return bailianEdit(sourceImageBuffer, BASE_PROMPT)
+  if (provider === 'openrouter') return openrouterGenerate(sourceImageBuffer, BASE_PROMPT)
   return openaiGenerateBase(sourceImageBuffer)
 }
 
@@ -185,8 +257,11 @@ export async function generateAnimationFrames(
   const frames: Buffer[] = []
   for (const state of ANIMATION_STATES) {
     const prompt = statePrompts[state.key] || statePrompts.idle
-    if (resolveProvider() === 'bailian') {
+    const provider = resolveProvider()
+    if (provider === 'bailian') {
       frames.push(await bailianEdit(baseImageBuffer, prompt))
+    } else if (provider === 'openrouter') {
+      frames.push(await openrouterGenerate(baseImageBuffer, prompt))
     } else {
       frames.push(await openaiGenerateFrame(baseImageBuffer, prompt))
     }

@@ -31,7 +31,9 @@ function hasBackendConfig(): boolean {
 }
 
 function hasImageGenConfig(): boolean {
-  return Boolean(process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY)
+  return Boolean(
+    process.env.BAILIAN_API_KEY || process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY
+  )
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
