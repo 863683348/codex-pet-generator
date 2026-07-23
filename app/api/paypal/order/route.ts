@@ -80,7 +80,16 @@ export async function POST(req: NextRequest) {
       console.error('paypal_orders create write failed (non-fatal):', auditErr)
     }
 
-    return NextResponse.json({ orderID: order.id })
+    return NextResponse.json({
+      orderID: order.id,
+      // Surface the PayPal "approve" link so clients can either render the
+      // hosted checkout in-place (PayPalButtons) or do a hard redirect
+      // (e.g. when the user clicks "Upgrade" from an error card and the
+      // pricing section is not on screen).
+      approvalUrl:
+        order.links?.find((l: { rel?: string; href?: string }) => l.rel === 'approve')?.href ??
+        null,
+    })
   } catch (err) {
     console.error('PayPal order error:', err)
     return NextResponse.json({ error: String(err) }, { status: 500 })
