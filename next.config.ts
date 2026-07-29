@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next'
+﻿import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: '*.supabase.co' },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.codexpetgenerator.com' }],
+        destination: 'https://codexpetgenerator.com/:path*',
+        permanent: true,
+      },
+    ]
   },
 }
 
