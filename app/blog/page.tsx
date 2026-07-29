@@ -25,10 +25,22 @@ export default function BlogIndex() {
     })),
   }
 
+  function breadcrumbJsonLd() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE.url + '/blog' },
+      ],
+    }
+  }
+
   return (
     <>
       <Navbar />
       <JsonLd data={listJsonLd} />
+      <JsonLd data={breadcrumbJsonLd()} />
       <BlogIndexView posts={posts} />
       <Footer />
     </>

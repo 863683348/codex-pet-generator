@@ -55,10 +55,23 @@ export default async function BlogPostPage({
     keywords: post.keywords.join(', '),
   }
 
+  function breadcrumbJsonLd() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE.url + '/blog' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: SITE.url + '/blog/' + post.slug },
+      ],
+    }
+  }
+
   return (
     <>
       <Navbar />
       <JsonLd data={articleJsonLd} />
+      <JsonLd data={breadcrumbJsonLd()} />
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <article>
           <header>

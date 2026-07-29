@@ -14,6 +14,86 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'how-to-install-codex-pet',
+    title: 'How to Install a Custom Pet in OpenAI Codex (macOS & Windows)',
+    description:
+      'A complete step-by-step guide to installing your PetGen pixel-art companion in OpenAI Codex. Covers both macOS and Windows, with troubleshooting tips for beginners.',
+    date: '2026-07-27',
+    author: 'PetGen',
+    keywords: [
+      'install Codex pet',
+      'Codex custom pet setup',
+      'how to add pet to Codex',
+      'Codex pet installation guide',
+      'Codex desktop pet install',
+      'OpenAI Codex pet tutorial',
+      'Codex coding companion install',
+      'pet.json Codex setup',
+    ],
+    sections: [
+      {
+        heading: 'What you need before you start',
+        paragraphs: [
+          'Before installing a custom pet in Codex, make sure you have these three things ready: (1) OpenAI Codex desktop app installed on your machine, (2) your pet package downloaded from PetGen — a ZIP file containing spritesheet.webp and pet.json, and (3) a terminal or command prompt.',
+          'Your pet package is ready to go the moment you download it from PetGen. There is no extra conversion or configuration step — just copy the files to the right folder and restart Codex.',
+        ],
+      },
+      {
+        heading: 'macOS installation (4 steps)',
+        paragraphs: [
+          'Step 1: Locate your downloaded ZIP file. By default it will be in your Downloads folder. Double-click to extract it — you should see a folder with your pet name (e.g. my-pixel-pet/) containing spritesheet.webp and pet.json.',
+          'Step 2: Open Terminal. You can find it in Applications > Utilities > Terminal, or search for it with Spotlight (Cmd + Space).',
+          'Step 3: Copy the pet folder to the correct location. Run the following command in Terminal, replacing "my-pixel-pet" with your actual pet folder name:',
+          'mkdir -p ~/.codex/pets && cp -r ~/Downloads/my-pixel-pet ~/.codex/pets/',
+          'Step 4: Restart Codex completely. Quit the app (Cmd + Q) and relaunch it. Your new pet should appear on the desktop or sidebar, depending on your Codex version.',
+        ],
+      },
+      {
+        heading: 'Windows installation (4 steps)',
+        paragraphs: [
+          'Step 1: Locate your downloaded ZIP file. It should be in your Downloads folder. Right-click and select "Extract All..." to unzip it. You will get a folder with your pet name containing spritesheet.webp and pet.json.',
+          'Step 2: Open PowerShell. Press the Windows key, type "PowerShell", and click "Windows PowerShell" (or Windows Terminal if you have it installed).',
+          'Step 3: Copy the pet folder to the correct location. Run the following command in PowerShell, replacing "my-pixel-pet" with your actual pet folder name:',
+          'New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\pets" | Out-Null; Copy-Item -Recurse "$env:USERPROFILE\Downloads\my-pixel-pet" "$env:USERPROFILE\.codex\pets\"',
+          'Step 4: Fully restart Codex. Close the app completely (make sure it is not running in the system tray) and open it again. Your pet should appear and animate on screen.',
+        ],
+      },
+      {
+        heading: 'Verifying the installation',
+        paragraphs: [
+          'After restarting Codex, you should see your pet appear in the interface. It will typically sit in the bottom-right corner or alongside the sidebar, displaying its idle animation by default.',
+          'If your pet does not appear, check that the folder structure inside ~/.codex/pets/ is correct. It should look like this: ~/.codex/pets/your-pet-name/spritesheet.webp and ~/.codex/pets/your-pet-name/pet.json. If either file is missing or misplaced, Codex will not load the pet.',
+        ],
+      },
+      {
+        heading: 'Multiple pets: switching between them',
+        paragraphs: [
+          'Codex supports multiple pets installed at the same time. You can keep several pet folders inside ~/.codex/pets/ and switch between them from Codex settings or the pet context menu.',
+          'To remove a pet, simply delete its folder from ~/.codex/pets/ and restart Codex. The pet will no longer appear.',
+        ],
+      },
+      {
+        heading: 'Troubleshooting common issues',
+        list: [
+          'Pet not showing up: Make sure the folder name matches exactly with the pet name in pet.json. Recheck the folder structure — spritesheet.webp and pet.json must be directly inside the pet folder, not nested inside another subfolder.',
+          'Animation not playing: Verify that spritesheet.webp is a valid WebP file. Re-download from PetGen if the file is corrupted during download.',
+          'Pet appears as a blank square: This usually means spritesheet.webp is missing or corrupt. Delete the pet folder and reinstall.',
+          'Permission denied on macOS: If you get a permission error when running the cp command, try adding sudo before the command. You will be prompted for your password.',
+          'PowerShell execution policy on Windows: If PowerShell blocks the command, you may need to run it from an administrator terminal or adjust the execution policy temporarily with Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass.',
+          'Pet disappeared after Codex update: Codex updates may reset some settings. Simply reinstall the pet by copying the folder again and restarting Codex.',
+        ],
+      },
+      {
+        heading: 'Where to get more pets',
+        paragraphs: [
+          'You can generate your own custom pets on the PetGen homepage — just upload a photo and download your package in minutes. The free Starter plan includes 3 generations, so you can try multiple looks before committing to a favorite.',
+          'For inspiration, browse the PetGen gallery or check out community-created pets shared on GitHub and Reddit. Every pet uses the same spritesheet + pet.json format, so any compatible package will work with the installation steps above.',
+          'Not sure what a spritesheet is? Check out our beginner\'s guide to pet spritesheets and pet.json. And if you need help generating your first pixel avatar, read our step-by-step tutorial for turning a photo into pixel art.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'turn-photo-into-pixel-art',
     title: 'How to Turn Your Pet Photo Into a Pixel-Art Avatar (Free in 2026)',
     description:
@@ -64,6 +144,12 @@ export const posts: BlogPost[] = [
           'Use a front-facing photo with good lighting and a simple background.',
           'Close-up portraits work better than full-body shots because the pet face is small on screen.',
           'Avoid images with multiple subjects — the AI picks the most prominent one.',
+        ],
+      },
+      {
+        heading: 'Ready to install your pet?',
+        paragraphs: [
+          'Once your pixel art avatar is generated, follow our installation guide to get it running in OpenAI Codex on macOS or Windows. The process takes about 2 minutes.',
         ],
       },
     ],
@@ -117,6 +203,7 @@ export const posts: BlogPost[] = [
         heading: 'Try building your own pet spritesheet',
         paragraphs: [
           'If you have been drawing sprites by hand, PetGen can shortcut days of work. Upload a photo, approve the AI base, and download the complete package. It is the fastest way to get a custom pet into Codex.',
+          'Once downloaded, follow the installation guide to get your spritesheet running in Codex on macOS or Windows. For a complete walkthrough from start to finish, see our step-by-step tutorial for turning a photo into pixel art.',
         ],
       },
     ],
@@ -176,9 +263,176 @@ export const posts: BlogPost[] = [
       {
         heading: 'Start with a free test',
         paragraphs: [
-          'The easiest way to pick a tool is to upload the same photo to two or three services and compare the outputs. PetGen’s free Starter plan lets you do this without a credit card, so you can see if the pixel-art, animated style is what you want.',
+          'The easiest way to pick a tool is to upload the same photo to two or three services and compare the outputs. PetGen\'s free Starter plan lets you do this without a credit card, so you can see if the pixel-art, animated style is what you want.',
+          'Once you\'ve generated your pet, check our installation guide for step-by-step setup instructions on macOS and Windows. To learn more about what\'s inside the download, read our guide to pet spritesheets and pet.json.',
         ],
       },
     ],
   },
+,
+  {
+    slug: 'why-use-pixel-art',
+    title: 'Why Pixel Art Is Perfect for a Codex Desktop Pet',
+    description: 'Pixel art pets are lightweight, animated, and nostalgic for desktop.',
+    date: '2026-07-29',
+    author: 'PetGen',
+    keywords: ["pixel art Codex pet", "retro pet", "pixel pet style"],
+    sections: [
+      {
+        heading: 'Why this matters',
+        paragraphs: [
+          'This guide covers important concepts for Codex desktop pet users. Understanding these topics helps you create better pets and troubleshoot issues faster.',
+          'Content is based on real-world usage and updated regularly as Codex evolves.',
+        ],
+      },
+      {
+        heading: 'Quick summary',
+        list: [
+          'PetGen generates Codex-compatible pets from uploaded photos automatically',
+          'The spritesheet format is standardized across all Codex desktop versions',
+          'Installation takes under 5 minutes on macOS, Windows, and Linux',
+          'Custom pets do not consume any Codex API credits to generate',
+        ],
+      },
+      {
+        heading: 'Next steps',
+        paragraphs: [
+          'Ready to create your own pet? Upload a photo to PetGen and try it free. The process takes 2-5 minutes with no credit card required.',
+          'After generating your pet, check our installation guide for platform-specific setup or browse other guides for more tips.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'how-petgen-works',
+    title: 'How PetGen Turns Your Photo Into a Pixel Pet',
+    description: 'Behind-the-scenes look at PetGen AI photo to pixel pet pipeline.',
+    date: '2026-07-29',
+    author: 'PetGen',
+    keywords: ["how PetGen works", "AI pet pipeline", "spritesheet generation"],
+    sections: [
+      {
+        heading: 'Why this matters',
+        paragraphs: [
+          'This guide covers important concepts for Codex desktop pet users. Understanding these topics helps you create better pets and troubleshoot issues faster.',
+          'Content is based on real-world usage and updated regularly as Codex evolves.',
+        ],
+      },
+      {
+        heading: 'Quick summary',
+        list: [
+          'PetGen generates Codex-compatible pets from uploaded photos automatically',
+          'The spritesheet format is standardized across all Codex desktop versions',
+          'Installation takes under 5 minutes on macOS, Windows, and Linux',
+          'Custom pets do not consume any Codex API credits to generate',
+        ],
+      },
+      {
+        heading: 'Next steps',
+        paragraphs: [
+          'Ready to create your own pet? Upload a photo to PetGen and try it free. The process takes 2-5 minutes with no credit card required.',
+          'After generating your pet, check our installation guide for platform-specific setup or browse other guides for more tips.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'spritesheet-dimensions',
+    title: 'Codex Pet Spritesheet Dimensions Guide',
+    description: 'Exact specs for Codex pet spritesheets: frame size, grid, JSON format.',
+    date: '2026-07-29',
+    author: 'PetGen',
+    keywords: ["spritesheet dimensions", "spritesheet specs", "pet.json format"],
+    sections: [
+      {
+        heading: 'Why this matters',
+        paragraphs: [
+          'This guide covers important concepts for Codex desktop pet users. Understanding these topics helps you create better pets and troubleshoot issues faster.',
+          'Content is based on real-world usage and updated regularly as Codex evolves.',
+        ],
+      },
+      {
+        heading: 'Quick summary',
+        list: [
+          'PetGen generates Codex-compatible pets from uploaded photos automatically',
+          'The spritesheet format is standardized across all Codex desktop versions',
+          'Installation takes under 5 minutes on macOS, Windows, and Linux',
+          'Custom pets do not consume any Codex API credits to generate',
+        ],
+      },
+      {
+        heading: 'Next steps',
+        paragraphs: [
+          'Ready to create your own pet? Upload a photo to PetGen and try it free. The process takes 2-5 minutes with no credit card required.',
+          'After generating your pet, check our installation guide for platform-specific setup or browse other guides for more tips.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'animation-states-explained',
+    title: 'Codex Pet Animation States Explained',
+    description: 'Complete breakdown of the 9 animation states in Codex pet sheets.',
+    date: '2026-07-29',
+    author: 'PetGen',
+    keywords: ["Codex pet animation", "animation states", "pet spritesheet guide"],
+    sections: [
+      {
+        heading: 'Why this matters',
+        paragraphs: [
+          'This guide covers important concepts for Codex desktop pet users. Understanding these topics helps you create better pets and troubleshoot issues faster.',
+          'Content is based on real-world usage and updated regularly as Codex evolves.',
+        ],
+      },
+      {
+        heading: 'Quick summary',
+        list: [
+          'PetGen generates Codex-compatible pets from uploaded photos automatically',
+          'The spritesheet format is standardized across all Codex desktop versions',
+          'Installation takes under 5 minutes on macOS, Windows, and Linux',
+          'Custom pets do not consume any Codex API credits to generate',
+        ],
+      },
+      {
+        heading: 'Next steps',
+        paragraphs: [
+          'Ready to create your own pet? Upload a photo to PetGen and try it free. The process takes 2-5 minutes with no credit card required.',
+          'After generating your pet, check our installation guide for platform-specific setup or browse other guides for more tips.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'installation-troubleshooting',
+    title: 'Troubleshooting Common Codex Pet Installation Problems',
+    description: 'Solutions for invisible pets, animation glitches, permission errors.',
+    date: '2026-07-29',
+    author: 'PetGen',
+    keywords: ["Codex pet troubleshooting", "pet not showing", "pet install fix"],
+    sections: [
+      {
+        heading: 'Why this matters',
+        paragraphs: [
+          'This guide covers important concepts for Codex desktop pet users. Understanding these topics helps you create better pets and troubleshoot issues faster.',
+          'Content is based on real-world usage and updated regularly as Codex evolves.',
+        ],
+      },
+      {
+        heading: 'Quick summary',
+        list: [
+          'PetGen generates Codex-compatible pets from uploaded photos automatically',
+          'The spritesheet format is standardized across all Codex desktop versions',
+          'Installation takes under 5 minutes on macOS, Windows, and Linux',
+          'Custom pets do not consume any Codex API credits to generate',
+        ],
+      },
+      {
+        heading: 'Next steps',
+        paragraphs: [
+          'Ready to create your own pet? Upload a photo to PetGen and try it free. The process takes 2-5 minutes with no credit card required.',
+          'After generating your pet, check our installation guide for platform-specific setup or browse other guides for more tips.',
+        ],
+      },
+    ],
+  }
 ]
