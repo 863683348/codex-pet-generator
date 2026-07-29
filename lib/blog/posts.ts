@@ -269,7 +269,6 @@ export const posts: BlogPost[] = [
       },
     ],
   },
-,
   {
     slug: 'why-use-pixel-art',
     title: 'Why Pixel Art Is Perfect for a Codex Desktop Pet',
