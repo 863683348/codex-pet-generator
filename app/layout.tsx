@@ -3,7 +3,9 @@ import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
 import { SITE } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { ThemeProvider } from '@/lib/theme/ThemeProvider'
+import CookieConsent from '@/components/layout/CookieConsent'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -87,6 +89,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT
   // 仅在生产环境加载 GA：避免 localhost 开发与 Vercel preview 污染真实数据
   const isProd = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview'
   return (
@@ -99,6 +102,9 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="zh-CN" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="x-default" href={SITE.url + '/'} />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
           rel="stylesheet"
@@ -118,13 +124,22 @@ export default function RootLayout({
             />
           </>
         )}
+        {ADSENSE_CLIENT && isProd && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="min-h-screen bg-bg-base text-text-primary grid-bg">
         <JsonLd data={orgJsonLd} />
         <JsonLd data={siteJsonLd} />
+        <BreadcrumbSchema />
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
+        <CookieConsent />
       </body>
     </html>
   )
