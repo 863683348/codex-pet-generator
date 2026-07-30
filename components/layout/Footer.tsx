@@ -9,10 +9,10 @@ export default function Footer() {
   const { t } = useI18n()
   return (
     <footer className="border-t border-border py-8">
-      {/* 站点级广告位：审核通过后，将下方 slot 占位值替换为 AdSense 后台创建的广告单元 ID */}
+      {/* 站点级广告位：AdSense 后台创建的广告单元 slot ID */}
       <div className="mx-auto mb-6 max-w-5xl px-4 sm:px-6">
         <AdUnit
-          slot="REPLACE_WITH_AD_SLOT_ID"
+          slot="3729808665"
           format="auto"
           className="overflow-hidden rounded-lg border border-border bg-bg-surface/50"
           minHeight={90}
