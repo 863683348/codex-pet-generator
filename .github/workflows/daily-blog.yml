@@ -1,0 +1,46 @@
+name: Daily Blog Generation
+
+on:
+  schedule:
+    # Run at 10:00 AM Asia/Shanghai (02:00 UTC) daily
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  generate-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            codex-pet-generator
+            .github
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./codex-pet-generator
+        run: npm ci
+
+      - name: Generate blog posts
+        working-directory: ./codex-pet-generator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          POST_COUNT: '5'
+        run: node scripts/generate-blog.mjs GEN_MODE=write
+
+      - name: Commit and push
+        run: |
+          git config user.name "PetGen Bot"
+          git config user.email "bot@codexpetgenerator.com"
+          git add codex-pet-generator/lib/blog/posts.ts
+          git commit -m "blog: auto-generate posts ($(date +%Y-%m-%d))" || echo "No changes to commit"
+          git push
