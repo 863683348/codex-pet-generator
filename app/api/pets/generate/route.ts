@@ -101,14 +101,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const { data: usageRow } = await supabase
       .from('user_usage')
-      .select('plan, generations')
+      .select('plan, generations, bonus_generations')
       .eq('user_id', user.id)
       .maybeSingle()
 
     const plan = usageRow?.plan || 'free'
     const genCount = usageRow?.generations || 0
+    const bonus = usageRow?.bonus_generations || 0
     const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : 3
-    if (genCount >= maxGen) {
+    const effectiveMax = maxGen + bonus
+    if (genCount >= effectiveMax) {
       return NextResponse.json(
         {
           error: 'QUOTA_EXCEEDED',
@@ -130,6 +132,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         status: 'processing',
         style: 'pixel',
         email: user.email ?? email ?? null,
+        user_id: user.id,
       })
       .select()
       .single()

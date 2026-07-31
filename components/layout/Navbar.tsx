@@ -6,6 +6,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
 import { useI18n } from '@/lib/i18n'
 import UserButton from '@/components/auth/UserButton'
+import PointsBadge from './PointsBadge'
 
 export default function Navbar() {
   const { t } = useI18n()
@@ -26,6 +27,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
           <ThemeToggle />
+          <PointsBadge />
           <UserButton />
           <Link
             href="/blog"

@@ -6,6 +6,7 @@ import ProgressRing from '@/components/ui/ProgressRing'
 import BasePreview from './BasePreview'
 import AnimationStatesGrid from './AnimationStatesGrid'
 import DownloadButton from './DownloadButton'
+import SharePanel from './SharePanel'
 import CodeBlock from '@/components/ui/CodeBlock'
 import ErrorCard from './ErrorCard'
 import { PetTask } from '@/types/pet'
@@ -163,6 +164,10 @@ export default function GenerationWorkspace({
             )}
           </div>
         </div>
+
+        {!demo && task.spritesheetUrl && (
+          <SharePanel petId={task.taskId} isDemo={demo} />
+        )}
 
         <div className="glass-card rounded-lg p-6">
           <h3 className="mb-4 font-pixel text-xs text-text-primary">{t('workspace.petJsonTitle')}</h3>

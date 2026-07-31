@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : 3
     const remaining = Math.max(0, maxGen - genCount)
 
-    return NextResponse.json({ remaining, plan, usage: genCount })
+    return NextResponse.json({ remaining, plan, usage: genCount, points: usage?.points ?? 0, bonus: usage?.bonus_generations ?? 0 })
   } catch (err) {
     console.error('Usage API error:', err)
     return NextResponse.json({ remaining: 3, plan: 'free', usage: 0 })

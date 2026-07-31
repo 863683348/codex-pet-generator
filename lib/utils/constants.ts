@@ -9,6 +9,10 @@ export const STORAGE_PATHS = {
 
 export const POLL_INTERVAL = 3000 // 3s
 
+// Share & points economy
+export const POINTS_PER_SHARE = 10 // points awarded per unique pet share
+export const REDEEM_COST = 100 // points required to redeem 1 bonus generation
+
 export const PET_NAME_ADJECTIVES = [
   'blue', 'red', 'green', 'purple', 'golden', 'silver', 'crystal', 'shadow',
   'frost', 'ember', 'storm', 'lunar', 'solar', 'neon', 'cyber', 'mint',
