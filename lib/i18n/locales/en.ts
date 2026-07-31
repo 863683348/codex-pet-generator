@@ -159,6 +159,11 @@ export const en = {
     q8: 'Can I cancel my subscription?', a8: 'You can cancel anytime. Your access continues until the end of the billing period.',
     q9: 'What happens to my uploaded images?', a9: 'Uploaded images are processed by our AI and deleted after generation. They are not stored or used for any other purpose.',
     q10: 'Is there a free plan?', a10: 'Yes. The Starter plan is free and includes 3 pet generations with standard quality.'},
+  trust: {
+    title: 'Trusted by developers worldwide',
+    users: '5,000+ pets generated',
+    github: 'Open source on GitHub',
+    codex: 'Compatible with OpenAI Codex'},
   contact: {
     title: 'Contact Us',
     desc: 'Have a question, suggestion, or need help? We would love to hear from you.',
@@ -223,6 +228,15 @@ export const en = {
     haveAccount: 'Already have an account?',
     noAccount: "Don't have an account?",
     accountCreated: 'Account created! Check your email to confirm your address.',
+    temporarilyDisabled: 'Sign-up is temporarily unavailable.',
+  },
+  gallery: {
+    title: 'Community Gallery',
+    desc: 'Pixel pets shared by the community. Click any one to view it full-size and create your own.',
+    emptyTitle: 'No pets shared yet',
+    emptyDesc: 'Be the first to generate and share a pixel pet.',
+    createCta: 'Create a pet',
+    untitled: 'Untitled Pet',
   },
   blog: {
     indexTitle: 'PetGen Blog',

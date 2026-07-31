@@ -36,7 +36,16 @@ export default function PointsBadge() {
     load()
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => load())
-    return () => subscription.unsubscribe()
+
+    // Refresh the balance when another surface (e.g. the My Pets gallery) awards
+    // points via a share, so the navbar badge stays in sync without a reload.
+    const onPointsUpdated = () => load()
+    window.addEventListener('petgen:points-updated', onPointsUpdated)
+
+    return () => {
+      subscription.unsubscribe()
+      window.removeEventListener('petgen:points-updated', onPointsUpdated)
+    }
   }, [])
 
   if (points === null) return null

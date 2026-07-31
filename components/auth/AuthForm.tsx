@@ -9,6 +9,10 @@ import { useI18n } from '@/lib/i18n'
 
 type Mode = 'signin' | 'signup'
 
+// Flip to false to instantly restore the sign-up / sign-in form.
+// Set true to temporarily pause account creation while keeping the branded logo.
+const HIDE_AUTH_FORM = true
+
 export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode }) {
   const router = useRouter()
   const { t } = useI18n()
@@ -106,6 +110,10 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
         </Link>
 
         <div className="rounded-2xl border border-border bg-bg-base p-8 shadow-2xl">
+          {HIDE_AUTH_FORM ? (
+            <p className="text-center text-sm text-text-secondary">{t('auth.temporarilyDisabled')}</p>
+          ) : (
+            <>
           <h1 className="mb-1 text-center font-pixel text-sm text-text-primary">
             {isSignup ? t('auth.signUpTitle') : t('auth.signInTitle')}
           </h1>
@@ -189,7 +197,8 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
                 </>
               )}
             </p>
-
+          </>
+          )}
         </div>
       </div>
     </div>

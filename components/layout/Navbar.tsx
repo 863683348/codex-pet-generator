@@ -1,6 +1,6 @@
 'use client'
 
-import { Gamepad2, Github } from 'lucide-react'
+import { Gamepad2, Github, Images, LayoutGrid } from 'lucide-react'
 import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
@@ -28,6 +28,20 @@ export default function Navbar() {
           <LanguageSwitcher />
           <ThemeToggle />
           <PointsBadge />
+          <Link
+            href="/my-pets"
+            className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary sm:flex"
+          >
+            <Images className="h-4 w-4" />
+            <span className="hidden text-sm sm:inline">My Pets</span>
+          </Link>
+          <Link
+            href="/gallery"
+            className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary sm:flex"
+          >
+            <LayoutGrid className="h-4 w-4" />
+            <span className="hidden text-sm sm:inline">Gallery</span>
+          </Link>
           <UserButton />
           <Link
             href="/blog"

@@ -26,6 +26,10 @@ export default function SharePanel({ petId, isDemo = false }: SharePanelProps) {
   const award = async (platform: string) => {
     if (busy || shared) return
     setBusy(true)
+    // Open the result tab from within the click gesture so popup blockers don't
+    // suppress it; we point it at the public page once the share actually lands.
+    const shareUrl = `${window.location.origin}/p/${petId}`
+    const resultTab = typeof window !== 'undefined' ? window.open('', '_blank') : null
     try {
       const supabase = getSupabaseClient()
       const { data: { session } } = await supabase.auth.getSession()
@@ -42,6 +46,8 @@ export default function SharePanel({ petId, isDemo = false }: SharePanelProps) {
       setShared(true)
       setAwarded(data.awarded ?? 0)
       setPoints(data.points ?? null)
+      if (resultTab) resultTab.location.href = shareUrl
+      else window.open(shareUrl, '_blank')
     } catch (err) {
       console.error('Share award error:', err)
     } finally {

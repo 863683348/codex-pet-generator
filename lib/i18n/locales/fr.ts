@@ -23,6 +23,11 @@ export const fr: Dict = {
     q9: 'Que deviennent mes images uploadees ?', a9: "Les images sont supprimees apres la generation. Elles ne sont pas stockees ni reutilisees.",
     q10: 'Existe-t-il un forfait gratuit ?', a10: 'Oui. Le forfait Starter est gratuit et inclut 3 generations.',
   },
+  trust: {
+    title: 'Approuvé par les développeurs du monde entier',
+    users: '5 000+ animaux générés',
+    github: 'Open source sur GitHub',
+    codex: 'Compatible avec OpenAI Codex'},
   contact: {
     title: 'Contactez-nous', desc: "Une question, une suggestion ou besoin d'aide ?",
     emailTitle: 'Email', emailDesc: 'ahmedlzany423@gmail.com', emailReply: 'Reponse sous 24h.',
@@ -88,6 +93,15 @@ export const fr: Dict = {
     haveAccount: 'Vous avez deja un compte ?',
     noAccount: 'Vous n\'avez pas de compte ?',
     accountCreated: 'Compte cree ! Verifiez votre email pour confirmer votre adresse.',
+    temporarilyDisabled: "L'inscription est temporairement indisponible.",
+  },
+  gallery: {
+    title: 'Galerie communautaire',
+    desc: 'Les pets pixel-art partages par la communaute. Cliquez pour les voir en grand et creez le votre.',
+    emptyTitle: 'Aucun pet partage pour le moment',
+    emptyDesc: 'Soyez le premier a generer et partager un pet pixel.',
+    createCta: 'Creer un pet',
+    untitled: 'Pet sans nom',
   },
   blog: {
     indexTitle: 'Blog PetGen',

@@ -158,6 +158,11 @@ export const zh: Dict = {
     q8: '可以取消订阅吗？', a8: '随时可以取消，你的权益将持续到当前计费周期结束。',
     q9: '上传的图片会怎么处理？', a9: '上传的图片由 AI 处理后即删除，不会存储或用于其他目的。',
     q10: '有免费方案吗？', a10: '有。入门版免费，包含 3 次标准质量的宠物生成。'},
+  trust: {
+    title: '深受全球开发者信赖',
+    users: '已生成 5,000+ 宠物',
+    github: 'GitHub 开源',
+    codex: '兼容 OpenAI Codex'},
   contact: {
     title: '联系我们',
     desc: '有问题、建议或需要帮助？我们很乐意听取你的意见。',
@@ -222,6 +227,15 @@ export const zh: Dict = {
     haveAccount: '已经有账户了？',
     noAccount: '还没有账户？',
     accountCreated: '账户已创建！请查收邮件确认你的地址。',
+    temporarilyDisabled: '注册暂时不可用。',
+  },
+  gallery: {
+    title: '社区画廊',
+    desc: '社区分享的像素宠物。点击任意一只查看大图，也可以创建属于你的像素宠物。',
+    emptyTitle: '还没有宠物被分享',
+    emptyDesc: '成为第一个生成并分享像素宠物的人吧。',
+    createCta: '创建宠物',
+    untitled: '未命名宠物',
   },
   blog: {
     indexTitle: 'PetGen 博客',

@@ -7,7 +7,7 @@ import { SITE } from '@/lib/seo'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import AnimationStatesGrid from '@/components/pet/AnimationStatesGrid'
-import { Sparkles, ArrowLeft } from 'lucide-react'
+import { Sparkles, ArrowLeft, LayoutGrid } from 'lucide-react'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -113,6 +113,13 @@ export default async function PublicPetPage({ params }: PageProps) {
           >
             <Sparkles className="h-4 w-4" />
             Create your own
+          </Link>
+          <Link
+            href="/gallery"
+            className="flex items-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-4 py-2 text-sm font-medium text-text-primary transition-colors hover:border-accent"
+          >
+            <LayoutGrid className="h-4 w-4" />
+            Explore gallery
           </Link>
         </div>
       </main>

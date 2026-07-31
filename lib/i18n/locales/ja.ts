@@ -22,6 +22,11 @@ export const ja: Dict = {
     q8: 'サブスクリプションの解約は？', a8: 'いつでも解約可能。請求期間の終了までアクセス継続。',
     q9: 'アップロードした画像はどうなりますか？', a9: '生成完了後、画像は削除されます。保存や他の目的には使用されません。',
     q10: '無料プランはありますか？', a10: 'はい。スタータープランは無料で3回の生成を提供します。'},
+  trust: {
+    title: '世界中の開発者に信頼されています',
+    users: '5,000+ ペット生成',
+    github: 'GitHub でオープンソース',
+    codex: 'OpenAI Codex 対応'},
   contact: {
     title: 'お問い合わせ', desc: 'ご質問、ご提案、ご不明な点がございましたら、お気軽にお問い合わせください。',
     emailTitle: 'メール', emailDesc: 'ahmedlzany423@gmail.com', emailReply: '24時間以内に返信いたします。',
@@ -93,6 +98,15 @@ export const ja: Dict = {
     haveAccount: 'すでにアカウントをお持ちですか？',
     noAccount: 'アカウントをお持ちでない方',
     accountCreated: 'アカウントを作成しました！メールを確認してアドレスを認証してください。',
+    temporarilyDisabled: '登録は一時的に利用できません。',
+  },
+  gallery: {
+    title: 'コミュニティギャラリー',
+    desc: 'コミュニティで共有されたピクセルペット。クリックして拡大表示し、自分だけのペットも作成できます。',
+    emptyTitle: 'まだ共有されたペットはいません',
+    emptyDesc: '最初のピクセルペットを生成して共有しましょう。',
+    createCta: 'ペットを作成',
+    untitled: '名称未設定のペット',
   },
   blog: {
     indexTitle: 'PetGen ブログ',

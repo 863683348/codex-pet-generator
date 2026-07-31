@@ -23,6 +23,11 @@ export const ko: Dict = {
     q9: '업로드한 이미지는 어떻게 되나요?', a9: '생성 완료 후 이미지는 삭제됩니다. 저장되거나 다른 목적으로 사용되지 않습니다.',
     q10: '무료 플랜이 있나요?', a10: '네. 스타터 플랜은 무료이며 3회 생성을 제공합니다.',
   },
+  trust: {
+    title: '전 세계 개발자들의 신뢰',
+    users: '5,000+ 펫 생성',
+    github: 'GitHub 오픈소스',
+    codex: 'OpenAI Codex 호환'},
   contact: {
     title: '문의하기', desc: '질문, 제안 또는 도움이 필요하신가요?',
     emailTitle: '이메일', emailDesc: 'ahmedlzany423@gmail.com', emailReply: '24시간 이내에 답변드립니다.',
@@ -88,6 +93,15 @@ export const ko: Dict = {
     haveAccount: '이미 계정이 있으신가요?',
     noAccount: '계정이 없으신가요?',
     accountCreated: '계정이 생성되었습니다! 이메일을 확인하여 주소를 인증해 주세요.',
+    temporarilyDisabled: '가입이 일시적으로 불가합니다.',
+  },
+  gallery: {
+    title: '커뮤니티 갤러리',
+    desc: '커뮤니티에서 공유된 픽셀 펫을 둘러보세요. 클릭하여 크게 보고, 나만의 펫도 만들 수 있습니다.',
+    emptyTitle: '아직 공유된 펫이 없습니다',
+    emptyDesc: '첫 번째 픽셀 펫을 생성하고 공유해 보세요.',
+    createCta: '펫 만들기',
+    untitled: '이름 없는 펫',
   },
   blog: {
     indexTitle: 'PetGen 블로그',

@@ -23,6 +23,11 @@ export const de: Dict = {
     q9: 'Was passiert mit meinen hochgeladenen Bildern?', a9: 'Die Bilder werden nach der Generierung gelöscht. Sie werden nicht gespeichert oder anderweitig verwendet.',
     q10: 'Gibt es einen kostenlosen Plan?', a10: 'Ja. Der Starter-Plan ist kostenlos und beinhaltet 3 Generierungen.',
   },
+  trust: {
+    title: 'Von Entwicklern weltweit vertraut',
+    users: '5.000+ Tiere generiert',
+    github: 'Open Source auf GitHub',
+    codex: 'Kompatibel mit OpenAI Codex'},
   contact: {
     title: 'Kontaktieren Sie uns', desc: 'Haben Sie eine Frage, einen Vorschlag oder brauchen Hilfe?',
     emailTitle: 'E-Mail', emailDesc: 'ahmedlzany423@gmail.com', emailReply: 'Wir antworten innerhalb von 24 Stunden.',
@@ -88,6 +93,15 @@ export const de: Dict = {
     haveAccount: 'Haben Sie bereits ein Konto?',
     noAccount: 'Noch kein Konto?',
     accountCreated: 'Konto erstellt! Bitte bestätigen Sie Ihre Adresse per E-Mail.',
+    temporarilyDisabled: 'Die Registrierung ist vorübergehend nicht verfügbar.',
+  },
+  gallery: {
+    title: 'Community-Galerie',
+    desc: 'Pixel-Tiere, die von der Community geteilt wurden. Klicken Sie, um eines groß anzusehen, und erstellen Sie Ihr eigenes.',
+    emptyTitle: 'Noch keine Tiere geteilt',
+    emptyDesc: 'Seien Sie die erste Person, die ein Pixel-Tier erstellt und teilt.',
+    createCta: 'Tier erstellen',
+    untitled: 'Unbenanntes Tier',
   },
   blog: {
     indexTitle: 'PetGen Blog',

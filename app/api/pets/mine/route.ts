@@ -1,0 +1,61 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { getSupabaseServer } from '@/lib/supabase/server'
+import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
+import { STORAGE_BUCKET } from '@/lib/utils/constants'
+
+export const runtime = 'nodejs'
+
+// Lists the currently authenticated user's own pets (by user_id), newest first.
+// Each pet gets a short-lived signed URL for its base image so the gallery can
+// render thumbnails without depending on the storage bucket being public.
+export async function GET(req: NextRequest) {
+  const user = await getAuthenticatedUser(req)
+  if (!user) return unauthorized()
+
+  const supabase = getSupabaseServer()
+
+  // Match by user_id OR by email. Pets generated before the user_id column was
+  // added (migration 004) only carry an email, so the email clause is what makes
+  // a user's historical pets show up here — consistent with the ownership check
+  // in the share route.
+  const ownership = [`user_id.eq.${user.id}`]
+  if (user.email) ownership.push(`email.eq.${user.email}`)
+  const ownershipFilter = ownership.join(',')
+
+  const { data: pets, error } = await supabase
+    .from('pets')
+    .select('id, display_name, status, is_public, share_count, base_image_path, created_at, email')
+    .or(ownershipFilter)
+    // Only surface pets that actually generated an image. Pets still processing
+    // or that failed have no base_image_path and aren't downloadable/shareable,
+    // so we hide them from "My Pets".
+    .not('base_image_path', 'is', null)
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    return NextResponse.json({ error: 'DB_ERROR', message: error.message }, { status: 500 })
+  }
+
+  const result = await Promise.all(
+    (pets ?? []).map(async (p) => {
+      let baseImageUrl: string | null = null
+      if (p.base_image_path) {
+        const { data } = await supabase.storage
+          .from(STORAGE_BUCKET)
+          .createSignedUrl(p.base_image_path, 3600)
+        baseImageUrl = data?.signedUrl ?? null
+      }
+      return {
+        id: p.id,
+        displayName: p.display_name,
+        status: p.status,
+        isPublic: p.is_public,
+        shareCount: p.share_count ?? 0,
+        baseImageUrl,
+        createdAt: p.created_at,
+      }
+    })
+  )
+
+  return NextResponse.json({ pets: result })
+}
