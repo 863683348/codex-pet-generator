@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { buildMetadata, SITE } from '@/lib/seo'
-import { posts } from '@/lib/blog/posts'
+import { posts, type BlogPost } from '@/lib/blog/posts'
 import { JsonLd } from '@/components/seo/JsonLd'
 import BlogPostCta from '@/components/blog/BlogPostCta'
 
@@ -67,11 +67,28 @@ export default async function BlogPostPage({
     }
   }
 
+  const faqJsonLd = post.faq
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: post.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
+    : null
+
+  const relatedPosts = post.related
+    ?.map((s) => posts.find((p) => p.slug === s))
+    .filter((p): p is BlogPost => Boolean(p))
+
   return (
     <>
       <Navbar />
       <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd()} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <article>
           <header>
@@ -98,6 +115,41 @@ export default async function BlogPostPage({
               </section>
             ))}
           </div>
+
+          {post.faq && post.faq.length > 0 && (
+            <section className="mt-10">
+              <h2 className="font-pixel text-sm text-text-primary">Frequently asked questions</h2>
+              <div className="mt-3 space-y-3">
+                {post.faq.map((item, i) => (
+                  <details key={i} className="rounded border px-4 py-3">
+                    <summary className="cursor-pointer text-sm font-medium text-text-primary">
+                      {item.question}
+                    </summary>
+                    <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {relatedPosts && relatedPosts.length > 0 && (
+            <section className="mt-10">
+              <h2 className="font-pixel text-sm text-text-primary">Related posts</h2>
+              <ul className="mt-3 space-y-2">
+                {relatedPosts.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={'/blog/' + p.slug}
+                      className="text-sm text-text-primary underline underline-offset-2"
+                    >
+                      {p.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <BlogPostCta />
         </article>
       </main>
