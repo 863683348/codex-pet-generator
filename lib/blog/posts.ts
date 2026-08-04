@@ -541,4 +541,73 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-custom-pet-guide',
+    title: 'Codex Custom Pet: How to Make Your Own Pixel Pet',
+    description:
+      'Learn how to make a custom Codex pet from your own photo — upload, generate, and install a personalized pixel companion into OpenAI Codex. Step-by-step guide with troubleshooting.',
+    date: '2026-08-05',
+    author: 'PetGen',
+    keywords: [
+      'codex custom pet',
+      'custom codex pet',
+      'make custom codex pet',
+      'customize codex pet',
+      'personalized codex pet',
+      'codex pet from photo',
+      'custom pixel pet codex',
+    ],
+    sections: [
+      {
+        heading: 'What is a custom Codex pet?',
+        paragraphs: [
+          'A custom Codex pet is a pixel-art companion generated from your own photo or artwork, instead of a pre-made community pet. It carries your pet, your avatar, or your brand into OpenAI Codex.',
+          'Under the hood it is the same two files every Codex pet uses: spritesheet.webp (the animation frames) and pet.json (the config). The only difference is the source — you supply the image, the generator does the pixel art.',
+        ],
+      },
+      {
+        heading: 'Why make a custom pet?',
+        list: [
+          'Personal expression — a pet that actually looks like your cat, dog, or mascot',
+          'Team identity — share one branded pet across your whole engineering group',
+          'Recognition — spot your own companion instantly among community pets',
+          'Fun — turn a meme, logo, or kid drawing into something that lives on your desktop',
+        ],
+      },
+      {
+        heading: 'How to create a custom Codex pet (step by step)',
+        paragraphs: [
+          'Step 1: Open codexpetgenerator.com and click "Upload photo". Pick a JPG, PNG, or WebP with a clear, centered subject.',
+          'Step 2: The AI builds a pixel-art base in about 90 seconds. Approve the look, or regenerate for a different style.',
+          'Step 3: PetGen composes 9 animation states into spritesheet.webp + pet.json and packs them into a ZIP.',
+          'Step 4: Download the ZIP, unzip to a my-pet/ folder, copy it to ~/.codex/pets/, and fully restart Codex. Your custom pet appears and animates.',
+        ],
+      },
+      {
+        heading: 'Customization options',
+        paragraphs: [
+          'You can steer the result by changing the source photo: different colors, a simpler background, or higher contrast all shift the final pixel pet.',
+          'On the Pro and Unlimited plans you can also edit pet.json directly — rename the pet, tweak the description, or adjust the spritesheet path.',
+        ],
+      },
+      {
+        heading: 'Tips for the best custom pet',
+        list: [
+          'Square crop close to 1:1 so the pet does not distort',
+          'Keep the subject centered and the background clean',
+          'Use at least 800x800 px so detail survives pixelation',
+          'One clear subject works far better than a group shot',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Does a custom pet cost money? Starter gives 3 free generations; Pro is $9/month for 15.',
+          'Can I use my custom pet commercially? Only on the Unlimited plan.',
+          'What if my pet does not show after install? Verify the folder name matches pet.json and restart Codex fully.',
+          'Can I recolor my custom pet? Regenerate from a differently colored photo, or edit the spritesheet manually on Pro/Unlimited.',
+        ],
+      },
+    ],
+  },
 ]
