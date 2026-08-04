@@ -24,8 +24,8 @@ export const zh: Dict = {
     de: 'DE'},
   hero: {
     badge: 'AI 驱动的宠物生成器',
-    titlePrefix: '把一张照片变成桌面上的',
-    titleHighlight: '可安装的编程小伙伴',
+    titlePrefix: 'Codex Pet Generator',
+    titleHighlight: '— 把照片变成专属宠物',
     subtitle:
       '专为 Codex 打造，输出 spritesheet.webp 与 pet.json，兼容 Codex 自定义宠物。上传、确认角色基底、解锁动画压缩包，再从终端安装。',
     uploading: '上传中…',
