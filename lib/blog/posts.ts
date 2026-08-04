@@ -422,8 +422,7 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
-  }
-
+  },
   {
     slug: 'what-is-a-codex-pet',
     title: "What Is a Codex Pet? A Beginner's Guide to Custom Desktop Companions",
