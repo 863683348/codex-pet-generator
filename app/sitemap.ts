@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { SITE } from '@/lib/seo'
+import { posts } from '@/lib/blog/posts'
 
 const staticRoutes = [
   '',
@@ -12,11 +13,8 @@ const staticRoutes = [
   '/blog',
 ]
 
-const blogSlugs = [
-  'turn-photo-into-pixel-art',
-  'what-is-pet-spritesheet',
-  'best-ai-pet-generators-2026',
-]
+// 博客 slug 从 posts.ts 自动生成（新增文章后 sitemap 自动覆盖）
+const blogSlugs = posts.map((p) => p.slug)
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

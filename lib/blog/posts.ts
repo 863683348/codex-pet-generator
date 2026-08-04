@@ -423,4 +423,68 @@ export const posts: BlogPost[] = [
       },
     ],
   }
+
+  {
+    slug: 'what-is-a-codex-pet',
+    title: "What Is a Codex Pet? A Beginner's Guide to Custom Desktop Companions",
+    description:
+      "A Codex Pet is a pixel-art desktop companion inside OpenAI Codex. Two files (spritesheet.webp + pet.json), one folder (~/.codex/pets/), and it animates beside you while you code. Generate your own from a photo.",
+    date: '2026-08-04',
+    author: 'PetGen',
+    keywords: [
+      'codex pet',
+      'what is codex pet',
+      'codex desktop pet',
+      'codex pet feature',
+      'custom codex pet',
+      'codex pet generator',
+    ],
+    sections: [
+      {
+        heading: 'What exactly is a Codex Pet?',
+        paragraphs: [
+          'A Codex Pet is a custom pixel companion installed inside the OpenAI Codex desktop app. It lives in your editor and animates beside you while you write code, adding a little personality to the terminal.',
+          'Under the hood it is two files: spritesheet.webp (one sprite sheet with every animation frame, 9 states x 8 frames) and pet.json (the animation config that tells Codex how to play each frame). Install them into ~/.codex/pets/ and restart Codex — the pet appears.',
+        ],
+      },
+      {
+        heading: 'Why are people getting into Codex Pets?',
+        list: [
+          'A more human workspace — coding is lonely; a pixel buddy makes it feel different',
+          'Personal expression — a custom pet generated from your own photo is unique to you',
+          'Community momentum — CodexPets and similar communities list 800+ pets, and "turn my cat into a Codex pet" posts are trending',
+          'Free / low-cost to start — the Starter plan gives 3 free generations',
+        ],
+      },
+      {
+        heading: 'Is a Codex Pet the same as an AI assistant?',
+        paragraphs: [
+          'No. A Codex Pet does not participate in code logic — it is purely visual companionship. The AI assistant does the real work; the pet is the morale support on your desktop. They coexist: the AI writes your code, the pet cheers you on.',
+        ],
+      },
+      {
+        heading: 'How do I get a Codex Pet?',
+        list: [
+          'Option 1: Use a ready-made one — download a pet package shared by the community, unzip into ~/.codex/pets/',
+          'Option 2: Generate from a photo (recommended) — open codexpetgenerator.com, upload a photo, AI turns it into a pixel pet, download the ZIP, unzip and install. Takes minutes, no design skills.',
+          'Option 3: Hand-craft it — draw your own sprite sheet + hand-write pet.json. High barrier, not recommended for beginners.',
+        ],
+      },
+      {
+        heading: 'Install in one line',
+        paragraphs: [
+          '1) Download the pet package ZIP. 2) Unzip to get a my-pet/ folder (spritesheet.webp + pet.json inside). 3) Move it to ~/.codex/pets/my-pet/. 4) Fully restart Codex — the pet appears.',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Does a Codex Pet use extra resources? No — it only plays sprite animation; overhead is negligible.',
+          'Can I rename/recolor my pet? Partially — customization is covered in later posts.',
+          'Does every Codex version support pets? Check the official docs; most desktop builds support the ~/.codex/pets/ directory.',
+          'Does generating a pet cost money? Starter is free (3 times); Pro is $9/month for 15 generations.',
+        ],
+      },
+    ],
+  },
 ]
