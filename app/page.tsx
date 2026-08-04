@@ -58,6 +58,19 @@ const appJsonLd = {
 export default function Home() {
   const { t } = useI18n()
   const [task, setTask] = useState<PetTask | null>(null)
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: t('faq.q1'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a1') } },
+      { '@type': 'Question', name: t('faq.q2'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a2') } },
+      { '@type': 'Question', name: t('faq.q3'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a3') } },
+      { '@type': 'Question', name: t('faq.q4'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a4') } },
+      { '@type': 'Question', name: t('faq.q5'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a5') } },
+      { '@type': 'Question', name: t('faq.q10'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a10') } },
+    ],
+  }
   const [isUploading, setIsUploading] = useState(false)
   const [isApproving, setIsApproving] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
@@ -415,6 +428,7 @@ export default function Home() {
     <>
       <Navbar />
       <JsonLd data={appJsonLd} />
+      <JsonLd data={faqJsonLd} />
 
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {/* ---- Hero ---- */}
@@ -521,6 +535,38 @@ export default function Home() {
             <HowItWorks />
             <WhatYouGet />
             <PricingSection />
+            <section className="mx-auto mt-16 max-w-3xl">
+              <h2 className="font-pixel text-base text-text-primary">{t('faq.title')}</h2>
+              <div className="mt-6 space-y-3">
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q1')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a1')}</p>
+                </details>
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q2')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a2')}</p>
+                </details>
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q3')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a3')}</p>
+                </details>
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q4')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a4')}</p>
+                </details>
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q5')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a5')}</p>
+                </details>
+                <details className="rounded-lg border border-border bg-bg-surface p-4">
+                  <summary className="cursor-pointer font-medium text-text-primary">{t('faq.q10')}</summary>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t('faq.a10')}</p>
+                </details>
+              </div>
+              <p className="mt-6 text-center text-sm text-text-muted">
+                <a href="/faq" className="text-accent hover:underline">See all FAQs →</a>
+              </p>
+            </section>
           </>
         )}
       </main>
