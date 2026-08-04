@@ -25,8 +25,8 @@ export const en = {
     de: 'DE'},
   hero: {
     badge: 'AI-Powered Pet Generator',
-    titlePrefix: 'Turn one photo into a tiny',
-    titleHighlight: 'installable coding companion',
+    titlePrefix: 'Codex Pet Generator',
+    titleHighlight: '— turn a photo into a custom pet',
     subtitle:
       'Built for Codex, with spritesheet.webp plus pet.json compatible with Codex custom pets. Upload, approve the character base, unlock the animated ZIP, then install it from your terminal.',
     uploading: 'Uploading…',
