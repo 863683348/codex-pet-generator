@@ -486,4 +486,59 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'make-your-first-codex-pixel-pet',
+    title: 'Make Your First Codex Pixel Pet from a Photo in 5 Minutes',
+    description:
+      'Turn a photo into your own Codex pixel pet in 5 minutes — no drawing, no code. Upload, preview, download the ZIP (spritesheet.webp + pet.json), install into ~/.codex/pets/. Starter plan is free for 3 generations.',
+    date: '2026-08-05',
+    author: 'PetGen',
+    keywords: [
+      'make codex pet',
+      'create codex pet from photo',
+      'first codex pet tutorial',
+      'codex pet 5 minutes',
+      'codex pixel pet generator',
+    ],
+    sections: [
+      {
+        heading: 'What you need',
+        list: [
+          'A clear photo (person or pet — front-facing, good light)',
+          'A browser (Chrome / Edge / Safari)',
+          'The Codex desktop app (for installing the pet)',
+        ],
+        paragraphs: [
+          'Not needed: design software, coding skills, or payment.',
+        ],
+      },
+      {
+        heading: 'Four steps',
+        paragraphs: [
+          'Step 1: Open codexpetgenerator.com and click "Upload photo".',
+          'Step 2: Upload a JPG / PNG / WebP. Tip: square crop, subject centered, clean background. The AI converts it to pixel art automatically.',
+          'Step 3: Preview your pixel pet. When happy, click "Unlock animation ZIP" — the Starter plan includes 3 free generations.',
+          'Step 4: Download the ZIP, unzip to a my-pet/ folder (spritesheet.webp + pet.json), move to ~/.codex/pets/, fully restart Codex — the pet appears!',
+        ],
+      },
+      {
+        heading: 'Better photo, cuter pet',
+        list: [
+          'Square first — crop close to 1:1 so the pet does not distort',
+          'Subject centered — keep the face in the middle',
+          'Clean background — solid or simple backgrounds pixelate better',
+          'Do not go too small — at least 800x800 px to keep detail',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Does it cost money? Starter gives 3 free generations; Pro is $9/month for 15.',
+          'Which formats are supported? JPG / PNG / WebP — all processed locally in your browser, nothing uploaded.',
+          'Where does my pet appear after install? Fully restart Codex and the pet animates in the UI.',
+          'Can I change colors? Basic customization is coming; Pro unlocks more options.',
+        ],
+      },
+    ],
+  },
 ]
