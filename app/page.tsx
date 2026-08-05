@@ -535,6 +535,42 @@ export default function Home() {
             <HowItWorks />
             <WhatYouGet />
             <PricingSection />
+            {/* ---- Use cases (AdSense P1: homepage text expansion) ---- */}
+            <section className="mx-auto mt-16 max-w-5xl">
+              <h2 className="font-pixel text-base text-text-primary text-center">Who Is Codex Pet Generator For?</h2>
+              <p className="mt-3 text-center text-sm text-text-secondary">
+                Whether you&apos;re sketching your first sprite or shipping a full game, Codex turns a text prompt into a consistent, game-ready pet in minutes.
+              </p>
+              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-lg border border-border bg-bg-surface p-5">
+                  <h3 className="font-pixel text-xs text-text-primary">Hobbyists &amp; Indie Devs</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                    Prototype companion creatures and NPC pets without hiring an artist. Iterate on styles until the look fits your world.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg-surface p-5">
+                  <h3 className="font-pixel text-xs text-text-primary">Content Creators</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                    Build a recognizable mascot for streams, shorts, and thumbnails, then keep it consistent across every upload.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg-surface p-5">
+                  <h3 className="font-pixel text-xs text-text-primary">Educators &amp; Students</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                    Teach game art and prompt design by letting learners watch a character evolve from idea to sprite in real time.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg-surface p-5">
+                  <h3 className="font-pixel text-xs text-text-primary">Pet Lovers</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                    Reimagine your own cat or dog as a fantasy creature, a pixel companion, or a tabletop token to share with friends.
+                  </p>
+                </div>
+              </div>
+              <p className="mt-6 text-center text-sm text-text-muted">
+                New to sprite art? Our <a href="/blog" className="text-accent hover:underline">blog</a> covers prompting tips, animation basics, and how to wire Codex into your workflow.
+              </p>
+            </section>
             <section className="mx-auto mt-16 max-w-3xl">
               <h2 className="font-pixel text-base text-text-primary">{t('faq.title')}</h2>
               <div className="mt-6 space-y-3">
