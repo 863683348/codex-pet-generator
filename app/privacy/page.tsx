@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="mb-2 font-semibold text-text-primary">7. Advertising</h2>
             <ul className="mt-2 list-disc pl-5 space-y-1">
-              <li><strong>Google AdSense</strong> — We use Google AdSense to display advertisements on this website. Google and its partners may use cookies to personalize ads based on your prior visits to this and other websites.</li>
+              <li><strong>Google AdSense</strong> — We use Google AdSense to display advertisements on this website. Google and its partners may use cookies (including the DART cookie) to personalize ads based on your prior visits to this and other websites. For details on how Google uses data through the DART cookie, see Google's advertising privacy policy (https://policies.google.com/technologies/ads).</li>
               <li><strong>Personalized ads</strong> — With your consent, ad personalization uses cookies and device identifiers to serve ads tailored to your interests. You can decline personalization via the cookie banner; in that case we request non-personalized ads.</li>
               <li><strong>Your choices</strong> — You can opt out of personalized advertising at any time through <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary underline">Google Ads Settings</a>, or via <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer" className="text-primary underline">YourAdChoices</a>. You may also clear your choice and re-show the consent banner by removing the <code className="rounded bg-bg-elevated px-1">adsense-consent</code> key from your browser storage.</li>
             </ul>
