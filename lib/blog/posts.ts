@@ -663,4 +663,99 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'pixel-art-pet-design-guide',
+    title: 'Pixel Art Pet Design Guide for Developers: From Idea to Animated Companion',
+    description:
+      'A practical design guide for turning a mascot idea into a pixel-art Codex pet: silhouette, palette, spritesheet layout, and animation states that read well at small sizes.',
+    date: '2026-08-06',
+    author: 'PetGen',
+    keywords: [
+      'pixel art pet design',
+      'codex pet design guide',
+      'spritesheet layout',
+      'pixel art mascot tutorial',
+      'developer pet animation',
+      'pet.json spritesheet',
+      'pixel art for coders',
+    ],
+    sections: [
+      {
+        heading: 'What makes a good coding companion pet?',
+        paragraphs: [
+          'A pet that sits beside your editor should be charming at 32x32 pixels, not just on a designer\'s canvas. The best coding companions share three traits: a clear silhouette, a tight palette, and one or two animation states that feel alive without distracting you from your work.',
+          'Think of the pet as a tiny piece of product branding. A consistent shape and color story make it recognizable the moment it appears, which is exactly what you want from a mascot you will see for hours every day.',
+        ],
+      },
+      {
+        heading: 'Start from a simple silhouette',
+        paragraphs: [
+          'Before colors, sketch the outline in a single color. If the shape reads clearly as a cat, robot, or ghost at thumbnail size, your design works. If it looks like a blob, simplify: fewer limbs, bigger head, clearer ears or antennae.',
+          'Many first attempts fail because they carry too much detail. At small sizes, one expressive feature — a tilted head, a glowing eye, a wagging tail — communicates more than a fully rendered scene.',
+        ],
+      },
+      {
+        heading: 'Color palette discipline',
+        paragraphs: [
+          'Limit yourself to 4-6 colors plus one highlight and one shadow. A restrained palette is what makes pixel art feel intentional rather than muddy.',
+        ],
+        list: [
+          'Pick a base color, a darker shade for outlines, a lighter shade for highlights.',
+          'Use one accent color for eyes or a glow so the pet has a focal point.',
+          'Avoid gradients inside a single sprite; dithering reads cleaner at small sizes.',
+        ],
+      },
+      {
+        heading: 'Building the spritesheet',
+        paragraphs: [
+          'A spritesheet stacks each animation frame side by side in a single image. Codex pets expect a predictable grid so the runtime can slice frames by index. Get the grid right and animation is automatic; get it wrong and frames jitter.',
+          'The companion file, pet.json, tells the loader how many frames exist, their size, and the playback order. Keep frame dimensions identical across the sheet.',
+        ],
+        list: [
+          'Use a fixed cell size (for example 32x32 or 48x48) for every frame.',
+          'Lay frames left to right: idle, idle2, happy, working, sleeping.',
+          'Export as a lossless PNG or WebP; never recompress with heavy JPEG.',
+        ],
+      },
+      {
+        heading: 'Animation states that read well at small sizes',
+        paragraphs: [
+          'You do not need many states. Two or three looping cycles are enough: a slow idle blink, a brief happy bounce, and a focused working pose.',
+        ],
+        list: [
+          'Idle: a 2-4 frame loop with a subtle breathing or blink.',
+          'Happy: a quick 2-frame bounce triggered on events.',
+          'Working: a steady, low-energy loop so it does not compete with your code.',
+        ],
+      },
+      {
+        heading: 'Common mistakes to avoid',
+        paragraphs: [
+          'The most frequent errors are fixable in minutes if you catch them early.',
+        ],
+        list: [
+          'Inconsistent frame sizes, which cause sliding animations.',
+          'Too many colors, which makes the sprite look noisy when scaled down.',
+          'Missing frames referenced in pet.json, which break the loop.',
+          'Overly busy motion that pulls your eye away from the editor.',
+        ],
+      },
+      {
+        heading: 'From design to a running pet in Codex',
+        paragraphs: [
+          'Once your spritesheet and pet.json are ready, drop them into your Codex pets folder and restart the app. The pet should appear and begin its idle loop immediately.',
+          'If nothing shows, the usual cause is a folder or file name mismatch with pet.json. Verify the names, then restart Codex fully rather than just closing the window.',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Do I need to draw every frame by hand? No — start with 2 idle frames; you can expand later.',
+          'What size should the sprite be? 32x32 or 48x48 cells are the sweet spot for editor-side pets.',
+          'Can I reuse a game sprite? Yes, as long as the license allows it and the grid is uniform.',
+          'Why does my animation jitter? Almost always mismatched frame dimensions in the sheet.',
+        ],
+      },
+    ],
+  },
 ]
