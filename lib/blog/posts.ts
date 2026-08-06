@@ -758,4 +758,83 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'install-codex-pet-terminal',
+    title: 'How to Install a Custom Codex Pet from the Terminal',
+    description:
+      'Install a custom Codex pet entirely from the command line: where the ~/.codex/pets folder lives, the exact cp / Copy-Item commands for macOS and Windows, and how to verify the install.',
+    date: '2026-08-07',
+    author: 'PetGen',
+    keywords: [
+      'install codex pet',
+      'install custom codex pet',
+      '~/.codex/pets folder',
+      'codex pet terminal install',
+      'codex cli install pet',
+      'how to install codex pet command line',
+    ],
+    faq: [
+      { question: 'Where does Codex look for pets?', answer: 'The pets folder is ~/.codex/pets on both macOS and Windows (C:\\Users\\<you>\\.codex\\pets). Codex reads this folder at startup, so changes need a full app restart.' },
+      { question: 'Can I install a pet without opening the Codex UI?', answer: 'Yes. Everything happens in the terminal: create ~/.codex/pets, copy your pet folder in, and restart Codex. The UI is only needed to confirm the pet shows up.' },
+      { question: 'Why is my pet not showing after I copied it?', answer: 'The usual cause is a name mismatch: the folder name must match the name field inside pet.json. Also make sure Codex was fully quit (Cmd+Q / exit tray) and relaunched, not just the window closed.' },
+      { question: 'Does installing a pet touch any Codex system files?', answer: 'No. Pets live only in your user-level ~/.codex/pets directory. Nothing in the Codex installation is modified, so updates and uninstalls are clean.' },
+    ],
+    sections: [
+      {
+        heading: 'What you need before you start',
+        paragraphs: [
+          'A pet package with two files: spritesheet.webp (the animation frames) and pet.json (the config). If you generated it on PetGen, it downloads as a ZIP you can extract anywhere.',
+          'You do not need the Codex UI open for the install itself. Terminal or PowerShell is enough.',
+        ],
+      },
+      {
+        heading: 'Where pets actually live: ~/.codex/pets',
+        paragraphs: [
+          'Codex scans a single directory for pets: ~/.codex/pets. The tilde means your home folder, so on Windows that is C:\\Users\\<you>\\.codex\\pets. Each pet is one subfolder inside it, containing spritesheet.webp and pet.json.',
+          'The folder name and the name field inside pet.json have to match. I have burned ten minutes on this exact mismatch more than once, so check it before you restart.',
+        ],
+      },
+      {
+        heading: 'macOS: the two-line install',
+        paragraphs: [
+          'Open Terminal and run:',
+          'mkdir -p ~/.codex/pets && cp -r ~/Downloads/my-pixel-pet ~/.codex/pets/',
+          'Then quit Codex completely (Cmd+Q) and relaunch. Your pet should appear.',
+          'Want a quick sanity check first? Run ls ~/.codex/pets and confirm your folder is there before restarting.',
+        ],
+      },
+      {
+        heading: 'Windows: the PowerShell equivalent',
+        paragraphs: [
+          'Open PowerShell and run:',
+          'Copy-Item -Recurse "$env:USERPROFILE\\Downloads\\my-pixel-pet" "$env:USERPROFILE\\.codex\\pets\\"',
+          'If the .codex folder does not exist yet, create it first with: New-Item -ItemType Directory "$env:USERPROFILE\\.codex\\pets" -Force',
+          'Then fully exit Codex (check the tray) and launch again.',
+        ],
+      },
+      {
+        heading: 'Verifying the install like a nerd',
+        paragraphs: [
+          'Two commands tell you most of what you need: ls ~/.codex/pets shows the folder, and cat ~/.codex/pets/<name>/pet.json shows the config Codex will read.',
+          'Check that the name field in pet.json matches the folder name exactly, and that spritesheet.webp sits next to it. If both are right and the pet still does not show, it is almost always a restart problem, not a file problem.',
+        ],
+      },
+      {
+        heading: 'Common terminal mistakes',
+        list: [
+          'Typing .codex with a capital C — it is lowercase.',
+          'Copying the ZIP instead of the extracted folder — Codex does not unzip for you.',
+          'Missing the trailing backslash on Windows when copying folders.',
+          'Forgetting to fully quit Codex; closing the window is not enough.',
+        ],
+      },
+      {
+        heading: 'Uninstalling is just deleting a folder',
+        paragraphs: [
+          'rm -rf ~/.codex/pets/<name> on macOS, or Remove-Item -Recurse on Windows, then restart Codex. No leftover registry entries, no config changes — it is gone.',
+          'If you want more pets to pick from, generate one at codexpetgenerator.com and drop it into the same folder. That is the whole workflow.',
+        ],
+      },
+    ],
+  },
 ]
