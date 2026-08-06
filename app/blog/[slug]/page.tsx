@@ -79,9 +79,29 @@ export default async function BlogPostPage({
       }
     : null
 
-  const relatedPosts = post.related
-    ?.map((s) => posts.find((p) => p.slug === s))
-    .filter((p): p is BlogPost => Boolean(p))
+  const RELATED_LIMIT = 4
+  const currentSlug = post.slug
+  const relatedPosts: BlogPost[] = []
+  const relatedSlugs = new Set<string>([currentSlug])
+
+  // Curated relations first (when the post declares them).
+  for (const relatedSlug of post.related ?? []) {
+    if (relatedPosts.length >= RELATED_LIMIT) break
+    if (relatedSlugs.has(relatedSlug)) continue
+    const match = posts.find((p) => p.slug === relatedSlug)
+    if (!match) continue
+    relatedPosts.push(match)
+    relatedSlugs.add(match.slug)
+  }
+
+  // Top up with the following posts (cyclic) so every article links out to 3-4 others.
+  const currentIndex = posts.findIndex((p) => p.slug === currentSlug)
+  for (let i = 1; i < posts.length && relatedPosts.length < RELATED_LIMIT; i++) {
+    const candidate = posts[(currentIndex + i) % posts.length]
+    if (relatedSlugs.has(candidate.slug)) continue
+    relatedPosts.push(candidate)
+    relatedSlugs.add(candidate.slug)
+  }
 
   return (
     <>
@@ -132,7 +152,7 @@ export default async function BlogPostPage({
             </section>
           )}
 
-          {relatedPosts && relatedPosts.length > 0 && (
+          {relatedPosts.length > 0 && (
             <section className="mt-10">
               <h2 className="font-pixel text-sm text-text-primary">Related posts</h2>
               <ul className="mt-3 space-y-2">
