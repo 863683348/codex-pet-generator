@@ -46,7 +46,8 @@ export default async function BlogPostPage({
     description: post.description,
     datePublished: post.date,
     dateModified: post.date,
-    author: { '@type': 'Organization', name: SITE.name },
+    image: SITE.url + '/og-image.png',
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url, '@id': SITE.url + '#organization' },
     publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
     mainEntityOfPage: {
       '@type': 'WebPage',
