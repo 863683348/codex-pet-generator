@@ -837,4 +837,109 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-not-showing-fixes',
+    title: 'Codex Pet Not Showing? 9 Common Problems and Fixes',
+    description:
+      'Your Codex pet installed but will not appear? Nine real causes behind codex pet not showing, from name mismatches in pet.json to the restart everyone forgets, with the exact fix for each.',
+    date: '2026-08-08',
+    author: 'PetGen',
+    keywords: [
+      'codex pet not working',
+      'codex pet not showing',
+      'codex pet troubleshooting',
+      'codex pet install failed',
+      'pet.json name mismatch',
+      'codex pet spritesheet missing',
+      '~/.codex/pets folder fix',
+    ],
+    faq: [
+      { question: 'Why is my Codex pet not showing after install?', answer: 'Nine times out of ten it is one of three things: the folder name inside ~/.codex/pets does not match the name field in pet.json, spritesheet.webp is missing or named differently, or Codex was not fully restarted (Cmd+Q / tray exit). Fix those three and it almost always appears.' },
+      { question: 'Does Codex cache pets and need a restart?', answer: 'Yes. Codex reads ~/.codex/pets at startup, so changes require a full quit and relaunch. Closing the window is not a restart on macOS, and on Windows you need to exit the tray icon too.' },
+      { question: 'Can a pet.json error make the whole pet vanish?', answer: 'It can. If pet.json is invalid JSON or references a spritesheet that does not exist, Codex silently skips the pet instead of showing an error. Run node -e "JSON.parse(require(\'fs\').readFileSync(\'pet.json\',\'utf8\'))" to validate it quickly.' },
+      { question: 'What if my pet was working and suddenly disappeared?', answer: 'Check whether Codex updated recently. An app update can reset the pets directory path or change the format it expects. Re-copy the pet folder and confirm pet.json still matches the current schema.' },
+    ],
+    sections: [
+      {
+        heading: 'The three causes behind almost every invisible pet',
+        paragraphs: [
+          'Before anything else, know that codex pet not showing is almost never a broken install. In my experience helping people with this, three causes cover most cases: a name mismatch between the folder and pet.json, a missing or renamed spritesheet.webp, and a restart that was not actually a restart. Everything below branches from those three.',
+        ],
+      },
+      {
+        heading: '1. Folder name does not match pet.json',
+        paragraphs: [
+          'Codex loads a pet from a subfolder of ~/.codex/pets and reads the name field inside that pet.json to decide what to call it. If the folder is my-cat-v2 but the JSON still says name: "my-cat", the loader can refuse to mount it. The fix is boring but instant: open pet.json, copy the exact name value, rename the folder to match, then restart.',
+        ],
+      },
+      {
+        heading: '2. spritesheet.webp is missing or renamed',
+        paragraphs: [
+          'The pet loader looks for spritesheet.webp by that exact filename next to pet.json. If your extractor created spritesheet (1).webp, or the file is still inside a nested folder from the ZIP, the pet has nothing to draw and gets skipped. Confirm the file sits directly beside pet.json and is spelled exactly spritesheet.webp.',
+        ],
+      },
+      {
+        heading: '3. The restart that was not a restart',
+        paragraphs: [
+          'On macOS, closing the window leaves Codex running in the menu bar; on Windows it keeps living in the tray. Until the process is fully gone, the pets directory is not re-read. Quit properly (Cmd+Q on macOS, exit from the tray on Windows), relaunch, and give it a few seconds. This single step fixes more cases than any other item on this list.',
+        ],
+      },
+      {
+        heading: '4. pet.json is invalid JSON',
+        paragraphs: [
+          'A typo, a trailing comma, or a mismatched quote in pet.json makes the file unreadable, and Codex skips the pet silently. Validate it fast: node -e "JSON.parse(require(\'fs\').readFileSync(\'pet.json\',\'utf8\'))". If it throws, fix the syntax. Common culprit: hand-editing the file and breaking the structure, which is why codex pet troubleshooting usually starts here.',
+        ],
+      },
+      {
+        heading: '5. Wrong file permissions on the folder',
+        paragraphs: [
+          'On macOS, a folder copied from Downloads with odd permissions can make the pet unreadable. chmod -R u+rwX ~/.codex/pets/<name> and restart. On Windows this is rarer, but check that the folder is not read-only after extraction.',
+        ],
+      },
+      {
+        heading: '6. Pet hidden behind a UI setting',
+        paragraphs: [
+          'Some Codex versions toggle pet visibility in settings, especially after updates that reset preferences. Look for a pets or companions toggle and make sure it is on. This one is easy to miss because the pet still exists on disk — it is just switched off in the UI.',
+        ],
+      },
+      {
+        heading: '7. Multiple pets, same name',
+        paragraphs: [
+          'If two subfolders under ~/.codex/pets declare the same name in pet.json, the loader may pick one and ignore the other, which reads as "my new pet is not showing." Give each pet a unique name field, then restart.',
+        ],
+      },
+      {
+        heading: '8. Codex updated and changed the format',
+        paragraphs: [
+          'A Codex desktop update can change what it expects from pet.json or the spritesheet dimensions. If a pet worked last week and vanished after an update, re-download the package from your generator (ours at codexpetgenerator.com always emits the current schema) and replace the folder.',
+        ],
+      },
+      {
+        heading: '9. The spritesheet grid does not match pet.json',
+        paragraphs: [
+          'If pet.json declares 9 animation states but the spritesheet has fewer rows, the loader can reject the whole thing. This is more common when people hand-craft pets. Regenerate or fix the sheet so the grid matches the JSON. Our generator handles this automatically.',
+        ],
+      },
+      {
+        heading: 'A five-minute checklist to run through',
+        list: [
+          'ls ~/.codex/pets/<name> — the folder must contain spritesheet.webp and pet.json directly',
+          'Compare folder name with the name field in pet.json',
+          'Validate pet.json with node -e JSON.parse',
+          'Quit Codex fully (Cmd+Q / tray exit), then relaunch',
+          'Check the pets visibility toggle in Codex settings',
+          'If it worked before an update, re-download the pet package',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Do I need to reinstall Codex if my pet will not show? No. This is a pets-folder problem, not a Codex problem. Reinstalling the app rarely helps and wipes your settings.',
+          'Can I have more than one pet at a time? Yes, but each folder must have a unique name in pet.json, or the loader may ignore one of them.',
+          'Is there a log I can check? On macOS look at ~/Library/Logs for Codex-related logs; on Windows check the app data logs folder. Search for "pet" or "spritesheet".',
+          'Does codex pet not working affect my actual coding? No. Pets are cosmetic; if one fails to load, Codex runs normally.',
+        ],
+      },
+    ],
+  },
 ]
