@@ -942,4 +942,74 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-image-formats-jpg-png-webp',
+    title: 'Which Image Formats Work for Codex Pets? JPG vs PNG vs WebP',
+    description:
+      'A practical answer to the codex pet image format question: what Codex actually loads (WebP), which source formats you can upload, and how JPG, PNG and WebP compare for pixel pets.',
+    date: '2026-08-09',
+    author: 'PetGen',
+    keywords: [
+      'codex pet image format',
+      'codex pet jpg png webp',
+      'best format for pixel pet',
+      'codex pet upload size',
+      'spritesheet.webp format',
+      'convert jpg to pixel pet',
+      'codex pet png vs webp',
+    ],
+    related: ['what-is-a-codex-pet', 'what-is-pet-spritesheet', 'best-photos-for-pixel-pet-generator'],
+    faq: [
+      { question: 'What image format do Codex pets actually use?', answer: 'The final pet is always a WebP file named spritesheet.webp, sitting next to pet.json in your ~/.codex/pets folder. Codex loads that specific file; nothing else is read at runtime.' },
+      { question: 'Can I upload a JPG to make a Codex pet?', answer: 'Yes, JPG works as a source image for most pixel-pet generators, including PetGen. It gets converted to WebP internally. The catch is quality: JPG compression blurs edges, which matters a lot for pixel art, so prefer PNG or WebP sources.' },
+      { question: 'Is PNG better than WebP for pixel pets?', answer: 'As a source image, PNG is the safest choice because it is lossless and preserves hard pixel edges. As the final pet file, WebP is required. Think of it as: PNG or WebP in, WebP out.' },
+      { question: 'Is there an upload size limit for pet images?', answer: 'Most generators cap uploads around 10MB. A high-resolution JPG or PNG under that limit is fine; if your file is larger, compress it first or reduce dimensions before uploading.' },
+    ],
+    sections: [
+      {
+        heading: 'What Codex actually loads',
+        paragraphs: [
+          'The short answer to the codex pet image format question: Codex reads one file, spritesheet.webp, from a subfolder of ~/.codex/pets. That is it. The spritesheet is a WebP grid of animation frames, and pet.json tells Codex how to slice it. Your source photo can be JPG, PNG or WebP, but the pet that ends up on your desktop is always WebP.',
+        ],
+      },
+      {
+        heading: 'JPG vs PNG vs WebP for pixel pets',
+        paragraphs: [
+          'JPG is the format nobody thinks about until it bites you. It is lossy, and lossy compression blurs the sharp edges that pixel art depends on. At low compression settings the difference is visible, especially on outlines. PNG is lossless, which makes it the safest source format: hard edges stay hard, and transparency works cleanly. WebP sits in the middle as a source, but it is also the only output format that matters here, since that is what Codex loads.',
+        ],
+        list: [
+          'JPG: fine for photos, worst for pixel art sources; compression smears edges',
+          'PNG: lossless, keeps hard pixel edges, supports transparency; best source format',
+          'WebP: modern, smaller files, and the required output format for spritesheets',
+        ],
+      },
+      {
+        heading: 'What happens if you upload a JPG or PNG',
+        paragraphs: [
+          'Generators like PetGen accept JPG, PNG and WebP as input, convert the image into a pixel-art grid, and export the ZIP with spritesheet.webp plus pet.json. You never deal with the WebP conversion by hand. The practical takeaway: pick the cleanest source you have, PNG preferred, and let the generator do the format work.',
+        ],
+      },
+      {
+        heading: 'The best format for pixel pet sources',
+        paragraphs: [
+          'If you are choosing a source image, the best format for pixel pet work is PNG, for three reasons: lossless edges, transparency support, and predictable file size. A 1024x1024 PNG stays well under typical 10MB upload caps. JPG only makes sense when the source is a photo and PNG is unavailable. WebP as a source is fine but unnecessary, since it will be re-encoded anyway.',
+        ],
+      },
+      {
+        heading: 'Upload size and quality trade-offs',
+        paragraphs: [
+          'On the codex pet upload size front, keep it under 10MB. If your image exceeds that, resize to 1024px or 2048px on the long side before uploading. Compression at that point costs almost nothing, because pixel art is simple geometry; a 2048px PNG of a cartoon character is typically a few hundred KB, nowhere near the cap.',
+        ],
+      },
+      {
+        heading: 'Frequently asked questions',
+        list: [
+          'Do I need to convert my image to WebP before uploading? No. Upload JPG, PNG or WebP; the generator handles the conversion to spritesheet.webp.',
+          'Does Codex support GIF pets? Not as spritesheets. If your animation comes as a GIF, convert frames to a WebP grid first, or use a generator that does it for you.',
+          'Can a spritesheet be PNG instead of WebP? Some community loaders accept PNG, but stock Codex expects spritesheet.webp. Keep the standard format to avoid load failures.',
+          'Will a large upload slow down the generator? Slightly. Above 2048px the benefit is marginal for pixel art; keep sources reasonably sized for faster results.',
+        ],
+      },
+    ],
+  },
 ]
