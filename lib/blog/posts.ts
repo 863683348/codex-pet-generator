@@ -1012,4 +1012,73 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-free-starter-plan',
+    title: 'Get Your First Pet for Free: The Starter Plan Explained',
+    description:
+      'Short version: the codex pet free tier is real. What the Starter plan includes, where the limits are, and when upgrading to Pro actually makes sense. Your first pixel pet takes about five minutes.',
+    date: '2026-08-10',
+    author: 'PetGen',
+    keywords: [
+      'codex pet free',
+      'codex pet free plan',
+      'codex pet starter',
+      'free pixel pet generator',
+      'first pixel pet',
+      'codex pet starter plan',
+      'codex pet pricing',
+    ],
+    related: ['make-your-first-codex-pixel-pet', 'what-is-a-codex-pet', 'install-codex-pet-terminal'],
+    faq: [
+      { question: 'Is the free Codex pet plan really free?', answer: 'Yes. The Starter plan generates and installs your first pixel pet with no payment, full output, no watermark, no expiry. The quota resets on a cycle.' },
+      { question: 'Do free-generated pets expire?', answer: 'No. The spritesheet and pet.json you download are yours permanently, and once installed in Codex they do not depend on any online state.' },
+      { question: 'Is there a difference between Starter and Pro pets?', answer: 'Both work identically as pets. The difference is resolution, quota, and advanced customization, not whether the pet functions.' },
+      { question: 'Can I use a free pet commercially?', answer: 'Personal use and general content creation are fine; full terms are on the site, and the pricing page has details if you are unsure.' },
+    ],
+    sections: [
+      {
+        heading: 'What the Starter plan includes (free)',
+        paragraphs: [
+          'Core capability in one sentence: upload a photo, generate a pixel pet, download the spritesheet, install it into Codex. The flow is identical to the paid tier, no gimped entry point.',
+        ],
+        list: [
+          'Upload one source image (JPG / PNG / WebP) per generation, at standard pixel-pet resolution',
+          'Full output: spritesheet.webp plus pet.json, ready to drop into ~/.codex/pets',
+          'Basic animation states: 4-direction walk, idle, jump',
+          'Free-generated pets are yours permanently, no subscription needed to keep them',
+        ],
+      },
+      {
+        heading: 'What the free tier does not include (honestly)',
+        paragraphs: [
+          'No sugarcoating: the differences between Starter and Pro come down to three things: generation quota, output resolution, and advanced customization. The key point is the quota resets, it is not gone forever. When it runs out, wait for the cycle to reset. The pets themselves are unaffected, and anything you already generated belongs to you permanently. A lot of people assume free pets expire or carry watermarks; neither is true.',
+        ],
+        list: [
+          'Generation quota: Starter has a base allowance, Pro is unlimited',
+          'Output resolution: Starter is standard, Pro goes higher',
+          'Advanced customization: Starter has basic animation states, Pro adds more states, color and detail control',
+          'Batch generation: Starter is single image, Pro is batch',
+        ],
+      },
+      {
+        heading: 'Making your first pet in 5 steps',
+        paragraphs: [
+          'Pick a front-facing photo with even lighting; a simple background makes the result cleaner. Upload it to the generator and pick a pixelation strength (the default is usually fine). Preview the animation, then download the ZIP when you are happy. Unzip and drop the folder into ~/.codex/pets (Windows users: the app data directory). Restart or reload Codex, and the pet shows up on your desktop.',
+          'If you get stuck, our installation troubleshooting guide and terminal install guide cover most path and filename issues.',
+        ],
+      },
+      {
+        heading: 'How to pick a free pixel pet generator',
+        paragraphs: [
+          'Plenty of tools claim to be a free pixel pet generator. Judge them on four things: whether free actually means free (no watermark-bait pricing), whether the output is standard (spritesheet + pet.json, the only format Codex reads), whether there is a preview (do not generate first and find out after), and privacy (what happens to your source image). Our stance is simple: the Starter plan opens the whole core flow so you can have one pet before we ever talk upgrades.',
+        ],
+      },
+      {
+        heading: 'When upgrading to Pro is actually worth it',
+        paragraphs: [
+          'Three signals. First, you iterate on the same pet with multiple color schemes or detail passes and keep hitting the quota. Second, you need higher resolution output for avatars, wallpapers, or print. Third, you want to batch-generate pets for the whole family or a team. If you just want one pet to try the waters, Starter is plenty.',
+        ],
+      },
+    ],
+  },
 ]
