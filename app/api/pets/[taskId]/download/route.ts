@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
 import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
+import { STORAGE_BUCKET } from '@/lib/utils/constants'
 
 export const runtime = 'nodejs'
 
@@ -20,7 +21,7 @@ export async function GET(
 
     const { data: pet, error } = await supabase
       .from('pets')
-      .select('zip_url, status, pet_json')
+      .select('zip_url, zip_path, status, pet_json')
       .eq('id', taskId)
       .single()
 
@@ -28,7 +29,7 @@ export async function GET(
       return NextResponse.json({ error: 'NOT_FOUND', message: 'Task not found' }, { status: 404 })
     }
 
-    if (pet.status !== 'completed' || !pet.zip_url) {
+    if (pet.status !== 'completed') {
       return NextResponse.json({ error: 'NOT_READY', message: 'Pet not ready for download' }, { status: 400 })
     }
 
@@ -42,28 +43,31 @@ export async function GET(
       .replace(/[^a-zA-Z0-9_-]/g, '_')
       .slice(0, 64)
 
-    // Fetch the ZIP from storage and stream it back with an explicit
-    // Content-Disposition so the browser always downloads (naming it
-    // <petId>.zip) instead of previewing the binary.
-    const upstream = await fetch(pet.zip_url)
-    if (!upstream.ok || !upstream.body) {
-      return NextResponse.json(
-        { error: 'FETCH_FAILED', message: 'Failed to fetch the package' },
-        { status: 502 }
-      )
+    // FOT optimization: never stream the ZIP through the Vercel function.
+    // Streaming doubles Fast Origin Transfer (inbound from Supabase + outbound
+    // to the user) for every download. Instead, issue a short-lived signed URL
+    // (with ?download= forcing attachment) and 302-redirect the client straight
+    // to Supabase's CDN — the function then only returns a ~100 byte response.
+    if (pet.zip_path) {
+      const { data: signed } = await supabase.storage
+        .from(STORAGE_BUCKET)
+        .createSignedUrl(pet.zip_path, 3600, { download: `${petId}.zip` })
+
+      if (signed?.signedUrl) {
+        return NextResponse.redirect(signed.signedUrl, 302)
+      }
     }
 
-    const buf = Buffer.from(await upstream.arrayBuffer())
+    // Legacy fallback: rows without zip_path carry a public zip_url. Point the
+    // browser straight at it instead of proxying the bytes.
+    if (pet.zip_url) {
+      return NextResponse.redirect(pet.zip_url, 302)
+    }
 
-    return new NextResponse(buf, {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/zip',
-        'Content-Disposition': `attachment; filename="${petId}.zip"`,
-        'Content-Length': String(buf.length),
-        'Cache-Control': 'no-store',
-      },
-    })
+    return NextResponse.json(
+      { error: 'NOT_READY', message: 'Package is not available yet' },
+      { status: 400 }
+    )
   } catch (err) {
     console.error('Download API error:', err)
     return NextResponse.json(

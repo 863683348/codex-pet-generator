@@ -6,8 +6,11 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import GalleryContent, { type GalleryPet } from '@/components/gallery/GalleryContent'
 
-// Always reflect the latest shared pets; this is a public, login-free page.
-export const dynamic = 'force-dynamic'
+// Rebuild at most every 5 minutes instead of re-rendering on every hit.
+// Signed URLs live for 1h, so a 5-minute ISR window never serves an expired
+// URL while drastically cutting repeated origin renders (SEO crawlers hit
+// this page constantly). Images still load straight from Supabase's CDN.
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: `Gallery · ${SITE.name}`,

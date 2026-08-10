@@ -18,16 +18,33 @@ export default function DownloadButton({ href, petId, size = 'lg' }: DownloadBut
   const handleClick = async () => {
     setLoading(true)
     try {
-      // The download endpoint now requires auth, so we fetch with the session
-      // token and hand the bytes to the browser as a blob download.
+      // The download endpoint authenticates the user and 302-redirects to a
+      // short-lived signed URL (it no longer proxies the ZIP through Vercel —
+      // that doubles Fast Origin Transfer). We fetch with manual redirect so the
+      // browser can stream the ZIP directly from Supabase's CDN.
       const token = (await getSupabaseClient().auth.getSession()).data.session?.access_token
       const res = await fetch(href, {
         headers: token ? { authorization: `Bearer ${token}` } : undefined,
+        redirect: 'manual',
       })
+      if (res.status >= 300 && res.status < 400) {
+        const location = res.headers.get('location')
+        if (location) {
+          // Direct CDN download — no CORS, no proxy, no FOT cost on Vercel.
+          const a = document.createElement('a')
+          a.href = location
+          a.download = petId ? `${petId}.zip` : 'pet.zip'
+          document.body.appendChild(a)
+          a.click()
+          document.body.removeChild(a)
+          return
+        }
+      }
       if (!res.ok) {
         console.error('Download failed:', res.status)
         return
       }
+      // Fallback: blob download (in case the redirect could not be followed).
       const blob = await res.blob()
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
