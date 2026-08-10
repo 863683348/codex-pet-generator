@@ -13,6 +13,9 @@ type Mode = 'signin' | 'signup'
 // Set true to temporarily pause account creation while keeping the branded logo.
 const HIDE_AUTH_FORM = false
 
+// 仅保留 Google 登录：false = 隐藏邮箱/密码表单与 OR 分割线（只显示 Google 按钮）；需要邮箱注册时改回 true
+const SHOW_EMAIL_FORM = false
+
 export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode }) {
   const router = useRouter()
   const { t } = useI18n()
@@ -114,6 +117,8 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
             <p className="text-center text-sm text-text-secondary">{t('auth.temporarilyDisabled')}</p>
           ) : (
             <>
+          {SHOW_EMAIL_FORM && (
+          <>
           <h1 className="mb-1 text-center font-pixel text-sm text-text-primary">
             {isSignup ? t('auth.signUpTitle') : t('auth.signInTitle')}
           </h1>
@@ -170,6 +175,8 @@ export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode
               <span className="text-xs text-text-muted">{t('auth.or')}</span>
               <div className="h-px flex-1 bg-border" />
             </div>
+          </>
+          )}
 
           <button
             onClick={handleGoogle}
