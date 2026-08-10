@@ -1081,4 +1081,71 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pets-dont-change-your-model',
+    title: "7 Things to Know About Codex Pets (They Don't Change Your Model)",
+    description:
+      'The first question most people ask about the Codex desktop pet is whether it affects the model. It does not. Here are the seven most misunderstood things about Codex pets, and why they neither change your model nor slow down coding.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'codex pet tips',
+      'codex pet model',
+      'codex pet does not affect coding',
+      'codex pet facts',
+      'codex desktop pet',
+      'OpenAI Codex pet',
+    ],
+    related: ['how-to-install-codex-pet'],
+    faq: [
+      { question: 'Do Codex pets affect model capabilities?', answer: 'No. The pet runs in the UI layer, isolated from model inference, and neither generates code nor consumes tokens.' },
+      { question: 'Will installing a pet slow down Codex?', answer: 'No. It is a small desktop animation with negligible resource use, and it takes no context window.' },
+      { question: 'Is the pet state connected to task progress?', answer: 'Display-wise yes, function-wise no. The animation reads task events for show, but it cannot influence the task.' },
+      { question: 'Does uninstalling the pet affect my account or settings?', answer: 'No. Uninstalling deletes a local folder. Account, subscription, config and chat history stay untouched.' },
+    ],
+    sections: [
+      {
+        heading: '1. The pet is a decoration layer, not a function layer',
+        paragraphs: [
+          'The Codex pet lives in the desktop UI layer, fully isolated from the model inference underneath. It does not generate code, it does not consume tokens, and it does not change model behavior. Think of it as a desktop wallpaper: nice to look at, unrelated to the work happening behind it.',
+        ],
+      },
+      {
+        heading: '2. Installing a pet does not slow Codex down',
+        paragraphs: [
+          'The pet is a small animation rendered on your desktop, not something stuffed into the model context. Its resource use is negligible. Autocomplete speed stays the same, and it takes up none of your context window.',
+        ],
+      },
+      {
+        heading: '3. Pet states and task states are two different things',
+        paragraphs: [
+          'The pet reacts to your work: idle when you pause, bouncy when a task is running. That state read is display-only. The reverse is not true. An excited pet does not mean the task is faster, and a sleeping pet does not mean the model is stuck.',
+        ],
+      },
+      {
+        heading: '4. Changing pet themes does not change code style',
+        paragraphs: [
+          'Skin swaps only affect appearance. Whether your companion is a pixel cat or a pixel dog, the quality, style and speed of generated code stay identical. If you see a post claiming a certain theme makes code better, ignore it.',
+        ],
+      },
+      {
+        heading: '5. Pet data stays local',
+        paragraphs: [
+          'The pet package (spritesheet + pet.json) lives in your local Codex config directory and is never uploaded. No need to worry about a pet sync dragging your code anywhere. Different storage, different paths.',
+        ],
+      },
+      {
+        heading: '6. Removing the pet touches nothing else',
+        paragraphs: [
+          'Uninstalling deletes one local folder. Your account, subscription, model config and conversation history are all untouched. Installing and uninstalling is a zero-cost operation, so feel free to experiment.',
+        ],
+      },
+      {
+        heading: '7. The pet is companionship, not a productivity tool',
+        paragraphs: [
+          'Its job is to make long coding sessions feel less lonely. Expect productivity gains and you will be disappointed. Expect your desktop to feel alive, and it delivers. Tools do the work; the pet keeps you company.',
+        ],
+      },
+    ],
+  },
 ]
