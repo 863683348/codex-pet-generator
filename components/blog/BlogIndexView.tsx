@@ -11,7 +11,9 @@ export default function BlogIndexView({ posts }: { posts: BlogPost[] }) {
       <h1 className="font-pixel text-lg text-text-primary">{t('blog.indexTitle')}</h1>
       <p className="mt-2 text-sm text-text-muted">{t('blog.indexSubtitle')}</p>
       <div className="mt-8 space-y-6">
-        {posts.map((post) => (
+        {[...posts]
+          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .map((post) => (
           <article
             key={post.slug}
             className="glass-card rounded-lg border border-border p-5 transition-colors hover:bg-bg-elevated"
