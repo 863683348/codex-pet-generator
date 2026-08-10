@@ -11,7 +11,7 @@ type Mode = 'signin' | 'signup'
 
 // Flip to false to instantly restore the sign-up / sign-in form.
 // Set true to temporarily pause account creation while keeping the branded logo.
-const HIDE_AUTH_FORM = true
+const HIDE_AUTH_FORM = false
 
 export default function AuthForm({ mode: initialMode = 'signup' }: { mode?: Mode }) {
   const router = useRouter()
