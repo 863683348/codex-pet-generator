@@ -239,6 +239,10 @@ export default function MyPetsPage() {
                       <img
                         src={pet.baseImageUrl}
                         alt={pet.displayName || 'Pixel pet'}
+                        width={512}
+                        height={512}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover"
                       />
                     ) : (

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getSupabaseServer } from '@/lib/supabase/server'
-import { STORAGE_BUCKET } from '@/lib/utils/constants'
+import { getPublicUrl } from '@/lib/storage/storage'
 import { SITE } from '@/lib/seo'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -35,23 +35,12 @@ async function loadSharedPets(): Promise<GalleryPet[]> {
 
   if (!pets) return []
 
-  const result = await Promise.all(
-    pets.map(async (p) => {
-      let baseImageUrl: string | null = null
-      if (p.base_image_path) {
-        const { data } = await supabase.storage
-          .from(STORAGE_BUCKET)
-          .createSignedUrl(p.base_image_path, 3600)
-        baseImageUrl = data?.signedUrl ?? null
-      }
-      return {
-        id: p.id,
-        displayName: p.display_name,
-        shareCount: p.share_count ?? 0,
-        baseImageUrl,
-      }
-    })
-  )
+  const result = (pets ?? []).map((p) => ({
+    id: p.id,
+    displayName: p.display_name,
+    shareCount: p.share_count ?? 0,
+    baseImageUrl: p.base_image_path ? getPublicUrl(p.base_image_path) : null,
+  }))
   return result
 }
 

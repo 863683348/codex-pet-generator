@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getSupabaseServer } from '@/lib/supabase/server'
-import { STORAGE_BUCKET } from '@/lib/utils/constants'
+import { getPublicUrl } from '@/lib/storage/storage'
 import { SITE } from '@/lib/seo'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -23,18 +23,10 @@ async function loadPet(id: string) {
 
   if (!pet || !pet.is_public) return null
 
-  // Generate short-lived signed URLs so anonymous visitors can view the
-  // assets without relying on the storage bucket being public.
-  let baseUrl: string | null = null
-  let spriteUrl: string | null = null
-  if (pet.base_image_path) {
-    const { data } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(pet.base_image_path, 3600)
-    baseUrl = data?.signedUrl ?? null
-  }
-  if (pet.spritesheet_path) {
-    const { data } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(pet.spritesheet_path, 3600)
-    spriteUrl = data?.signedUrl ?? null
-  }
+  // The storage bucket is public, so build asset URLs directly instead of
+  // calling createSignedUrl (which adds Storage round-trips per page view).
+  const baseUrl = pet.base_image_path ? getPublicUrl(pet.base_image_path) : null
+  const spriteUrl = pet.spritesheet_path ? getPublicUrl(pet.spritesheet_path) : null
 
   return { pet, baseUrl, spriteUrl }
 }

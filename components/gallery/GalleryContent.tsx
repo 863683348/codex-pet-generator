@@ -49,6 +49,10 @@ export default function GalleryContent({ pets }: { pets: GalleryPet[] }) {
                   <img
                     src={pet.baseImageUrl}
                     alt={pet.displayName || t('gallery.untitled')}
+                    width={512}
+                    height={512}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform group-hover:scale-105"
                   />
                 ) : (
