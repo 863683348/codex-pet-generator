@@ -6,7 +6,7 @@ export const fr: Dict = {
   footer: { madeWith: 'Fabriqué pour les utilisateurs de Codex', compatible: 'Compatible OpenAI Codex', copyright: '(c) 2026 PetGen', privacy: 'Confidentialite', terms: "Conditions d'utilisation", faq: 'FAQ', contact: 'Contact' },
   pricing: {
     title: 'Tarifs simples', desc: 'Choisissez le forfait adapte a vos besoins. Sans frais caches.', popular: 'POPULAIRE',
-    starter: { name: 'Starter', price: 'Gratuit', period: 'a vie', desc: 'Essayez PetGen.', cta: 'Commencer', f1: '3 generations', f2: '9 etats', f3: 'Qualite standard', f4: 'WebP', f5: 'Support' },
+    starter: { name: 'Starter', price: 'Gratuit', period: 'a vie', desc: 'Essayez PetGen.', cta: 'Commencer', f1: '1 generation', f2: '9 etats', f3: 'Qualite standard', f4: 'WebP', f5: 'Support' },
     pro: { name: 'Pro', price: '12 EUR', period: '/mois', desc: 'Pour les createurs.', cta: 'Souscrire Pro', f1: '15/mois', f2: '9 etats', f3: 'HD (2x)', f4: 'WebP+ZIP', f5: 'Prioritaire', f6: 'pet.json' },
     unlimited: { name: 'Illimite', price: '35 EUR', period: '/mois', desc: 'Pour les equipes.', cta: 'Souscrire Illimite', f1: 'Illimite', f2: '9 etats', f3: 'HD+4K', f4: 'Tous formats', f5: 'Licence commerciale', f6: 'Support dedie', f7: 'Palette' },
   },
@@ -21,7 +21,7 @@ export const fr: Dict = {
     q7: 'Quels moyens de paiement acceptez-vous ?', a7: 'Nous acceptons les principales cartes de credit et PayPal.',
     q8: 'Puis-je annuler mon abonnement ?', a8: "Oui, a tout moment. Votre acces reste actif jusqu'a la fin de la periode de facturation.",
     q9: 'Que deviennent mes images uploadees ?', a9: "Les images sont supprimees apres la generation. Elles ne sont pas stockees ni reutilisees.",
-    q10: 'Existe-t-il un forfait gratuit ?', a10: 'Oui. Le forfait Starter est gratuit et inclut 3 generations.',
+    q10: 'Existe-t-il un forfait gratuit ?', a10: 'Oui. Le forfait Starter est gratuit et inclut 1 generation.',
   },
   trust: {
     title: 'Approuvé par les développeurs du monde entier',

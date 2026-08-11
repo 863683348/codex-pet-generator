@@ -1,5 +1,6 @@
 ﻿import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
+import { FREE_PLAN_GENERATIONS } from '@/lib/utils/constants'
 
 export async function GET(req: NextRequest) {
   try {
@@ -27,18 +28,18 @@ export async function GET(req: NextRequest) {
 
     if (upsertError) {
       console.error('Usage upsert error:', upsertError)
-      return NextResponse.json({ remaining: 3, plan: 'free', usage: 0 })
+      return NextResponse.json({ remaining: FREE_PLAN_GENERATIONS, plan: 'free', usage: 0 })
     }
 
     const plan = usage?.plan || 'free'
     const genCount = usage?.generations || 0
-    const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : 3
+    const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : FREE_PLAN_GENERATIONS
     const remaining = Math.max(0, maxGen - genCount)
 
     return NextResponse.json({ remaining, plan, usage: genCount, points: usage?.points ?? 0, bonus: usage?.bonus_generations ?? 0 })
   } catch (err) {
     console.error('Usage API error:', err)
-    return NextResponse.json({ remaining: 3, plan: 'free', usage: 0 })
+    return NextResponse.json({ remaining: FREE_PLAN_GENERATIONS, plan: 'free', usage: 0 })
   }
 }
 

@@ -267,7 +267,7 @@ export const posts: BlogPost[] = [
       {
         heading: 'Make your branded pet today',
         paragraphs: [
-          'The free Starter plan includes 3 generations to test your logo. The Pro plan unlocks HD spritesheets for 4K monitors.',
+          'The free Starter plan includes 1 generation to test your logo. The Pro plan unlocks HD spritesheets for 4K monitors.',
           'For installation help, see our installation guide.',
         ],
       },
@@ -461,7 +461,7 @@ export const posts: BlogPost[] = [
           'A more human workspace — coding is lonely; a pixel buddy makes it feel different',
           'Personal expression — a custom pet generated from your own photo is unique to you',
           'Community momentum — CodexPets and similar communities list 800+ pets, and "turn my cat into a Codex pet" posts are trending',
-          'Free to start — the Codex Pet Generator Starter plan gives 3 free generations',
+          'Free to start — the Codex Pet Generator Starter plan gives 1 free generation',
         ],
       },
       {
@@ -505,7 +505,7 @@ export const posts: BlogPost[] = [
       {
         question: 'Does generating a Codex Pet cost money?',
         answer:
-          'The Starter plan is free and includes 3 generations. The Pro plan is $9/month and adds 15 generations plus HD spritesheets.',
+          'The Starter plan is free and includes 1 generation. The Pro plan is $9/month and adds 15 generations plus HD spritesheets.',
       },
       {
         question: 'What is the difference between a Codex Pet and a custom Codex Pet?',
@@ -552,7 +552,7 @@ export const posts: BlogPost[] = [
         paragraphs: [
           'Step 1: Open Codex Pet Generator and click "Upload photo".',
           'Step 2: Upload a JPG, PNG, or WebP. Tip: square crop, subject centered, clean background — the AI converts it to pixel art automatically.',
-          'Step 3: Preview your pixel pet. When you are happy, click "Unlock animation ZIP". The Starter plan includes 3 free generations, enough for your first pet.',
+          'Step 3: Preview your pixel pet. When you are happy, click "Unlock animation ZIP". The Starter plan includes 1 free generation, enough for your first pet.',
           'Step 4: Download the ZIP, unzip to a my-pet/ folder (spritesheet.webp + pet.json), move it to ~/.codex/pets/, then fully restart Codex — your pet appears!',
         ],
       },
@@ -570,7 +570,7 @@ export const posts: BlogPost[] = [
       {
         question: 'Does it cost money to make your first Codex pet?',
         answer:
-          'No. The Starter plan gives 3 free generations, which is enough to make your first Codex pixel pet. Pro is $9/month for 15 generations.',
+          'No. The Starter plan gives 1 free generation, which is enough to make your first Codex pixel pet. Pro is $9/month for 15 generations.',
       },
       {
         question: 'Which photo formats are supported?',
@@ -655,7 +655,7 @@ export const posts: BlogPost[] = [
       {
         heading: 'Frequently asked questions',
         list: [
-          'Does a custom pet cost money? Starter gives 3 free generations; Pro is $9/month for 15.',
+          'Does a custom pet cost money? Starter gives 1 free generation; Pro is $9/month for 15.',
           'Can I use my custom pet commercially? Only on the Unlimited plan.',
           'What if my pet does not show after install? Verify the folder name matches pet.json and restart Codex fully.',
           'Can I recolor my custom pet? Regenerate from a differently colored photo, or edit the spritesheet manually on Pro/Unlimited.',

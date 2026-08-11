@@ -6,7 +6,7 @@ export const de: Dict = {
   footer: { madeWith: 'Hergestellt für Codex-Benutzer', compatible: 'OpenAI Codex kompatibel', copyright: '© 2026 PetGen', privacy: 'Datenschutz', terms: 'AGB', faq: 'FAQ', contact: 'Kontakt' },
   pricing: {
     title: 'Einfache Preise', desc: 'Wählen Sie den Plan, der zu Ihnen passt. Keine versteckten Kosten.', popular: 'BELIEBT',
-    starter: { name: 'Starter', price: 'Kostenlos', period: 'für immer', desc: 'Testen Sie PetGen.', cta: 'Loslegen', f1: '3 Generationen', f2: '9 Zustände', f3: 'Standard', f4: 'WebP-Download', f5: 'Community-Support' },
+    starter: { name: 'Starter', price: 'Kostenlos', period: 'für immer', desc: 'Testen Sie PetGen.', cta: 'Loslegen', f1: '1 Generation', f2: '9 Zustände', f3: 'Standard', f4: 'WebP-Download', f5: 'Community-Support' },
     pro: { name: 'Pro', price: '12 €', period: '/Monat', desc: 'Für Kreative.', cta: 'Pro abonnieren', f1: '15/Monat', f2: '9 Zustände', f3: 'HD (2x)', f4: 'WebP+ZIP', f5: 'Priorität', f6: 'pet.json' },
     unlimited: { name: 'Unbegrenzt', price: '35 €', period: '/Monat', desc: 'Für Teams.', cta: 'Unbegrenzt abonnieren', f1: 'Unbegrenzt', f2: '9 Zustände', f3: 'HD+4K', f4: 'Alle Formate', f5: 'Gewerblich', f6: 'Dediziert', f7: 'Palette' },
   },
