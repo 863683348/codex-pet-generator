@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { LayoutGrid, ArrowRight, Images } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
 
@@ -45,15 +46,12 @@ export default function GalleryContent({ pets }: { pets: GalleryPet[] }) {
             >
               <div className="relative aspect-square bg-bg-elevated">
                 {pet.baseImageUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={pet.baseImageUrl}
                     alt={pet.displayName || t('gallery.untitled')}
-                    width={512}
-                    height={512}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                    className="object-cover transition-transform group-hover:scale-105"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center text-text-muted">
