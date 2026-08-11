@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Images, Share2, Globe, Check, Loader2, ArrowRight, LogIn, Download, Link2, Copy } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import Navbar from '@/components/layout/Navbar'
@@ -235,10 +236,11 @@ export default function MyPetsPage() {
                 <div key={pet.id} className="glass-card overflow-hidden rounded-lg">
                   <div className="relative aspect-square bg-bg-elevated">
                     {pet.baseImageUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={pet.baseImageUrl}
                         alt={pet.displayName || 'Pixel pet'}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                         className="h-full w-full object-cover"
                       />
                     ) : (

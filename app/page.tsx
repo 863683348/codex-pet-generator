@@ -71,6 +71,19 @@ export default function Home() {
       { '@type': 'Question', name: t('faq.q10'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a10') } },
     ],
   }
+
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to create a custom pet with Codex Pet Generator',
+    description: 'Turn a photo into an installable pixel-art pet for OpenAI Codex in four steps.',
+    step: [
+      { '@type': 'HowToStep', name: 'Upload a photo', text: 'Choose any JPG, PNG, or WebP photo of a pet, avatar, or character (up to 10MB).', position: 1 },
+      { '@type': 'HowToStep', name: 'Approve the base character', text: 'Our AI renders a pixel-art base. Approve the look, or regenerate until it fits.', position: 2 },
+      { '@type': 'HowToStep', name: 'Generate the animation set', text: 'Nine animation states are composed into spritesheet.webp plus pet.json.', position: 3 },
+      { '@type': 'HowToStep', name: 'Download and install', text: 'Download the ZIP, copy the folder to ~/.codex/pets/, restart Codex, and your pet appears.', position: 4 },
+    ],
+  }
   const [isUploading, setIsUploading] = useState(false)
   const [isApproving, setIsApproving] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
@@ -429,6 +442,7 @@ export default function Home() {
       <Navbar />
       <JsonLd data={appJsonLd} />
       <JsonLd data={faqJsonLd} />
+      <JsonLd data={howToJsonLd} />
 
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {/* ---- Hero ---- */}

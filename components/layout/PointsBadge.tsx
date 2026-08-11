@@ -89,10 +89,10 @@ export default function PointsBadge() {
           onClick={handleRedeem}
           disabled={busy}
           title={`Redeem ${REDEEM_COST} pts for 1 generation`}
-          className="flex items-center gap-1 rounded-lg border border-accent/40 bg-accent/10 px-2.5 py-1.5 text-text-primary transition-all hover:bg-accent/20"
+          className="flex h-8 items-center gap-1 rounded-lg border border-accent/40 bg-accent/10 px-2 text-text-primary transition-all hover:bg-accent/20 sm:h-auto sm:px-2.5 sm:py-1.5"
         >
           <RefreshCw className="h-3.5 w-3.5 text-accent" />
-          <span className="font-pixel text-[10px]">Redeem</span>
+          <span className="hidden font-pixel text-[10px] sm:inline">Redeem</span>
         </button>
       )}
       {flash && (

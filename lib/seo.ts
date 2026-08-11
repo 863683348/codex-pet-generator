@@ -13,7 +13,7 @@ export const SITE = {
   fullName: 'Codex Pet Generator',
   url: SITE_URL,
   description:
-    'Turn any photo into an animated pixel-art pet (spritesheet.webp + pet.json) for OpenAI Codex. A free AI pet generator — upload a picture, approve the character, and download your installable coding companion.',
+    'Free AI pet generator — turn any photo into a custom pixel-art pet (spritesheet.webp + pet.json) for OpenAI Codex. Upload a picture, approve the character, and download your installable coding companion. Fast, no sign-up, works for cats, dogs, and fantasy pets.',
   keywords: [
     'AI pet generator',
     'pet avatar generator',

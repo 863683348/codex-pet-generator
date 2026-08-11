@@ -10,7 +10,7 @@ import CookieConsent from '@/components/layout/CookieConsent'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.fullName} — Turn Photos to Pixel Pets`,
+    default: `Free AI Pet Generator | Create Custom Pet Images Online — ${SITE.fullName}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,

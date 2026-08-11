@@ -1081,4 +1081,329 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pets-dont-change-your-model',
+    title: "7 Things to Know About Codex Pets (They Don't Change Your Model)",
+    description:
+      'The first question most people ask about the Codex desktop pet is whether it affects the model. It does not. Here are the seven most misunderstood things about Codex pets, and why they neither change your model nor slow down coding.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'codex pet tips',
+      'codex pet model',
+      'codex pet does not affect coding',
+      'codex pet facts',
+      'codex desktop pet',
+      'OpenAI Codex pet',
+    ],
+    related: ['how-to-install-codex-pet'],
+    faq: [
+      { question: 'Do Codex pets affect model capabilities?', answer: 'No. The pet runs in the UI layer, isolated from model inference, and neither generates code nor consumes tokens.' },
+      { question: 'Will installing a pet slow down Codex?', answer: 'No. It is a small desktop animation with negligible resource use, and it takes no context window.' },
+      { question: 'Is the pet state connected to task progress?', answer: 'Display-wise yes, function-wise no. The animation reads task events for show, but it cannot influence the task.' },
+      { question: 'Does uninstalling the pet affect my account or settings?', answer: 'No. Uninstalling deletes a local folder. Account, subscription, config and chat history stay untouched.' },
+    ],
+    sections: [
+      {
+        heading: '1. The pet is a decoration layer, not a function layer',
+        paragraphs: [
+          'The Codex pet lives in the desktop UI layer, fully isolated from the model inference underneath. It does not generate code, it does not consume tokens, and it does not change model behavior. Think of it as a desktop wallpaper: nice to look at, unrelated to the work happening behind it.',
+        ],
+      },
+      {
+        heading: '2. Installing a pet does not slow Codex down',
+        paragraphs: [
+          'The pet is a small animation rendered on your desktop, not something stuffed into the model context. Its resource use is negligible. Autocomplete speed stays the same, and it takes up none of your context window.',
+        ],
+      },
+      {
+        heading: '3. Pet states and task states are two different things',
+        paragraphs: [
+          'The pet reacts to your work: idle when you pause, bouncy when a task is running. That state read is display-only. The reverse is not true. An excited pet does not mean the task is faster, and a sleeping pet does not mean the model is stuck.',
+        ],
+      },
+      {
+        heading: '4. Changing pet themes does not change code style',
+        paragraphs: [
+          'Skin swaps only affect appearance. Whether your companion is a pixel cat or a pixel dog, the quality, style and speed of generated code stay identical. If you see a post claiming a certain theme makes code better, ignore it.',
+        ],
+      },
+      {
+        heading: '5. Pet data stays local',
+        paragraphs: [
+          'The pet package (spritesheet + pet.json) lives in your local Codex config directory and is never uploaded. No need to worry about a pet sync dragging your code anywhere. Different storage, different paths.',
+        ],
+      },
+      {
+        heading: '6. Removing the pet touches nothing else',
+        paragraphs: [
+          'Uninstalling deletes one local folder. Your account, subscription, model config and conversation history are all untouched. Installing and uninstalling is a zero-cost operation, so feel free to experiment.',
+        ],
+      },
+      {
+        heading: '7. The pet is companionship, not a productivity tool',
+        paragraphs: [
+          'Its job is to make long coding sessions feel less lonely. Expect productivity gains and you will be disappointed. Expect your desktop to feel alive, and it delivers. Tools do the work; the pet keeps you company.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'custom-pet-guide',
+    title: 'Custom Pet Guide: How to Make a Custom Pet with AI',
+    description:
+      'Learn what a custom pet is and how to create one from any photo with an AI pet generator. A beginner-friendly guide to custom cats, dogs, and fantasy pets.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'custom pet',
+      'custom pet maker',
+      'make a custom pet',
+      'ai custom pet',
+      'custom pet generator',
+      'codex custom pet',
+      'personalized pet avatar',
+    ],
+    related: ['codex-custom-pet-guide', 'turn-photo-into-pixel-art', 'best-ai-pet-generators-2026', 'ai-pet-generator-ultimate-guide'],
+    faq: [
+      { question: 'What is a custom pet?', answer: 'A custom pet is a pet character built from your own photo or idea, rather than a preset template. With an AI pet generator you upload a picture and the tool renders a unique pixel-art version you can install and use.' },
+      { question: 'Can I make a custom pet for free?', answer: 'Yes. PetGen offers a free Starter plan that includes several pet generations. You can create, preview, and download a custom pet without paying.' },
+      { question: 'What kinds of pets can I make?', answer: 'Anything from a real cat or dog to a fantasy creature. The generator works from a photo, so your source image decides the look.' },
+    ],
+    sections: [
+      { heading: 'What is a custom pet?', paragraphs: [
+        'A custom pet is a pet character created from your own photo or concept, not picked from a fixed catalogue. Instead of accepting a default animal, you feed the tool a picture and it builds a pet that looks like your subject.',
+        'For OpenAI Codex users, a custom pet becomes a small desktop companion that lives in the coding environment. It is decorative, but it makes long sessions feel less empty.',
+      ]},
+      { heading: 'Why make a custom pet?', paragraphs: [
+        'A custom pet is recognizable. When your mascot is based on your own cat, dog, or avatar, people remember it across streams, posts, and repositories.',
+        'It is also a fast way to give a project a face. Indie developers use custom pets as lightweight branding before they have art budget for a full sprite set.',
+      ]},
+      { heading: 'How to make a custom pet in 4 steps', paragraphs: [
+        'First, choose a clear photo. A front-facing subject with good light gives the cleanest result.',
+        'Second, upload it to an AI pet generator such as PetGen. The tool renders a pixel-art base from your image.',
+        'Third, approve the base or regenerate until the look fits. Fourth, download the package and install it.',
+      ]},
+      { heading: 'Photo tips for a better custom pet', paragraphs: [
+        'Use a single clear subject. Group photos confuse the generator and weaken the result.',
+        'Avoid heavy filters. A plain, well-lit photo maps to pixel art more faithfully than a busy edit.',
+      ]},
+      { heading: 'Custom pet vs preset pet', paragraphs: [
+        'A preset pet is the same for everyone. A custom pet is yours alone, derived from your image.',
+        'If you want a companion that reflects your brand or your real animal, custom is the right choice.',
+      ]},
+      { heading: 'Where to use your custom pet', paragraphs: [
+        'Install it in OpenAI Codex as a desktop companion, use it as a Discord avatar, or drop it into a game project as a placeholder character.',
+        'Because the output is a spritesheet plus metadata, it travels easily between tools.',
+      ]},
+    ],
+  },
+  {
+    slug: 'change-pet-style-tutorial',
+    title: 'How to Change Your Pet Style: A Step-by-Step Tutorial',
+    description:
+      'Want a different look for your AI pet? This tutorial shows how to change your pet style, swap themes, and regenerate a fresh custom pet.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'change pet style',
+      'codex change pet',
+      'customize pet',
+      'pet style swap',
+      'regenerate pet',
+      'ai pet redesign',
+    ],
+    related: ['codex-custom-pet-guide', 'codex-pet-color-customization', 'pixel-art-pet-design-guide', 'ai-pet-generator-ultimate-guide'],
+    faq: [
+      { question: 'Can I change my pet style after generating it?', answer: 'Yes. You can regenerate a new base from the same photo with a different prompt, or start fresh with a new image. The original is not locked in.' },
+      { question: 'Does changing the style affect my installed pet?', answer: 'It affects only the new download. Your previously installed pet stays as it is until you replace its folder with the new package.' },
+      { question: 'How many times can I regenerate?', answer: 'On the free Starter plan you get a limited number of generations. Paid plans raise or remove the limit.' },
+    ],
+    sections: [
+      { heading: 'When to change your pet style', paragraphs: [
+        'You might want a new style after a rebrand, a season change, or simply because the first result was not quite right.',
+        'Style changes are cheap to try. Regenerating from the same photo is the fastest way to explore looks.',
+      ]},
+      { heading: 'Step 1: Open your source photo', paragraphs: [
+        'Keep the original photo you used. Regenerating from the same image with a new style prompt gives the most consistent comparison.',
+      ]},
+      { heading: 'Step 2: Adjust the style prompt', paragraphs: [
+        'Describe the look you want: brighter palette, thicker outline, retro 8-bit, or a specific color family.',
+        'Small, precise words beat long vague sentences. The generator reads the prompt directly into the art.',
+      ]},
+      { heading: 'Step 3: Regenerate and compare', paragraphs: [
+        'Generate the new base and place it next to the old one. Keep the version that reads best at small size.',
+        'Pixel pets are viewed tiny on a desktop, so pick the one that stays clear when scaled down.',
+      ]},
+      { heading: 'Step 4: Reinstall the new package', paragraphs: [
+        'Download the updated ZIP, copy it to your pets folder, and restart Codex. The new style replaces the old one.',
+      ]},
+      { heading: 'Common style mistakes', paragraphs: [
+        'Too many colors make the pet noisy. Limit the palette for a clean retro read.',
+        'Over-detailed prompts fight the pixel grid. Let the generator simplify.',
+      ]},
+    ],
+  },
+  {
+    slug: 'pet-creation-guide',
+    title: 'Pet Creation Guide: From Photo to Installable Pixel Pet',
+    description:
+      'A complete pet creation walkthrough: upload, generate, approve, and install your pixel-art pet. Perfect for first-time creators.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'pet creation',
+      'codex pet creation',
+      'create a pet',
+      'how to make a pet',
+      'ai pet creation guide',
+      'pixel pet maker',
+    ],
+    related: ['how-petgen-works', 'make-your-first-codex-pixel-pet', 'install-codex-pet-terminal', 'ai-pet-generator-ultimate-guide'],
+    faq: [
+      { question: 'How long does pet creation take?', answer: 'The base character takes about 90 seconds. The full animation set with nine states takes a few minutes.' },
+      { question: 'Do I need to know pixel art?', answer: 'No. The generator handles the pixel rendering. You only choose a photo and approve the result.' },
+      { question: 'What do I get at the end?', answer: 'A ZIP with spritesheet.webp (the animation frames) and pet.json (the metadata Codex reads).' },
+    ],
+    sections: [
+      { heading: 'What you need before you start', paragraphs: [
+        'A photo you like, a free PetGen account, and a few minutes. That is the entire setup.',
+        'No art skills and no software install are required to create the pet. Installation happens only at the end.',
+      ]},
+      { heading: 'Step 1: Upload your photo', paragraphs: [
+        'Drop a JPG, PNG, or WebP file up to 10MB. One clear subject works best.',
+      ]},
+      { heading: 'Step 2: Review the base character', paragraphs: [
+        'The AI returns a pixel-art base. Approve it if the look fits, or regenerate for another attempt.',
+        'This is the moment to catch a wrong read before the animation is built.',
+      ]},
+      { heading: 'Step 3: Generate the animation set', paragraphs: [
+        'Nine animation states are composed into a single spritesheet. These cover idle, working, and resting poses.',
+        'The sheet uses a transparent background so it drops cleanly into any UI.',
+      ]},
+      { heading: 'Step 4: Download and install', paragraphs: [
+        'Download the ZIP, copy the folder to your pets directory, and restart Codex. Your pet appears.',
+      ]},
+      { heading: 'First-creation checklist', paragraphs: [
+        'Clear photo selected. Base approved. Animation generated. Package downloaded. Installed and verified.',
+      ]},
+    ],
+  },
+  {
+    slug: 'pets-library-explained',
+    title: 'Pets Library Explained: Browse, Save, and Manage Your Pets',
+    description:
+      'What is the pets library? Learn how to browse, save, and manage every custom pet you create, and reuse them across Codex.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'pets library',
+      'codex pets library',
+      'pet collection',
+      'saved pets',
+      'manage pets',
+      'pet library',
+    ],
+    related: ['what-is-a-codex-pet', 'share-codex-pet-with-friends', 'codex-pet-free-starter-plan', 'ai-pet-generator-ultimate-guide'],
+    faq: [
+      { question: 'Where are my pets stored?', answer: 'Each pet is a local folder with a spritesheet and a metadata file. The pets library is the collection of these folders on your machine.' },
+      { question: 'Can I have more than one pet?', answer: 'Yes. You can keep several pets and switch between them by changing which folder is active in your pets directory.' },
+      { question: 'How do I share a pet from my library?', answer: 'Copy the pet folder or share the downloaded ZIP. Friends can drop it into their own pets directory.' },
+    ],
+    sections: [
+      { heading: 'What is the pets library?', paragraphs: [
+        'The pets library is your personal collection of every custom pet you have created. Each entry is a small folder with art and metadata.',
+        'Think of it as a shelf of companions you can swap in and out of Codex.',
+      ]},
+      { heading: 'How pets are organized', paragraphs: [
+        'Every pet lives in its own folder under the pets directory. The folder name is the pet name Codex shows.',
+        'Keeping one folder per pet makes switching and sharing clean.',
+      ]},
+      { heading: 'Saving a pet', paragraphs: [
+        'When you download a finished pet, keep the ZIP or the extracted folder. That is your saved copy.',
+      ]},
+      { heading: 'Switching between pets', paragraphs: [
+        'To change the active pet, point Codex at a different folder. Restart the app and the new companion appears.',
+      ]},
+      { heading: 'Managing a growing library', paragraphs: [
+        'Name folders clearly. A library of ten pets is easy to navigate only if each name means something.',
+        'Periodically remove pets you no longer use to keep the list short.',
+      ]},
+      { heading: 'Sharing from your library', paragraphs: [
+        'Send a friend the pet folder or ZIP. They paste it into their own pets directory and restart.',
+      ]},
+    ],
+  },
+  {
+    slug: 'ai-pet-generator-ultimate-guide',
+    title: 'The Ultimate Guide to AI Pet Generators (2026)',
+    description:
+      'Everything about AI pet generators: how they work, what to look for, and how to create a custom pixel-art pet for OpenAI Codex. The complete 2026 guide.',
+    date: '2026-08-11',
+    author: 'PetGen',
+    keywords: [
+      'ai pet generator',
+      'best ai pet generator',
+      'ai pet generator guide',
+      'custom pet generator',
+      'pixel pet generator',
+      'ai pet art',
+      'free ai pet generator',
+    ],
+    related: ['custom-pet-guide', 'change-pet-style-tutorial', 'pet-creation-guide', 'pets-library-explained', 'best-ai-pet-generators-2026'],
+    faq: [
+      { question: 'What is an AI pet generator?', answer: 'It is a tool that turns a photo or prompt into a pet character, usually pixel art, that you can use as an avatar, game sprite, or desktop companion.' },
+      { question: 'Are AI pet generators free?', answer: 'Many offer a free tier. PetGen includes a free Starter plan with several generations so you can try before paying.' },
+      { question: 'Do I need art skills?', answer: 'No. You provide a photo and approve the result. The tool handles the rendering.' },
+      { question: 'What is the best AI pet generator for Codex?', answer: 'The best choice outputs a Codex-ready package: a spritesheet plus a metadata file. PetGen is built for exactly this.' },
+    ],
+    sections: [
+      { heading: 'What is an AI pet generator?', paragraphs: [
+        'An AI pet generator is a tool that converts a photo or a text prompt into a pet character. Most modern versions output pixel art because it is lightweight, readable at small sizes, and easy to animate.',
+        'The result is not just a picture. A good generator produces a structured package you can actually use in software.',
+      ]},
+      { heading: 'How an AI pet generator works', paragraphs: [
+        'You upload a photo. The model detects the subject and renders a pixel-art base that matches its shape and features.',
+        'You approve the base or regenerate. Then the tool builds animation frames and packs them into a spritesheet with a metadata file.',
+      ]},
+      { heading: 'Why pixel art?', paragraphs: [
+        'Pixel art stays clear when scaled down to a tiny desktop icon. Vector and photo styles blur at that size.',
+        'It also animates cheaply. A handful of frames read as lively motion without heavy assets.',
+      ]},
+      { heading: 'What to look for in a generator', paragraphs: [
+        'Check the output format first. A spritesheet plus metadata beats a single flat image because it is installable.',
+        'Check the free tier. You should be able to try the full flow before paying.',
+        'Check animation state count. Nine states cover the common poses a companion needs.',
+      ]},
+      { heading: 'Free vs paid plans', paragraphs: [
+        'Free plans are enough to learn the tool and make one or two pets. Paid plans raise generation limits and unlock higher quality.',
+        'Pick paid only when you create pets often or need commercial rights.',
+      ]},
+      { heading: 'Step-by-step: create your first AI pet', paragraphs: [
+        'Upload a clear photo with one subject. Approve the base. Wait for the animation set. Download the ZIP. Install it.',
+        'The whole flow takes a few minutes and needs no art background.',
+      ]},
+      { heading: 'Custom pets vs preset pets', paragraphs: [
+        'Preset pets are shared by everyone. Custom pets come from your own photo, so they are unique to you.',
+        'For branding or personal use, custom is worth the extra step.',
+      ]},
+      { heading: 'Changing and managing pet styles', paragraphs: [
+        'You can regenerate a pet with a new style prompt at any time. Keep the originals in a pets library so you can compare.',
+        'Limit the color palette for a clean retro look, and keep prompts short.',
+      ]},
+      { heading: 'Use cases beyond Codex', paragraphs: [
+        'AI pets work as Discord avatars, game placeholders, stream mascots, and social icons.',
+        'Because the output is a spritesheet, it drops into many tools without conversion.',
+      ]},
+      { heading: 'Common mistakes to avoid', paragraphs: [
+        'Do not use a busy group photo. One clear subject gives the best base.',
+        'Do not over-prompt the style. Let the grid simplify the art.',
+        'Do not skip the install step. The pet only appears after you restart the app.',
+      ]},
+      { heading: 'The future of AI pet generators', paragraphs: [
+        'Expect tighter app integration, more animation states, and better prompt control through 2026.',
+        'The core value stays the same: turn a photo into a companion you actually recognize.',
+      ]},
+    ],
+  },
 ]

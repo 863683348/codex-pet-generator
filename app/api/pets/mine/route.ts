@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
 import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
-import { STORAGE_BUCKET } from '@/lib/utils/constants'
+import { getPublicUrl } from '@/lib/storage/storage'
 
 export const runtime = 'nodejs'
 
 // Lists the currently authenticated user's own pets (by user_id), newest first.
-// Each pet gets a short-lived signed URL for its base image so the gallery can
-// render thumbnails without depending on the storage bucket being public.
+// The storage bucket is public, so we build the image URL directly with
+// getPublicUrl instead of calling createSignedUrl once per pet — that would be
+// N extra Supabase Storage round-trips and was the main source of slow loads
+// for accounts with many pets.
 export async function GET(req: NextRequest) {
   const user = await getAuthenticatedUser(req)
   if (!user) return unauthorized()
@@ -36,26 +38,15 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'DB_ERROR', message: error.message }, { status: 500 })
   }
 
-  const result = await Promise.all(
-    (pets ?? []).map(async (p) => {
-      let baseImageUrl: string | null = null
-      if (p.base_image_path) {
-        const { data } = await supabase.storage
-          .from(STORAGE_BUCKET)
-          .createSignedUrl(p.base_image_path, 3600)
-        baseImageUrl = data?.signedUrl ?? null
-      }
-      return {
-        id: p.id,
-        displayName: p.display_name,
-        status: p.status,
-        isPublic: p.is_public,
-        shareCount: p.share_count ?? 0,
-        baseImageUrl,
-        createdAt: p.created_at,
-      }
-    })
-  )
+  const result = (pets ?? []).map((p) => ({
+    id: p.id,
+    displayName: p.display_name,
+    status: p.status,
+    isPublic: p.is_public,
+    shareCount: p.share_count ?? 0,
+    baseImageUrl: p.base_image_path ? getPublicUrl(p.base_image_path) : null,
+    createdAt: p.created_at,
+  }))
 
   return NextResponse.json({ pets: result })
 }
