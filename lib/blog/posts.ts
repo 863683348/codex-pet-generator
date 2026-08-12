@@ -1406,4 +1406,74 @@ export const posts: BlogPost[] = [
       ]},
     ],
   },
+  {
+    slug: 'how-photo-quality-affects-pixel-pet',
+    title: 'How Photo Quality Affects Your Pixel Pet Result',
+    description:
+      'Why a blurry, dark, or busy photo gives you a worse pixel pet. A practical pixel pet quality guide: what to check before upload, how much the source photo matters, and the fastest fixes.',
+    date: '2026-08-12',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet quality',
+      'photo to pixel pet quality',
+      'pixel pet blurry',
+      'best photos for pixel pet',
+      'pixel pet photo tips',
+      'Codex pet photo quality',
+    ],
+    related: ['how-to-install-codex-pet', 'codex-pet-free-plan-explained'],
+    faq: [
+      { question: 'Does photo quality really matter for a pixel pet?', answer: 'It matters more than people expect. A clear, well-lit, single-subject photo gives the pixel art generator a clean silhouette to work from. A blurry or busy photo forces it to guess, and the output looks smeared or loses the pet entirely.' },
+      { question: 'What makes a photo bad for pixel art?', answer: 'Three things: motion blur, low resolution, and busy backgrounds. Blur smears the edges the pixel grid needs, low resolution removes detail before the generator starts, and busy backgrounds confuse the subject detection.' },
+      { question: 'Can I fix a blurry photo before uploading?', answer: 'Sometimes. Sharpen it slightly, boost contrast, and crop to the subject first. If the original is too small or too blurry, no filter will recover detail that was never captured.' },
+      { question: 'What is the best photo to use?', answer: 'A front-facing shot of one pet, head and shoulders or full body, in even lighting, with a plain background. Same rules as a good passport photo, just for your companion.' },
+    ],
+    sections: [
+      {
+        heading: 'Why the source photo sets the ceiling',
+        paragraphs: [
+          'Every pixel pet starts as a regular photo. The generator reads that photo, finds the subject, and rebuilds it as pixel art. Whatever the photo captures, or fails to capture, becomes the raw material. Garbage in, garbage out is not a slogan here, it is literally how the pipeline works.',
+          'The pixel grid keeps the output small, which hides a lot of detail. But it cannot hide a wrong shape. If the photo is blurry, the generator sees unclear edges and the pet comes out looking smeared. If the subject is half in shadow, the dark side of the pet just disappears.',
+        ],
+      },
+      {
+        heading: 'The three photo problems that wreck results',
+        paragraphs: [
+          'First, motion blur. Pets move. A photo taken mid-wag is almost always soft, and that softness becomes wobbly pixel edges. Second, low resolution. A 300px thumbnail does not contain enough information for the generator to reconstruct a clean outline. Third, busy backgrounds. A carpet with a pattern, a crowd, or a cluttered shelf confuses subject detection, and the pet comes back with extra blobs of color attached.',
+        ],
+        list: [
+          'Motion blur: soft edges become wobbly pixel lines',
+          'Low resolution: detail is missing before generation starts',
+          'Busy background: the subject detector picks up the wrong shapes',
+        ],
+      },
+      {
+        heading: 'What to check before you upload',
+        paragraphs: [
+          'Run through this list in about thirty seconds. Is the photo sharp when you zoom in? Is the pet taking up most of the frame? Is the lighting even, no deep shadows or blown-out highlights? Is the background plain? If yes to all four, you are in the top tier of source material and the result will show it.',
+          'The best photos for pixel pet generation are the boring ones: one subject, head and shoulders, even light, plain wall behind. The same rules that make a good passport photo also make a good pixel pet, just swap the purpose.',
+        ],
+        list: [
+          'Zoom in: edges should be crisp, not smeared',
+          'Subject should fill most of the frame',
+          'Even lighting, no deep shadows',
+          'Plain background, one subject only',
+        ],
+      },
+      {
+        heading: 'Fast fixes when the photo is not great',
+        paragraphs: [
+          'You do not always have a perfect photo, especially with a wiggly dog or a cat that refuses to sit still. Run the photo through a quick edit first: crop to the subject, raise contrast slightly, sharpen a touch. Then retake if you can, a second try with better light usually beats any filter.',
+          'If the original is genuinely too small or too blurry, no amount of editing brings back detail that was never recorded. Take a new photo. It takes two minutes and it is the highest-leverage fix there is.',
+        ],
+      },
+      {
+        heading: 'What quality looks like in the output',
+        paragraphs: [
+          "With a good source photo, the pixel pet keeps the pet's recognizable features: the ear shape, the eye color, the marking pattern. With a bad one, you get a generic blob that could be any animal. The difference is usually visible on the very first generation.",
+          'The takeaway is simple. Photo quality is the single biggest factor you control in the whole pixel pet pipeline. Pick a clear photo, check the four points above, and the generator has everything it needs.',
+        ],
+      },
+    ],
+  },
 ]

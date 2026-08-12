@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServer } from '@/lib/supabase/server'
 import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 import { validateImageFile } from '@/lib/utils/validation'
+import { FREE_PLAN_GENERATIONS } from '@/lib/utils/constants'
 import { getServerT } from '@/lib/i18n/server'
 import { generateBaseImage } from '@/lib/ai/image-generator'
 import { uploadBaseImage, uploadSourceImage } from '@/lib/storage/storage'
@@ -108,7 +109,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const plan = usageRow?.plan || 'free'
     const genCount = usageRow?.generations || 0
     const bonus = usageRow?.bonus_generations || 0
-    const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : 3
+    const maxGen = plan === 'unlimited' ? 999 : plan === 'pro' ? 15 : FREE_PLAN_GENERATIONS
     const effectiveMax = maxGen + bonus
     if (genCount >= effectiveMax) {
       return NextResponse.json(

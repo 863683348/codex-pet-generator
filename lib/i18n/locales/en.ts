@@ -142,7 +142,7 @@ export const en = {
     title: 'Simple pricing',
     desc: 'Choose the plan that fits your needs. No hidden fees.',
     popular: 'POPULAR',
-    starter: { name: 'Starter', price: 'Free', period: 'forever', desc: 'Try it out and see what PetGen can do.', cta: 'Get started', f1: '3 pet generations', f2: '9 animation states', f3: 'Standard quality spritesheet', f4: 'WebP download', f5: 'Community support' },
+    starter: { name: 'Starter', price: 'Free', period: 'forever', desc: 'Try it out and see what PetGen can do.', cta: 'Get started', f1: '1 pet generation', f2: '9 animation states', f3: 'Standard quality spritesheet', f4: 'WebP download', f5: 'Community support' },
     pro: { name: 'Pro', price: '$9', period: '/month', desc: 'For creators who want more control and quality.', cta: 'Subscribe Pro', f1: '15 pet generations / month', f2: '9 animation states', f3: 'HD spritesheet (2x)', f4: 'WebP + ZIP download', f5: 'Priority support', f6: 'pet.json customization' },
     unlimited: { name: 'Unlimited', price: '$29', period: '/month', desc: 'For power users and teams.', cta: 'Subscribe Unlimited', f1: 'Unlimited generations', f2: '9 animation states', f3: 'HD + 4K spritesheet', f4: 'All download formats', f5: 'Commercial use license', f6: 'Dedicated support', f7: 'Custom color palette' },
   },
@@ -158,7 +158,7 @@ export const en = {
     q7: 'What payment methods do you accept?', a7: 'We accept major credit cards and PayPal.',
     q8: 'Can I cancel my subscription?', a8: 'You can cancel anytime. Your access continues until the end of the billing period.',
     q9: 'What happens to my uploaded images?', a9: 'Uploaded images are processed by our AI and deleted after generation. They are not stored or used for any other purpose.',
-    q10: 'Is there a free plan?', a10: 'Yes. The Starter plan is free and includes 3 pet generations with standard quality.'},
+    q10: 'Is there a free plan?', a10: 'Yes. The Starter plan is free and includes 1 pet generation with standard quality.'},
   trust: {
     title: 'Trusted by developers worldwide',
     users: '5,000+ pets generated',
