@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Gamepad2, Github, Images, LayoutGrid, Menu, X } from 'lucide-react'
+import { Gamepad2, Github, Images, LayoutGrid, Menu, X, FileCode2, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
@@ -13,6 +13,8 @@ const navLinks = [
   { href: '/my-pets', label: 'My Pets', icon: Images, external: false },
   { href: '/gallery', label: 'Gallery', icon: LayoutGrid, external: false },
   { href: '/blog', label: 'Blog', icon: null, external: false },
+  { href: '/spec', label: 'Spec', icon: FileCode2, external: false },
+  { href: '/guide', label: 'Guide', icon: BookOpen, external: false },
   { href: 'https://github.com', label: 'GitHub', icon: Github, external: true },
 ]
 

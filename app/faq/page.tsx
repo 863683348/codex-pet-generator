@@ -1,7 +1,8 @@
 ﻿'use client'
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, FileCode2, BookOpen } from 'lucide-react'
+import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { useI18n } from '@/lib/i18n'
@@ -54,6 +55,48 @@ export default function FAQPage() {
           ))}
         </div>
       </main>
+
+      {/* Related resources — internal links to the new spec and guide pages */}
+      <section className="mx-auto max-w-3xl px-4 pb-12 sm:px-6">
+        <h2 className="font-pixel text-sm text-text-primary">Related resources</h2>
+        <p className="mt-3 text-sm text-text-secondary">
+          Dig deeper into the pet format, or follow a step-by-step tutorial to
+          get your companion running.
+        </p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/spec"
+            className="glass-card group flex items-start gap-3 rounded-lg border border-border p-5 transition-colors hover:bg-bg-elevated"
+          >
+            <FileCode2 className="h-5 w-5 shrink-0 text-primary" />
+            <div>
+              <div className="font-pixel text-xs text-text-primary group-hover:text-primary">
+                Pet Spritesheet Spec
+              </div>
+              <p className="mt-2 text-sm text-text-secondary">
+                The exact spritesheet grid, nine animation states, and the
+                pet.json contract.
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/guide"
+            className="glass-card group flex items-start gap-3 rounded-lg border border-border p-5 transition-colors hover:bg-bg-elevated"
+          >
+            <BookOpen className="h-5 w-5 shrink-0 text-primary" />
+            <div>
+              <div className="font-pixel text-xs text-text-primary group-hover:text-primary">
+                Guides &amp; Tutorials
+              </div>
+              <p className="mt-2 text-sm text-text-secondary">
+                Step-by-step tutorials to install, build, and customize your
+                Codex pet.
+              </p>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       <Footer />
     </>
   )
