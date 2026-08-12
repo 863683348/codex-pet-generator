@@ -10,6 +10,7 @@ import GenerationWorkspace from '@/components/pet/GenerationWorkspace'
 import HowItWorks from '@/components/layout/HowItWorks'
 import WhatYouGet from '@/components/layout/WhatYouGet'
 import PricingSection from '@/components/layout/PricingSection'
+import FeaturedSection from '@/components/featured/FeaturedSection'
 import PixelPet from '@/components/pet/PixelPet'
 import { PetTask } from '@/types/pet'
 import { POLL_INTERVAL } from '@/lib/utils/constants'
@@ -549,6 +550,7 @@ export default function Home() {
             <HowItWorks />
             <WhatYouGet />
             <PricingSection />
+            <FeaturedSection />
             {/* ---- Use cases (AdSense P1: homepage text expansion) ---- */}
             <section className="mx-auto mt-16 max-w-5xl">
               <h2 className="font-pixel text-base text-text-primary text-center">Who Is Codex Pet Generator For?</h2>

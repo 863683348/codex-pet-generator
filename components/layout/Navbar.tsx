@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Gamepad2, Github, Images, LayoutGrid, Menu, X, FileCode2, BookOpen } from 'lucide-react'
+import { Gamepad2, Github, Images, LayoutGrid, Menu, X, FileCode2, BookOpen, Tags, Trophy, Send } from 'lucide-react'
 import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
@@ -9,18 +9,24 @@ import { useI18n } from '@/lib/i18n'
 import UserButton from '@/components/auth/UserButton'
 import PointsBadge from './PointsBadge'
 
-const navLinks = [
-  { href: '/my-pets', label: 'My Pets', icon: Images, external: false },
-  { href: '/gallery', label: 'Gallery', icon: LayoutGrid, external: false },
-  { href: '/blog', label: 'Blog', icon: null, external: false },
-  { href: '/spec', label: 'Spec', icon: FileCode2, external: false },
-  { href: '/guide', label: 'Guide', icon: BookOpen, external: false },
-  { href: 'https://github.com', label: 'GitHub', icon: Github, external: true },
-]
-
 export default function Navbar() {
   const { t } = useI18n()
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  // Defined inside the component so the new community links can resolve their
+  // labels through the i18n context. Existing links keep their static English
+  // labels (no matching nav.* keys exist for them) to preserve current behavior.
+  const navLinks = [
+    { href: '/my-pets', label: 'My Pets', icon: Images, external: false },
+    { href: '/gallery', label: 'Gallery', icon: LayoutGrid, external: false },
+    { href: '/collections', label: t('nav.collections'), icon: Tags, external: false },
+    { href: '/leaderboard', label: t('nav.leaderboard'), icon: Trophy, external: false },
+    { href: '/submit', label: t('nav.submit'), icon: Send, external: false },
+    { href: '/blog', label: 'Blog', icon: null, external: false },
+    { href: '/spec', label: 'Spec', icon: FileCode2, external: false },
+    { href: '/guide', label: 'Guide', icon: BookOpen, external: false },
+    { href: 'https://github.com', label: 'GitHub', icon: Github, external: true },
+  ]
 
   const linkClass =
     'flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary lg:px-3'

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getSupabaseServer } from '@/lib/supabase/server'
 import { getAuthenticatedUser, unauthorized } from '@/lib/auth'
 import { POINTS_PER_SHARE } from '@/lib/utils/constants'
@@ -89,6 +90,10 @@ export async function POST(
       .from('pets')
       .update({ is_public: true, share_count: (await getCurrentShareCount(supabase, taskId)) + 1 })
       .eq('id', taskId)
+
+    // Bust the gallery's cache immediately so a freshly shared pet shows up
+    // without waiting out the edge TTL (next.config gives /gallery s-maxage=60).
+    revalidatePath('/gallery')
 
     await supabase
       .from('pet_shares')

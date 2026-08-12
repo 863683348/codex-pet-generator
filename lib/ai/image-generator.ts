@@ -30,7 +30,9 @@ const BAILIAN_MODEL = process.env.BAILIAN_IMAGE_MODEL || 'qwen-image-2.0'
 // and Seedream is NOT on the OpenAI/Anthropic/Google region-block list.
 // ---------------------------------------------------------------------------
 const OPENROUTER_MODEL = process.env.OPENROUTER_IMAGE_MODEL || 'bytedance-seed/seedream-4.5'
-const OPENROUTER_URL = 'https://openrouter.ai/api/v1/images'
+// Seedream-4.5 走 OpenRouter 的 /chat/completions 端点（modalities:["image"]），
+// 不是 /images 端点 —— /images 对 seedream 恒 402（2026-08-12 实测）。
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions'
 // Models that accept the `background: transparent` parameter on OpenRouter.
 const OPENROUTER_TRANSPARENT_MODELS = new Set<string>([
   'sourceful/riverflow-v2.5-pro',
@@ -181,26 +183,24 @@ async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffe
   const key = process.env.OPENROUTER_API_KEY
   if (!key) throw new Error('Missing OPENROUTER_API_KEY')
 
-  // OpenRouter Image API: input_references is an array of { type, image_url } objects
-  // (same shape as OpenAI chat-completion image content), NOT bare strings.
+  // OpenRouter chat/completions 图像模式：图片经 OpenAI 兼容的 image_url
+  // content part 传入，modalities:["image"] 请求生成图。
   const dataUrl = `data:image/png;base64,${source.toString('base64')}`
 
   const body: Record<string, unknown> = {
     model: OPENROUTER_MODEL,
-    prompt,
-    input_references: [
+    messages: [
       {
-        type: 'image_url',
-        image_url: { url: dataUrl },
+        role: 'user',
+        content: [
+          { type: 'image_url', image_url: { url: dataUrl } },
+          { type: 'text', text: prompt },
+        ],
       },
     ],
-    output_format: 'png',
-    // Seedream 4.5 requires the output image to be at least ~3.69 MP
-    // (≈ 1920×1920). 1K (1024×1024 = 1.05 MP) triggers a 400, so default
-    // to 2K. Override via OPENROUTER_RESOLUTION if a model needs a
-    // different value.
-    resolution: process.env.OPENROUTER_RESOLUTION || '2K',
-    aspect_ratio: '1:1',
+    modalities: ['image'],
+    // Seedream 4.5 最小可用 1K；默认 2K 保留原质量预期。
+    size: process.env.OPENROUTER_RESOLUTION === '1K' ? '1024x1024' : '2048x2048',
   }
   // Only send background when the model actually supports it, otherwise the
   // request is rejected with 400 by OpenRouter.
@@ -225,6 +225,20 @@ async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffe
   }
 
   const json = await res.json()
+  // chat/completions 图像模式：choices[0].message.images[0].image_url.url
+  // 是 data:image/jpeg;base64,... 形式。
+  const imgUrl = json?.choices?.[0]?.message?.images?.[0]?.image_url?.url as string | undefined
+  if (imgUrl) {
+    const m = /^data:image\/[a-zA-Z+.-]+;base64,(.+)$/.exec(imgUrl)
+    if (m?.[1]) return Buffer.from(m[1], 'base64')
+    // 非 data URL 时按远程图片抓取
+    if (imgUrl.startsWith('http')) {
+      const r = await fetch(imgUrl)
+      if (!r.ok) throw new Error(`OpenRouter result fetch failed: ${r.status}`)
+      return Buffer.from(await r.arrayBuffer())
+    }
+  }
+  // 兼容旧响应结构（data[0].b64_json / url）
   const item = json?.data?.[0]
   if (item?.b64_json) return Buffer.from(item.b64_json, 'base64')
   if (item?.url) {
