@@ -121,11 +121,15 @@ export default function SharePanel({ petId, isDemo = false }: SharePanelProps) {
         </button>
       </div>
 
+      <p className="mt-3 text-xs text-text-secondary">
+        Your pet shows up in the community gallery within a few seconds of sharing.
+      </p>
+
       {shared && (
         <div className="mt-4 flex items-center gap-2 rounded-lg border border-success/30 bg-success/10 px-4 py-2.5">
           <Check className="h-4 w-4 text-success" />
           <span className="font-pixel text-[10px] text-success">
-            {awarded > 0 ? `Shared! +${awarded} pts` : 'Already shared'} · view at /p/{petId}
+            {awarded > 0 ? `Shared! +${awarded} pts` : 'Already shared'} · live at /p/{petId}, in the gallery within a few seconds
           </span>
         </div>
       )}
