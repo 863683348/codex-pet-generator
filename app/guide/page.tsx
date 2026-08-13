@@ -18,7 +18,7 @@ import { getServerT } from '@/lib/i18n/server'
 
 type Category = {
   key: string
-  title: string
+  titleKey: string
   icon: LucideIcon
   slugs: string[]
 }
@@ -26,7 +26,7 @@ type Category = {
 const CATEGORIES: Category[] = [
   {
     key: 'install',
-    title: 'Install & Setup',
+    titleKey: 'guide.categories.install',
     icon: Wrench,
     slugs: [
       'how-to-install-codex-pet',
@@ -39,7 +39,7 @@ const CATEGORIES: Category[] = [
   },
   {
     key: 'pixel',
-    title: 'Pixel-Art & Formats',
+    titleKey: 'guide.categories.pixel',
     icon: BookText,
     slugs: [
       'what-is-pet-spritesheet',
@@ -53,7 +53,7 @@ const CATEGORIES: Category[] = [
   },
   {
     key: 'compare',
-    title: 'Comparisons & Reviews',
+    titleKey: 'guide.categories.compare',
     icon: Sparkles,
     slugs: [
       'best-ai-pet-generators-2026',
@@ -63,7 +63,7 @@ const CATEGORIES: Category[] = [
   },
   {
     key: 'usecases',
-    title: 'Use Cases & Creativity',
+    titleKey: 'guide.categories.usecases',
     icon: Compass,
     slugs: [
       'turn-photo-into-pixel-art',
@@ -79,7 +79,7 @@ const CATEGORIES: Category[] = [
   },
   {
     key: 'how',
-    title: 'How It Works',
+    titleKey: 'guide.categories.how',
     icon: BookOpen,
     slugs: [
       'how-petgen-works',
@@ -161,7 +161,7 @@ export default async function GuidePage() {
               <section key={category.key}>
                 <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                   <Icon className="h-5 w-5 text-primary" />
-                  {category.title}
+                  {t(category.titleKey)}
                 </h2>
                 <div className="mt-5 space-y-4">
                   {items.map((post) => (

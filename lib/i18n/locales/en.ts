@@ -318,6 +318,13 @@ export const en = {
   guide: {
     title: 'Guides & Tutorials',
     desc: 'Hands-on tutorials to build, install, and customize your Codex pixel pet — from first-generation to sprite-sheet design.',
+    categories: {
+      install: 'Install & Setup',
+      pixel: 'Pixel-Art & Formats',
+      compare: 'Comparisons & Reviews',
+      usecases: 'Use Cases & Creativity',
+      how: 'How It Works',
+    },
   },
   spec: {
     title: 'Codex Pet Spritesheet Specification',

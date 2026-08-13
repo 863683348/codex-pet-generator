@@ -317,6 +317,13 @@ export const zh: Dict = {
   guide: {
     title: '指南与教程',
     desc: '动手教程，帮你构建、安装和自定义 Codex 像素宠物——从第一次生成到精灵图设计。',
+    categories: {
+      install: '安装与设置',
+      pixel: '像素艺术与格式',
+      compare: '对比与评测',
+      usecases: '用例与创意',
+      how: '工作原理',
+    },
   },
   spec: {
     title: 'Codex 宠物精灵图规范',
