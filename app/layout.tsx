@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter, JetBrains_Mono, Press_Start_2P } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
 import { SITE } from '@/lib/seo'
@@ -62,6 +63,23 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+// Google Fonts via next/font (server-optimized, no event handlers)
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+})
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+})
+const pressStart = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-pixel',
+})
+
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -93,7 +111,7 @@ export default function RootLayout({
   // 仅在生产环境加载 GA：避免 localhost 开发与 Vercel preview 污染真实数据
   const isProd = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview'
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable} ${pressStart.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -105,18 +123,6 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="zh-CN" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="x-default" href={SITE.url + '/'} />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
-          rel="stylesheet"
-          media="print"
-          onLoad={(e) => {(e.target as HTMLLinkElement).media = 'all'}}
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
         {GA_ID && isProd && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
