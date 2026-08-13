@@ -34,9 +34,8 @@ interface RawTag {
 
 interface RawMapRow {
   tag_id: string
-  // Supabase returns the embedded pet as an array (FK embed), even though the
-  // relationship is logically one-to-one.
-  pet: { id: string; is_public: boolean | null; base_image_path: string | null }[] | null
+  // Supabase embed returns the pet as an object for one-to-one FK relationships
+  pet: { id: string; is_public: boolean | null; base_image_path: string | null } | null
 }
 
 // Public, anonymized display name: custom name, else email local-part fallback.
@@ -126,8 +125,8 @@ export async function loadCollections(): Promise<CollectionTag[]> {
 
   const counts = new Map<string, number>()
   if (!mapErr && maps) {
-    for (const m of maps as RawMapRow[]) {
-      const pet = m.pet && m.pet.length > 0 ? m.pet[0] : null
+    for (const m of maps as any[]) {
+      const pet = m.pet
       if (pet && pet.is_public && pet.base_image_path) {
         counts.set(m.tag_id, (counts.get(m.tag_id) ?? 0) + 1)
       }
