@@ -1475,5 +1475,68 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
+  },  {
+    slug: 'codex-pet-9-animation-states',
+    title: 'The 9 Animation States of a Codex Pet, Explained',
+    description:
+      'What your pixel pet actually does: idle, walking, running, and six more. A codex pet animation guide that walks through all nine states, when each one triggers, and why the idle loop matters more than the flashy moves.',
+    date: '2026-08-13',
+    author: 'PetGen',
+    keywords: [
+      'codex pet animation',
+      'codex pet 9 animation states',
+      'codex pet states running ready',
+      'codex pet idle animation',
+      'pixel pet animation states',
+      'desktop pet animation guide',
+    ],
+    related: ['animation-states-explained', 'how-to-install-codex-pet'],
+    faq: [
+      { question: 'How many animation states does a Codex pet have?', answer: 'Nine. Idle, walking, running, jumping, sitting, sleeping, happy, working, and a special celebration state. Each one is a separate loop of frames that the pet switches between based on what you are doing.' },
+      { question: 'Why does the idle animation matter?', answer: 'Because it is the state your pet is in most of the time. A well-made idle loop is subtle, a breathing rhythm, a tail flick, a blink. It is the difference between a sticker on your desktop and something that feels alive.' },
+      { question: 'Do all pixel pets have all nine states?', answer: 'No. The nine states are the full spec, but individual pets ship with a subset. Simple pets may only have idle, walk, and happy. The state list is what the generator supports, not a guarantee of what every pet includes.' },
+      { question: 'When does the running state trigger?', answer: 'It usually maps to fast window interaction, like when you drag the pet window quickly, or in gamified pets, when an activity timer is running low. It is the fastest loop in the set and the one with the most frames.' },
+    ],
+    sections: [
+      {
+        heading: 'Why the state list matters for a pixel pet',
+        paragraphs: [
+          'A pixel pet is not one animation, it is a set of loops the pet switches between. Each state is a small sequence of frames designed for one mood or action. The codex pet 9 animation states are the full catalog: idle, walking, running, jumping, sitting, sleeping, happy, working, and celebration.',
+          'The state machine decides which loop plays. Idle when you are typing, working when the editor is busy, happy when you interact with it. Knowing the list tells you what to expect, and why your pet is doing that thing right now.',
+        ],
+      },
+      {
+        heading: 'Idle and the art of standing still',
+        paragraphs: [
+          'Idle is where most of the design effort goes. It needs to hold your attention without demanding it. A good codex pet idle animation is a breathing motion, a subtle head turn, an occasional blink or tail flick. It repeats every few seconds and should never look like a frozen image.',
+          'The trick with idle is restraint. The frames are close together, small movements, no big jumps. When done right you barely notice the loop, which is exactly the point. The pet feels present, like something sharing your desk.',
+        ],
+        list: [
+          'Idle: subtle breathing and blinking loop',
+          'Walking: slow movement across the screen',
+          'Running: fast frames for quick motion',
+          'Jumping: a short hop, often after interaction',
+          'Sitting: rest pose, smaller hitbox',
+          'Sleeping: slow, closed-eye loop',
+          'Happy: celebratory bounce after a positive event',
+          'Working: busy animation, often synced to activity',
+          'Celebration: the rarest state, special event only',
+        ],
+      },
+      {
+        heading: 'Working state and the productivity angle',
+        paragraphs: [
+          'The working state is the one that turns a toy into a companion. It triggers when the machine is busy, a build running, a download in progress, a long render. The pet appears to be doing something alongside you, which sounds gimmicky and somehow is not. A small creature visibly working while your terminal scrolls makes the wait feel shared.',
+          'This state is also where codex pet states running ready comes from. The pet sits in a ready pose during normal work and switches to a faster running loop when things are moving quickly. It is subtle feedback about system activity, delivered as personality.',
+        ],
+      },
+      {
+        heading: 'How states combine into a real pet',
+        paragraphs: [
+          'Most pets do not expose all nine states at once. The generator assigns a subset based on the source photo and the personality it detects. A sleepy cat photo might ship with idle, sitting, and sleeping. A high-energy dog photo gets walking, running, jumping, and happy.',
+          'The state list is the full vocabulary the system knows. Your pet will use part of it, and that is fine. The ones it has, it has well. Check which states your pet supports on the generation screen, it is listed right there.',
+        ],
+      },
+    ],
   },
 ]
