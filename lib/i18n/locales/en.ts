@@ -278,6 +278,14 @@ export const en = {
     emptyTitle: 'No rankings yet',
     emptyDesc: 'Share a pet to the gallery to start earning points.',
   },
+  myPets: {
+    emptyTitle: 'No pets yet',
+    emptyDesc: 'Generate your first pixel pet, then come back here to share it and earn points.',
+    public: 'Public',
+    private: 'Not shared',
+    copyLink: 'Copy public link',
+    view: 'View',
+  },
   featured: {
     title: 'Featured Pets',
     desc: 'Hand-picked pixel pets from the community — the ones our curators love the most.',
@@ -306,6 +314,26 @@ export const en = {
     successDesc: 'Thanks! Our curators will review your pet for the featured showcase.',
     alreadySubmittedDesc: 'This pet is already in the review queue.',
     backToGallery: 'Back to gallery',
+  },
+  guide: {
+    title: 'Guides & Tutorials',
+    desc: 'Hands-on tutorials to build, install, and customize your Codex pixel pet — from first-generation to sprite-sheet design.',
+  },
+  spec: {
+    title: 'Codex Pet Spritesheet Specification',
+    desc: 'The exact spritesheet grid, nine animation states, and pet.json contract for building a pixel companion that runs inside OpenAI Codex.',
+    overview: 'Overview',
+    spritesheet: 'Spritesheet Layout',
+    states: 'Animation States',
+    petJson: 'pet.json',
+    install: 'Install',
+    validate: 'Validate',
+    overviewDesc: 'A Codex pet is two files that live in your <code>~/.codex/pets/<name>/</code> folder: a single transparent spritesheet image and a <code>pet.json</code> metadata file. Codex reads the folder at startup, slices the spritesheet into frames by a fixed grid, and plays the matching animation as your coding companion.',
+    spritesheetLayoutDesc: 'The spritesheet is one 1536×1872 px transparent image laid out as an 8-column by 9-row grid. Each of the 72 cells is a single animation frame measuring 192×208 px. Rows map top-to-bottom to the nine animation states; columns are the frames within each state.',
+    animationStatesDesc: 'Nine animation states make up the spritesheet, one per row. The frame count below is the source of truth that <code>pet.json</code> and the generator must agree on.',
+    petJsonDesc: 'Place a <code>pet.json</code> next to the spritesheet. It carries four fields:',
+    installDesc: 'Extract the downloaded ZIP, then copy the pet folder into your Codex pets directory and fully restart Codex.',
+    validateDesc: 'Before shipping a pet, confirm these three things:',
   },
 }
 

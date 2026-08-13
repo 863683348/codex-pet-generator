@@ -14,13 +14,7 @@ import Footer from '@/components/layout/Footer'
 import { buildMetadata, SITE } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { posts, type BlogPost } from '@/lib/blog/posts'
-
-export const metadata: Metadata = buildMetadata({
-  title: 'Guides & Tutorials',
-  description:
-    'Hands-on tutorials to build, install, and customize your Codex pixel pet — from first-generation to sprite-sheet design.',
-  path: '/guide',
-})
+import { getServerT } from '@/lib/i18n/server'
 
 type Category = {
   key: string
@@ -104,7 +98,6 @@ function categoryPosts(category: Category): BlogPost[] {
     .map((slug) => postMap.get(slug))
     .filter((p): p is BlogPost => Boolean(p))
 
-  // "How It Works" also absorbs any posts not covered by another category.
   if (category.key === 'how') {
     const leftover = posts.filter((p) => !listedSlugs.has(p.slug))
     return [...explicit, ...leftover]
@@ -118,8 +111,7 @@ const collectionJsonLd = [
     '@type': 'CollectionPage',
     name: 'Guides & Tutorials',
     url: SITE.url + '/guide',
-    description:
-      'Hands-on tutorials to build, install, and customize your Codex pixel pet.',
+    description: 'Hands-on tutorials to build, install, and customize your Codex pixel pet.',
     isPartOf: { '@type': 'WebSite', name: SITE.fullName, url: SITE.url },
   },
   {
@@ -134,7 +126,17 @@ const collectionJsonLd = [
   },
 ]
 
-export default function GuidePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getServerT()
+  return buildMetadata({
+    title: t('guide.title'),
+    description: t('guide.desc'),
+    path: '/guide',
+  })
+}
+
+export default async function GuidePage() {
+  const t = await getServerT()
   return (
     <>
       <Navbar />
@@ -143,11 +145,10 @@ export default function GuidePage() {
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
         <header>
           <h1 className="font-pixel text-lg leading-relaxed text-text-primary sm:text-xl">
-            Guides &amp; Tutorials
+            {t('guide.title')}
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
-            Hands-on tutorials to build, install, and customize your Codex pixel
-            pet.
+            {t('guide.desc')}
           </p>
         </header>
 

@@ -1,4 +1,13 @@
+import { headers } from 'next/headers'
 import { en } from './locales/en'
+import { zh } from './locales/zh'
+import { ja } from './locales/ja'
+import { ko } from './locales/ko'
+import { fr } from './locales/fr'
+import { de } from './locales/de'
+import type { Lang } from './LanguageProvider'
+
+const DICTS: Record<Lang, typeof en> = { en, zh, ja, ko, fr, de }
 
 function lookup(dict: unknown, path: string): string | undefined {
   return path
@@ -8,14 +17,28 @@ function lookup(dict: unknown, path: string): string | undefined {
     | undefined
 }
 
-// Server-side translate backed by the English dictionary. API routes and
-// Server Actions can't use the client `useI18n` hook, so they fall back to
-// en for error messages returned to the client.
-export function getServerT(): (key: string, params?: Record<string, string | number>) => string {
+export async function getLangFromRequest(): Promise<Lang> {
+  const headerList = await headers()
+  const accept = headerList.get('accept-language') || ''
+  const lower = accept.toLowerCase()
+  if (lower.includes('zh') || lower.includes('zh-cn') || lower.includes('zh-tw')) return 'zh'
+  if (lower.includes('ja')) return 'ja'
+  if (lower.includes('ko')) return 'ko'
+  if (lower.includes('fr')) return 'fr'
+  if (lower.includes('de')) return 'de'
+  return 'en'
+}
+
+// Server-side translate backed by the detected locale. API routes and
+// Server Actions can't use the client `useI18n` hook, so they use the
+// request's Accept-Language header to pick the right dictionary.
+export async function getServerT(): Promise<(key: string, params?: Record<string, string | number>) => string> {
+  const lang = await getLangFromRequest()
+  const dict = DICTS[lang]
   return (key: string, params?: Record<string, string | number>) => {
-    let str = lookup(en, key) ?? key
+    let str = lookup(dict, key) ?? lookup(en, key) ?? key
     if (params) {
-      for (const [k, v] of Object.entries(params)) {
+      for (const [k, v] of Object.entries(params ?? {})) {
         str = str.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v))
       }
     }

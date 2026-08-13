@@ -277,6 +277,14 @@ export const zh: Dict = {
     emptyTitle: '暂无排名',
     emptyDesc: '在画廊分享一只宠物，即可开始累积积分。',
   },
+  myPets: {
+    emptyTitle: '还没有宠物',
+    emptyDesc: '生成你的第一只像素宠物，然后回来这里分享它并赚取积分。',
+    public: '已公开',
+    private: '未分享',
+    copyLink: '复制链接',
+    view: '查看',
+  },
   featured: {
     title: '精选宠物',
     desc: '社区精选的像素宠物——策展人最钟爱的作品。',
@@ -305,6 +313,26 @@ export const zh: Dict = {
     successDesc: '谢谢！我们的策展人会审核你的宠物是否可以进入精选展示。',
     alreadySubmittedDesc: '这只宠物已经在审核队列中了。',
     backToGallery: '返回画廊',
+  },
+  guide: {
+    title: '指南与教程',
+    desc: '动手教程，帮你构建、安装和自定义 Codex 像素宠物——从第一次生成到精灵图设计。',
+  },
+  spec: {
+    title: 'Codex 宠物精灵图规范',
+    desc: '精确的精灵图网格、九种动画状态和 pet.json 合约，用于在 OpenAI Codex 中构建像素伙伴。',
+    overview: '概述',
+    spritesheet: '精灵图布局',
+    states: '动画状态',
+    petJson: 'pet.json',
+    install: '安装',
+    validate: '验证',
+    overviewDesc: 'Codex 宠物包含两个文件，存放在你的 <code>~/.codex/pets/<name>/</code> 文件夹中：一张透明精灵图和一个 <code>pet.json</code> 元数据文件。Codex 在启动时读取该文件夹，按固定网格将精灵图切片为帧，并以匹配动画作为你的编程伴侣。',
+    spritesheetLayoutDesc: '精灵图是一张 1536×1872 px 的透明图片，布局为 8 列 × 9 行的网格。72 个单元格中的每一个都是一帧动画，尺寸为 192×208 px。行从上到下对应九种动画状态；列是每种状态内的帧。',
+    animationStatesDesc: '九种动画状态构成精灵图，每种状态占一行。下方的帧数是 <code>pet.json</code> 和生成器必须达成一致的标准。',
+    petJsonDesc: '在精灵图旁边放置 <code>pet.json</code>。它包含四个字段：',
+    installDesc: '解压下载的 ZIP，然后将宠物文件夹复制到 Codex 宠物目录，并完全重启 Codex。',
+    validateDesc: '在发布宠物前，确认以下三项：',
   },
 }
 

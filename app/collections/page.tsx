@@ -6,15 +6,18 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { loadCollections } from '@/lib/community/loaders'
 import { buildMetadata } from '@/lib/seo'
-import { en } from '@/lib/i18n/locales/en'
+import { getServerT } from '@/lib/i18n/server'
 
 export const revalidate = 300
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Collections',
-  description: en.collections.desc,
-  path: '/collections',
-})
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getServerT()
+  return buildMetadata({
+    title: t('collections.title'),
+    description: t('collections.desc'),
+    path: '/collections',
+  })
+}
 
 // slug → icon. Slugs mirror the pet_tags seed values in 005_community.sql.
 const ICON_BY_SLUG: Record<string, LucideIcon> = {
@@ -29,6 +32,7 @@ const ICON_BY_SLUG: Record<string, LucideIcon> = {
 }
 
 export default async function CollectionsPage() {
+  const t = await getServerT()
   const tags = await loadCollections()
 
   return (
@@ -37,14 +41,14 @@ export default async function CollectionsPage() {
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="mb-8 flex items-center gap-2">
           <Tags className="h-6 w-6 text-primary" />
-          <h1 className="font-pixel text-lg text-text-primary">{en.collections.title}</h1>
+          <h1 className="font-pixel text-lg text-text-primary">{t('collections.title')}</h1>
         </div>
-        <p className="mb-8 text-sm text-text-secondary">{en.collections.desc}</p>
+        <p className="mb-8 text-sm text-text-secondary">{t('collections.desc')}</p>
 
         {tags.length === 0 ? (
           <div className="glass-card rounded-lg p-10 text-center">
-            <p className="font-pixel text-sm text-text-primary">{en.collections.emptyTitle}</p>
-            <p className="mt-2 text-sm text-text-secondary">{en.collections.emptyDesc}</p>
+            <p className="font-pixel text-sm text-text-primary">{t('collections.emptyTitle')}</p>
+            <p className="mt-2 text-sm text-text-secondary">{t('collections.emptyDesc')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">

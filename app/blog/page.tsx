@@ -5,15 +5,19 @@ import { buildMetadata, SITE } from '@/lib/seo'
 import { posts } from '@/lib/blog/posts'
 import { JsonLd } from '@/components/seo/JsonLd'
 import BlogIndexView from '@/components/blog/BlogIndexView'
+import { getServerT } from '@/lib/i18n/server'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Blog',
-  description:
-    'Guides, tutorials, and comparisons on AI pet generators, pixel-art avatars, and turning your photos into installable coding companions.',
-  path: '/blog',
-})
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getServerT()
+  return buildMetadata({
+    title: t('blog.indexTitle'),
+    description: t('blog.indexSubtitle'),
+    path: '/blog',
+  })
+}
 
-export default function BlogIndex() {
+export default async function BlogIndex() {
+  const t = await getServerT()
   const listJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -31,7 +35,7 @@ export default function BlogIndex() {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE.url + '/blog' },
+        { '@type': 'ListItem', position: 2, name: t('blog.indexTitle'), item: SITE.url + '/blog' },
       ],
     }
   }

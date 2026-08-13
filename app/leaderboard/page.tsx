@@ -4,20 +4,21 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { loadLeaderboard } from '@/lib/community/loaders'
 import { buildMetadata } from '@/lib/seo'
-import { en } from '@/lib/i18n/locales/en'
+import { getServerT } from '@/lib/i18n/server'
 
-// Revalidate at most every 5 minutes — the leaderboard is read-heavy and the
-// points ranking changes slowly, so a short ISR window keeps it fresh without
-// hammering the database on every crawl.
 export const revalidate = 300
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Leaderboard',
-  description: en.leaderboard.desc,
-  path: '/leaderboard',
-})
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getServerT()
+  return buildMetadata({
+    title: t('leaderboard.title'),
+    description: t('leaderboard.desc'),
+    path: '/leaderboard',
+  })
+}
 
 export default async function LeaderboardPage() {
+  const t = await getServerT()
   const entries = await loadLeaderboard(50)
 
   return (
@@ -26,21 +27,21 @@ export default async function LeaderboardPage() {
       <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <div className="mb-8 flex items-center gap-2">
           <Trophy className="h-6 w-6 text-accent" />
-          <h1 className="font-pixel text-lg text-text-primary">{en.leaderboard.title}</h1>
+          <h1 className="font-pixel text-lg text-text-primary">{t('leaderboard.title')}</h1>
         </div>
-        <p className="mb-8 text-sm text-text-secondary">{en.leaderboard.desc}</p>
+        <p className="mb-8 text-sm text-text-secondary">{t('leaderboard.desc')}</p>
 
         {entries.length === 0 ? (
           <div className="glass-card rounded-lg p-10 text-center">
-            <p className="font-pixel text-sm text-text-primary">{en.leaderboard.emptyTitle}</p>
-            <p className="mt-2 text-sm text-text-secondary">{en.leaderboard.emptyDesc}</p>
+            <p className="font-pixel text-sm text-text-primary">{t('leaderboard.emptyTitle')}</p>
+            <p className="mt-2 text-sm text-text-secondary">{t('leaderboard.emptyDesc')}</p>
           </div>
         ) : (
           <div className="overflow-hidden rounded-lg border border-border bg-bg-surface">
             <div className="grid grid-cols-[3rem_1fr_5rem] items-center gap-2 border-b border-border px-4 py-3 text-xs font-medium uppercase tracking-wide text-text-muted">
-              <span>{en.leaderboard.rankLabel}</span>
+              <span>{t('leaderboard.rankLabel')}</span>
               <span>Creator</span>
-              <span className="text-right">{en.leaderboard.pointsLabel}</span>
+              <span className="text-right">{t('leaderboard.pointsLabel')}</span>
             </div>
             <ul>
               {entries.map((entry) => {

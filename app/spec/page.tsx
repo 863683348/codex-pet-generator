@@ -14,21 +14,24 @@ import { buildMetadata, SITE } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 import CodeBlock from '@/components/ui/CodeBlock'
 import { ANIMATION_STATES, SPRITE_COLS } from '@/types/pet'
+import { getServerT } from '@/lib/i18n/server'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Codex Pet Spritesheet Specification',
-  description:
-    'The exact spritesheet grid, nine animation states, and pet.json contract for building a pixel companion that runs inside OpenAI Codex.',
-  path: '/spec',
-})
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getServerT()
+  return buildMetadata({
+    title: t('spec.title'),
+    description: t('spec.desc'),
+    path: '/spec',
+  })
+}
 
 const SECTIONS = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'spritesheet', label: 'Spritesheet Layout' },
-  { id: 'states', label: 'Animation States' },
-  { id: 'pet-json', label: 'pet.json' },
-  { id: 'install', label: 'Install' },
-  { id: 'validate', label: 'Validate' },
+  { id: 'overview', labelKey: 'spec.overview' },
+  { id: 'spritesheet', labelKey: 'spec.spritesheet' },
+  { id: 'states', labelKey: 'spec.states' },
+  { id: 'pet-json', labelKey: 'spec.petJson' },
+  { id: 'install', labelKey: 'spec.install' },
+  { id: 'validate', labelKey: 'spec.validate' },
 ] as const
 
 const PET_JSON_EXAMPLE = `{
@@ -67,7 +70,8 @@ const specJsonLd = {
   ],
 }
 
-export default function SpecPage() {
+export default async function SpecPage() {
+  const t = await getServerT()
   const rows = ANIMATION_STATES.length // 9
   const cols = SPRITE_COLS // 8
 
@@ -80,12 +84,10 @@ export default function SpecPage() {
         {/* Header */}
         <header>
           <h1 className="font-pixel text-lg leading-relaxed text-text-primary sm:text-xl">
-            Codex Pet Spritesheet Spec
+            {t('spec.title')}
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
-            The exact spritesheet grid, animation states, and{' '}
-            <code className="font-mono text-accent">pet.json</code> contract for
-            building a pixel companion that runs inside OpenAI Codex.
+            {t('spec.desc')}
           </p>
         </header>
 
@@ -99,7 +101,7 @@ export default function SpecPage() {
                     href={'#' + s.id}
                     className="block whitespace-nowrap rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
                   >
-                    {s.label}
+                    {t(s.labelKey)}
                   </a>
                 </li>
               ))}
@@ -111,19 +113,9 @@ export default function SpecPage() {
             <section id="overview" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <Grid3x3 className="h-5 w-5 text-primary" />
-                Overview
+                {t('spec.overview')}
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                A Codex pet is two files that live in your{' '}
-                <code className="font-mono text-accent">
-                  ~/.codex/pets/&lt;name&gt;/
-                </code>{' '}
-                folder: a single transparent spritesheet image and a{' '}
-                <code className="font-mono text-accent">pet.json</code>{' '}
-                metadata file. Codex reads the folder at startup, slices the
-                spritesheet into frames by a fixed grid, and plays the matching
-                animation as your coding companion.
-              </p>
+              <p className="mt-4 text-sm leading-relaxed text-text-secondary" dangerouslySetInnerHTML={{ __html: t('spec.overviewDesc') }} />
               <div className="mt-4 grid gap-4 sm:grid-cols-3">
                 {[
                   { k: 'Total', v: '1536 × 1872 px' },
@@ -149,15 +141,10 @@ export default function SpecPage() {
             <section id="spritesheet" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <Grid3x3 className="h-5 w-5 text-primary" />
-                Spritesheet Layout
+                {t('spec.spritesheet')}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                The spritesheet is one 1536×1872 px transparent image laid out as
-                an 8-column by 9-row grid. Each of the 72 cells is a single
-                animation frame measuring 192×208 px. Rows map top-to-bottom to
-                the nine animation states; columns are the frames within each
-                state. The diagram below labels each row with its animation key
-                and each cell with its frame number (1–8).
+                {t('spec.spritesheetLayoutDesc')}
               </p>
 
               <div className="glass-card mt-5 overflow-x-auto rounded-lg border border-border p-5">
@@ -200,13 +187,10 @@ export default function SpecPage() {
             <section id="states" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <Film className="h-5 w-5 text-primary" />
-                Animation States
+                {t('spec.states')}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Nine animation states make up the spritesheet, one per row. The
-                frame count below is the source of truth that{' '}
-                <code className="font-mono text-accent">pet.json</code> and the
-                generator must agree on.
+                {t('spec.animationStatesDesc')}
               </p>
 
               <div className="glass-card mt-5 overflow-x-auto rounded-lg border border-border p-5">
@@ -248,12 +232,10 @@ export default function SpecPage() {
             <section id="pet-json" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <FileJson className="h-5 w-5 text-primary" />
-                pet.json
+                {t('spec.petJson')}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Place a{' '}
-                <code className="font-mono text-accent">pet.json</code> next to
-                the spritesheet. It carries four fields:
+                {t('spec.petJsonDesc')}
               </p>
 
               <div className="mt-5">
@@ -296,11 +278,10 @@ export default function SpecPage() {
             <section id="install" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <Terminal className="h-5 w-5 text-primary" />
-                Install
+                {t('spec.install')}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Extract the downloaded ZIP, then copy the pet folder into your
-                Codex pets directory and fully restart Codex.
+                {t('spec.installDesc')}
               </p>
 
               <div className="mt-5 space-y-5">
@@ -321,10 +302,10 @@ export default function SpecPage() {
             <section id="validate" className="scroll-mt-24">
               <h2 className="flex items-center gap-2 font-pixel text-sm text-text-primary">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                Validate
+                {t('spec.validate')}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Before shipping a pet, confirm these three things:
+                {t('spec.validateDesc')}
               </p>
 
               <ul className="mt-5 space-y-3">

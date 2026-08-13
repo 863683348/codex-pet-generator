@@ -54,7 +54,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       )
     }
 
-    const t = getServerT()
+    const t = await getServerT()
     const validation = validateImageFile(file, t)
     if (!validation.valid) {
       return NextResponse.json(
