@@ -50,12 +50,27 @@ export function hasImageGenConfig(): boolean {
   )
 }
 
-function resolveProvider(): Provider {
+/**
+ * Resolve provider based on:
+ * 1. IMAGE_PROVIDER env var (forced override)
+ * 2. x-image-provider request header (set by middleware based on IP geo)
+ * 3. Available API keys fallback order
+ */
+function resolveProvider(requestHeaders?: Headers): Provider {
+  // Explicit env override wins
   const forced = process.env.IMAGE_PROVIDER
   if (forced === 'openai' || forced === 'bailian' || forced === 'openrouter') return forced
+  
+  // Middleware sets this based on x-vercel-ip-country
+  const headerProvider = requestHeaders?.get('x-image-provider')
+  if (headerProvider === 'bailian' && process.env.BAILIAN_API_KEY) return 'bailian'
+  if (headerProvider === 'openrouter' && process.env.OPENROUTER_API_KEY) return 'openrouter'
+  
+  // Fallback to key presence
   if (process.env.BAILIAN_API_KEY) return 'bailian'
   if (process.env.OPENAI_API_KEY) return 'openai'
   if (process.env.OPENROUTER_API_KEY) return 'openrouter'
+  
   throw new Error('No image generation provider configured (set BAILIAN_API_KEY, OPENAI_API_KEY, or OPENROUTER_API_KEY)')
 }
 
@@ -251,8 +266,13 @@ async function openrouterGenerate(source: Buffer, prompt: string): Promise<Buffe
 
 // ------------------------------- Public API --------------------------------
 
-export async function generateBaseImage(sourceImageBuffer: Buffer): Promise<Buffer> {
-  const provider = resolveProvider()
+/**
+ * Generate base pixel art from source image.
+ * @param sourceImageBuffer - The input image as Buffer
+ * @param requestHeaders - Optional Next.js Headers object (from API route)
+ */
+export async function generateBaseImage(sourceImageBuffer: Buffer, requestHeaders?: Headers): Promise<Buffer> {
+  const provider = resolveProvider(requestHeaders)
   if (provider === 'bailian') return bailianEdit(sourceImageBuffer, BASE_PROMPT)
   if (provider === 'openrouter') return openrouterGenerate(sourceImageBuffer, BASE_PROMPT)
   return openaiGenerateBase(sourceImageBuffer)
@@ -261,10 +281,14 @@ export async function generateBaseImage(sourceImageBuffer: Buffer): Promise<Buff
 /**
  * Generate animation frames for all 9 states.
  * Returns an array of Buffers, one per state (will be duplicated to fill 8 columns).
+ * @param baseImageBuffer - The base pixel art image
+ * @param characterDescription - Description of the character for animation prompts
+ * @param requestHeaders - Optional Next.js Headers object (from API route)
  */
 export async function generateAnimationFrames(
   baseImageBuffer: Buffer,
-  characterDescription: string
+  characterDescription: string,
+  requestHeaders?: Headers
 ): Promise<Buffer[]> {
   const statePrompts: Record<string, string> = {
     idle: `Pixel art character: ${characterDescription}. Idle breathing pose, facing forward, slight body movement. Transparent background. 16-bit pixel art style.`,
@@ -281,7 +305,7 @@ export async function generateAnimationFrames(
   const frames: Buffer[] = []
   for (const state of ANIMATION_STATES) {
     const prompt = statePrompts[state.key] || statePrompts.idle
-    const provider = resolveProvider()
+    const provider = resolveProvider(requestHeaders)
     if (provider === 'bailian') {
       frames.push(await bailianEdit(baseImageBuffer, prompt))
     } else if (provider === 'openrouter') {

@@ -178,7 +178,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     // rare case where the request times out, but normally it returns as soon as
     // the base is ready.
     try {
-      const baseBuffer = await generateBaseImage(fileBuffer)
+      const baseBuffer = await generateBaseImage(fileBuffer, req.headers)
       const { path, url } = await uploadBaseImage(taskId, baseBuffer)
 
       await supabase
