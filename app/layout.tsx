@@ -109,7 +109,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
           rel="stylesheet"
           media="print"
-          onLoad="this.media='all'"
+          onLoad={(e) => {(e.target as HTMLLinkElement).media = 'all'}}
         />
         <noscript>
           <link
