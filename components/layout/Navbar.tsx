@@ -28,11 +28,11 @@ export default function Navbar() {
   ]
 
   const linkClass =
-    'flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary lg:px-3'
+    'flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary'
 
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-border bg-bg-base/80 backdrop-blur-lg">
-      <div className="mx-auto flex h-full max-w-5xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex shrink-0 items-center gap-2"
@@ -45,14 +45,14 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-          {/* Desktop nav links: icons on tablet, icons + text on large screens */}
-          <nav className="hidden items-center gap-1.5 lg:gap-2 sm:flex">
+        <div className="flex items-center gap-3 md:gap-4">
+          {/* Desktop nav links: icons + text visible from md (768px+) */}
+          <nav className="hidden items-center gap-2 md:flex">
             {navLinks.map((link) => {
               const content = (
                 <>
                   {link.icon && <link.icon className="h-4 w-4" />}
-                  <span className="hidden text-sm lg:inline">{link.label}</span>
+                  <span className="text-sm">{link.label}</span>
                 </>
               )
               return link.external ? (
@@ -84,7 +84,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-bg-elevated text-text-secondary transition-colors hover:bg-bg-surface hover:text-text-primary sm:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-bg-elevated text-text-secondary transition-colors hover:bg-bg-surface hover:text-text-primary md:hidden"
           >
             {mobileOpen ? (
               <X className="h-4 w-4" />
@@ -99,12 +99,12 @@ export default function Navbar() {
       {mobileOpen && (
         <>
           <div
-            className="fixed inset-0 top-16 z-30 bg-black/40 sm:hidden"
+            className="fixed inset-0 top-16 z-30 bg-black/40 md:hidden"
             onClick={() => setMobileOpen(false)}
             aria-hidden="true"
           />
-          <nav className="absolute left-0 right-0 top-16 z-40 border-b border-border bg-bg-base px-4 py-3 shadow-lg sm:hidden">
-            <div className="mx-auto flex max-w-5xl flex-col gap-1">
+          <nav className="absolute left-0 right-0 top-16 z-40 border-b border-border bg-bg-base px-4 py-3 shadow-lg md:hidden">
+            <div className="mx-auto flex max-w-6xl flex-col gap-2">
               {navLinks.map((link) => {
                 const content = (
                   <>
@@ -113,7 +113,7 @@ export default function Navbar() {
                   </>
                 )
                 const itemClass =
-                  'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary'
+                  'flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary'
                 return link.external ? (
                   <a
                     key={link.href}
