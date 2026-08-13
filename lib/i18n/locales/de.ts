@@ -2,7 +2,7 @@
 
 export const de: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
-  nav: { github: 'GitHub', home: 'Startseite', blog: 'Blog', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'Anmelden', signOut: 'Abmelden' },
+  nav: { github: 'GitHub', home: 'Startseite', blog: 'Blog', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'Anmelden', signOut: 'Abmelden', myPets: 'Meine Haustiere', gallery: 'Galerie', spec: 'Spec', guide: 'Anleitung' },
   footer: { madeWith: 'Hergestellt für Codex-Benutzer', compatible: 'OpenAI Codex kompatibel', copyright: '© 2026 PetGen', privacy: 'Datenschutz', terms: 'AGB', faq: 'FAQ', contact: 'Kontakt' },
   pricing: {
     title: 'Einfache Preise', desc: 'Wählen Sie den Plan, der zu Ihnen passt. Keine versteckten Kosten.', popular: 'BELIEBT',

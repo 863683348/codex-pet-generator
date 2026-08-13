@@ -2,7 +2,7 @@
 
 export const ja: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
-  nav: { github: 'GitHub', home: 'ホームへ', blog: 'ブログ', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'ログイン', signOut: 'ログアウト' },
+  nav: { github: 'GitHub', home: 'ホームへ', blog: 'ブログ', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'ログイン', signOut: 'ログアウト', myPets: 'マイペット', gallery: 'ギャラリー', spec: 'スペック', guide: 'ガイド' },
   footer: { madeWith: 'Codexユーザーのために', compatible: 'OpenAI Codex対応', copyright: '© 2026 PetGen', privacy: 'プライバシーポリシー', terms: '利用規約', faq: 'よくある質問', contact: 'お問い合わせ' },
     pricing: {
     title: 'シンプルな料金', desc: 'ニーズに合ったプランを選んでください。隠れた費用はありません。', popular: 'おすすめ',

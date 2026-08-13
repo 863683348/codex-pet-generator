@@ -13,19 +13,18 @@ export default function Navbar() {
   const { t } = useI18n()
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Defined inside the component so the new community links can resolve their
-  // labels through the i18n context. Existing links keep their static English
-  // labels (no matching nav.* keys exist for them) to preserve current behavior.
+  // Resolve labels via the i18n context. All nav.* keys exist in every locale
+  // (en/zh/fr/de/ja/ko) — see lib/i18n/locales/<locale>.ts.
   const navLinks = [
-    { href: '/my-pets', label: 'My Pets', icon: Images, external: false },
-    { href: '/gallery', label: 'Gallery', icon: LayoutGrid, external: false },
+    { href: '/my-pets', label: t('nav.myPets'), icon: Images, external: false },
+    { href: '/gallery', label: t('nav.gallery'), icon: LayoutGrid, external: false },
     { href: '/collections', label: t('nav.collections'), icon: Tags, external: false },
     { href: '/leaderboard', label: t('nav.leaderboard'), icon: Trophy, external: false },
     { href: '/submit', label: t('nav.submit'), icon: Send, external: false },
-    { href: '/blog', label: 'Blog', icon: null, external: false },
-    { href: '/spec', label: 'Spec', icon: FileCode2, external: false },
-    { href: '/guide', label: 'Guide', icon: BookOpen, external: false },
-    { href: 'https://github.com', label: 'GitHub', icon: Github, external: true },
+    { href: '/blog', label: t('nav.blog'), icon: null, external: false },
+    { href: '/spec', label: t('nav.spec'), icon: FileCode2, external: false },
+    { href: '/guide', label: t('nav.guide'), icon: BookOpen, external: false },
+    { href: 'https://github.com', label: t('nav.github'), icon: Github, external: true },
   ]
 
   const linkClass =

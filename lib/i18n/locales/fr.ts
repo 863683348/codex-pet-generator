@@ -2,7 +2,7 @@
 
 export const fr: Dict = {
   lang: { en: 'EN', zh: '中', ja: '日', ko: '한', fr: 'FR', de: 'DE' },
-  nav: { github: 'GitHub', home: 'Accueil', blog: 'Blog', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'Connexion', signOut: 'Deconnexion' },
+  nav: { github: 'GitHub', home: 'Accueil', blog: 'Blog', collections: 'Collections', leaderboard: 'Leaderboard', submit: 'Submit', signIn: 'Connexion', signOut: 'Deconnexion', myPets: 'Mes animaux', gallery: 'Galerie', spec: 'Spec', guide: 'Guide' },
   footer: { madeWith: 'Fabriqué pour les utilisateurs de Codex', compatible: 'Compatible OpenAI Codex', copyright: '(c) 2026 PetGen', privacy: 'Confidentialite', terms: "Conditions d'utilisation", faq: 'FAQ', contact: 'Contact' },
   pricing: {
     title: 'Tarifs simples', desc: 'Choisissez le forfait adapte a vos besoins. Sans frais caches.', popular: 'POPULAIRE',
