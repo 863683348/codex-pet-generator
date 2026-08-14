@@ -271,6 +271,16 @@ export const en = {
     countLabel: '{count} pets',
     emptyTitle: 'No collections yet',
     emptyDesc: 'Collections are curated categories for the community gallery.',
+    tagNames: {
+      cat: 'Cats',
+      dog: 'Dogs',
+      fantasy: 'Fantasy',
+      robot: 'Robots',
+      anime: 'Anime',
+      game: 'Game Characters',
+      celebrity: 'Celebrities',
+      original: 'Original',
+    },
   },
   leaderboard: {
     title: 'Leaderboard',

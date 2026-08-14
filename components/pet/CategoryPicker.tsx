@@ -27,6 +27,7 @@ export default function CategoryPicker({ tags, selected, onChange }: CategoryPic
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => {
           const active = tag.slug === selected
+          const tagName = t(`collections.tagNames.${tag.slug}`) || tag.name
           return (
             <button
               key={tag.id}
@@ -38,7 +39,7 @@ export default function CategoryPicker({ tags, selected, onChange }: CategoryPic
                   : 'border border-border bg-bg-elevated text-text-secondary hover:text-text-primary'
               }`}
             >
-              {tag.name}
+              {tagName}
             </button>
           )
         })}

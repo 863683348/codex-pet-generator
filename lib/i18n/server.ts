@@ -17,8 +17,17 @@ function lookup(dict: unknown, path: string): string | undefined {
     | undefined
 }
 
+const COOKIE_NAME = 'petgen-lang'
+
 export async function getLangFromRequest(): Promise<Lang> {
   const headerList = await headers()
+  const cookie = headerList.get('cookie') || ''
+  const cookieMatch = cookie.match(new RegExp(`(?:^|;\\s*)${COOKIE_NAME}=([^;]+)`))
+  if (cookieMatch) {
+    const saved = decodeURIComponent(cookieMatch[1])
+    if (saved in DICTS) return saved as Lang
+  }
+
   const accept = headerList.get('accept-language') || ''
   const lower = accept.toLowerCase()
   if (lower.includes('zh') || lower.includes('zh-cn') || lower.includes('zh-tw')) return 'zh'

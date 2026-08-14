@@ -364,6 +364,16 @@ export const ja: Dict = {
     countLabel: '{count} 匹のペット',
     emptyTitle: 'まだコレクションがありません',
     emptyDesc: 'コレクションは、コミュニティギャラリーのためのキュレーションされたカテゴリーです。',
+    tagNames: {
+      cat: '猫',
+      dog: '犬',
+      fantasy: 'ファンタジー',
+      robot: 'ロボット',
+      anime: 'アニメ',
+      game: 'ゲームキャラ',
+      celebrity: '有名人',
+      original: 'オリジナル',
+    },
   },
   leaderboard: {
     title: 'ランキング',

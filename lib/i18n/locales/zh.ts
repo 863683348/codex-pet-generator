@@ -270,6 +270,16 @@ export const zh: Dict = {
     countLabel: '{count} 个宠物',
     emptyTitle: '暂无标签',
     emptyDesc: '标签是对社区画廊的策展分类。',
+    tagNames: {
+      cat: '猫咪',
+      dog: '狗狗',
+      fantasy: '奇幻生物',
+      robot: '机器人',
+      anime: '动漫',
+      game: '游戏角色',
+      celebrity: '名人',
+      original: '原创作品',
+    },
   },
   leaderboard: {
     title: '排行榜',

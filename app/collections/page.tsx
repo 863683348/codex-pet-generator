@@ -54,6 +54,7 @@ export default async function CollectionsPage() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {tags.map((tag) => {
               const Icon = ICON_BY_SLUG[tag.slug] ?? Shapes
+              const tagName = t(`collections.tagNames.${tag.slug}`) || tag.name
               return (
                 <Link
                   key={tag.id}
@@ -61,7 +62,7 @@ export default async function CollectionsPage() {
                   className="glass-card group flex min-h-[44px] flex-col items-center gap-2 rounded-lg p-5 text-center transition-all hover:border-accent"
                 >
                   <Icon className="h-6 w-6 text-primary" />
-                  <span className="font-pixel text-xs text-text-primary">{tag.name}</span>
+                  <span className="font-pixel text-xs text-text-primary">{tagName}</span>
                   <span className="text-xs text-text-secondary">
                     {t('collections.countLabel', { count: tag.petCount })}
                   </span>

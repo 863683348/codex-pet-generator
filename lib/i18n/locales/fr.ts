@@ -327,6 +327,16 @@ export const fr: Dict = {
     countLabel: '{count} pets',
     emptyTitle: 'Aucune collection pour le moment',
     emptyDesc: 'Les collections sont des catégories organisées pour la galerie communautaire.',
+    tagNames: {
+      cat: 'Chats',
+      dog: 'Chiens',
+      fantasy: 'Fantastique',
+      robot: 'Robots',
+      anime: 'Anime',
+      game: 'Personnages de jeux',
+      celebrity: 'Célébrités',
+      original: 'Originaux',
+    },
   },
   leaderboard: {
     title: 'Classement',
