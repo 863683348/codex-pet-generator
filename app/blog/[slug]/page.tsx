@@ -111,6 +111,19 @@ export default async function BlogPostPage({
       <JsonLd data={breadcrumbJsonLd()} />
       {faqJsonLd && <JsonLd data={faqJsonLd} />}
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex flex-wrap items-center gap-1 text-xs text-text-muted">
+            <li>
+              <Link href="/" className="hover:text-text-primary">Home</Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link href="/blog" className="hover:text-text-primary">Blog</Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="truncate text-text-secondary">{post.title}</li>
+          </ol>
+        </nav>
         <article>
           <header>
             <h1 className="font-pixel text-lg text-text-primary">{post.title}</h1>
