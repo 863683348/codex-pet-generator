@@ -266,6 +266,7 @@ export const zh: Dict = {
     title: '标签合集',
     desc: '按分类浏览像素宠物——猫咪、狗狗、奇幻生物、机器人、动漫、游戏角色、名人，以及社区原创作品。',
     viewAll: '查看全部',
+    countLabel: '{count} 个宠物',
     emptyTitle: '暂无标签',
     emptyDesc: '标签是对社区画廊的策展分类。',
   },

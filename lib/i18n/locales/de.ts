@@ -122,8 +122,9 @@ export const de: Dict = {
   collections: {
     title: 'Collections',
     desc: 'Browse pixel pets by category — cats, dogs, fantasy creatures, robots, anime, game characters, celebrities, and originals made by the community.',
-    viewAll: 'View all',
-    emptyTitle: 'No collections yet',
+    viewAll: 'Alle anzeigen',
+    countLabel: '{count} Haustiere',
+    emptyTitle: 'Noch keine Sammlungen',
     emptyDesc: 'Collections are curated categories for the community gallery.',
   },
   leaderboard: {

@@ -58,10 +58,13 @@ export default async function CollectionsPage() {
                 <Link
                   key={tag.id}
                   href={`/collections/${tag.slug}`}
-                  className="glass-card group flex min-h-[44px] flex-col items-center gap-3 rounded-lg p-5 text-center transition-all hover:border-accent"
+                  className="glass-card group flex min-h-[44px] flex-col items-center gap-2 rounded-lg p-5 text-center transition-all hover:border-accent"
                 >
                   <Icon className="h-6 w-6 text-primary" />
                   <span className="font-pixel text-xs text-text-primary">{tag.name}</span>
+                  <span className="text-xs text-text-secondary">
+                    {t('collections.countLabel', { count: tag.petCount })}
+                  </span>
                 </Link>
               )
             })}

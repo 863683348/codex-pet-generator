@@ -122,8 +122,9 @@ export const ko: Dict = {
   collections: {
     title: 'Collections',
     desc: 'Browse pixel pets by category — cats, dogs, fantasy creatures, robots, anime, game characters, celebrities, and originals made by the community.',
-    viewAll: 'View all',
-    emptyTitle: 'No collections yet',
+    viewAll: '모두 보기',
+    countLabel: '펫 {count}마리',
+    emptyTitle: '아직 컬렉션이 없습니다',
     emptyDesc: 'Collections are curated categories for the community gallery.',
   },
   leaderboard: {

@@ -267,6 +267,7 @@ export const en = {
     title: 'Collections',
     desc: 'Browse pixel pets by category — cats, dogs, fantasy creatures, robots, anime, game characters, celebrities, and originals made by the community.',
     viewAll: 'View all',
+    countLabel: '{count} pets',
     emptyTitle: 'No collections yet',
     emptyDesc: 'Collections are curated categories for the community gallery.',
   },
