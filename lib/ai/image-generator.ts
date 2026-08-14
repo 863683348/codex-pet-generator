@@ -1,4 +1,5 @@
 ﻿import OpenAI from 'openai'
+import sharp from 'sharp'
 import { ANIMATION_STATES } from '@/types/pet'
 
 // ---------------------------------------------------------------------------
@@ -281,38 +282,33 @@ export async function generateBaseImage(sourceImageBuffer: Buffer, requestHeader
 /**
  * Generate animation frames for all 9 states.
  * Returns an array of Buffers, one per state (will be duplicated to fill 8 columns).
+ *
+ * B-方案（默认）：动画帧全部由 base 本地派生，不再调用任何图像生成 API。
+ *  - 大部分状态直接复用 base（sprite-composer 会在 8 列间加 bounce，播放已有动感）
+ *  - running-left 为 base 水平镜像（sharp flop），零成本
+ * 这样每套 pet 只消耗 1 次百炼（生成 base），动画帧 0 次调用，成本降 ~90%。
+ *
  * @param baseImageBuffer - The base pixel art image
- * @param characterDescription - Description of the character for animation prompts
- * @param requestHeaders - Optional Next.js Headers object (from API route)
+ * @param _characterDescription - (unused) kept for signature compatibility
+ * @param _requestHeaders - (unused) kept for signature compatibility
  */
 export async function generateAnimationFrames(
   baseImageBuffer: Buffer,
-  characterDescription: string,
-  requestHeaders?: Headers
+  _characterDescription?: string,
+  _requestHeaders?: Headers
 ): Promise<Buffer[]> {
-  const statePrompts: Record<string, string> = {
-    idle: `Pixel art character: ${characterDescription}. Idle breathing pose, facing forward, slight body movement. Transparent background. 16-bit pixel art style.`,
-    'running-right': `Pixel art character: ${characterDescription}. Running to the right, mid-stride pose. Transparent background. 16-bit pixel art style.`,
-    'running-left': `Pixel art character: ${characterDescription}. Running to the left, mid-stride pose. Transparent background. 16-bit pixel art style.`,
-    waving: `Pixel art character: ${characterDescription}. Waving hello, one arm raised. Transparent background. 16-bit pixel art style.`,
-    jumping: `Pixel art character: ${characterDescription}. Mid-jump pose, arms up, feet off ground. Transparent background. 16-bit pixel art style.`,
-    failed: `Pixel art character: ${characterDescription}. Sad/dejected pose, head down, X mark or sweat drop. Transparent background. 16-bit pixel art style.`,
-    waiting: `Pixel art character: ${characterDescription}. Waiting pose, looking at watch, impatient. Transparent background. 16-bit pixel art style.`,
-    running: `Pixel art character: ${characterDescription}. Running forward, dynamic pose. Transparent background. 16-bit pixel art style.`,
-    review: `Pixel art character: ${characterDescription}. Checking/reviewing pose, holding a clipboard or magnifying glass. Transparent background. 16-bit pixel art style.`,
+  const base = sharp(baseImageBuffer)
+
+  // 复用一个 sharp 实例的 clone 派生各状态图；running-left 做水平镜像。
+  const derive = async (mode?: 'flip'): Promise<Buffer> => {
+    let pipe = base.clone()
+    if (mode === 'flip') pipe = pipe.flop()
+    return pipe.png().toBuffer()
   }
 
   const frames: Buffer[] = []
   for (const state of ANIMATION_STATES) {
-    const prompt = statePrompts[state.key] || statePrompts.idle
-    const provider = resolveProvider(requestHeaders)
-    if (provider === 'bailian') {
-      frames.push(await bailianEdit(baseImageBuffer, prompt))
-    } else if (provider === 'openrouter') {
-      frames.push(await openrouterGenerate(baseImageBuffer, prompt))
-    } else {
-      frames.push(await openaiGenerateFrame(baseImageBuffer, prompt))
-    }
+    frames.push(await derive(state.key === 'running-left' ? 'flip' : undefined))
   }
   return frames
 }
