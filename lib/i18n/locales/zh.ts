@@ -302,6 +302,8 @@ export const zh: Dict = {
     deleteConfirm: '确定删除这只宠物吗？此操作无法撤销。',
     deleted: '宠物已删除',
     deleteFailed: '删除失败',
+    readyToInstall: '已可安装',
+    shares: '{count} 次分享',
   },
   featured: {
     title: '精选宠物',

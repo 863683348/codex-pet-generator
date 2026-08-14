@@ -299,6 +299,8 @@ export const de: Dict = {
     deleteConfirm: 'Diesen Pet löschen? Dies kann nicht rückgängig gemacht werden.',
     deleted: 'Pet gelöscht',
     deleteFailed: 'Löschen fehlgeschlagen',
+    readyToInstall: 'Bereit zur Installation',
+    shares: '{count} Shares',
   },
   featured: {
     title: 'Empfohlene Pets',

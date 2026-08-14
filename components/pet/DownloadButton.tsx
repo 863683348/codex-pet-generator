@@ -9,9 +9,11 @@ interface DownloadButtonProps {
   href: string
   petId?: string
   size?: 'md' | 'lg'
+  disabled?: boolean
+  className?: string
 }
 
-export default function DownloadButton({ href, petId, size = 'lg' }: DownloadButtonProps) {
+export default function DownloadButton({ href, petId, size = 'lg', disabled, className = '' }: DownloadButtonProps) {
   const { t } = useI18n()
   const [loading, setLoading] = useState(false)
 
@@ -69,8 +71,8 @@ export default function DownloadButton({ href, petId, size = 'lg' }: DownloadBut
   return (
     <button
       onClick={handleClick}
-      disabled={loading}
-      className={`flex items-center justify-center rounded-md bg-primary font-medium text-white transition-all hover:bg-primary-hover hover:shadow-glow disabled:opacity-60 ${sizing}`}
+      disabled={loading || disabled}
+      className={`flex items-center justify-center rounded-md bg-primary font-medium text-white transition-all hover:bg-primary-hover hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-40 ${sizing} ${className}`}
     >
       {loading ? (
         <>

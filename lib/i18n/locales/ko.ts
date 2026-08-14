@@ -298,6 +298,8 @@ export const ko: Dict = {
     deleteConfirm: '이 펫을 삭제할까요? 되돌릴 수 없습니다.',
     deleted: '펫이 삭제되었습니다',
     deleteFailed: '삭제에 실패했습니다',
+    readyToInstall: '설치 가능',
+    shares: '{count} 공유',
   },
   featured: {
     title: '추천 펫',

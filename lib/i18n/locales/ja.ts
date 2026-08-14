@@ -396,6 +396,8 @@ export const ja: Dict = {
     deleteConfirm: 'このペットを削除しますか？元に戻せません。',
     deleted: 'ペットを削除しました',
     deleteFailed: '削除に失敗しました',
+    readyToInstall: 'インストール可能',
+    shares: '{count} シェア',
   },
   featured: {
     title: 'おすすめのペット',

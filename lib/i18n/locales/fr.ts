@@ -359,6 +359,8 @@ export const fr: Dict = {
     deleteConfirm: 'Supprimer ce compagnon ? Cette action est irréversible.',
     deleted: 'Compagnon supprimé',
     deleteFailed: 'Échec de la suppression',
+    readyToInstall: 'Prêt à installer',
+    shares: '{count} partages',
   },
   featured: {
     title: 'Pets en vedette',

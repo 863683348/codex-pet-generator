@@ -303,6 +303,8 @@ export const en = {
     deleteConfirm: 'Delete this pet? This cannot be undone.',
     deleted: 'Pet deleted',
     deleteFailed: 'Failed to delete pet',
+    readyToInstall: 'Ready to install',
+    shares: '{count} shares',
   },
   featured: {
     title: 'Featured Pets',
