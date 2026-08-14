@@ -9,7 +9,7 @@ export const ja: Dict = {
     gallery: 'ギャラリー',
     collections: 'コレクション',
     leaderboard: 'ランキング',
-    submit: '投稿',
+    submit: '推薦',
     spec: 'スペック',
     guide: 'ガイド',
     signIn: 'ログイン',
