@@ -82,6 +82,7 @@ export const ja: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: 'カテゴリーを選択',
     maxSize: '最大10MB',
   },
   error: {

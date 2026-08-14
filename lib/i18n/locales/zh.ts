@@ -75,6 +75,7 @@ export const zh: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: '选择分类',
     maxSize: '最大 10MB'},
   error: {
     unsupportedFormat: '不支持的格式：{type}。请使用 JPG、PNG 或 WebP。',

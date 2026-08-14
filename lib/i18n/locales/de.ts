@@ -75,6 +75,7 @@ export const de: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: 'Kategorie wählen',
     maxSize: 'Max. 10 MB'},
   error: {
     unsupportedFormat: 'Nicht unterstütztes Format: {type}. Verwende JPG, PNG oder WebP.',

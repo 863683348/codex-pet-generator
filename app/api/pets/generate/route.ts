@@ -46,6 +46,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const formData = await req.formData()
     const file = formData.get('image') as File | null
     const email = formData.get('email') as string | null
+    // Chosen category slug (defaults to 'original' when absent or invalid).
+    const category = ((formData.get('category') as string | null) ?? '').trim() || 'original'
 
     if (!file) {
       return NextResponse.json(
@@ -158,6 +160,36 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     const taskId = pet.id
+
+    // Link the pet to the user-chosen category. Resolves the slug to a tag id
+    // and falls back to 'original' if the slug is unknown. Non-fatal: a failed
+    // mapping must never block generation.
+    try {
+      const slug = category
+      const { data: tagRow } = await supabase
+        .from('pet_tags')
+        .select('id, slug')
+        .eq('slug', slug)
+        .maybeSingle()
+
+      let tagId: string | null = tagRow?.id ?? null
+      if (!tagId) {
+        const { data: origRow } = await supabase
+          .from('pet_tags')
+          .select('id')
+          .eq('slug', 'original')
+          .maybeSingle()
+        tagId = origRow?.id ?? null
+      }
+
+      if (tagId) {
+        await supabase
+          .from('pet_tag_map')
+          .insert({ pet_id: taskId, tag_id: tagId })
+      }
+    } catch (tagErr) {
+      console.error('Tag mapping error (non-fatal):', tagErr)
+    }
 
     // Upload source image
     try {

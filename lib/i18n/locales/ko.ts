@@ -75,6 +75,7 @@ export const ko: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: '카테고리 선택',
     maxSize: '최대 10MB'},
   error: {
     unsupportedFormat: '지원하지 않는 형식: {type}. JPG, PNG, WebP를 사용하세요.',

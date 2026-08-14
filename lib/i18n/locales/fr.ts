@@ -82,6 +82,7 @@ export const fr: Dict = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: 'Choisissez une catégorie',
     maxSize: 'Max 10 Mo',
   },
   error: {

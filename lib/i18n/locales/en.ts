@@ -76,6 +76,7 @@ export const en = {
     jpg: 'JPG',
     png: 'PNG',
     webp: 'WebP',
+    chooseCategory: 'Choose a category',
     maxSize: 'Max 10MB'},
   error: {
     unsupportedFormat: 'Unsupported format: {type}. Use JPG, PNG, or WebP.',

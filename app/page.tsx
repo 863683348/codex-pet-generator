@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import UploadDropzone from '@/components/pet/UploadDropzone'
+import CategoryPicker, { PetTag } from '@/components/pet/CategoryPicker'
 import StepIndicator from '@/components/pet/StepIndicator'
 import GenerationWorkspace from '@/components/pet/GenerationWorkspace'
 import HowItWorks from '@/components/layout/HowItWorks'
@@ -95,6 +96,10 @@ export default function Home() {
   const router = useRouter()
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
+  // Pet category selector: loaded from /api/tags, passed along at generation time.
+  const [tags, setTags] = useState<PetTag[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('original')
+
   // Build the Authorization header from the live session token. Uses a ref so
   // the long-lived polling callback always sees the current token (no stale
   // closure from useCallback's empty deps).
@@ -154,6 +159,21 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    const loadTags = async () => {
+      try {
+        const res = await fetch('/api/tags')
+        if (res.ok) {
+          const data = await res.json()
+          if (Array.isArray(data.tags)) setTags(data.tags)
+        }
+      } catch (err) {
+        console.error('Failed to load categories:', err)
+      }
+    }
+    loadTags()
+  }, [])
+
+  useEffect(() => {
     return () => {
       if (pollRef.current) clearInterval(pollRef.current)
     }
@@ -197,6 +217,7 @@ export default function Home() {
     try {
       const formData = new FormData()
       formData.append('image', file)
+      formData.append('category', selectedCategory)
 
       // Bounded wait: if the serverless function hangs (e.g. Vercel plan
       // timeout, slow AI provider), abort after 90s so the user gets a clear
@@ -463,7 +484,14 @@ export default function Home() {
 
             <div className="mt-6">
               {!task && !isUploading && (
-                <UploadDropzone onFileSelected={handleFileSelected} />
+                <>
+                  <CategoryPicker
+                    tags={tags}
+                    selected={selectedCategory}
+                    onChange={setSelectedCategory}
+                  />
+                  <UploadDropzone onFileSelected={handleFileSelected} />
+                </>
               )}
               {isUploading && (
                 <div className="rounded-lg border-2 border-dashed border-border bg-bg-surface p-8 text-center">
