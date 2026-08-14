@@ -11,7 +11,7 @@ import CookieConsent from '@/components/layout/CookieConsent'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `Free AI Pet Generator | Create Custom Pet Images Online — ${SITE.fullName}`,
+    default: `Codex Pet Generator — Free AI Pet Maker | Turn Photos Into Pixel Pets`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -115,8 +115,14 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Single-URL multilingual site: all language variants live on the same
+            URL (cookie-driven i18n), so every hreflang points to the root. */}
         <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="zh-CN" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="ja" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="ko" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="fr" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="de" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="x-default" href={SITE.url + '/'} />
         {GA_ID && isProd && (
           <>

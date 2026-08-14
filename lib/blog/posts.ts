@@ -68,13 +68,18 @@ export const posts: BlogPost[] = [
     slug: 'turn-photo-into-pixel-art',
     title: 'How to Turn Your Pet Photo Into a Pixel-Art Avatar (Free in 2026)',
     description:
-      'A step-by-step guide to turning a pet photo into a pixel-art avatar using a free AI pet generator. No design skills required.',
+      'Turn any pet photo into a pixel-art avatar free in under a minute — no design skills. Upload, approve, and download a 9-state animated spritesheet ready for Codex.',
     date: '2026-07-15',
     author: 'PetGen',
     keywords: [
       'turn photo into pixel art',
       'free pixel pet generator',
       'pet avatar generator',
+    ],
+    faq: [
+      { question: 'How do I turn my pet photo into pixel art for free?', answer: 'Upload a clear, centered photo to a free pixel pet generator like PetGen. The AI removes the background, draws a pixel-art base for you to approve, then generates 9 animation states into a single spritesheet.webp plus pet.json. Download the ZIP, drop it into ~/.codex/pets, restart Codex, and your pixel pet is alive.' },
+      { question: 'What photo works best for a pixel-art avatar?', answer: 'A front-facing shot with the pet centered, a simple background, and good lighting. Aim for at least 512x512 pixels and a square crop. Dark, blurry, or group photos lose detail during the pixel conversion.' },
+      { question: 'Do I need design skills to make a pixel pet?', answer: 'No. The generator handles background removal, pixelation, and animation. You only approve the base character and download the ready-to-install package — the whole flow takes under a minute.' },
     ],
     sections: [
       {
@@ -97,13 +102,18 @@ export const posts: BlogPost[] = [
     slug: 'what-is-pet-spritesheet',
     title: 'What Is a Pet Spritesheet and pet.json?',
     description:
-      'Learn what a pet spritesheet and pet.json are, why Codex uses them, and how PetGen generates both.',
+      'A pet spritesheet is the animation grid Codex uses to render your desktop pet. Learn the exact format, the pet.json fields, and how PetGen builds both for you.',
     date: '2026-07-15',
     author: 'PetGen',
     keywords: [
       'pet spritesheet',
       'pet.json',
       'OpenAI Codex pet',
+    ],
+    faq: [
+      { question: 'What is a pet spritesheet in Codex?', answer: 'A pet spritesheet is a single image file that packs every animation frame of your desktop pet into a grid. Codex reads this exact grid to play idle, walk, and other animations. PetGen outputs a 1536x1872 transparent spritesheet with the precise layout Codex expects, so your pet renders correctly out of the box.' },
+      { question: 'What does pet.json contain?', answer: 'pet.json is a small metadata file that tells Codex the pet name, a description, and the path to the spritesheet. If the name field in pet.json does not match the folder name in ~/.codex/pets, Codex silently skips the pet — this is the most common reason a pet does not show up.' },
+      { question: 'Can I make a pet spritesheet without a generator?', answer: 'Technically yes, but you must match Codex\'s exact grid dimensions, frame count, and JSON schema, and pixel art by hand is slow. A generator like PetGen does the whole pipeline — background removal, pixelation, 9 animation states, and a valid pet.json — in about a minute.' },
     ],
     sections: [
       {
@@ -119,10 +129,15 @@ export const posts: BlogPost[] = [
     slug: 'best-ai-pet-generators-2026',
     title: 'Best AI Pet Generators in 2026: Compared',
     description:
-      'Compare AI pet generators -- portrait apps, image generators, and desktop-companion tools.',
+      'We compared the top AI pet generators of 2026 — portrait apps, prompt-based tools, and Codex-ready companions. See which one actually outputs an animated desktop pet.',
     date: '2026-07-15',
     author: 'PetGen',
     keywords: ['AI pet generator', 'best AI pet generators'],
+    faq: [
+      { question: 'What is the best AI pet generator in 2026?', answer: 'It depends on what you want. For a Codex desktop companion, you need a generator that outputs an animated spritesheet plus pet.json — PetGen is purpose-built for this. For a one-off portrait or avatar, general AI tools work, but they will not produce an installable, animated desktop pet.' },
+      { question: 'Can any AI image generator make a Codex pet?', answer: 'Not directly. Codex expects a specific spritesheet grid plus pet.json metadata. Generic generators produce a single picture, not a packed animation sheet in the right format. You either need a Codex-aware generator or you must manually slice and assemble frames.' },
+      { question: 'What should I look for in an AI pet generator?', answer: 'Check four things: whether it outputs an installable spritesheet + pet.json, how many animation states it creates, whether it removes the photo background for you, and the price. Free generators that handle the full pipeline save you the most time.' },
+    ],
     sections: [
       {
         heading: 'Categories',
@@ -388,7 +403,7 @@ export const posts: BlogPost[] = [
     slug: 'best-photos-for-pixel-pet-generator',
     title: 'Best Photo Tips for a Perfect Pixel Pet',
     description:
-      'Learn which photos work best with PetGen AI and how to prepare them for the best pixel-art conversion.',
+      'The best photos for a pixel pet generator: clear subject, simple background, good light, and 512px+. Fix your shot first and get a sharper, cuter pixel pet every time.',
     date: '2026-07-30',
     author: 'PetGen',
     keywords: [
@@ -396,6 +411,11 @@ export const posts: BlogPost[] = [
       'pixel art pet tips',
       'pet photo guide',
       'ai pet generator tips',
+    ],
+    faq: [
+      { question: 'What kind of photo gives the best pixel pet result?', answer: 'A clear, front-facing photo with the pet centered, a simple background, and even lighting. At least 512x512 pixels with a square crop. The cleaner the input, the sharper the pixel conversion and the fewer AI artifacts on the final spritesheet.' },
+      { question: 'Should I crop or edit my photo before using a pet generator?', answer: 'Light preparation helps: crop to a square, remove clutter from the background, and resize to at least 800x800 pixels if you have a very small image. Save as PNG for lossless quality. Avoid heavy filters — they can confuse the pixelation step.' },
+      { question: 'Why did my pixel pet turn out blurry or distorted?', answer: 'Almost always the source photo: dark lighting, motion blur, a tiny low-resolution file, or a group shot where the AI cannot tell which pet to focus on. Re-shoot with the pet alone, centered, and well lit, then regenerate.' },
     ],
     sections: [
       {

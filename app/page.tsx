@@ -646,6 +646,29 @@ export default function Home() {
               <p className="mt-6 text-center text-sm text-text-muted">
                 <a href="/faq" className="text-accent hover:underline">See all FAQs →</a>
               </p>
+              <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
+                <a
+                  href="/blog/what-is-pet-spritesheet"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">What is a pet spritesheet?</span>
+                  <span className="mt-1 block text-xs text-text-muted">The exact format Codex expects, explained.</span>
+                </a>
+                <a
+                  href="/blog/best-photos-for-pixel-pet-generator"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">Best photos for pixel pets</span>
+                  <span className="mt-1 block text-xs text-text-muted">Get a sharper result with better source shots.</span>
+                </a>
+                <a
+                  href="/blog/codex-pet-not-showing-fixes"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">Pet not showing up?</span>
+                  <span className="mt-1 block text-xs text-text-muted">9 causes and exact fixes for invisible pets.</span>
+                </a>
+              </div>
             </section>
           </>
         )}

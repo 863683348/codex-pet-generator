@@ -8,12 +8,14 @@ const staticRoutes = [
   '/terms',
   '/privacy',
   '/contact',
-  '/signup',
-  '/signin',
   '/blog',
+  '/guide',
   '/leaderboard',
   '/collections',
   '/submit',
+  '/pricing',
+  '/spec',
+  '/gallery',
 ]
 
 // 博客 slug 从 posts.ts 自动生成（新增文章后 sitemap 自动覆盖）
