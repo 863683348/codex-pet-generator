@@ -57,7 +57,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
+    // Prefer localStorage; fall back to the petgen-lang cookie so the client
+    // initializes to the same locale the server used to render the page.
+    let saved: string | null = localStorage.getItem(STORAGE_KEY)
+    if (!saved && typeof document !== 'undefined') {
+      const match = document.cookie.match(new RegExp(`(?:^|;)\\s*${COOKIE_NAME}=([^;]+)`))
+      if (match) saved = decodeURIComponent(match[1])
+    }
     if (saved === 'en' || saved === 'zh' || saved === 'ja' || saved === 'ko' || saved === 'fr' || saved === 'de') {
       setLangState(saved)
       setCookieLang(saved)
