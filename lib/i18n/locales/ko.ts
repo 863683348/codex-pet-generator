@@ -14,6 +14,10 @@ export const ko: Dict = {
     guide: '가이드',
     signIn: '로그인',
     signOut: '로그아웃'},
+  points: {
+    pts: '{count} 포인트',
+    redeem: '교환',
+    redeemTitle: '{cost} 포인트로 1회 생성 교환'},
   footer: {
     madeWith: 'Codex 사용자를 위해 만들었습니다',
     compatible: 'OpenAI Codex 호환',

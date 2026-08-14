@@ -14,6 +14,10 @@ export const zh: Dict = {
     guide: '指南',
     signIn: '登录',
     signOut: '退出'},
+  points: {
+    pts: '{count} 积分',
+    redeem: '兑换',
+    redeemTitle: '使用 {cost} 积分兑换 1 次生成'},
   footer: {
     madeWith: '为 Codex 用户倾心打造',
     compatible: '兼容 OpenAI Codex',

@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react'
 import { Star, RefreshCw } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import { REDEEM_COST } from '@/lib/utils/constants'
+import { useI18n } from '@/lib/i18n'
 
 // Shows the logged-in user's earned points in the navbar and lets them redeem
 // points for a bonus generation when they have enough.
 export default function PointsBadge() {
+  const { t } = useI18n()
   const [points, setPoints] = useState<number | null>(null)
   const [bonus, setBonus] = useState(0)
   const [busy, setBusy] = useState(false)
@@ -79,24 +81,26 @@ export default function PointsBadge() {
   }
 
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex items-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-2.5 py-1.5 text-text-secondary">
-        <Star className="h-3.5 w-3.5 text-accent" />
-        <span className="font-pixel text-[10px] text-text-primary">{points} pts</span>
+    <div className="flex items-center gap-2 sm:gap-3">
+      <div className="flex items-center gap-2 rounded-full border border-border bg-bg-elevated px-3.5 py-2 text-text-secondary shadow-sm">
+        <Star className="h-4 w-4 text-accent" />
+        <span className="font-pixel text-xs text-text-primary">
+          {t('points.pts', { count: points })}
+        </span>
       </div>
       {canRedeem && (
         <button
           onClick={handleRedeem}
           disabled={busy}
-          title={`Redeem ${REDEEM_COST} pts for 1 generation`}
-          className="flex h-8 items-center gap-1 rounded-lg border border-accent/40 bg-accent/10 px-2 text-text-primary transition-all hover:bg-accent/20 sm:h-auto sm:px-2.5 sm:py-1.5"
+          title={t('points.redeemTitle', { cost: REDEEM_COST })}
+          className="flex h-9 items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 text-text-primary transition-all hover:bg-accent/20 sm:h-auto sm:px-3.5 sm:py-2"
         >
-          <RefreshCw className="h-3.5 w-3.5 text-accent" />
-          <span className="hidden font-pixel text-[10px] sm:inline">Redeem</span>
+          <RefreshCw className="h-4 w-4 text-accent" />
+          <span className="hidden font-pixel text-xs sm:inline">{t('points.redeem')}</span>
         </button>
       )}
       {flash && (
-        <span className="font-pixel text-[10px] text-success">{flash}</span>
+        <span className="font-pixel text-xs text-success">{flash}</span>
       )}
     </div>
   )

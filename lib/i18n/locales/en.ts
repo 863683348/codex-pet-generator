@@ -15,6 +15,10 @@ export const en = {
     guide: 'Guide',
     signIn: 'Sign in',
     signOut: 'Sign out'},
+  points: {
+    pts: '{count} pts',
+    redeem: 'Redeem',
+    redeemTitle: 'Redeem {cost} pts for 1 generation'},
   footer: {
     madeWith: 'Made with for Codex users',
     compatible: 'OpenAI Codex Compatible',

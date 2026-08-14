@@ -15,6 +15,11 @@ export const fr: Dict = {
     signIn: 'Se connecter',
     signOut: 'Se déconnecter',
   },
+  points: {
+    pts: '{count} pts',
+    redeem: 'Échanger',
+    redeemTitle: 'Échanger {cost} pts contre 1 génération',
+  },
   footer: {
     madeWith: 'Conçu pour les utilisateurs de Codex',
     compatible: 'Compatible OpenAI Codex',

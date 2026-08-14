@@ -15,6 +15,11 @@ export const ja: Dict = {
     signIn: 'ログイン',
     signOut: 'ログアウト',
   },
+  points: {
+    pts: '{count} pt',
+    redeem: '交換',
+    redeemTitle: '{cost} pt で生成 1 回と交換',
+  },
   footer: {
     madeWith: 'Codexユーザーのために',
     compatible: 'OpenAI Codex対応',

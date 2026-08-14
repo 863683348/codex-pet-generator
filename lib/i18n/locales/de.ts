@@ -14,6 +14,10 @@ export const de: Dict = {
     guide: 'Anleitung',
     signIn: 'Anmelden',
     signOut: 'Abmelden'},
+  points: {
+    pts: '{count} Pkt',
+    redeem: 'Einlösen',
+    redeemTitle: '{cost} Pkt für 1 Generierung einlösen'},
   footer: {
     madeWith: 'Hergestellt für Codex-Benutzer',
     compatible: 'OpenAI Codex kompatibel',
