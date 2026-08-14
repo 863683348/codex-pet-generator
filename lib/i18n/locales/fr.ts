@@ -313,12 +313,12 @@ export const fr: Dict = {
     noMatchDesc: 'Essayez un style ou un ordre de tri différent.',
   },
   blog: {
-    indexTitle: 'PetGen Blog',
-    indexSubtitle: 'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.',
-    backToBlog: 'Back to blog',
-    tryItYourself: 'Try it yourself',
-    tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
-    generateYourPet: 'Generate your pet now →',
+    indexTitle: 'Blog PetGen',
+    indexSubtitle: "Guides, comparatifs et analyses approfondies sur les générateurs de compagnons IA, les avatars en pixel art et les assistants de codage.",
+    backToBlog: 'Retour au blog',
+    tryItYourself: 'À vous de jouer',
+    tryItYourselfDesc: 'Prêt à transformer votre propre photo en compagnon en pixel art ? Uploadez-la sur PetGen et recevez votre spritesheet + pet.json en quelques minutes.',
+    generateYourPet: 'Générez votre compagnon maintenant →',
   },
   collections: {
     title: 'Collections',

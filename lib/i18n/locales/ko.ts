@@ -253,12 +253,12 @@ export const ko: Dict = {
     noMatchTitle: '일치하는 펫 없음',
     noMatchDesc: '다른 스타일이나 정렬 순서를 시도해 보세요.'},
   blog: {
-    indexTitle: 'PetGen Blog',
-    indexSubtitle: 'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.',
-    backToBlog: 'Back to blog',
-    tryItYourself: 'Try it yourself',
-    tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
-    generateYourPet: 'Generate your pet now →',
+    indexTitle: 'PetGen 블로그',
+    indexSubtitle: 'AI 펫 생성기, 픽셀 아트 아바타, 코딩 companion에 대한 가이드, 비교, 심층 분석.',
+    backToBlog: '블로그로 돌아가기',
+    tryItYourself: '직접 해보기',
+    tryItYourselfDesc: '직접 찍은 사진을 픽셀 아트 펫으로 바꿔보세요. PetGen에 업로드하면 몇 분 안에 스프라이트시트와 pet.json을 받을 수 있습니다.',
+    generateYourPet: '지금 펫 생성하기 →',
   },
   collections: {
     title: '컬렉션',

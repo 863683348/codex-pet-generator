@@ -255,11 +255,11 @@ export const de: Dict = {
     noMatchDesc: 'Versuche einen anderen Stil oder eine andere Sortierreihenfolge.'},
   blog: {
     indexTitle: 'PetGen Blog',
-    indexSubtitle: 'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.',
-    backToBlog: 'Back to blog',
-    tryItYourself: 'Try it yourself',
-    tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
-    generateYourPet: 'Generate your pet now →',
+    indexSubtitle: 'Anleitungen, Vergleiche und tiefe Einblicke in KI-Pet-Generatoren, Pixel-Art-Avatare und Coding-Begleiter.',
+    backToBlog: 'Zurück zum Blog',
+    tryItYourself: 'Probier es selbst',
+    tryItYourselfDesc: 'Bereit, dein eigenes Foto in ein Pixel-Art-Pet zu verwandeln? Lade es auf PetGen hoch und erhalte dein Spritesheet + pet.json in wenigen Minuten.',
+    generateYourPet: 'Erstelle jetzt dein Pet →',
   },
   collections: {
     title: 'Sammlungen',

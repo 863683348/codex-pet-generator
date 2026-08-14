@@ -350,12 +350,12 @@ export const ja: Dict = {
     noMatchDesc: '別のスタイルまたは並び順をお試しください。',
   },
   blog: {
-    indexTitle: 'PetGen Blog',
-    indexSubtitle: 'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and coding companions.',
-    backToBlog: 'Back to blog',
-    tryItYourself: 'Try it yourself',
-    tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
-    generateYourPet: 'Generate your pet now →',
+    indexTitle: 'PetGen ブログ',
+    indexSubtitle: 'AI ペット生成ツール、ピクセルアートのアバター、コーディング仲間についてのガイド、比較、深掘り記事。',
+    backToBlog: 'ブログに戻る',
+    tryItYourself: '自分で試してみる',
+    tryItYourselfDesc: '自分の写真をピクセルアートのペットに変えてみませんか？PetGen にアップロードすれば、数分でスプライトシートと pet.json が手に入ります。',
+    generateYourPet: '今すぐペットを生成 →',
   },
   collections: {
     title: 'コレクション',
