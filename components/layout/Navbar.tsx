@@ -40,9 +40,6 @@ export default function Navbar() {
         >
           <Gamepad2 className="h-6 w-6 text-primary" />
           <span className="font-pixel text-sm text-text-primary">PetGen</span>
-          <span className="ml-1 hidden rounded-md bg-primary/10 px-2 py-0.5 font-pixel text-[10px] text-primary sm:inline">
-            BETA
-          </span>
         </Link>
 
         <div className="flex items-center gap-3 md:gap-4">
