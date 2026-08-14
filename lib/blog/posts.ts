@@ -1539,4 +1539,101 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'turn-your-cat-into-a-codex-pet',
+    title: 'Turn Your Cat into a Codex Pet: Full Workflow',
+    description: 'Turn your cat into a Codex pet in about five minutes. A full workflow for making a cat pixel pet and installing your cat codex companion in OpenAI Codex, no design skills or sign-up needed.',
+    date: '2026-08-14',
+    author: 'PetGen',
+    keywords: [
+      'cat codex pet',
+      'cat pixel pet',
+      'cat codex companion',
+      'make my cat a codex pet',
+      'turn cat into codex pet',
+      'cat desktop pet',
+      'codex pet from photo'
+    ],
+    related: [
+      'turn-photo-into-pixel-art',
+      'make-your-first-codex-pixel-pet'
+    ],
+    faq: [
+      {
+        question: 'Can I use a photo with more than one cat?',
+        answer: 'Stick to one cat per pet. The generator keys off a single subject, and a second cat in frame muddies the silhouette. Make a separate pet for each cat if you want both.'
+      },
+      {
+        question: 'Does my cat need to look at the camera?',
+        answer: 'Not strictly, but a face-on shot gives the best idle animation. Side profiles still work, they just read as a different pose.'
+      },
+      {
+        question: 'Will the pet change my Codex model or settings?',
+        answer: 'No. The pet is a separate spritesheet that Codex renders as an overlay. Your agent, model, and config stay exactly as they were.'
+      },
+      {
+        question: 'Is it really free?',
+        answer: 'The starter plan covers your first pet at no cost. Extra pets and higher-resolution sprites are paid, but turning one cat into a pixel pet costs nothing to try.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'Why a cat pixel pet is worth the five minutes',
+        paragraphs: [
+          'Most desktop pets are generic blobs wearing someone else\'s face. A cat pixel pet is different because it is actually your cat. The generator reads a photo of your pet, pulls out the silhouette and the markings, and rebuilds it as a tiny sprite with a few animation loops. You get idle, walking, and a couple of mood states that read as your cat, not a stock animal. That small difference is why people redo it for every pet in the house.'
+        ]
+      },
+      {
+        heading: 'What you need before you start',
+        paragraphs: [
+          'You do not need a fancy camera. A phone photo shot in daylight is enough. The one thing that matters is the cat filling most of the frame with a background that is not busy.',
+          'If you can make out the whiskers and the eye color, the generator has enough to work with. A blurry or crowded shot forces it to guess, and the result looks like any cat instead of yours.'
+        ],
+        list: [
+          'A clear, well-lit photo of your cat, ideally head and shoulders',
+          'A plain background with no clutter behind the cat',
+          'The OpenAI Codex desktop app already installed',
+          'About five minutes of your time'
+        ]
+      },
+      {
+        heading: 'Step by step: make my cat a codex pet',
+        paragraphs: [
+          'Uploading is the only step where you actually do anything. After that the generator handles the pixel work. I usually watch the first pass and run it once more if the markings look off. A second try with a brighter photo clears up most problems.'
+        ],
+        list: [
+          'Open codexpetgenerator.com and upload your cat\'s photo',
+          'Let the generator find the subject and sketch a base sprite',
+          'Approve the base. The tool builds the animation states from there',
+          'Download the package. It contains spritesheet.webp and pet.json',
+          'Drop the folder into Codex\'s pets directory and restart the app'
+        ]
+      },
+      {
+        heading: 'What the cat codex companion looks like in motion',
+        paragraphs: [
+          'Once it is installed, your cat codex companion shows up as a small animated sprite. It idles with a slow blink, walks when you switch windows, and perks up when you poke it. The states are pulled from the photo\'s mood, so a lazy afternoon cat ships with more sitting and sleeping loops. A kitten photo gets more running and jumping. It is a small touch, but it makes the pet feel like yours rather than a demo.'
+        ]
+      },
+      {
+        heading: 'Installing your cat codex companion',
+        paragraphs: [
+          'macOS: mkdir -p ~/.codex/pets && cp -r ~/Downloads/my-cat-pet ~/.codex/pets/',
+          'Windows (PowerShell): Copy-Item -Recurse "$env:USERPROFILE\\Downloads\\my-cat-pet" "$env:USERPROFILE\\.codex\\pets\\"',
+          'Restart Codex fully. A pet that does not appear is almost always a folder name that does not match pet.json, so check that first.'
+        ]
+      },
+      {
+        heading: 'If something goes wrong',
+        paragraphs: [
+          'Most install failures are one-line corrections. The usual miss is copying the wrong folder. Once it sits in the right place, your cat stays on the desktop for every session.'
+        ],
+        list: [
+          'Pet not showing: folder name mismatch, rename the folder to match pet.json',
+          'Blank square: spritesheet missing, re-download the package',
+          'Permission error on macOS: add sudo before cp'
+        ]
+      }
+    ]
+  }
 ]
