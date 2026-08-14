@@ -34,7 +34,7 @@ const config: Config = {
       fontFamily: {
         pixel: ['"Press Start 2P"', 'monospace'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
+        mono: ['ui-monospace', 'SFMono-Regular', '"Fira Code"', 'monospace'],
       },
       fontSize: {
         'pixel-xs': '11px',

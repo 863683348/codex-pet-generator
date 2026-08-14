@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono, Press_Start_2P } from 'next/font/google'
+import { Inter, Press_Start_2P } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
 import { SITE } from '@/lib/seo'
@@ -69,11 +69,6 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
 })
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-mono',
-})
 const pressStart = Press_Start_2P({
   subsets: ['latin'],
   weight: '400',
@@ -111,7 +106,7 @@ export default function RootLayout({
   // 仅在生产环境加载 GA：避免 localhost 开发与 Vercel preview 污染真实数据
   const isProd = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview'
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable} ${pressStart.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${pressStart.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
