@@ -8,7 +8,10 @@ import { loadCollections } from '@/lib/community/loaders'
 import { buildMetadata } from '@/lib/seo'
 import { getServerT } from '@/lib/i18n/server'
 
-export const revalidate = 300
+// This page uses getServerT() which reads the request cookie/accept-language.
+// Force dynamic rendering so the locale is resolved per-request instead of
+// being cached in one language by ISR/SSG.
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getServerT()

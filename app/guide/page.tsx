@@ -16,6 +16,10 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { posts, type BlogPost } from '@/lib/blog/posts'
 import { getServerT } from '@/lib/i18n/server'
 
+// Force dynamic rendering so getServerT() resolves the request locale
+// per-request instead of caching content in one language.
+export const dynamic = 'force-dynamic'
+
 type Category = {
   key: string
   titleKey: string

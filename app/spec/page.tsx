@@ -16,6 +16,10 @@ import CodeBlock from '@/components/ui/CodeBlock'
 import { ANIMATION_STATES, SPRITE_COLS } from '@/types/pet'
 import { getServerT } from '@/lib/i18n/server'
 
+// Force dynamic rendering so getServerT() resolves the request locale
+// per-request instead of caching content in one language.
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getServerT()
   return buildMetadata({

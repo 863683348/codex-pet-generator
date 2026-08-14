@@ -252,6 +252,8 @@ export const zh: Dict = {
     filterRealistic: '写实',
     sortNewest: '最新',
     sortShared: '最多分享',
+    createdAt: '创建时间',
+    shares: '分享次数',
     noMatchTitle: '没有匹配的宠物',
     noMatchDesc: '换个风格或排序方式试试。',
   },

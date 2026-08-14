@@ -45,13 +45,20 @@ export default function GalleryGrid({ pets }: { pets: GalleryPet[] }) {
               </div>
             )}
           </div>
-          <div className="flex items-center justify-between p-3">
-            <span className="truncate font-pixel text-[11px] text-text-primary">
-              {pet.displayName || t('gallery.untitled')}
-            </span>
-            {pet.shareCount > 0 && (
-              <span className="ml-2 shrink-0 text-[10px] text-text-muted">{pet.shareCount}×</span>
-            )}
+          <div className="p-3">
+            <div className="flex items-center justify-between">
+              <span className="truncate font-pixel text-[11px] text-text-primary">
+                {pet.displayName || t('gallery.untitled')}
+              </span>
+            </div>
+            <div className="mt-1 flex flex-col gap-0.5 text-[10px] text-text-muted">
+              <span>
+                {t('gallery.createdAt')}: {pet.createdAt.slice(0, 10)}
+              </span>
+              <span>
+                {t('gallery.shares')}: {pet.shareCount}
+              </span>
+            </div>
           </div>
         </Link>
       ))}

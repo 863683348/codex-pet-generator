@@ -250,6 +250,8 @@ export const ko: Dict = {
     filterRealistic: '리얼',
     sortNewest: '최신',
     sortShared: '공유 많음',
+    createdAt: '생성일',
+    shares: '공유 수',
     noMatchTitle: '일치하는 펫 없음',
     noMatchDesc: '다른 스타일이나 정렬 순서를 시도해 보세요.'},
   blog: {

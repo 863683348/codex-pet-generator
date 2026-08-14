@@ -346,6 +346,8 @@ export const ja: Dict = {
     filterRealistic: 'リアル',
     sortNewest: '新着順',
     sortShared: 'シェア数順',
+    createdAt: '作成日',
+    shares: 'シェア数',
     noMatchTitle: 'ペットが見つかりません',
     noMatchDesc: '別のスタイルまたは並び順をお試しください。',
   },

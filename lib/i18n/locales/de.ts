@@ -251,6 +251,8 @@ export const de: Dict = {
     filterRealistic: 'Realistisch',
     sortNewest: 'Neueste',
     sortShared: 'Am häufigsten geteilt',
+    createdAt: 'Erstellt am',
+    shares: 'Shares',
     noMatchTitle: 'Keine Pets gefunden',
     noMatchDesc: 'Versuche einen anderen Stil oder eine andere Sortierreihenfolge.'},
   blog: {

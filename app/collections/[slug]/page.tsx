@@ -11,15 +11,10 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
-// Pre-render the eight seeded collection slugs at build time; combined with
-// revalidate=300 this gives SSG + ISR for every tag page (AC-05).
-const COLLECTION_SLUGS = ['cat', 'dog', 'fantasy', 'robot', 'anime', 'game', 'celebrity', 'original']
-
-export async function generateStaticParams() {
-  return COLLECTION_SLUGS.map((slug) => ({ slug }))
-}
-
-export const revalidate = 300
+// This page uses getServerT() (via generateMetadata) which reads the request
+// cookie/accept-language. Force dynamic rendering so metadata is resolved
+// per-request instead of being cached in one language by ISR/SSG.
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params

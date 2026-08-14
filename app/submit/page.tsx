@@ -4,6 +4,10 @@ import Footer from '@/components/layout/Footer'
 import SubmitForm from '@/components/submit/SubmitForm'
 import { getServerT } from '@/lib/i18n/server'
 
+// Force dynamic rendering so getServerT() resolves the request locale
+// per-request instead of caching content in one language.
+export const dynamic = 'force-dynamic'
+
 // Server component: owns SEO metadata and the chrome, delegates the interactive
 // form to the client SubmitForm. AC-06 / AC-07.
 export async function generateMetadata(): Promise<Metadata> {

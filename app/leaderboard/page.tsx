@@ -6,7 +6,9 @@ import { loadLeaderboard } from '@/lib/community/loaders'
 import { buildMetadata } from '@/lib/seo'
 import { getServerT } from '@/lib/i18n/server'
 
-export const revalidate = 300
+// Force dynamic rendering so getServerT() resolves the request locale
+// per-request instead of caching content in one language.
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getServerT()

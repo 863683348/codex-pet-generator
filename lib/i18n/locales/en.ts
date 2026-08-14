@@ -253,6 +253,8 @@ export const en = {
     filterRealistic: 'Realistic',
     sortNewest: 'Newest',
     sortShared: 'Most shared',
+    createdAt: 'Created',
+    shares: 'Shares',
     noMatchTitle: 'No pets match',
     noMatchDesc: 'Try a different style or sort order.',
   },

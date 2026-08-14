@@ -309,6 +309,8 @@ export const fr: Dict = {
     filterRealistic: 'Réaliste',
     sortNewest: 'Plus récents',
     sortShared: 'Plus partagés',
+    createdAt: 'Créé le',
+    shares: 'Partages',
     noMatchTitle: 'Aucun pet ne correspond',
     noMatchDesc: 'Essayez un style ou un ordre de tri différent.',
   },
