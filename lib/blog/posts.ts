@@ -1655,5 +1655,94 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
-  }
+  },
+  {
+    slug: 'dog-pixel-pet-guide',
+    title: "Turn Your Dog into a Codex Pet: The Full Photo Guide",
+    description: "Turn your dog into a codex pet in a few minutes. A complete dog pixel pet workflow: which photos work best, how to shoot one, and how to install your dog codex companion in OpenAI Codex.",
+    date: '2026-08-15',
+    author: 'PetGen',
+    keywords: [
+      'dog codex pet',
+      'dog pixel pet',
+      'dog codex companion',
+      'make my dog a codex pet',
+      'dog desktop pet',
+      'codex pet from dog photo'
+    ],
+    related: [
+      'turn-your-cat-into-a-codex-pet',
+      'best-photos-for-pixel-pet-generator'
+    ],
+    faq: [
+      {
+            "question": "Does the dog need a front-facing photo?",
+            "answer": "Not required, but front shots give the best idle animation and the clearest facial features. Side views work for long-muzzled breeds, though the far ear may disappear."
+      },
+      {
+            "question": "Will a dark-coated dog convert?",
+            "answer": "Yes. Stand it in front of a light background and skip harsh frontal light. That keeps the outline readable."
+      },
+      {
+            "question": "What does my dog codex companion do?",
+            "answer": "Idles with a tail wag, walks between windows, reacts to clicks. Animation states follow the photo's mood, a sleepy dog gets more sleep loops, an active one more movement."
+      },
+      {
+            "question": "How is this different from the cat version?",
+            "answer": "Same pipeline, but dogs have fluffier coats, messier colors, and harder-to-read dark features, so the photo needs better light and background. Done well, it has more fur-charm than a cat sprite ever could."
+      }
+],
+    sections: [
+    {
+        "heading": "Why dogs are harder than cats",
+        "paragraphs": [
+            "A cat has a clean outline and clear pattern borders. The generator has an easy job. Dogs fight back: long coats end in a fringe of fur, short coats smear color blocks into each other. A dark-haired dog with a dark nose and dark eyes is the worst case, everything blends into silhouette."
+        ],
+        "list": [
+            "Long coats (Golden, Border Collie, Corgi): the fur is the feature and the problem, fuzzy edges, but pixelation turns that fuzz into charm",
+            "Short coats (Labrador, Frenchie): big color blocks, need even light to stay separate",
+            "Dark coats: stand the dog in front of a light wall, or the background sinks into the dog",
+            "Dark nose plus dark eyes: skip frontal flash, it throws shadows that eat the face"
+        ]
+    },
+    {
+        "heading": "Front view or side view?",
+        "paragraphs": [
+            "Front wins. A pixel sprite lives or dies by the head, and a front photo places the eyes and nose where the generator can read them. Your dog pixel pet gets the most expressive idle animation from a straight-on shot. Side views work for long-muzzled breeds, with one catch: the far ear tends to vanish, and the head can look lopsided.",
+            "My own Corgi is a front-view case. Two big ears and a round face read instantly in a pixel grid."
+        ]
+    },
+    {
+        "heading": "How to shoot a photo that converts well",
+        "paragraphs": [
+            "No pro gear. A phone in daylight does it. Three things matter: One more trick: hold a treat and wait for the look-up. Prick-eared dogs like GSDs and Huskies are complete only with ears up. Drop-eared dogs like Goldens and Cockers carry their ears along the sides of the head when they look up, which beats the top-down look by a mile."
+        ],
+        "list": [
+            "Light: window light or a cloudy sky, spread evenly, no shadows over the eyes",
+            "Angle: camera level with the dog's eyes, top-down shots flatten the face and crush the muzzle",
+            "Background: a plain wall or grass, and the darker the coat, the lighter the background needs to be"
+        ]
+    },
+    {
+        "heading": "What you get after conversion",
+        "paragraphs": [
+            "Installed, your dog codex companion lives in the corner of the desktop. A slow tail-wag idle, a walk when you switch windows, a reaction when you click. The animation states follow the photo's vibe: a napping dog ships with more sleep loops, a high-energy dog gets more walk and jump. In daily use it's good for a glance when a build drags and a screenshot for the group chat. My coworkers keep asking how I did it."
+        ]
+    },
+    {
+        "heading": "The steps that work",
+        "paragraphs": [
+            "macOS: `mkdir -p ~/.codex/pets && cp -r ~/Downloads/my-dog-pet ~/.codex/pets/` Windows (PowerShell): `Copy-Item -Recurse \"$env:USERPROFILE\\Downloads\\my-dog-pet\" \"$env:USERPROFILE\\.codex\\pets\\\"` No pixel dog on the desktop? The folder name almost always doesn't match pet.json. That's the bug."
+        ],
+        "list": [
+            "Open codexpetgenerator.com and upload a front-facing photo",
+            "The generator finds the subject and sketches a base sprite. Zoom in before downloading, check the face and the coat colors",
+            "Not right? Try a brighter photo. Usually one retake fixes it",
+            "Approve and download the package: spritesheet.webp + pet.json",
+            "Drop the folder into Codex's pets directory and restart the app"
+        ]
+    }
 ]
+  }
+
+];
