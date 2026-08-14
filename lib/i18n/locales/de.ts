@@ -281,7 +281,12 @@ export const de: Dict = {
     public: 'Öffentlich',
     private: 'Nicht geteilt',
     copyLink: 'Öffentlichen Link kopieren',
-    view: 'Ansehen'},
+    view: 'Ansehen',
+    delete: 'Löschen',
+    deleteConfirm: 'Diesen Pet löschen? Dies kann nicht rückgängig gemacht werden.',
+    deleted: 'Pet gelöscht',
+    deleteFailed: 'Löschen fehlgeschlagen',
+  },
   featured: {
     title: 'Empfohlene Pets',
     desc: 'Von unseren Kuratoren handverlesene Pixel-Pets — die, die ihnen am besten gefallen.',

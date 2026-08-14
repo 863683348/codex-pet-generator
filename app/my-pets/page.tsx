@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Images, Share2, Globe, Check, Loader2, ArrowRight, LogIn, Download, Link2, Copy } from 'lucide-react'
+import { Images, Share2, Globe, Check, Loader2, ArrowRight, LogIn, Download, Link2, Copy, Trash2 } from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -146,6 +146,35 @@ export default function MyPetsPage() {
     } catch {}
   }
 
+  const del = async (pet: MyPet) => {
+    if (busyId) return
+    if (typeof window !== 'undefined' && !window.confirm(t('myPets.deleteConfirm'))) return
+    setBusyId(pet.id)
+    try {
+      const supabase = getSupabaseClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      const token = session?.access_token
+      if (!token) return
+      const res = await fetch(`/api/pets/${pet.id}`, {
+        method: 'DELETE',
+        headers: { authorization: 'Bearer ' + token },
+      })
+      if (!res.ok) {
+        setToast(t('myPets.deleteFailed'))
+        setTimeout(() => setToast(''), 2500)
+        return
+      }
+      setPets((prev) => prev.filter((p) => p.id !== pet.id))
+      setToast(t('myPets.deleted'))
+      setTimeout(() => setToast(''), 2500)
+    } catch {
+      setToast(t('myPets.deleteFailed'))
+      setTimeout(() => setToast(''), 2500)
+    } finally {
+      setBusyId(null)
+    }
+  }
+
   const showToast = toast !== ''
 
   return (
@@ -244,6 +273,19 @@ export default function MyPetsPage() {
                       </div>
                     )}
                     <div className="absolute right-2 top-2">{statusPill(pet.status, t)}</div>
+                    <button
+                      onClick={() => del(pet)}
+                      disabled={busyId === pet.id}
+                      title={t('myPets.delete')}
+                      aria-label={t('myPets.delete')}
+                      className="absolute left-2 top-2 rounded-md bg-black/50 p-1.5 text-text-muted backdrop-blur transition-colors hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      {busyId === pet.id ? (
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      ) : (
+                        <Trash2 className="h-3.5 w-3.5" />
+                      )}
+                    </button>
                   </div>
                   <div className="p-4">
                     <h3 className="truncate font-pixel text-xs text-text-primary">

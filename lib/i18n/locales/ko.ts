@@ -280,7 +280,12 @@ export const ko: Dict = {
     public: '공개',
     private: '미공개',
     copyLink: '공개 링크 복사',
-    view: '보기'},
+    view: '보기',
+    delete: '삭제',
+    deleteConfirm: '이 펫을 삭제할까요? 되돌릴 수 없습니다.',
+    deleted: '펫이 삭제되었습니다',
+    deleteFailed: '삭제에 실패했습니다',
+  },
   featured: {
     title: '추천 펫',
     desc: '커뮤니티에서 엄선한 픽셀 펫 — 큐레이터가 가장 좋아하는 작품들.',

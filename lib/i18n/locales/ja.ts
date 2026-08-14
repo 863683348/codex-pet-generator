@@ -380,6 +380,10 @@ export const ja: Dict = {
     private: '非公開',
     copyLink: '公開リンクをコピー',
     view: '表示',
+    delete: '削除',
+    deleteConfirm: 'このペットを削除しますか？元に戻せません。',
+    deleted: 'ペットを削除しました',
+    deleteFailed: '削除に失敗しました',
   },
   featured: {
     title: 'おすすめのペット',

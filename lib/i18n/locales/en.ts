@@ -287,6 +287,10 @@ export const en = {
     private: 'Not shared',
     copyLink: 'Copy public link',
     view: 'View',
+    delete: 'Delete',
+    deleteConfirm: 'Delete this pet? This cannot be undone.',
+    deleted: 'Pet deleted',
+    deleteFailed: 'Failed to delete pet',
   },
   featured: {
     title: 'Featured Pets',

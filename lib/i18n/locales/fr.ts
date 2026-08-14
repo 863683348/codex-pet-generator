@@ -343,6 +343,10 @@ export const fr: Dict = {
     private: 'Non partagé',
     copyLink: 'Copier le lien public',
     view: 'Voir',
+    delete: 'Supprimer',
+    deleteConfirm: 'Supprimer ce compagnon ? Cette action est irréversible.',
+    deleted: 'Compagnon supprimé',
+    deleteFailed: 'Échec de la suppression',
   },
   featured: {
     title: 'Pets en vedette',

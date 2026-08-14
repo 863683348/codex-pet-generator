@@ -286,6 +286,10 @@ export const zh: Dict = {
     private: '未分享',
     copyLink: '复制链接',
     view: '查看',
+    delete: '删除',
+    deleteConfirm: '确定删除这只宠物吗？此操作无法撤销。',
+    deleted: '宠物已删除',
+    deleteFailed: '删除失败',
   },
   featured: {
     title: '精选宠物',
