@@ -1831,5 +1831,93 @@ export const posts: BlogPost[] = [
     }
 ]
   }
+,
+  {
+    slug: 'codex-pet-upload-limit',
+    title: "Before You Upload: The 10MB Limit and How to Stay Under It",
+    description: "Codex pet uploads cap at 10MB, and most phone photos sail past it. This guide covers the codex pet upload limit in practice, how to compress a photo under 10MB without wrecking the pixels, and what the generator actually needs.",
+    date: '2026-08-17',
+    author: 'PetGen',
+    keywords: [
+      'codex pet upload limit',
+      'codex pet max size 10mb',
+      'compress photo pixel pet',
+      'reduce image size upload',
+      'pet image too large',
+      'codex pet photo size'
+    ],
+    related: [
+      'turn-your-cat-into-a-codex-pet',
+      'avatar-to-codex-pet'
+    ],
+    faq: [
+      {
+            "question": "What is the codex pet upload limit?",
+            "answer": "The upload cap is 10MB per image. Photos from modern phones usually land between 2MB and 8MB, so most work fine as-is. Raw exports, screenshots of huge canvases, and 48MP phone originals are what trip the limit."
+      },
+      {
+            "question": "Will compressing my photo hurt the pet result?",
+            "answer": "Not if you stay sensible. The pixel pipeline reads structure, not megabytes. Resizing to 1024px on the long edge and saving as JPG at 85-90% quality keeps the face details and drops the size dramatically. Avoid re-compressing a JPG twice."
+      },
+      {
+            "question": "What image types are accepted?",
+            "answer": "JPG, PNG, and WebP cover the practical range. PNG is best for logos and flat-color art, JPG for photos, WebP as the modern middle ground. A 10MB limit on a PNG usually means the source is huge and worth resizing anyway."
+      },
+      {
+            "question": "What happens if my file is over 10MB?",
+            "answer": "The upload is rejected before it costs you anything. Resize the longest edge to around 1024-1600px, re-export, and retry. That fix clears nearly every over-limit case."
+      }
+],
+    sections: [
+    {
+        "heading": "Why the limit exists",
+        "paragraphs": [
+            "Ten megabytes is generous for a pet sprite and tight for a camera. The limit exists because the generator does real work on your image in the browser: it has to decode, analyze, and pixelate before you ever see a preview. A 40MB raw photo would make that step crawl on a mid-range phone.",
+            "The practical upshot: the codex pet upload limit is rarely the wall you hit. Most people hit it with 48MP phone originals, screenshots of enormous canvases, or PNG exports of high-res art. All three are fixable in under a minute."
+        ]
+    },
+    {
+        "heading": "Check the size before you upload",
+        "paragraphs": [
+            "Five seconds of checking beats five minutes of guessing. On your phone, the file size usually sits next to the photo in the info panel. On a desktop, right-click and look at Properties on Windows or Get Info on macOS.",
+            "If it is over 10MB, do one of these, in order of preference:"
+        ],
+        "list": [
+            "Resize the longest edge to 1024px — the generator only needs the face, not the full resolution",
+            "Save as JPG at 85-90% quality instead of PNG for photos",
+            "Use WebP if your tool supports it, smallest size at same visual quality",
+            "Skip the raw format entirely for this use case"
+        ]
+    },
+    {
+        "heading": "The resize-and-compress recipe",
+        "paragraphs": [
+            "A phone photo at 4000x3000px weighs 4-8MB. The same photo at 1024px on the long edge weighs 200-500KB at JPG quality 85. That is a 10x reduction with no visible difference at sprite scale, because the pet sprite is 1536x1872 at most and usually displayed far smaller.",
+            "One warning: do not take a compressed JPG and re-save it as another JPG. Each pass adds artifacts. Resize from the original, or from the highest-quality version you still have."
+        ]
+    },
+    {
+        "heading": "What the generator actually needs",
+        "paragraphs": [
+            "The pixel pipeline wants a clear face, decent lighting, and a simple background — not maximum resolution. A 800px wide, well-lit photo of a face will beat a 48MP blurry one every time.",
+            "So when you are under the limit but the result is weak, the fix is rarely 'bigger file'. It is better light, a closer crop, or a cleaner background. Size is a gate; quality of the subject is the actual lever."
+        ]
+    },
+    {
+        "heading": "Upload and go",
+        "paragraphs": [
+            "Once your file is under 10MB, upload, preview the sprite, and zoom in on the face before approving. If the eyes or hair outline look off, try a brighter or higher-res source and re-upload. The retake costs nothing."
+        ],
+        "list": [
+            "Check file size in the photo info panel first",
+            "Resize to 1024px long edge if over 10MB",
+            "JPG at 85-90% for photos, PNG for flat-color art",
+            "Preview and zoom in on the face before approving",
+            "Open codexpetgenerator.com and start over with the fixed image"
+        ]
+    }
+]
+  }
+
 
 ];
