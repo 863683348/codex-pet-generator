@@ -1743,6 +1743,93 @@ export const posts: BlogPost[] = [
         ]
     }
 ]
+  },
+
+  {
+    slug: 'avatar-to-codex-pet',
+    title: "Turn Your Avatar into a Codex Pet for Your Desktop",
+    description: "Make an avatar to codex pet from a profile picture or anime icon in minutes. A full avatar pixel pet workflow: which images work, what to fix, and how to install your anime avatar pet in OpenAI Codex.",
+    date: '2026-08-16',
+    author: 'PetGen',
+    keywords: [
+      'avatar to codex pet',
+      'avatar pixel pet',
+      'profile picture to pet',
+      'anime avatar pet',
+      'pfp to codex pet',
+      'codex pet from avatar'
+    ],
+    related: [
+      'turn-your-cat-into-a-codex-pet',
+      'dog-pixel-pet-guide'
+    ],
+    faq: [
+      {
+            "question": "Can I use an anime avatar as a codex pet?",
+            "answer": "Yes, and it converts better than most real photos. Anime faces have flat colors, strong outlines, and no motion blur, exactly what the pixel pipeline reads well. Keep the face large in the frame and pick an image without a busy background."
+      },
+      {
+            "question": "What resolution should the avatar be?",
+            "answer": "Bigger is better up to the upload cap. A 512x512 or 1024x1024 crop is plenty. Tiny 128x128 icons make the generator guess the face, and the sprite comes out blurry."
+      },
+      {
+            "question": "Will my profile picture turn out well?",
+            "answer": "Usually yes if the face takes up most of the frame and the background is simple. Selfies work better than group shots. A photo with a busy background gets cleaned first, so you may lose detail around the edges."
+      },
+      {
+            "question": "What if my avatar is stylized or low-res?",
+            "answer": "Try the original art file instead of a compressed social-media export. Re-exporting at higher quality often fixes the worst results. Chibi and flat-color styles convert especially well."
+      }
+],
+    sections: [
+    {
+        "heading": "Why an avatar makes a good pixel pet",
+        "paragraphs": [
+            "An avatar is already a distilled version of a person or character: one face, one expression, no background noise. The pixel pipeline loves that. When I fed my own PFP into the generator, the sprite came out looking like a tiny arcade version of me, same hair, same glasses, instantly recognizable to anyone who knows my handle.",
+            "Real photos carry shadows, motion blur, and clutter. Avatars strip all of that. Flat colors and clean outlines are exactly what pixel art needs, which is why an anime avatar pet usually beats a phone photo on the first try."
+        ]
+    },
+    {
+        "heading": "Which avatars convert best",
+        "paragraphs": [
+            "Not all PFPs are equal. The generator wants one clear subject with a readable face. Ranked by how well they turn out:"
+        ],
+        "list": [
+            "Flat-color anime and chibi art: near-perfect, strong outlines, no texture noise",
+            "Illustrated avatars with simple backgrounds: great, clean the background and you are done",
+            "Real-photo selfies with plain walls: good, same rules as any pet photo",
+            "Photos with busy backgrounds or multiple people: the generator cleans the frame and you may lose the edges",
+            "Low-res or heavily compressed icons: weak, the face gets guessed instead of read"
+        ]
+    },
+    {
+        "heading": "How to prep an avatar for the best result",
+        "paragraphs": [
+            "You do not need design software. Five minutes of prep changes the output more than anything else. If your avatar is a crop of a bigger piece, re-crop it so the face fills most of the square. If it came from social media, dig up the original art file instead, re-uploads get recompressed and the pixel pipeline notices.",
+            "One tip from my own failed attempts: remove text. Watermarks, usernames, and date stamps near the face all get pixelated into the sprite. Crop or erase them first and the sprite stays clean."
+        ]
+    },
+    {
+        "heading": "The conversion flow",
+        "paragraphs": [
+            "Upload the avatar, let the generator sketch the base sprite, and zoom in before approving. For an anime avatar pet the face check matters most: eyes aligned, hair shape intact, no weird merge between the chin and the collar. If the eyes come out wrong, try a brighter or higher-res image, one retake usually fixes it."
+        ]
+    },
+    {
+        "heading": "Installing your avatar pet",
+        "paragraphs": [
+            "Approve and download the package, spritesheet.webp plus pet.json. Then drop the folder into Codex's pets directory and restart the app."
+        ],
+        "list": [
+            "macOS: `mkdir -p ~/.codex/pets && cp -r ~/Downloads/avatar-pet ~/.codex/pets/`",
+            "Windows (PowerShell): `Copy-Item -Recurse \"$env:USERPROFILE\\Downloads\\avatar-pet\" \"$env:USERPROFILE\\.codex\\pets\\\"`",
+            "Open codexpetgenerator.com and upload your avatar",
+            "Check the face in the preview, especially eyes and hair",
+            "Not right? Try the original art file or a brighter crop, then re-upload",
+            "Approve, download, drop into the pets folder, restart Codex"
+        ]
+    }
+]
   }
 
 ];
