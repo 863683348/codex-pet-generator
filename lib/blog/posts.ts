@@ -1917,6 +1917,92 @@ export const posts: BlogPost[] = [
         ]
     }
 ]
+  },
+  {
+    slug: 'codex-pet-pro-vs-unlimited',
+    title: "Pro vs Unlimited: Which Codex Pet Plan Is Right for You",
+    description: "codex pet pricing comes down to three tiers: free, Pro, and Unlimited. This guide compares the codex pet pro plan and codex pet unlimited plan on limits, resolution, and commercial rights, so you can decide whether a codex pet subscription is worth it before you pay.",
+    date: '2026-08-18',
+    author: 'PetGen',
+    keywords: [
+      'codex pet pricing',
+      'codex pet pro plan',
+      'codex pet unlimited plan',
+      'codex pet subscription worth it',
+      'codex pet plans',
+      'codex pet free vs paid',
+    ],
+    related: [
+      'codex-pet-upload-limit',
+      'turn-your-cat-into-a-codex-pet',
+      'dog-pixel-pet-guide',
+    ],
+    faq: [
+      {
+        question: "What is the difference between the codex pet pro plan and Unlimited?",
+        answer: "Pro gives you 15 generations a month at HD resolution for $9. Unlimited removes the monthly cap, adds 4K export, and includes a commercial license for $29 a month. Choose Pro for regular personal use; choose Unlimited if you sell sprites or generate in volume.",
+      },
+      {
+        question: "Is the codex pet free tier enough to make a real pet?",
+        answer: "Yes. Starter gives three generations, which is enough to upload a photo, preview the sprite, and download a working pet.json and spritesheet. You only pay once you want more attempts, higher resolution, or a commercial license.",
+      },
+      {
+        question: "How do I know if a codex pet subscription is worth it?",
+        answer: "Start free. If you hit the three-generation cap and still want more pets, move to Pro. If you sell sprites or need 4K and a license, go straight to Unlimited. Most casual users never need to pay at all.",
+      },
+    ],
+    sections: [
+      {
+        heading: "What the three tiers actually give you",
+        paragraphs: [
+          "codex pet pricing is simpler than it looks: three tiers, and only two of them cost money. Starter is free with three generations. Pro is $9 a month for 15 generations and HD output. Unlimited is $29 a month with no cap, 4K export, and a commercial license. The free tier is not a teaser that breaks at the finish line. It is the real product, just limited. I tell people to start there and only upgrade once they actually hit the wall.",
+        ],
+        list: [
+          "Starter - free, 3 generations, standard resolution, personal use only",
+          "Pro - $9/month, 15 generations, HD output, personal use",
+          "Unlimited - $29/month, unlimited generations, 4K export, commercial license included",
+        ],
+      },
+      {
+        heading: "The codex pet pro plan: who it fits",
+        paragraphs: [
+          "Pick the codex pet pro plan if you make pets regularly but not all day. Fifteen generations a month covers a pet for your cat, your dog, a couple of friends, and the odd retake when the face comes out wrong. The HD resolution matters more than people expect. At sprite scale the difference is subtle, but if you ever zoom in, crop, or print, HD holds up where standard falls apart.",
+          "Where Pro runs out is volume. If you are building a whole cast of characters, or you run a shop that sells pet sprites, 15 a month disappears fast. You will feel the cap within a week.",
+        ],
+      },
+      {
+        heading: "The codex pet unlimited plan: who it fits",
+        paragraphs: [
+          "The codex pet unlimited plan is for people who generate constantly. The headline feature is no monthly cap, but the quiet winner is 4K export. It future-proofs your sprites if you move to a bigger display or a different tool later. The commercial license is the other reason: if you sell themes, stickers, or stream overlays built from the pet, you need it.",
+          "The math is straightforward. If you would buy Pro three months in a row, Unlimited pays for itself around month four. If you are a casual user who makes one pet and moves on, it is money sitting on the table.",
+        ],
+      },
+      {
+        heading: "Is a codex pet subscription worth it?",
+        paragraphs: [
+          "A codex pet subscription is worth it only if you generate past the free limit and you care about resolution or rights. For most first-timers, the honest answer is no. Start free, make one pet, and decide after you have actually held it in your Codex. The trap is paying for Unlimited out of excitement, then generating twice and forgetting about it.",
+          "Habit beats horsepower here. Pro is the safe middle for nearly everyone: enough room to play, cheap enough to forget. Save Unlimited for when you have a reason, not a feeling.",
+        ],
+      },
+      {
+        heading: "How I would pick",
+        paragraphs: [
+          "If you are stuck, here is the shortcut I give friends. Made one pet and stopped? Stay free, you owe nothing. Generating a few pets a month and want them crisp? Pro. Selling sprites or building a big cast? Unlimited. Still deciding? Start free, then compare the tiers at /pricing before you commit.",
+        ],
+        list: [
+          "Casual, one pet: Starter (free)",
+          "A few pets a month, want HD: Pro",
+          "Selling sprites or need 4K and a license: Unlimited",
+          "Not sure yet: start free, decide after one pet",
+        ],
+      },
+      {
+        heading: "Start with a photo, not a plan",
+        paragraphs: [
+          "When you are ready, head to codexpetgenerator.com and turn a photo into your first pet. If you want to see the output first, our cat guide at /blog/turn-your-cat-into-a-codex-pet and dog guide at /blog/dog-pixel-pet-guide walk through real results, and the upload guide at /blog/codex-pet-upload-limit covers keeping your file under the 10MB limit.",
+        ],
+      },
+    ],
   }
 
 
