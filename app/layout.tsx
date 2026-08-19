@@ -11,7 +11,7 @@ import CookieConsent from '@/components/layout/CookieConsent'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `Codex Pet Generator — Free AI Pet Maker | Turn Photos Into Pixel Pets`,
+    default: `Codex Pet Generator — Free AI Pet Maker`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -113,8 +113,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Fonts are self-hosted via next/font — no external Google Fonts preconnect needed. */}
         {/* Single-URL multilingual site: all language variants live on the same
             URL (cookie-driven i18n), so every hreflang points to the root. */}
         <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />

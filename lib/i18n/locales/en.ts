@@ -36,10 +36,10 @@ export const en = {
     de: 'DE'},
   hero: {
     badge: 'Free AI Pet Generator',
-    titlePrefix: 'Free AI Pet Generator',
-    titleHighlight: '— design your custom pet in seconds',
+    titlePrefix: 'Codex Pet Generator',
+    titleHighlight: '— Free AI Pet Maker',
     subtitle:
-      'Turn any photo into a custom pixel-art pet for OpenAI Codex. Free, fast, no sign-up — create custom cats, dogs, and fantasy pets in minutes, then download your installable spritesheet + pet.json.',
+      'Turn any photo into a custom Codex pet. Free, fast, no sign-up — create pixel-art cats, dogs, and fantasy pets in minutes, then download your installable spritesheet + pet.json.',
     uploading: 'Uploading…',
     demo: 'Try a demo (no upload needed)',
     baseTime: '~90s base',
