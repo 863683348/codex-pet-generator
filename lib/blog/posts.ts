@@ -2004,9 +2004,6 @@ export const posts: BlogPost[] = [
       },
     ],
   }
-
-
-];
   ,
   {
     slug: 'pixel-art-pet-trend',
@@ -2073,6 +2070,57 @@ export const posts: BlogPost[] = [
           '',
           'Do I need to be an artist to make a pixel pet?',
           'No. You just need a clear photo. The AI handles the pixelation, animation states, and spritesheet generation. Your role is to pick the photo and approve the result.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'rabbit-codex-pet',
+    title: 'Rabbit Edition: Turn Your Bunny into a Codex Pet',
+    description:
+      'Own a rabbit and want to give them a second life on your Codex desktop? The Rabbit Edition of Codex Pet Generator turns your bunny into an adorable pixel-art companion. Learn which photos work best and how to install your new pet.',
+    date: '2026-08-21',
+    author: 'Codex Pet Generator Team',
+    keywords: [
+      'rabbit codex pet',
+      'rabbit pixel pet',
+      'bunny codex companion',
+      'make my rabbit a codex pet',
+      'rabbit pixel art guide',
+    ],
+    related: [
+      'dog-pixel-pet-guide',
+      'turn-your-cat-into-a-codex-pet',
+      'codex-pet-upload-limit',
+    ],
+    sections: [
+      {
+        heading: 'Why rabbits make great Codex pets',
+        paragraphs: [
+          'Rabbits have distinct features that translate beautifully into pixel art: large ears, soft fur texture, and expressive eyes. The 192x208 cell format captures these characteristics while keeping animations smooth across all 9 states.',
+          'Unlike dogs or cats, rabbits have a uniquely charming profile view that works exceptionally well as a desktop companion. Their gentle expressions and perky ears create an instantly recognizable pixel character.',
+        ],
+      },
+      {
+        heading: 'Best photos for rabbit pixel art',
+        paragraphs: [
+          'For the best results, use photos where your rabbit\'s face is clearly visible. Good lighting, a neutral background, and a direct or slightly angled pose all help. Side profiles work too — rabbits look charming in profile!',
+          'Avoid photos where the rabbit is blurred, in shadow, or where the ears are folded back. The AI needs clear facial features to create an accurate pixel portrait.',
+        ],
+      },
+      {
+        heading: 'Generating your bunny pet',
+        paragraphs: [
+          'Upload your rabbit photo to codexpetgenerator.com. The AI analyzes facial features, fur patterns, and ear shape to create a faithful pixel portrait. Your pet will animate through walking, sitting, and idle states — perfect for desktop companionship.',
+          'The whole process takes about a minute. Once generated, download the ZIP file and install it in ~/.codex/pets/. Restart Codex and your new rabbit companion will appear on your desktop.',
+        ],
+      },
+      {
+        heading: 'FAQ',
+        paragraphs: [
+          'Can I use a photo of my wild rabbit? Yes, but domesticated rabbit photos tend to produce better results due to clearer facial features.',
+          'Does the pixel pet capture my rabbit\'s personality? The AI focuses on physical appearance, but the animation states can reflect your rabbit\'s typical behavior if you describe it in the prompt.',
+          'How many rabbits can I generate? Free users get 3 generations per month. Pro users get 15. Unlimited users have no restrictions.',
         ],
       },
     ],
