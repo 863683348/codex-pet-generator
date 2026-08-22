@@ -2124,5 +2124,81 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
+  },
+
+  {
+    slug: 'regenerate-codex-pet-right-way',
+    title: "Don't Like Your Pet? How to Regenerate the Right Way",
+    description:
+      "Generated a Codex pet you're not happy with? Learn when to regenerate, common mistakes to avoid, and pro tips for getting the pixel companion you want.",
+    date: '2026-08-22',
+    author: 'Codex Pet Generator Team',
+    keywords: [
+      'regenerate codex pet',
+      'codex pet regenerate',
+      'approve base codex pet',
+      'pixel pet redo',
+      'codex pet not working',
+    ],
+    related: [
+      'how-to-install-codex-pet',
+      'codex-pet-upload-limit',
+      'turn-your-cat-into-a-codex-pet',
+    ],
+    sections: [
+      {
+        heading: 'When to Regenerate',
+        paragraphs: [
+          "You uploaded your cat. The AI processed it. The result... isn't quite right. Maybe the ears are too pointy. Maybe the colors don't match. Maybe it just doesn't feel like your pet.",
+          "First: don't delete it yet. Regenerating is easy, but doing it right saves you generations and gets you closer to the pixel companion you want.",
+        ],
+      },
+      {
+        heading: 'Signs You Should Regenerate',
+        paragraphs: [
+          'The pose is wrong (your pet was standing, the pet is sitting)',
+          'Key features are missing (your cat\'s distinctive marking didn\'t carry over)',
+          'The resolution looks blurry or pixelated in the wrong places',
+          'The animation states look distorted',
+          'If it\'s close but not perfect, you might edit the spritesheet manually — but that requires technical skill.',
+        ],
+      },
+      {
+        heading: 'The Regeneration Process',
+        paragraphs: [
+          'Go back to the upload page — don\'t start from scratch',
+          'Keep your photo if it was good; only regenerate if the photo itself is the problem',
+          'Adjust the prompt — describe what you want differently: "fluffy orange tabby sitting" vs "orange cat"',
+          'Submit and wait — generation takes about 90 seconds',
+          'Review the base — before approving, check all 9 animation states',
+        ],
+      },
+      {
+        heading: 'Common Regeneration Mistakes',
+        paragraphs: [
+          'Uploading the same photo again: If the first result was wrong because of the photo (bad angle, blurry, wrong lighting), uploading the same photo will give the same result. Take a new photo first.',
+          'Not checking all states: The base image looks good, but one animation state is broken. Check walking, sitting, and idle before approving.',
+          'Expecting perfection on first try: Even professional pixel artists iterate. Your first generation might be 70% there. The second, 85%. The third, 95%. Know when to stop.',
+        ],
+      },
+      {
+        heading: 'Pro Tips for Better Regenerations',
+        paragraphs: [
+          'Use consistent lighting — side lighting creates better pixel definition than flat overhead light',
+          'Include the whole body — crops that cut off paws or tail will look odd',
+          'Try different angles — if the front view didn\'t work, a 3/4 view might capture your pet better',
+          'Check the preview — zoom in on the spritesheet before approving',
+        ],
+      },
+      {
+        heading: 'FAQ',
+        paragraphs: [
+          'How many times can I regenerate? Free users get 3 generations per month. Pro gets 15. Unlimited has no restrictions.',
+          'Does regenerating use a new generation? Yes. Each regeneration counts as one generation from your quota.',
+          'Can I edit an approved pet? Not after approval. You must regenerate before approving. Once approved, the pet is locked to your account.',
+          'What\'s the best photo for regeneration? Well-lit, front or 3/4 view, neutral background, whole body visible.',
+        ],
+      },
+    ],
   }
 ];
