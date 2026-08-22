@@ -2202,3 +2202,59 @@ export const posts: BlogPost[] = [
     ],
   }
 ];
+,
+  {
+    slug: 'transparent-background-pixel-pets',
+    title: 'The Magic of Transparent Backgrounds in Pixel Pets',
+    description: 'Why transparent backgrounds make Codex pets feel alive on any desktop — and how PetGen handles the alpha channel correctly.',
+    date: '2026-08-23',
+    author: 'Codex Pet Generator Team',
+    keywords: ['transparent background pet', 'pixel pet transparent', 'codex pet transparent webp', 'alpha channel pet'],
+    related: ['how-to-install-codex-pet', 'codex-pet-upload-limit'],
+    sections: [
+      {
+        heading: 'Why Transparency Matters',
+        paragraphs: [
+          'A pixel pet with a white or colored background looks like a sticker slapped onto your desktop. A pixel pet with a transparent background looks like it belongs there — floating naturally above your icons, blending with whatever wallpaper you\'ve chosen.',
+          'This isn\'t just aesthetics. The way a pet renders against different backgrounds is what makes it feel alive. A blue background pet on a dark wallpaper looks wrong. A transparent pet adapts to everything.',
+        ],
+      },
+      {
+        heading: 'How PetGen Handles Transparency',
+        paragraphs: [
+          'PetGen outputs spritesheets with a proper alpha channel. Every pixel in the 1536x1872 grid has an RGBA value — red, green, blue, and alpha (opacity). The alpha channel is what tells Codex "this pixel is invisible, show what\'s behind it instead."',
+          'The AI model is trained to recognize and preserve transparent regions. When you upload a photo of your cat against a busy background, PetGen segments the cat and removes everything else, producing a clean transparent spritesheet.',
+        ],
+        list: [
+          'Background removal: AI detects the pet and isolates it from the background',
+          'Alpha channel preservation: Transparent pixels are marked with alpha=0',
+          'Edge smoothing: Anti-aliased edges prevent jagged transparent borders',
+          'Frame consistency: All 9 animation states maintain the same transparency pattern',
+        ],
+      },
+      {
+        heading: 'Common Transparency Mistakes',
+        paragraphs: [
+          'The most common issue is a pet that looks correct in the preview but appears with a white box in Codex. This usually means the spritesheet was saved as JPEG instead of WebP — JPEG doesn\'t support alpha channels.',
+          'Another issue: the pet has a thin colored border around it. This happens when the background removal isn\'t clean enough. Try uploading a photo with higher contrast between the pet and background.',
+        ],
+      },
+      {
+        heading: 'Testing Your Transparent Pet',
+        paragraphs: [
+          'Before installing, preview your pet on different backgrounds. Open the spritesheet in any image viewer and check that the areas around your pet are truly transparent (not white or colored).',
+          'In Codex, try moving your pet over windows with different colors — a white document editor, a dark terminal, a colorful wallpaper. If it looks good everywhere, your transparency is working correctly.',
+        ],
+      },
+      {
+        heading: 'FAQ',
+        paragraphs: [
+          'Does transparency affect performance? No. Alpha channels are handled by the GPU just like any other texture property. Your pet runs at the same frame rate regardless of transparency.',
+          'Can I add transparency to an existing pet? Yes, but you\'ll need to regenerate the spritesheet. Editing transparency in existing WebPs is technically possible but error-prone.',
+          'What file format does Codex expect? PetGen outputs WebP with alpha channel, which Codex supports natively. You can also use PNG with transparency, but WebP is smaller and loads faster.',
+          'Why does my pet look pixelated at the edges? This is usually a resolution issue, not a transparency issue. Make sure your source photo is at least 512x512 before uploading.',
+        ],
+      },
+    ],
+  }
+];
