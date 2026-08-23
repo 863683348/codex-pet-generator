@@ -2200,9 +2200,7 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
-  }
-];
-,
+  },
   {
     slug: 'transparent-background-pixel-pets',
     title: 'The Magic of Transparent Backgrounds in Pixel Pets',
