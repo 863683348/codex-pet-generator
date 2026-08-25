@@ -1476,4 +1476,58 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: '1536-1872-spritesheet-decoded',
+    title: '1536×1872 Spritesheet Decoded: The Pixel Grid Behind Every Codex Pet',
+    description:
+      'The spritesheet format is strict: 1536×1872 pixels, 9 frames of 192×208 each. Here is why those numbers matter and how to get the best results.',
+    date: '2026-08-26',
+    author: 'PetGen',
+    keywords: [
+      '1536x1872 spritesheet',
+      'codex pet spritesheet size',
+      'spritesheet dimensions',
+      '192x208 cell pet',
+      'codex pet resolution',
+    ],
+    related: ['what-is-pet-spritesheet', 'spritesheet-dimensions', 'custom-pet-guide'],
+    faq: [
+      { question: 'Why is my Codex pet blurry?', answer: 'The source image may be too small. Use at least 1024px resolution for clean results.' },
+      { question: 'Can I change the spritesheet size?', answer: 'No. Codex expects exactly 1536×1872. Different sizes will not render correctly.' },
+      { question: 'What are the 9 frames used for?', answer: 'The 3×3 grid holds a complete walk cycle plus idle breathing — forward, side, backward steps, and idle.' },
+    ],
+    sections: [
+      {
+        heading: 'The frame structure',
+        paragraphs: [
+          'The 1536×1872 canvas holds 9 frames arranged in a 3×3 grid. Every Codex pet follows this exact pixel grid — there is no flexibility.',
+        ],
+        list: [
+          'Width: 1536px (8 frames × 192px)',
+          'Height: 1872px (9 frames × 208px)',
+          'Frame size: 192×208px each animation cell',
+          'Total frames: 9 — walk cycle + idle',
+        ],
+      },
+      {
+        heading: 'Why these numbers matter',
+        paragraphs: [
+          'The 192×208 frame size is not arbitrary. It is large enough to hold detailed pixel art while staying small enough to load quickly in browsers. Smaller frames (like 128×128) lose detail. Larger frames (like 256×256) increase file size without visible benefit.',
+          'The 9-frame cycle covers a complete walk animation: forward, side, and backward steps plus idle breathing. More frames would make the animation smoother but increase file size. Fewer frames would look choppy.',
+        ],
+      },
+      {
+        heading: 'Padding: the hidden safeguard',
+        paragraphs: [
+          'The extra pixels between frames serve as padding to prevent bleeding when the sheet is sliced. Do not remove this padding, or the animation will look broken. The grid is precise — 1536 by 1872 — and any deviation will cause rendering errors in Codex.',
+        ],
+      },
+      {
+        heading: 'Tips for better results',
+        paragraphs: [
+          'Use high-resolution source photos (at least 1024px on the short side). Keep the pet centered in the frame. Avoid busy backgrounds that compete with the pet. Test the spritesheet at actual size before applying to Codex.',
+        ],
+      },
+    ],
+  },
 ]
