@@ -2254,5 +2254,51 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
-  }
+  },
+
+  {
+    slug: 'hamster-codex-pet-guide',
+    title: 'Hamster Edition: Pixelating Small Pets for Codex',
+    description: 'Hamsters present a unique challenge for pixel art conversion. Here\'s how to get the best Codex pet from your hamster photos.',
+    date: '2026-08-25',
+    author: 'Codex Pet Generator Team',
+    keywords: ['hamster codex pet', 'pixel hamster', 'small pet pixel art', 'codex pet hamster guide'],
+    related: ['how-to-install-codex-pet', 'transparent-background-pixel-pets'],
+    sections: [
+      {
+        heading: 'Why Small Pets Are Tricky',
+        paragraphs: [
+          'Hamsters are one of the most popular small pets worldwide, but they present a unique challenge for pixel art conversion. Their round bodies, tiny features, and fast movements don\'t translate easily to the 1536x1872 spritesheet format.',
+          'Unlike cats or dogs, a hamster in a photo is often small relative to the frame. The AI model has fewer pixels of "pet" to work with, which makes clean segmentation harder.',
+        ],
+      },
+      {
+        heading: 'Tips for the Best Hamster Pet',
+        paragraphs: [
+          'Get close to your hamster. Fill as much of the frame as possible — the more pixels your pet occupies, the cleaner the background removal and the sharper the final sprite.',
+          'Use a high-resolution photo (at least 1024px on the short side) and make sure the lighting is even. Avoid heavy shadows that can confuse the segmentation model.',
+        ],
+        list: [
+          'Shoot on a plain, high-contrast background to help the AI isolate your hamster',
+          'Capture your hamster from the side for the clearest silhouette',
+          'Take multiple frames and pick the sharpest, most in-focus one',
+        ],
+      },
+      {
+        heading: 'From Photo to Spritesheet',
+        paragraphs: [
+          'Once your photo is ready, PetGen handles the rest: background removal, pose detection, and generating the full 9-frame animation spritesheet. Small pets often look best with subtle, gentle animations — a twitch of the nose or a slow turn reads better than a big bounce.',
+          'After installing, you can preview your hamster pet on different wallpapers inside Codex. Transparent backgrounds mean it will float naturally over whatever you\'re working on.',
+        ],
+      },
+      {
+        heading: 'FAQ',
+        paragraphs: [
+          'Can I use a video to make a hamster Codex pet? Yes! Take multiple screenshots from a video and pick the clearest frames.',
+          'Will my hamster pet be transparent? Yes. PetGen outputs WebP with a proper alpha channel.',
+          'My hamster is always moving — any tips? Use a video still or a high shutter-speed photo to freeze the motion.',
+        ],
+      },
+    ],
+  },
 ];
