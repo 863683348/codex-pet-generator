@@ -3,10 +3,24 @@
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Images, Share2, Globe, Check, Loader2, ArrowRight, LogIn, Download, Link2, Copy } from 'lucide-react'
+import {
+  Images,
+  Share2,
+  Globe,
+  Lock,
+  Check,
+  Loader2,
+  ArrowRight,
+  LogIn,
+  Link2,
+  Copy,
+  Trash2,
+} from 'lucide-react'
 import { getSupabaseClient } from '@/lib/supabase/client'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { useI18n } from '@/lib/i18n'
+import DownloadButton from '@/components/pet/DownloadButton'
 
 interface MyPet {
   id: string
@@ -15,21 +29,40 @@ interface MyPet {
   isPublic: boolean
   shareCount: number
   baseImageUrl: string | null
+  hasZip: boolean
   createdAt: string
 }
 
-function statusPill(status: string) {
+function ReadyBadge({ t }: { t: ReturnType<typeof useI18n>['t'] }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-success/40 bg-success/15 px-2.5 py-1 text-[10px] font-medium text-success shadow-sm">
+      <Check className="h-3 w-3" />
+      {t('myPets.readyToInstall')}
+    </span>
+  )
+}
+
+function StatusBadge({ status, t }: { status: string; t: ReturnType<typeof useI18n>['t'] }) {
   const s = (status || '').toLowerCase()
   if (s === 'failed') {
-    return <span className="rounded-md bg-red-500/15 px-2 py-0.5 font-pixel text-[9px] text-red-400">Failed</span>
+    return (
+      <span className="rounded-full bg-red-500/15 px-2.5 py-1 text-[10px] font-medium text-red-400">
+        {t('error.unknown')}
+      </span>
+    )
   }
   if (s === 'processing' || s === 'awaiting_approval') {
-    return <span className="rounded-md bg-amber-500/15 px-2 py-0.5 font-pixel text-[9px] text-amber-400">Processing</span>
+    return (
+      <span className="rounded-full bg-amber-500/15 px-2.5 py-1 text-[10px] font-medium text-amber-400">
+        {t('workspace.generatingBase')}
+      </span>
+    )
   }
-  return <span className="rounded-md bg-success/15 px-2 py-0.5 font-pixel text-[9px] text-success">Ready</span>
+  return <ReadyBadge t={t} />
 }
 
 export default function MyPetsPage() {
+  const { t } = useI18n()
   const [sessionChecked, setSessionChecked] = useState(false)
   const [authed, setAuthed] = useState(false)
   const [pets, setPets] = useState<MyPet[]>([])
@@ -56,19 +89,19 @@ export default function MyPetsPage() {
       const res = await fetch('/api/pets/mine', { headers: { authorization: 'Bearer ' + token } })
       if (!res.ok) {
         const d = await res.json().catch(() => ({}))
-        setError(d.message || 'Failed to load your pets')
+        setError(d.message || t('error.unknown'))
         setLoading(false)
         return
       }
       const d = await res.json()
       setPets(d.pets || [])
     } catch {
-      setError('Network error while loading your pets')
+      setError(t('error.dbError'))
     } finally {
       setLoading(false)
       setSessionChecked(true)
     }
-  }, [])
+  }, [t])
 
   useEffect(() => {
     load()
@@ -77,8 +110,6 @@ export default function MyPetsPage() {
   const share = async (pet: MyPet) => {
     if (busyId) return
     setBusyId(pet.id)
-    // Open the result tab from within the click gesture so popup blockers don't
-    // suppress it; we point it at the public page once the share actually lands.
     const shareUrl = `${window.location.origin}/p/${pet.id}`
     const resultTab = typeof window !== 'undefined' ? window.open('', '_blank') : null
     try {
@@ -92,7 +123,7 @@ export default function MyPetsPage() {
         body: JSON.stringify({ platform: 'gallery' }),
       })
       if (!res.ok) {
-        setToast('Share failed')
+        setToast(t('submit.error'))
         setTimeout(() => setToast(''), 2500)
         return
       }
@@ -104,41 +135,16 @@ export default function MyPetsPage() {
             : p
         )
       )
-      setToast(d.awarded > 0 ? `Shared! +${d.awarded} pts` : 'Already shared')
+      setToast(d.awarded > 0 ? `${t('submit.success')} +${d.awarded} pts` : 'Already shared')
       setTimeout(() => setToast(''), 2500)
-      // Let the navbar points badge pick up the new balance.
       window.dispatchEvent(new CustomEvent('petgen:points-updated'))
-      // Take the user straight to the share result page.
       if (resultTab) resultTab.location.href = shareUrl
       else window.open(shareUrl, '_blank')
     } catch {
-      setToast('Share failed')
+      setToast(t('submit.error'))
       setTimeout(() => setToast(''), 2500)
     } finally {
       setBusyId(null)
-    }
-  }
-
-  // Downloads the pet's base image as a file (cross-origin signed URL, so we
-  // fetch-as-blob and trigger a local download rather than relying on the
-  // anchor download attribute, which browsers ignore off-origin).
-  const download = async (pet: MyPet) => {
-    if (!pet.baseImageUrl) return
-    try {
-      const res = await fetch(pet.baseImageUrl)
-      const blob = await res.blob()
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${(pet.displayName || 'pixel-pet').replace(/\s+/g, '-').toLowerCase()}.png`
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
-      setToast('Download started')
-      setTimeout(() => setToast(''), 2000)
-    } catch {
-      window.open(pet.baseImageUrl, '_blank', 'noopener,noreferrer')
     }
   }
 
@@ -151,15 +157,44 @@ export default function MyPetsPage() {
     } catch {}
   }
 
+  const del = async (pet: MyPet) => {
+    if (busyId) return
+    if (typeof window !== 'undefined' && !window.confirm(t('myPets.deleteConfirm'))) return
+    setBusyId(pet.id)
+    try {
+      const supabase = getSupabaseClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      const token = session?.access_token
+      if (!token) return
+      const res = await fetch(`/api/pets/${pet.id}`, {
+        method: 'DELETE',
+        headers: { authorization: 'Bearer ' + token },
+      })
+      if (!res.ok) {
+        setToast(t('myPets.deleteFailed'))
+        setTimeout(() => setToast(''), 2500)
+        return
+      }
+      setPets((prev) => prev.filter((p) => p.id !== pet.id))
+      setToast(t('myPets.deleted'))
+      setTimeout(() => setToast(''), 2500)
+    } catch {
+      setToast(t('myPets.deleteFailed'))
+      setTimeout(() => setToast(''), 2500)
+    } finally {
+      setBusyId(null)
+    }
+  }
+
   const showToast = toast !== ''
 
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-        <div className="mb-8 flex items-center gap-2">
+      <main className="mx-auto max-w-5xl px-4 py-8 sm:py-10">
+        <div className="mb-6 flex items-center gap-2 sm:mb-8">
           <Images className="h-6 w-6 text-primary" />
-          <h1 className="font-pixel text-lg text-text-primary">My Pets</h1>
+          <h1 className="font-pixel text-lg text-text-primary">{t('nav.myPets')}</h1>
         </div>
 
         {showToast && (
@@ -176,18 +211,16 @@ export default function MyPetsPage() {
         )}
 
         {sessionChecked && !authed && (
-          <div className="glass-card rounded-lg p-10 text-center">
+          <div className="glass-card rounded-lg p-8 text-center sm:p-10">
             <LogIn className="mx-auto mb-4 h-8 w-8 text-text-muted" />
-            <h2 className="mb-2 font-pixel text-sm text-text-primary">Sign in to see your pets</h2>
-            <p className="mb-6 text-sm text-text-secondary">
-              Your generated pets are tied to your account.
-            </p>
+            <h2 className="mb-2 font-pixel text-sm text-text-primary">{t('auth.signInTitle')}</h2>
+            <p className="mb-6 text-sm text-text-secondary">{t('workspace.allStates')}</p>
             <Link
               href="/signin"
               className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
               <LogIn className="h-4 w-4" />
-              Sign in
+              {t('auth.signIn')}
             </Link>
           </div>
         )}
@@ -205,121 +238,149 @@ export default function MyPetsPage() {
               onClick={load}
               className="ml-3 rounded-lg border border-border bg-bg-elevated px-3 py-1.5 text-xs text-text-primary transition-colors hover:border-accent"
             >
-              Retry
+              {t('errorCard.retry')}
             </button>
           </div>
         )}
 
         {authed && !loading && !error && pets.length === 0 && (
-          <div className="glass-card rounded-lg p-10 text-center">
+          <div className="glass-card rounded-lg p-8 text-center sm:p-10">
             <Images className="mx-auto mb-4 h-8 w-8 text-text-muted" />
-            <h2 className="mb-2 font-pixel text-sm text-text-primary">No pets yet</h2>
-            <p className="mb-6 text-sm text-text-secondary">
-              Generate your first pixel pet, then come back here to share it and earn points.
-            </p>
+            <h2 className="mb-2 font-pixel text-sm text-text-primary">{t('myPets.emptyTitle')}</h2>
+            <p className="mb-6 text-sm text-text-secondary">{t('myPets.emptyDesc')}</p>
             <Link
               href="/"
               className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
-              Create a pet
+              {t('gallery.createCta')}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         )}
 
         {authed && !loading && !error && pets.length > 0 && (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {pets.map((pet) => {
-              const canShare = !!pet.baseImageUrl
+              const canAct = pet.status.toLowerCase() === 'completed'
               const shared = pet.isPublic
               return (
-                <div key={pet.id} className="glass-card overflow-hidden rounded-lg">
+                <div
+                  key={pet.id}
+                  className="glass-card flex flex-col overflow-hidden rounded-lg transition-shadow hover:shadow-lg"
+                >
                   <div className="relative aspect-square bg-bg-elevated">
                     {pet.baseImageUrl ? (
                       <Image
                         src={pet.baseImageUrl}
-                        alt={pet.displayName || 'Pixel pet'}
+                        alt={pet.displayName || t('gallery.untitled')}
                         fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="h-full w-full object-cover"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-text-muted">
-                        {statusPill(pet.status)}
+                        <StatusBadge status={pet.status} t={t} />
                       </div>
                     )}
-                    <div className="absolute right-2 top-2">{statusPill(pet.status)}</div>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="truncate font-pixel text-xs text-text-primary">
-                      {pet.displayName || 'Untitled Pet'}
-                    </h3>
-                    <div className="mt-3 flex items-center gap-1 text-[11px] text-text-muted">
-                      {shared ? (
-                        <>
-                          <Globe className="h-3.5 w-3.5 text-success" />
-                          Public
-                        </>
+
+                    <div className="absolute right-2 top-2">
+                      <StatusBadge status={pet.status} t={t} />
+                    </div>
+
+                    <button
+                      onClick={() => del(pet)}
+                      disabled={busyId === pet.id}
+                      title={t('myPets.delete')}
+                      aria-label={t('myPets.delete')}
+                      className="absolute left-2 top-2 rounded-md bg-black/50 p-1.5 text-text-muted backdrop-blur transition-colors hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      {busyId === pet.id ? (
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
                       ) : (
-                        'Not shared'
+                        <Trash2 className="h-3.5 w-3.5" />
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-4">
+                    <h3 className="truncate font-pixel text-sm text-text-primary">
+                      {pet.displayName || t('gallery.untitled')}
+                    </h3>
+
+                    <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-text-muted">
+                      {shared ? (
+                        <span className="inline-flex items-center gap-1 text-success">
+                          <Globe className="h-3.5 w-3.5" />
+                          {t('myPets.public')}
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1">
+                          <Lock className="h-3.5 w-3.5" />
+                          {t('myPets.private')}
+                        </span>
                       )}
                       {pet.shareCount > 0 && (
-                        <span className="ml-1">· {pet.shareCount}×</span>
+                        <span className="text-text-secondary">
+                          · {t('myPets.shares', { count: pet.shareCount })}
+                        </span>
                       )}
                     </div>
 
-                    <div className="mt-3 flex items-center gap-2">
-                      <button
-                        onClick={() => download(pet)}
-                        disabled={!canShare}
-                        title="Download image"
-                        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-2.5 py-1.5 text-[11px] font-medium text-text-primary transition-all hover:border-accent disabled:cursor-not-allowed disabled:opacity-40"
-                      >
-                        <Download className="h-3.5 w-3.5 text-primary" />
-                        Download
-                      </button>
-                      <button
-                        onClick={() => share(pet)}
-                        disabled={!canShare || busyId === pet.id}
-                        title={canShare ? 'Share to gallery & earn 10 pts' : 'Image still processing'}
-                        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-2.5 py-1.5 text-[11px] font-medium text-text-primary transition-all hover:border-accent disabled:cursor-not-allowed disabled:opacity-40"
-                      >
-                        {busyId === pet.id ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        ) : (
-                          <Share2 className="h-3.5 w-3.5 text-accent" />
-                        )}
-                        Share
-                      </button>
-                    </div>
+                    <div className="mt-4 flex flex-1 flex-col justify-end gap-2">
+                      <DownloadButton
+                        href={`/api/pets/${pet.id}/download`}
+                        petId={pet.id}
+                        size="md"
+                        disabled={!canAct}
+                        className="w-full"
+                      />
 
-                    {shared && (
-                      <div className="mt-3 flex items-center gap-2 rounded-lg border border-border bg-bg-elevated px-2.5 py-2">
-                        <Link2 className="h-3.5 w-3.5 shrink-0 text-text-muted" />
-                        <span className="flex-1 truncate text-[11px] text-text-secondary">
-                          /p/{pet.id}
-                        </span>
+                      <div className="grid grid-cols-2 gap-2">
                         <button
-                          onClick={() => copyLink(pet.id)}
-                          title="Copy public link"
-                          className="flex items-center gap-1 rounded-md px-1.5 py-1 text-[11px] text-text-secondary transition-colors hover:text-text-primary"
+                          onClick={() => share(pet)}
+                          disabled={!canAct || busyId === pet.id}
+                          className="flex min-h-[40px] items-center justify-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-3 py-2 text-xs font-medium text-text-primary transition-colors hover:border-accent disabled:cursor-not-allowed disabled:opacity-40"
                         >
-                          {copiedId === pet.id ? (
+                          {busyId === pet.id ? (
+                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          ) : shared ? (
                             <Check className="h-3.5 w-3.5 text-success" />
                           ) : (
-                            <Copy className="h-3.5 w-3.5" />
+                            <Share2 className="h-3.5 w-3.5 text-accent" />
                           )}
+                          {shared ? t('myPets.public') : t('submit.title')}
                         </button>
-                        <a
-                          href={`/p/${pet.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-md px-1.5 py-1 text-[11px] text-primary transition-colors hover:underline"
-                        >
-                          View
-                        </a>
+
+                        {shared ? (
+                          <button
+                            onClick={() => copyLink(pet.id)}
+                            className="flex min-h-[40px] items-center justify-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-3 py-2 text-xs font-medium text-text-primary transition-colors hover:border-accent"
+                          >
+                            {copiedId === pet.id ? (
+                              <>
+                                <Check className="h-3.5 w-3.5 text-success" />
+                                {t('code.copied')}
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="h-3.5 w-3.5" />
+                                {t('myPets.copyLink')}
+                              </>
+                            )}
+                          </button>
+                        ) : (
+                          <a
+                            href={`/p/${pet.id}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex min-h-[40px] items-center justify-center gap-1.5 rounded-lg border border-border bg-bg-elevated px-3 py-2 text-xs font-medium text-text-primary transition-colors hover:border-accent"
+                          >
+                            <Link2 className="h-3.5 w-3.5" />
+                            {t('myPets.view')}
+                          </a>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               )

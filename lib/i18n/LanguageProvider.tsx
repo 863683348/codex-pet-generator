@@ -19,6 +19,8 @@ export type Lang = 'en' | 'zh' | 'ja' | 'ko' | 'fr' | 'de'
 
 const DICTS: Record<Lang, Dict> = { en, zh, ja, ko, fr, de }
 const STORAGE_KEY = 'petgen-lang'
+const COOKIE_NAME = 'petgen-lang'
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365
 
 type Params = Record<string, string | number>
 
@@ -49,12 +51,24 @@ function lookup(dict: unknown, path: string): string | undefined {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('en')
 
+  const setCookieLang = useCallback((l: Lang) => {
+    if (typeof document === 'undefined') return
+    document.cookie = `${COOKIE_NAME}=${encodeURIComponent(l)}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`
+  }, [])
+
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
+    // Prefer localStorage; fall back to the petgen-lang cookie so the client
+    // initializes to the same locale the server used to render the page.
+    let saved: string | null = localStorage.getItem(STORAGE_KEY)
+    if (!saved && typeof document !== 'undefined') {
+      const match = document.cookie.match(new RegExp(`(?:^|;)\\s*${COOKIE_NAME}=([^;]+)`))
+      if (match) saved = decodeURIComponent(match[1])
+    }
     if (saved === 'en' || saved === 'zh' || saved === 'ja' || saved === 'ko' || saved === 'fr' || saved === 'de') {
       setLangState(saved)
+      setCookieLang(saved)
     }
-  }, [])
+  }, [setCookieLang])
 
   const applyDomLang = useCallback((l: Lang) => {
     if (typeof document !== 'undefined') {
@@ -71,9 +85,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     (l: Lang) => {
       setLangState(l)
       localStorage.setItem(STORAGE_KEY, l)
+      setCookieLang(l)
       applyDomLang(l)
     },
-    [applyDomLang]
+    [applyDomLang, setCookieLang]
   )
 
   const t = useCallback(

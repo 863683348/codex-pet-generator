@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
 
   const { data: pets, error } = await supabase
     .from('pets')
-    .select('id, display_name, status, is_public, share_count, base_image_path, created_at, email')
+    .select('id, display_name, status, is_public, share_count, base_image_path, zip_path, zip_url, created_at, email')
     .or(ownershipFilter)
     // Only surface pets that actually generated an image. Pets still processing
     // or that failed have no base_image_path and aren't downloadable/shareable,
@@ -45,6 +45,7 @@ export async function GET(req: NextRequest) {
     isPublic: p.is_public,
     shareCount: p.share_count ?? 0,
     baseImageUrl: p.base_image_path ? getPublicUrl(p.base_image_path) : null,
+    hasZip: !!p.zip_path || !!p.zip_url,
     createdAt: p.created_at,
   }))
 

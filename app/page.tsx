@@ -5,11 +5,13 @@ import { useRouter } from 'next/navigation'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import UploadDropzone from '@/components/pet/UploadDropzone'
+import CategoryPicker, { PetTag } from '@/components/pet/CategoryPicker'
 import StepIndicator from '@/components/pet/StepIndicator'
 import GenerationWorkspace from '@/components/pet/GenerationWorkspace'
 import HowItWorks from '@/components/layout/HowItWorks'
 import WhatYouGet from '@/components/layout/WhatYouGet'
 import PricingSection from '@/components/layout/PricingSection'
+import FeaturedSection from '@/components/featured/FeaturedSection'
 import PixelPet from '@/components/pet/PixelPet'
 import { PetTask } from '@/types/pet'
 import { POLL_INTERVAL } from '@/lib/utils/constants'
@@ -94,6 +96,10 @@ export default function Home() {
   const router = useRouter()
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
+  // Pet category selector: loaded from /api/tags, passed along at generation time.
+  const [tags, setTags] = useState<PetTag[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('original')
+
   // Build the Authorization header from the live session token. Uses a ref so
   // the long-lived polling callback always sees the current token (no stale
   // closure from useCallback's empty deps).
@@ -153,6 +159,21 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    const loadTags = async () => {
+      try {
+        const res = await fetch('/api/tags')
+        if (res.ok) {
+          const data = await res.json()
+          if (Array.isArray(data.tags)) setTags(data.tags)
+        }
+      } catch (err) {
+        console.error('Failed to load categories:', err)
+      }
+    }
+    loadTags()
+  }, [])
+
+  useEffect(() => {
     return () => {
       if (pollRef.current) clearInterval(pollRef.current)
     }
@@ -196,6 +217,7 @@ export default function Home() {
     try {
       const formData = new FormData()
       formData.append('image', file)
+      formData.append('category', selectedCategory)
 
       // Bounded wait: if the serverless function hangs (e.g. Vercel plan
       // timeout, slow AI provider), abort after 90s so the user gets a clear
@@ -462,7 +484,14 @@ export default function Home() {
 
             <div className="mt-6">
               {!task && !isUploading && (
-                <UploadDropzone onFileSelected={handleFileSelected} />
+                <>
+                  <CategoryPicker
+                    tags={tags}
+                    selected={selectedCategory}
+                    onChange={setSelectedCategory}
+                  />
+                  <UploadDropzone onFileSelected={handleFileSelected} />
+                </>
               )}
               {isUploading && (
                 <div className="rounded-lg border-2 border-dashed border-border bg-bg-surface p-8 text-center">
@@ -549,6 +578,7 @@ export default function Home() {
             <HowItWorks />
             <WhatYouGet />
             <PricingSection />
+            <FeaturedSection />
             {/* ---- Use cases (AdSense P1: homepage text expansion) ---- */}
             <section className="mx-auto mt-16 max-w-5xl">
               <h2 className="font-pixel text-base text-text-primary text-center">Who Is Codex Pet Generator For?</h2>
@@ -616,6 +646,29 @@ export default function Home() {
               <p className="mt-6 text-center text-sm text-text-muted">
                 <a href="/faq" className="text-accent hover:underline">See all FAQs →</a>
               </p>
+              <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
+                <a
+                  href="/blog/what-is-pet-spritesheet"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">What is a pet spritesheet?</span>
+                  <span className="mt-1 block text-xs text-text-muted">The exact format Codex expects, explained.</span>
+                </a>
+                <a
+                  href="/blog/best-photos-for-pixel-pet-generator"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">Best photos for pixel pets</span>
+                  <span className="mt-1 block text-xs text-text-muted">Get a sharper result with better source shots.</span>
+                </a>
+                <a
+                  href="/blog/codex-pet-not-showing-fixes"
+                  className="rounded-lg border border-border bg-bg-surface p-4 text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+                >
+                  <span className="font-medium text-text-primary">Pet not showing up?</span>
+                  <span className="mt-1 block text-xs text-text-muted">9 causes and exact fixes for invisible pets.</span>
+                </a>
+              </div>
             </section>
           </>
         )}

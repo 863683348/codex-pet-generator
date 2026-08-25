@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter, Press_Start_2P } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
 import { SITE } from '@/lib/seo'
@@ -10,7 +11,7 @@ import CookieConsent from '@/components/layout/CookieConsent'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `Free AI Pet Generator | Create Custom Pet Images Online — ${SITE.fullName}`,
+    default: `Codex Pet Generator — Free AI Pet Maker`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -62,6 +63,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+// Google Fonts via next/font (server-optimized, no event handlers)
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+})
+const pressStart = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-pixel',
+})
+
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -93,22 +106,23 @@ export default function RootLayout({
   // 仅在生产环境加载 GA：避免 localhost 开发与 Vercel preview 污染真实数据
   const isProd = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview'
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${pressStart.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Fonts are self-hosted via next/font — no external Google Fonts preconnect needed. */}
+        {/* Single-URL multilingual site: all language variants live on the same
+            URL (cookie-driven i18n), so every hreflang points to the root. */}
         <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="zh-CN" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="ja" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="ko" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="fr" href={SITE.url + '/'} />
+        <link rel="alternate" hrefLang="de" href={SITE.url + '/'} />
         <link rel="alternate" hrefLang="x-default" href={SITE.url + '/'} />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap"
-          rel="stylesheet"
-        />
         {GA_ID && isProd && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

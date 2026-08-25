@@ -47,7 +47,7 @@ export async function POST(
         const sourceResponse = await fetch(pet.source_image_url)
         const sourceBuffer = Buffer.from(await sourceResponse.arrayBuffer())
 
-        const baseBuffer = await generateBaseImage(sourceBuffer)
+        const baseBuffer = await generateBaseImage(sourceBuffer, req.headers)
         const { path, url } = await uploadBaseImage(taskId, baseBuffer)
 
         await supabase
@@ -92,7 +92,7 @@ export async function POST(
         const baseBuffer = Buffer.from(await baseResponse.arrayBuffer())
 
         // Generate 9 state frames
-        const stateFrames = await generateAnimationFrames(baseBuffer, characterDesc)
+        const stateFrames = await generateAnimationFrames(baseBuffer, characterDesc, req.headers)
 
         // Compose spritesheet
         const spritesheetBuffer = await composeSpritesheet(stateFrames)

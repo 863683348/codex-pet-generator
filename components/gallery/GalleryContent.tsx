@@ -1,19 +1,30 @@
 'use client'
 
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { LayoutGrid, ArrowRight, Images } from 'lucide-react'
+import { LayoutGrid, Images, ArrowRight } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
+import type { GalleryPet } from '@/types/community'
+import GalleryFilterBar, { type StyleFilter, type SortKey } from './GalleryFilterBar'
+import GalleryGrid from './GalleryGrid'
 
-export type GalleryPet = {
-  id: string
-  displayName: string | null
-  shareCount: number
-  baseImageUrl: string | null
-}
-
+// Orchestrates the gallery: holds the client-side filter state and derives the
+// visible subset from the full (already-loaded, ISR-cached) pet list. No fetch
+// happens here, so the server-rendered /gallery page keeps its 5-minute ISR.
 export default function GalleryContent({ pets }: { pets: GalleryPet[] }) {
   const { t } = useI18n()
+  const [style, setStyle] = useState<StyleFilter>('all')
+  const [sort, setSort] = useState<SortKey>('newest')
+
+  const visible = useMemo(() => {
+    const filtered = style === 'all' ? pets : pets.filter((p) => p.style === style)
+    return [...filtered].sort((a, b) =>
+      sort === 'shares'
+        ? b.shareCount - a.shareCount
+        : b.createdAt.localeCompare(a.createdAt)
+    )
+  }, [pets, style, sort])
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
@@ -37,39 +48,18 @@ export default function GalleryContent({ pets }: { pets: GalleryPet[] }) {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {pets.map((pet) => (
-            <Link
-              key={pet.id}
-              href={`/p/${pet.id}`}
-              className="glass-card group overflow-hidden rounded-lg transition-all hover:border-accent"
-            >
-              <div className="relative aspect-square bg-bg-elevated">
-                {pet.baseImageUrl ? (
-                  <Image
-                    src={pet.baseImageUrl}
-                    alt={pet.displayName || t('gallery.untitled')}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-text-muted">
-                    <Images className="h-6 w-6" />
-                  </div>
-                )}
-              </div>
-              <div className="flex items-center justify-between p-3">
-                <span className="truncate font-pixel text-[11px] text-text-primary">
-                  {pet.displayName || t('gallery.untitled')}
-                </span>
-                {pet.shareCount > 0 && (
-                  <span className="ml-2 shrink-0 text-[10px] text-text-muted">{pet.shareCount}×</span>
-                )}
-              </div>
-            </Link>
-          ))}
-        </div>
+        <>
+          <GalleryFilterBar style={style} sort={sort} onStyleChange={setStyle} onSortChange={setSort} />
+          {visible.length > 0 ? (
+            <GalleryGrid pets={visible} />
+          ) : (
+            <div className="glass-card rounded-lg p-10 text-center">
+              <Images className="mx-auto mb-4 h-8 w-8 text-text-muted" />
+              <h2 className="mb-2 font-pixel text-sm text-text-primary">{t('gallery.noMatchTitle')}</h2>
+              <p className="text-sm text-text-secondary">{t('gallery.noMatchDesc')}</p>
+            </div>
+          )}
+        </>
       )}
     </main>
   )

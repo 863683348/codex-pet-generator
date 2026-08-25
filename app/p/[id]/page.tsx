@@ -9,6 +9,10 @@ import Footer from '@/components/layout/Footer'
 import AnimationStatesGrid from '@/components/pet/AnimationStatesGrid'
 import { Sparkles, ArrowLeft, LayoutGrid } from 'lucide-react'
 
+// Revalidate every 1 hour — pets don't change frequently,
+// this avoids a Supabase DB hit on every visitor
+export const revalidate = 3600
+
 interface PageProps {
   params: Promise<{ id: string }>
 }

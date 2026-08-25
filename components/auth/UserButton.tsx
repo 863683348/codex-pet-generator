@@ -70,10 +70,10 @@ export default function UserButton() {
     <>
       <button
         onClick={() => router.push('/signup')}
-        className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
+        className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-elevated hover:text-text-primary"
       >
-        <LogIn className="h-4 w-4" />
-        <span className="hidden sm:inline">{t('nav.signIn')}</span>
+        <LogIn className="h-4 w-4 shrink-0" />
+        <span className="hidden whitespace-nowrap sm:inline">{t('nav.signIn')}</span>
       </button>
     </>
   )
