@@ -131,10 +131,12 @@ const collectionJsonLd = [
 ]
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getServerT()
+  // /guide lists only English posts and targets English queries — keep the
+  // metadata title in English for every locale (the on-page H1 stays localized).
   return buildMetadata({
-    title: t('guide.title'),
-    description: t('guide.desc'),
+    title: 'Codex Pet Guides & Tutorials',
+    description:
+      'Hands-on tutorials to build, install, and customize your Codex pixel pet — from first generation to spritesheet design.',
     path: '/guide',
   })
 }

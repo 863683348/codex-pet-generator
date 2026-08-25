@@ -630,6 +630,12 @@ export const posts: BlogPost[] = [
       'codex pet from photo',
       'custom pixel pet codex',
     ],
+    faq: [
+      { question: 'Does a custom pet cost money?', answer: 'Starter gives 3 free generations; Pro is $9/month for 15.' },
+      { question: 'Can I use my custom pet commercially?', answer: 'Only on the Unlimited plan.' },
+      { question: 'What if my pet does not show after install?', answer: 'Verify the folder name matches pet.json and restart Codex fully.' },
+      { question: 'Can I recolor my custom pet?', answer: 'Regenerate from a differently colored photo, or edit the spritesheet manually on Pro/Unlimited.' },
+    ],
     sections: [
       {
         heading: 'What is a custom Codex pet?',
@@ -670,15 +676,6 @@ export const posts: BlogPost[] = [
           'Keep the subject centered and the background clean',
           'Use at least 800x800 px so detail survives pixelation',
           'One clear subject works far better than a group shot',
-        ],
-      },
-      {
-        heading: 'Frequently asked questions',
-        list: [
-          'Does a custom pet cost money? Starter gives 3 free generations; Pro is $9/month for 15.',
-          'Can I use my custom pet commercially? Only on the Unlimited plan.',
-          'What if my pet does not show after install? Verify the folder name matches pet.json and restart Codex fully.',
-          'Can I recolor my custom pet? Regenerate from a differently colored photo, or edit the spritesheet manually on Pro/Unlimited.',
         ],
       },
     ],
@@ -859,7 +856,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: 'codex-pet-not-showing-fixes',
-    title: 'Codex Pet Not Showing? 9 Common Problems and Fixes',
+    title: 'Codex Pet Not Showing? 9 Quick Fixes That Work',
     description:
       'Your Codex pet installed but will not appear? Nine real causes behind codex pet not showing, from name mismatches in pet.json to the restart everyone forgets, with the exact fix for each.',
     date: '2026-08-08',

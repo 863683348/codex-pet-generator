@@ -13,10 +13,12 @@ import { getServerT } from '@/lib/i18n/server'
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getServerT()
+  // /blog lists only English posts and targets English queries — keep the
+  // metadata title in English for every locale (the on-page H1 stays localized).
   return buildMetadata({
-    title: t('blog.indexTitle'),
-    description: t('blog.indexSubtitle'),
+    title: 'Codex Pet Blog — Pixel Pet Guides, Tips & Fixes',
+    description:
+      'Guides, comparisons, and deep dives on AI pet generators, pixel-art avatars, and Codex desktop pets — from install fixes to pixel-art design.',
     path: '/blog',
   })
 }
