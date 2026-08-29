@@ -1,6 +1,6 @@
 'use client'
 
-import { Twitter, Reddit, Copy } from 'lucide-react'
+import { Twitter, ExternalLink, Copy } from 'lucide-react'
 import { useState } from 'react'
 
 interface ShareButtonsProps {
@@ -49,7 +49,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
         className="rounded p-2 text-text-muted transition-colors hover:bg-primary/10 hover:text-primary"
         aria-label="Share on Reddit"
       >
-        <Reddit className="h-4 w-4" />
+        <ExternalLink className="h-4 w-4" />
       </a>
       <a
         href="https://discord.com"

@@ -1,4 +1,3 @@
-import { NewsArticle } from '@/components/seo/JsonLd'
 import { buildMetadata, SITE } from '@/lib/seo'
 import { getServerT } from '@/lib/i18n/server'
 import Navbar from '@/components/layout/Navbar'
@@ -6,8 +5,8 @@ import Footer from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
 
 export const metadata = buildMetadata({
-  title: 'Changelog — What's New in Codex Pet Generator',
-  description: 'Track the latest features, improvements, and updates to Codex Pet Generator. See what's new in each version.',
+  title: "Changelog — What's New in Codex Pet Generator",
+  description: "Track the latest features, improvements, and updates to Codex Pet Generator. See what's new in each version.",
   path: '/changelog',
 })
 

@@ -2337,7 +2337,7 @@ export const posts: BlogPost[] = [
       {
         heading: 'Why a tortoise makes a great Codex pet',
         paragraphs: [
-          'Tortoises are one of the most patient animals you can keep as a pet, and that patience translates beautifully into pixel art. Their shells provide a natural, geometric shape that segments cleanly. Their slow movements mean the animation frames don't need to capture fast motion — a gentle walk or a head extension reads perfectly at low frame counts.',
+          'Tortoises are one of the most patient animals you can keep as a pet, and that patience translates beautifully into pixel art. Their shells provide a natural, geometric shape that segments cleanly. Their slow movements mean the animation frames don\'t need to capture fast motion — a gentle walk or a head extension reads perfectly at low frame counts.',
           'A tortoise pet on your Codex desktop is a reminder to slow down. While you code through tight deadlines, your pixel tortoise sits calmly beside your editor, embodying the quiet focus that good work requires.',
         ],
       },
@@ -2357,8 +2357,8 @@ export const posts: BlogPost[] = [
       {
         heading: 'From photo to spritesheet',
         paragraphs: [
-          'PetGen processes your tortoise photo the same way it handles any other pet: background removal, pose detection, and spritesheet generation. The 1536x1872 output with 9 rows and 8 columns gives you a complete animation set. Tortoise pets tend to look best with subtle, slow animations — a gentle walk cycle and a relaxed idle state fit the animal's nature.',
-          'After installation, your tortoise pet will sit quietly on your Codex desktop. Its calm presence is part of the appeal: a coding companion that doesn't demand attention but makes the workspace feel more personal.',
+          'PetGen processes your tortoise photo the same way it handles any other pet: background removal, pose detection, and spritesheet generation. The 1536x1872 output with 9 rows and 8 columns gives you a complete animation set. Tortoise pets tend to look best with subtle, slow animations — a gentle walk cycle and a relaxed idle state fit the animal\'s nature.',
+          'After installation, your tortoise pet will sit quietly on your Codex desktop. Its calm presence is part of the appeal: a coding companion that doesn\'t demand attention but makes the workspace feel more personal.',
         ],
       },
       {
@@ -2366,7 +2366,7 @@ export const posts: BlogPost[] = [
         paragraphs: [
           'Will my tortoise pet look accurate? PetGen captures the shell pattern and color from your photo. The pixel art style simplifies details, but the overall look will match your tortoise.',
           'Can I use a video instead of a photo? Yes. Take screenshots from a video and pick the clearest frame with good lighting.',
-          'Do tortoise pets animate slowly by default? Yes. The animation speed is tuned to the pet's natural movement pattern — tortoises get gentle, deliberate motions.',
+          'Do tortoise pets animate slowly by default? Yes. The animation speed is tuned to the pet\'s natural movement pattern — tortoises get gentle, deliberate motions.',
         ],
       },
     ],
