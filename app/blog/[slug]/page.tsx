@@ -7,6 +7,7 @@ import { buildMetadata, SITE } from '@/lib/seo'
 import { posts, type BlogPost } from '@/lib/blog/posts'
 import { JsonLd } from '@/components/seo/JsonLd'
 import BlogPostCta from '@/components/blog/BlogPostCta'
+import ShareButtons from '@/components/blog/ShareButtons'
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }))
@@ -184,6 +185,7 @@ export default async function BlogPostPage({
             </section>
           )}
 
+          <ShareButtons title={post.title} url={SITE.url + '/blog/' + post.slug} />
           <BlogPostCta />
         </article>
       </main>

@@ -32,6 +32,24 @@ export const posts: BlogPost[] = [
       'Codex coding companion install',
       'pet.json Codex setup',
     ],
+    faq: [
+      {
+        question: 'How do I install a custom pet in Codex?',
+        answer: 'Download the ZIP from PetGen, extract it, and copy the folder into ~/.codex/pets/ on macOS or %USERPROFILE%\.codex\pets\ on Windows. Then fully restart Codex (Cmd+Q on macOS, close and reopen on Windows). Your pet should appear on your desktop.',
+      },
+      {
+        question: 'Why is my Codex pet not showing after installation?',
+        answer: 'The most common cause is a folder name mismatch. The folder name in ~/.codex/pets/ must exactly match the "name" field in pet.json. Check that your folder is named correctly and restart Codex completely.',
+      },
+      {
+        question: 'Does Codex pet installation affect my OpenAI model?',
+        answer: 'No. Codex pets are purely cosmetic desktop companions. They do not modify your coding model, change your prompts, or affect your API usage in any way. Your Codex AI remains exactly the same.',
+      },
+      {
+        question: 'Can I install multiple pets in Codex?',
+        answer: 'Yes! You can have multiple pets by creating separate folders in ~/.codex/pets/. Each folder should contain its own spritesheet.webp and pet.json. Codex will display them as selectable companions.',
+      },
+    ],
     sections: [
       {
         heading: 'What you need before you start',
@@ -1492,7 +1510,8 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
-  },  {
+  },
+  {
     slug: 'codex-pet-9-animation-states',
     title: 'The 9 Animation States of a Codex Pet, Explained',
     description:
