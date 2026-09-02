@@ -2371,4 +2371,75 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'guinea-pig-ferret-uncommon-pets',
+    title: 'Guinea Pig & Ferret: Uncommon Pets Get Pixelated',
+    description:
+      'Guinea pigs and ferrets are beloved but rarely pixelated. This guide shows how to turn your guinea pig or ferret into an adorable Codex pet that captures their personality in pixel form.',
+    date: '2026-09-02',
+    author: 'PetGen',
+    keywords: [
+      'exotic pet codex',
+      'guinea pig pixel pet',
+      'ferret codex pet',
+      'uncommon pet pixel art',
+    ],
+    sections: [
+      {
+        heading: 'Why Uncommon Pets Deserve Pixel Form',
+        paragraphs: [
+          'Most codex pet generators focus on cats, dogs, and the occasional exotic like a parrot or turtle. But what about pets that don\'t make it into the standard catalog? Guinea pigs and ferrets — beloved by millions but rarely pixelated — deserve their turn in the spotlight.',
+          'This guide shows you how to turn your guinea pig or ferret into an adorable codex pet that captures their personality in pixel form.',
+        ],
+      },
+      {
+        heading: 'Why Guinea Pigs Make Great Codex Pets',
+        paragraphs: [
+          'Guinea pigs have that perfect combination of round shapes and expressive faces that translate beautifully to pixel art. Their compact bodies, tiny ears, and distinctive whiskers create natural pixel-friendly features.',
+        ],
+        list: [
+          'Front-facing portraits capture their round, friendly faces perfectly',
+          'Side profiles show off their unique body shape and little legs',
+          'Action shots of them running (the "zoomies") add personality',
+        ],
+      },
+      {
+        heading: 'Why Ferrets Are Pixel Perfection',
+        paragraphs: [
+          'Ferrets are essentially long, playful snakes with fur. Their sinuous bodies and mischievous expressions make them incredibly fun to pixelate. The challenge is capturing their elongated shape without making them look like worms.',
+        ],
+        list: [
+          'Focus on the playful, curled-up pose',
+          'Capture those bright, intelligent eyes',
+          'Show off their sleek, elongated body in motion',
+        ],
+      },
+      {
+        heading: 'Step-by-Step: Creating Your Exotic Pet Codex',
+        paragraphs: [
+          'Turning your guinea pig or ferret into a codex pet is easier than you think. Follow these steps to get a pixel companion that truly looks like your pet.',
+        ],
+        list: [
+          'Choose the clearest photo possible. For guinea pigs, front-facing shots work best. For ferrets, action shots capturing their playful nature are ideal.',
+          'Upload to your codex pet generator. Most tools handle small mammals well, but exotic pets may need a bit more patience with the AI.',
+          'Adjust the style settings. Try different pixel art styles — some generators offer "cute" modes that enhance the adorable qualities of small pets.',
+          'Review and refine. Exotic pets sometimes need a second pass to get the proportions right. Don\'t be afraid to regenerate if the first attempt doesn\'t capture your pet\'s personality.',
+        ],
+      },
+      {
+        heading: 'Common Challenges with Exotic Pets',
+        paragraphs: [
+          'Guinea pigs can be tricky because of their fluffy coats. The AI might smooth out their texture, making them look too clean. Try uploading photos where their natural fluffiness shows through.',
+          'Ferrets are challenging because of their length. The pixelation process can compress their body too much. Look for generators that offer aspect ratio adjustments to preserve their natural proportions.',
+        ],
+      },
+      {
+        heading: 'Making It Personal',
+        paragraphs: [
+          'The best codex pets capture more than just physical appearance — they capture personality. A guinea pig who loves vegetables might have a carrot in its pixel paws. A ferret known for stealing socks could be pixelated holding a tiny sock.',
+          'These small touches make your codex pet uniquely yours, rather than just another pixelated animal.',
+        ],
+      },
+    ],
+  },
 ];
