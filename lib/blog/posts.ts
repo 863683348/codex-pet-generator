@@ -2442,4 +2442,91 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'hd-vs-4k-spritesheets',
+    title: 'HD vs 4K Spritesheets: Is the Upgrade Worth It?',
+    description: 'HD vs 4K spritesheets for Codex pets: exact resolution, file size, and generation tradeoffs. When the Pro/Unlimited 4K upgrade is worth it, and when HD is already enough.',
+    date: '2026-09-03',
+    author: 'Codex Pet Generator Team',
+    keywords: [
+      'hd spritesheet codex pet',
+      'codex pet hd 2x',
+      '4k spritesheet pet',
+      'codex pet resolution upgrade',
+    ],
+    related: ['how-to-install-codex-pet', 'transparent-background-pixel-pets'],
+    sections: [
+      {
+        heading: 'The short answer',
+        paragraphs: [
+          'HD is the default resolution for every Codex pet. The 4K upgrade is a paid resolution bump that renders the same 9-frame animation at four times the pixel count. Whether it\'s worth it comes down to one question: are you going to display or print the pet at a size where those extra pixels are visible? If the pet lives in the corner of your editor at thumbnail size, 4K is money and quota spent for nothing. If you\'re printing stickers or overlaying the pet on a 1080p stream, it starts to earn its keep.',
+        ],
+      },
+      {
+        heading: 'What actually changes in the file',
+        paragraphs: [
+          'A standard HD spritesheet is 1536x1872 pixels - 9 rows of animation states, 8 frames each. The 4K export doubles the linear resolution to 3072x3744, which is exactly four times the pixels. The pet itself looks identical at normal zoom; the difference is headroom.',
+          'On file size, WebP is efficient, but the extra detail still costs you. A typical HD pet is 250-450 KB, while the 4K version usually lands at 900 KB to 1.8 MB - roughly 3 to 4 times larger. Generation also takes longer because the model paints four times the area.',
+        ],
+        list: [
+          'HD spritesheet: 1536x1872 px, about 250-450 KB',
+          '4K spritesheet: 3072x3744 px, about 900 KB to 1.8 MB (3-4x larger)',
+          'Same 9-state, 8-frame animation grid in both',
+        ],
+      },
+      {
+        heading: 'When 4K is clearly worth it',
+        paragraphs: [
+          'Print is the clearest case. At 300 DPI, an HD pet covers about a 5x6 cm sticker before the pixels show; 4K gets you to roughly 10x12 cm. Merch, standees, and keyrings benefit directly.',
+          'Stream overlays are the second case. When your streaming software captures the pet and scales it into a 1080p scene, an HD pet can look soft if you zoom or crop it. 4K holds crisp edges through the scaler.',
+        ],
+        list: [
+          'Printing stickers, standees, or keyrings at 300 DPI',
+          'Overlaying the pet on a 1080p+ stream where it gets zoomed or cropped',
+          'Large 4K displays where viewers lean in close',
+        ],
+      },
+      {
+        heading: 'When HD is already enough',
+        paragraphs: [
+          'The desktop companion is the everyday case, and HD wins it. The pet sits small in a corner of your editor, where 1536x1872 is already sharper than the display can show. Paying for 4K there buys invisible pixels.',
+          'Anything that gets downscaled also wastes 4K: avatars, social thumbnails, and embedded widgets throw away the extra resolution on export. Mobile is the same story.',
+        ],
+        list: [
+          'Desktop companion at normal (small) size',
+          'Avatars and social thumbnails (downscaled anyway)',
+          'Mobile and embedded widgets',
+        ],
+      },
+      {
+        heading: 'The quota trap (Pro vs Unlimited)',
+        paragraphs: [
+          'If your plan caps monthly generations, every 4K render spends one of those generations on a result you may never use. On Pro, that is a real cost. On Unlimited, generations aren\'t the bottleneck, but your time is.',
+          'Generate HD first. Confirm you like the pet. Then re-run once at 4K only if you have a concrete use - printing or streaming. Don\'t batch-upgrade a whole library on speculation; most of those 4K files will sit unused.',
+        ],
+      },
+      {
+        heading: 'How to decide in 10 seconds',
+        paragraphs: [
+          'Rule: will the pet be shown larger than about 8 cm, cropped into a 1080p stream, or printed? If yes, 4K. If it just sits on your desktop, HD. That is the whole decision - resolution you can\'t see is resolution you shouldn\'t pay for.',
+        ],
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop. Start at the homepage to upload your pet, or open the pricing page to compare the Pro and Unlimited tiers before you generate. HD is the default; 4K is the upgrade to reach for when you print or stream.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Is the 4K spritesheet really 4x the resolution?',
+        answer: 'Yes. The 4K export doubles the linear resolution (1536x1872 becomes 3072x3744), so it is four times the pixel count. The animation grid and frame count stay the same.',
+      },
+      {
+        question: 'Should I always generate at 4K?',
+        answer: 'No. If the pet only runs on your desktop at small size, HD is already crisp and 4K is wasted quota and disk. Reach for 4K when you print or overlay the pet on a stream.',
+      },
+    ],
+  },
 ];
