@@ -2529,4 +2529,158 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'restore-old-photos-codex-pets',
+    title: 'Restore Old Photos: Turn Childhood Pets into Codex Pets',
+    description:
+      'A practical guide to restoring old pet photos and turning them into pixel-art Codex pets. Covers scanning, cleanup, and generating a desktop companion from a faded print.',
+    date: '2026-09-04',
+    author: 'PetGen',
+    keywords: [
+      'old photo pixel pet',
+      'vintage pet photo pixel',
+      'childhood pet codex',
+      'restore old photo pixel art',
+      'photo to codex pet',
+    ],
+    related: ['turn-photo-into-pixel-art'],
+    faq: [
+      {
+        question: 'Can I use a torn or faded photo?',
+        answer: 'Yes. Scan the print at 600 DPI, then run a quick restore: lift contrast, drop the yellow cast, and heal the dust. A clean source gives the generator a clear subject to trace.',
+      },
+      {
+        question: 'Do I need Photoshop skills?',
+        answer: 'No. Free auto-color and heal tools handle most prints in ten minutes. You are fixing the image so the pixel result looks deliberate, not muddy.',
+      },
+      {
+        question: 'Will the Codex pet look like my actual pet?',
+        answer: 'The closer your restored crop is to a centered, plain-background photo, the more the sprite reads as that animal. A tight, high-contrast crop beats a busy full-scene scan.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Why a faded print can become your favorite Codex pet',
+        paragraphs: [
+          'Old pet photos carry a weight that a brand-new snapshot never will. A faded print of a childhood dog or cat is a piece of family history, and turning it into a pixel companion keeps that animal on your desktop long after the paper has yellowed.',
+          'The Codex Pet Generator pipeline works best on a clean, high-contrast image, so a quick restore step before generation pays off. You are not fixing the photo for a frame, you are giving the model a clear subject to trace.',
+        ],
+      },
+      {
+        heading: 'Start with the best source you have',
+        paragraphs: [
+          'If the original print still exists, scan it at 600 DPI rather than photographing it with a phone. A flatbed scan avoids glare and perspective distortion, which means fewer artifacts for the restore step to fight.',
+          'No print? A digital copy from a relative is fine. Even a small JPEG from a social album can work if it is not heavily compressed. The goal is simply the sharpest version you can find.',
+        ],
+      },
+      {
+        heading: 'Restore before you pixelate',
+        paragraphs: [
+          'You do not need Photoshop talent. Free tools handle most of the work: raise contrast, drop the yellow cast, and clone out the dust specks. Spend ten minutes here and the pixel result looks deliberate instead of muddy.',
+        ],
+        list: [
+          'Scan at 600 DPI, not a phone photo, when the print exists.',
+          'Use auto-color or a white-balance eyedropper to kill the yellow cast.',
+          'Clone or heal the dust, creases, and water stains.',
+          'Export a clean 1:1 crop of just the pet, centered, with a calm background.',
+        ],
+      },
+      {
+        heading: 'Generate the Codex pet from the restored photo',
+        paragraphs: [
+          'Upload the cleaned crop to Codex Pet Generator and let it trace the pixel sprite. A simple, centered subject with a plain background gives the cleanest spritesheet, because the model has fewer competing edges to guess at.',
+          'If the first result feels off, try a tighter crop or a slightly higher contrast version. Small source tweaks move the output more than you would expect, and you are not charged for experiments you discard.',
+        ],
+      },
+      {
+        heading: 'A note from my own shoebox',
+        paragraphs: [
+          'I ran this on a torn photo of a terrier my family lost years ago. The print was creased across one eye, and the restore step alone made me pause. The pixel version now sits in my taskbar, and I open the desktop more often than I expected. A childhood pet deserves more than a drawer.',
+        ],
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop. Start at the homepage to upload your pet, or open the /pricing page to compare the Pro and Unlimited tiers before you generate. If you want the full walkthrough from any photo, read our turn-photo-into-pixel-art guide on the blog at codexpetgenerator.com/blog.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'restore-old-photos-codex-pets-zh',
+    title: '修复老照片：把童年宠物做成 Codex 像素桌宠',
+    description:
+      '一份实用指南：如何修复旧宠物照片，并把它们变成像素风的 Codex 桌宠。涵盖扫描、去黄、去污，以及从一张泛黄照片生成桌面伴侣。',
+    date: '2026-09-04',
+    author: 'PetGen',
+    keywords: [
+      '老照片 像素宠物',
+      '童年宠物 codex',
+      '修复老照片 像素画',
+      'old photo pixel pet',
+      'vintage pet photo pixel',
+    ],
+    related: ['turn-photo-into-pixel-art'],
+    faq: [
+      {
+        question: '撕过或褪色严重的照片也能用吗？',
+        answer: '能用。把原片用平板扫成 600 DPI，再做一次快速修复：拉对比、去黄味、修掉灰尘。干净的源图能让生成器有一个清楚的主体去描摹。',
+      },
+      {
+        question: '需要会 Photoshop 吗？',
+        answer: '不需要。免费的自动调色和修复工具十分钟就能处理大部分照片。你修图是为了让像素成品看起来是刻意的，而不是糊的。',
+      },
+      {
+        question: '生成的 Codex 桌宠会像我真正的宠物吗？',
+        answer: '只要修复后的方图尽量居中、背景干净，精灵就越像那只动物。紧一点、对比高一点的一方裁切，胜过大场景的整张扫描。',
+      },
+    ],
+    sections: [
+      {
+        heading: '为什么一张泛黄照片能成为你最爱的 Codex 桌宠',
+        paragraphs: [
+          '旧宠物照片承载的重量，是新拍的快照永远给不了的。一张童年猫狗的褪色照片是家庭记忆的一部分，把它变成像素伴侣，能让那只动物在你桌面上一直陪着你，远在相纸发黄之后。',
+          'Codex Pet Generator 的流程在清晰、高对比度的图像上表现最好，所以生成前做一次简单修复很划算。你修复照片不是为了裱框，而是给模型一个清楚的描摹对象。',
+        ],
+      },
+      {
+        heading: '从你手边最清晰的源开始',
+        paragraphs: [
+          '如果原片还在，用平板扫描仪扫成 600 DPI，别用手机拍。平板扫描没有反光和透视变形，修复步骤要对抗的噪点更少。',
+          '没有原片？亲戚发来的数码版也行。哪怕只是社交平台相册里一张不大的图，只要压缩不重就能用。目标很简单：找到你能找到的最清晰版本。',
+        ],
+      },
+      {
+        heading: '像素化之前先做修复',
+        paragraphs: [
+          '你不需要 Photoshop 功底。免费工具就能搞定大部分：拉对比、去掉黄味、把灰尘点修掉。花十分钟，像素成品会显得是刻意的，而不是糊的。',
+        ],
+        list: [
+          '原片还在就用平板扫 600 DPI，而不是手机拍。',
+          '用自动色彩或白平衡吸管去掉黄味。',
+          '用修复笔刷清掉灰尘、折痕和水渍。',
+          '导出只含宠物、居中、背景干净的正方框选。',
+        ],
+      },
+      {
+        heading: '用修复后的照片生成 Codex 桌宠',
+        paragraphs: [
+          '把清理好的方图上传到 Codex Pet Generator，让它描出像素精灵。主体简单、居中、背景干净，得到的精灵图最干净，因为模型要猜测的边缘更少。',
+          '如果第一版不对，试试更紧的裁切或对比度稍高一点。源图的小改动比你想的大，而且你弃掉的试验不占额度。',
+        ],
+      },
+      {
+        heading: '来自我自己鞋盒里的一句话',
+        paragraphs: [
+          '我用一张撕过的照片试过，是我家多年前走失的一只梗犬。照片有一道折痕横过一只眼睛，光是修复那一步就让我停了很久。现在像素版停在我的任务栏里，我打开桌面的次数比预想的多。童年宠物，不该只待在抽屉里。',
+        ],
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成能在桌面运行的像素伴侣。从首页上传你的宠物，或打开 /pricing 页面对比 Pro 与 Unlimited 两档再生成。想看从任意照片出发的完整流程，去博客读 turn-photo-into-pixel-art 指南，地址是 codexpetgenerator.com/blog。',
+        ],
+      },
+    ],
+  },
 ];
