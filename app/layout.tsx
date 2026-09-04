@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Press_Start_2P } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { LanguageProvider } from '@/lib/i18n'
 import { SITE } from '@/lib/seo'
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: `Codex Pet Generator — Free AI Pet Maker`,
-    template: `%s | ${SITE.name}`,
+    template: `%s | ${SITE.titleBrand}`,
   },
   description: SITE.description,
   keywords: SITE.keywords,
@@ -63,16 +63,23 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-// Google Fonts via next/font (server-optimized, no event handlers)
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+// Self-hosted fonts via @fontsource (copied into app/fonts) — no Google Fonts
+// request at build time or runtime. Identical families/weights as before.
+const inter = localFont({
+  src: [
+    { path: './fonts/inter-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/inter-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/inter-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/inter-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-inter',
+  display: 'swap',
 })
-const pressStart = Press_Start_2P({
-  subsets: ['latin'],
+const pressStart = localFont({
+  src: './fonts/press-start-2p-latin-400-normal.woff2',
   weight: '400',
   variable: '--font-pixel',
+  display: 'swap',
 })
 
 const orgJsonLd = {
@@ -113,16 +120,12 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
-        {/* Fonts are self-hosted via next/font — no external Google Fonts preconnect needed. */}
-        {/* Single-URL multilingual site: all language variants live on the same
-            URL (cookie-driven i18n), so every hreflang points to the root. */}
-        <link rel="alternate" hrefLang="en" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="zh-CN" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="ja" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="ko" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="fr" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="de" href={SITE.url + '/'} />
-        <link rel="alternate" hrefLang="x-default" href={SITE.url + '/'} />
+        {/* No hreflang cluster: every language variant lives on the SAME URL
+            (cookie-driven i18n), so there are no per-language URLs to declare.
+            Emitting hreflang here pointed 7 languages at one canonical URL,
+            which Google treats as an invalid cluster and discards. Once real
+            per-locale routes (/zh, /ja, ...) ship, add a proper reciprocal
+            cluster plus self-referencing entries. */}
         {GA_ID && isProd && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

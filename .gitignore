@@ -37,3 +37,10 @@ homepage*.yml
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local build runner + artifacts (not part of the app)
+/run.mjs
+/BUILD.txt
+/TSC.txt
+/_npm_install.log
+/_npm.log

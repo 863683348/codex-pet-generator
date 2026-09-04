@@ -81,6 +81,21 @@ export default async function BlogPostPage({
       }
     : null
 
+  const howToJsonLd = post.howTo
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: post.howTo.name,
+        description: post.description,
+        step: post.howTo.steps.map((text, i) => ({
+          '@type': 'HowToStep',
+          position: i + 1,
+          name: `Step ${i + 1}`,
+          text,
+        })),
+      }
+    : null
+
   const RELATED_LIMIT = 4
   const currentSlug = post.slug
   const relatedPosts: BlogPost[] = []
@@ -111,6 +126,7 @@ export default async function BlogPostPage({
       <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd()} />
       {faqJsonLd && <JsonLd data={faqJsonLd} />}
+      {howToJsonLd && <JsonLd data={howToJsonLd} />}
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex flex-wrap items-center gap-1 text-xs text-text-muted">

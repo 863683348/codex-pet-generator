@@ -7,6 +7,10 @@ export interface BlogPost {
   keywords: string[]
   related?: string[]
   faq?: { question: string; answer: string }[]
+  // Optional HowTo markup for step-by-step tutorials. Emits schema.org/HowTo
+  // so Google can render the steps directly in results. Only set this on posts
+  // that are genuinely a linear procedure — misusing it risks a manual action.
+  howTo?: { name: string; steps: string[] }
   sections: {
     heading: string
     paragraphs?: string[]
@@ -127,6 +131,17 @@ export const posts: BlogPost[] = [
       'pet spritesheet',
       'pet.json',
       'OpenAI Codex pet',
+      'spritesheet dimensions',
+      'codex pet animation states',
+      'pet.json schema',
+      '1536x1872 spritesheet',
+      'spritesheet grid layout',
+    ],
+    related: [
+      'codex-pet-9-animation-states',
+      'how-to-install-codex-pet',
+      'codex-pet-not-showing-fixes',
+      'codex-pet-image-formats-jpg-png-webp',
     ],
     faq: [
       { question: 'What is a pet spritesheet in Codex?', answer: 'A pet spritesheet is a single image file that packs every animation frame of your desktop pet into a grid. Codex reads this exact grid to play idle, walk, and other animations. PetGen outputs a 1536x1872 transparent spritesheet with the precise layout Codex expects, so your pet renders correctly out of the box.' },
@@ -137,8 +152,74 @@ export const posts: BlogPost[] = [
       {
         heading: 'Spritesheet basics',
         paragraphs: [
-          'A spritesheet is a single image containing every frame of animation in a grid. PetGen outputs a 1536x1872 transparent spritesheet with the exact grid Codex expects.',
-          'pet.json is a metadata file with the pet name, description, and spritesheet path.',
+          'A spritesheet is a single image containing every frame of animation in a grid. Instead of loading 72 separate files, Codex opens one image and reads rectangular slices out of it in order. That is why a pet package is only two files: the sheet itself and a small JSON file describing it.',
+          'PetGen outputs a 1536x1872 transparent spritesheet with the exact grid Codex expects, and a pet.json that names the pet and points at the sheet. Put both in one folder, drop that folder into ~/.codex/pets (or %USERPROFILE%\\.codex\\pets on Windows), restart Codex, and the pet appears.',
+        ],
+      },
+      {
+        heading: 'The exact grid: 1536x1872',
+        paragraphs: [
+          'The numbers are not arbitrary. The sheet is 1536 pixels wide and 1872 pixels tall, divided into 9 rows of 8 columns. That gives 72 frames total, and each individual frame works out to 192x208 pixels.',
+          'You can verify the arithmetic: 8 columns x 192px = 1536px wide, and 9 rows x 208px = 1872px tall. If a generator hands you a sheet with different dimensions, Codex will either crop it, stretch it, or skip the pet entirely — there is no auto-scaling fallback.',
+        ],
+      },
+      {
+        heading: 'The nine animation states',
+        paragraphs: [
+          'Each of the 9 rows is one animation state, and each row holds 8 frames that play as a loop. The standard set covers idle, walk, run, sit, sleep, eat, play, happy, and a special or reaction state.',
+          'The idle row matters most in practice — it is what your pet does for the overwhelming majority of the time it is on screen. A pet with a charming idle animation and mediocre everything else still feels alive; the reverse feels broken.',
+        ],
+      },
+      {
+        heading: 'How Codex maps frames to motion',
+        paragraphs: [
+          'Codex treats the row index as the state and the column index as the frame number within that state. To play the walk cycle it reads row 1, then walks columns 0 through 7, loops back to 0, and keeps going until the state changes.',
+          'This is why frame ordering is strict. Shuffling frames within a row produces a pet that twitches instead of moving, and no error is reported — the loader has no way to know the frames are out of order. If your pet looks like it is vibrating, suspect frame order first.',
+        ],
+      },
+      {
+        heading: 'pet.json, field by field',
+        paragraphs: [
+          'pet.json is deliberately small. The fields that matter are name (the identifier Codex uses and the value that must match the folder name), description (free text, shown in some UI surfaces), and the spritesheet reference (usually just the filename spritesheet.webp, resolved relative to the folder).',
+          'The name field causes more failures than every other field combined. If the folder is my-cat-v2 but pet.json still declares name: "my-cat", the loader can refuse to mount the pet and will not tell you why. Copy the name value out of the JSON, rename the folder to match it exactly, and restart.',
+        ],
+      },
+      {
+        heading: 'Why WebP rather than PNG',
+        paragraphs: [
+          'The sheet is WebP because it supports a full alpha channel at a fraction of the file size of an equivalent PNG. A 1536x1872 sheet with transparency is large enough that the format choice is noticeable: WebP versions typically land in the tens of kilobytes where PNG would run several times larger.',
+          'Smaller files load faster and redraw more cheaply, which matters for something sitting on your desktop all day. Codex supports WebP with alpha natively, so there is no compatibility tradeoff in using it.',
+        ],
+      },
+      {
+        heading: 'Four format mistakes that break a pet silently',
+        paragraphs: [
+          'These four account for most "the pet installed but nothing happened" reports. None of them produces an error message, which is what makes them hard to diagnose.',
+        ],
+        list: [
+          'Wrong dimensions — the sheet is not exactly 1536x1872, so the 9x8 grid does not divide cleanly and frames land on the wrong boundaries.',
+          'Missing or renamed file — the loader looks for spritesheet.webp by that exact name. A file called spritesheet (1).webp, or one still nested in a subfolder after unzipping, is invisible to it.',
+          'Name mismatch — the folder name under ~/.codex/pets does not match the name field inside pet.json.',
+          'No restart — Codex reads the pets directory at startup. Closing the window is not quitting on macOS, and on Windows the app keeps running in the tray.',
+        ],
+      },
+      {
+        heading: 'How to verify a package before installing',
+        paragraphs: [
+          'Two checks take under a minute and catch nearly everything. Run them before you go looking for more exotic causes.',
+        ],
+        list: [
+          'Validate the JSON: node -e "JSON.parse(require(\'fs\').readFileSync(\'pet.json\',\'utf8\'))" — if it throws, the file is malformed.',
+          'Confirm the sheet dimensions are 1536x1872 and that spritesheet.webp sits directly beside pet.json, with no nested folder from the ZIP extraction.',
+          'Check that the folder name and the name field inside pet.json are byte-identical, including hyphens and capitalisation.',
+          'Fully quit Codex (Cmd+Q on macOS, exit from the tray icon on Windows), relaunch, and wait a few seconds before concluding it failed.',
+        ],
+      },
+      {
+        heading: 'Building one by hand',
+        paragraphs: [
+          'It is possible to assemble a package manually, and doing it once is the fastest way to understand the format. Draw or export 72 frames at 192x208 each, compose them into a 9-row by 8-column grid with a transparent background, export as WebP with alpha, then write a pet.json whose name matches the folder you are about to create.',
+          'The honest caveat is that hand-pixeling 72 coherent frames takes hours, and matching the palette and silhouette across all nine states is harder than any single frame suggests. A generator collapses that into about a minute, which is the entire reason these tools exist — but knowing what the output should look like makes you much better at spotting when something went wrong.',
         ],
       },
     ],
@@ -887,6 +968,12 @@ export const posts: BlogPost[] = [
       'pet.json name mismatch',
       'codex pet spritesheet missing',
       '~/.codex/pets folder fix',
+    ],
+    related: [
+      'what-is-pet-spritesheet',
+      'installation-troubleshooting',
+      'how-to-install-codex-pet',
+      'codex-pet-upload-limit',
     ],
     faq: [
       { question: 'Why is my Codex pet not showing after install?', answer: 'Nine times out of ten it is one of three things: the folder name inside ~/.codex/pets does not match the name field in pet.json, spritesheet.webp is missing or named differently, or Codex was not fully restarted (Cmd+Q / tray exit). Fix those three and it almost always appears.' },
@@ -2679,6 +2766,202 @@ export const posts: BlogPost[] = [
         heading: '关于 Codex Pet Generator',
         paragraphs: [
           'Codex Pet Generator（codexpetgenerator.com）把一张照片变成能在桌面运行的像素伴侣。从首页上传你的宠物，或打开 /pricing 页面对比 Pro 与 Unlimited 两档再生成。想看从任意照片出发的完整流程，去博客读 turn-photo-into-pixel-art 指南，地址是 codexpetgenerator.com/blog。',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'how-to-create-a-codex-pet',
+    title: 'How to Create a Codex Pet: Step-by-Step Guide',
+    description:
+      'Turn any photo into an animated pixel-art pet for OpenAI Codex. Six steps from source photo to a companion running on your desktop, plus what to check when it does not appear.',
+    date: '2026-09-04',
+    author: 'PetGen',
+    keywords: [
+      'how to create a codex pet',
+      'how to make codex pet',
+      'how to use codex pet',
+      'make a custom codex pet',
+      'codex pet from photo',
+      'create pet for openai codex',
+      'codex pet step by step',
+    ],
+    related: [
+      'what-is-pet-spritesheet',
+      'codex-pet-not-showing-fixes',
+      'what-is-a-codex-pet',
+      'best-photos-for-pixel-pet-generator',
+    ],
+    howTo: {
+      name: 'How to create a Codex pet from a photo',
+      steps: [
+        'Choose a clear, centered photo of your pet with a plain background and even lighting.',
+        'Upload the photo to a Codex-aware generator such as codexpetgenerator.com and wait for the pixel-art base to render.',
+        'Review the pixel-art base and regenerate with a tighter crop or higher contrast if the silhouette is wrong.',
+        'Approve the base to generate all nine animation states into spritesheet.webp plus a pet.json, then download the ZIP.',
+        'Extract the ZIP and copy the folder into ~/.codex/pets on macOS, or %USERPROFILE%\\.codex\\pets on Windows.',
+        'Rename the folder so it matches the name field inside pet.json exactly, including hyphens and capitalisation.',
+        'Fully quit Codex (Cmd+Q on macOS, exit from the tray icon on Windows) and relaunch, then wait a few seconds for the pet to appear.',
+      ],
+    },
+    faq: [
+      { question: 'How do I create a Codex pet from a photo?', answer: 'Upload a clear, centered photo to a Codex-aware generator such as codexpetgenerator.com. The tool removes the background, draws a pixel-art base for you to approve, then renders nine animation states into a spritesheet.webp plus a pet.json. Download the ZIP, copy the folder into ~/.codex/pets on macOS or %USERPROFILE%\\.codex\\pets on Windows, and fully restart Codex.' },
+      { question: 'Can I make a Codex pet without any design skills?', answer: 'Yes. The generator handles background removal, pixelation, animation frames, and the metadata file. You pick the photo and approve the result — there is no drawing, no frame slicing, and no JSON editing involved.' },
+      { question: 'How long does it take to create one?', answer: 'Generation takes roughly 60 to 90 seconds once the photo is uploaded. Including picking a photo and installing the result, most people have a pet running within five minutes.' },
+      { question: 'Do I need to restart Codex after installing a pet?', answer: 'Yes, and it must be a full quit rather than closing the window. Codex reads the pets directory at startup, so on macOS use Cmd+Q and on Windows exit from the tray icon, then relaunch. Skipping this is the single most common reason a correctly installed pet never appears.' },
+    ],
+    sections: [
+      {
+        heading: 'What you need before you start',
+        paragraphs: [
+          'The whole process is shorter than the setup list suggests, but having these four things ready means you will not stop halfway.',
+        ],
+        list: [
+          'The OpenAI Codex desktop app, installed and launched at least once so its config directory exists.',
+          'One photo of your pet — a cat, dog, hamster, tortoise, or anything else you want on your desktop.',
+          'A Codex-aware generator. This walkthrough uses codexpetgenerator.com, which outputs the spritesheet and pet.json Codex expects.',
+          'A terminal or file manager, for copying the finished folder into the pets directory.',
+        ],
+      },
+      {
+        heading: 'Step 1: Choose and prepare your photo',
+        paragraphs: [
+          'Photo choice drives output quality more than any setting in the generator. A single subject, centered in frame, lit evenly, and shot against a plain background gives the model the least to guess about.',
+          'Facing the camera helps a lot. Profile shots work, but three-quarter views tend to read better once reduced to a pixel grid, because more of the face survives the simplification. Avoid heavy filters and busy backgrounds — both get interpreted as part of the animal.',
+        ],
+      },
+      {
+        heading: 'Step 2: Generate the pixel-art base',
+        paragraphs: [
+          'Upload the photo. The generator removes the background, detects the pose, and renders a pixel-art base character — typically within about 90 seconds. Nothing is installed yet at this stage; you are looking at a preview you can still change.',
+          'This is the moment to regenerate rather than push ahead. If the silhouette is wrong or the colours are off, a different crop or a slightly higher-contrast version of the same photo will usually beat any amount of post-processing.',
+        ],
+      },
+      {
+        heading: 'Step 3: Approve the base',
+        paragraphs: [
+          'Once the base looks right, approve it. Approval is what triggers the expensive part: the generator renders all nine animation states, composes them into a single 1536x1872 spritesheet, writes the matching pet.json, and packs both into a ZIP.',
+          'Nine states means 72 individual frames. Doing that by hand is what makes manual spritesheets so time-consuming, and it is the main reason to use a generator at all.',
+        ],
+      },
+      {
+        heading: 'Step 4: Download the package',
+        paragraphs: [
+          'Download the ZIP and extract it. Inside you should see exactly two files sitting side by side: spritesheet.webp and pet.json. If they are nested one level deeper inside a folder from the extraction, note the folder name — that inner folder is what Codex will read.',
+          'The folder name matters. Whatever you end up calling it must match the name field inside pet.json, character for character.',
+        ],
+      },
+      {
+        heading: 'Step 5: Install into the pets directory',
+        paragraphs: [
+          'Copy the folder into ~/.codex/pets on macOS, or %USERPROFILE%\\.codex\\pets on Windows. If the pets directory does not exist yet, create it — Codex will not build it for you on first run.',
+          'Open pet.json and read the name field, then rename the folder you just copied so it matches that value exactly. A folder called my-cat-v2 whose JSON declares name "my-cat" is enough to make the loader skip the pet without any error message.',
+        ],
+      },
+      {
+        heading: 'Step 6: Restart and confirm',
+        paragraphs: [
+          'Fully quit Codex — Cmd+Q on macOS, or exit from the tray icon on Windows — then relaunch and wait a few seconds. Closing the window is not sufficient on either platform, because the process keeps running in the background and never re-reads the pets directory.',
+          'Your pet should now be on your desktop. If it is not, resist the urge to start over: the failure is almost always one of four things, and all four are quick to check.',
+        ],
+      },
+      {
+        heading: 'What to do when nothing appears',
+        paragraphs: [
+          'Work through these in order. Each one takes under a minute, and together they account for the overwhelming majority of "I installed it but it is not there" reports.',
+        ],
+        list: [
+          'Confirm the restart was a real restart — process fully exited, not just the window closed.',
+          'Check that the folder name and the name field in pet.json are byte-identical, including hyphens and capitalisation.',
+          'Verify spritesheet.webp is named exactly that and sits directly beside pet.json, not in a nested subfolder.',
+          'Validate the JSON with node -e "JSON.parse(require(\'fs\').readFileSync(\'pet.json\',\'utf8\'))" — a trailing comma is enough to break it.',
+        ],
+      },
+      {
+        heading: 'Making changes later',
+        paragraphs: [
+          'To swap your pet, generate a new one and give it a distinct name, or replace the files in the existing folder — keeping the name consistent means you do not have to redo the install steps.',
+          'If you want several pets, give each one a unique name field. Two folders declaring the same name is a known failure mode: the loader picks one and silently ignores the other, which looks exactly like an install that did not work.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'what-can-a-codex-pet-do',
+    title: 'What Can a Codex Pet Do? All 9 States Explained',
+    description:
+      'A Codex pet is a small animated companion that lives on your desktop. What it actually does, the nine animation states, and the limits worth knowing before you generate one.',
+    date: '2026-09-04',
+    author: 'PetGen',
+    keywords: [
+      'what can codex pet do',
+      'what is a codex pet',
+      'what are pets in codex',
+      'codex pet animation states',
+      'codex desktop pet',
+      'codex pet features',
+      'openai codex pets explained',
+    ],
+    related: [
+      'what-is-a-codex-pet',
+      'codex-pet-9-animation-states',
+      'what-is-pet-spritesheet',
+      'how-to-create-a-codex-pet',
+    ],
+    faq: [
+      { question: 'What does a Codex pet actually do?', answer: 'It is an animated pixel-art companion that sits on your desktop while you work. It cycles through nine animation states — idle, walk, run, sit, sleep, eat, play, happy, and a reaction state — and otherwise stays out of the way. It is cosmetic; it does not affect how Codex writes or runs code.' },
+      { question: 'Does a Codex pet slow down my machine?', answer: 'Barely. A pet is a single WebP spritesheet of around 1536x1872 pixels plus a small JSON file, typically a few tens of kilobytes. Redrawing a small 2D sprite is negligible next to anything else running while you code.' },
+      { question: 'Can I have more than one pet?', answer: 'Yes. Install each pet as its own folder under ~/.codex/pets and give every one a unique name field in its pet.json. Duplicate names cause the loader to pick one and silently ignore the rest.' },
+      { question: 'Can the pet interact with my code or terminal?', answer: 'No. The pet is purely visual — it does not read your code, respond to commands, or send notifications. Its animation states play independently of what you are doing.' },
+    ],
+    sections: [
+      {
+        heading: 'The short answer',
+        paragraphs: [
+          'A Codex pet is a small animated pixel-art companion that lives on your desktop while you work. It is generated from a photo you upload, rendered as a spritesheet, and installed into a directory the Codex desktop app reads at startup.',
+          'It is cosmetic by design. It does not read your code, respond to commands, or surface notifications — it sits somewhere on screen and quietly animates. For most people that is the entire appeal: something familiar in the corner while you work.',
+        ],
+      },
+      {
+        heading: 'The nine animation states',
+        paragraphs: [
+          'A standard pet ships with nine states, each an eight-frame loop that plays continuously. The set is idle, walk, run, sit, sleep, eat, play, happy, and a special or reaction state.',
+          'Idle is the one that matters most in practice. It runs the overwhelming majority of the time, so a pet with a good idle animation feels alive even if the other states are unremarkable — and a pet with a stiff idle feels broken no matter how good the rest are.',
+        ],
+      },
+      {
+        heading: 'What the pet does not do',
+        paragraphs: [
+          'Being clear about limits saves disappointment. A Codex pet does not respond to what you are typing, does not react to build failures or test results, and has no concept of your project.',
+          'It also cannot be interacted with directly in most builds — clicking it does not trigger anything, and there is no menu of tricks. Think of it as a screensaver with better provenance rather than a virtual pet game.',
+        ],
+      },
+      {
+        heading: 'Where it lives on screen',
+        paragraphs: [
+          'The pet renders as a small transparent sprite, usually near an edge or corner of the desktop, and drifts within a limited area rather than roaming freely across your windows.',
+          'Because the spritesheet carries an alpha channel, the background is genuinely transparent — your wallpaper shows through rather than a coloured box. This is the detail that separates a pet that looks embedded in your desktop from one that looks pasted on top of it.',
+        ],
+      },
+      {
+        heading: 'Running several pets at once',
+        paragraphs: [
+          'You can install as many as you like. Each lives in its own folder under ~/.codex/pets, and each needs a unique name field in its pet.json.',
+          'Uniqueness is not optional. If two folders declare the same name, the loader mounts one and silently discards the other, which presents as a pet that simply refuses to appear despite a perfect install.',
+        ],
+      },
+      {
+        heading: 'What it costs in performance',
+        paragraphs: [
+          'Very little. The whole package is one WebP spritesheet plus a JSON file, usually a few tens of kilobytes, and redrawing a small 2D sprite is trivial compared with an editor, a language server, and a browser.',
+          'WebP is used over PNG precisely for this reason: full transparency at a fraction of the file size, which keeps both load time and per-frame decode cost low on a surface you are looking at all day.',
+        ],
+      },
+      {
+        heading: 'Getting one of your own',
+        paragraphs: [
+          'Upload a clear, centered photo to a Codex-aware generator and it handles background removal, pixelation, all nine animation states, and the metadata file — typically in about a minute.',
+          'What you get back is a ZIP containing spritesheet.webp and pet.json. Copy the folder into ~/.codex/pets, make the folder name match the name field, fully restart Codex, and it is running.',
         ],
       },
     ],

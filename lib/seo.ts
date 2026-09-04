@@ -9,8 +9,12 @@ const rawSiteUrl =
 export const SITE_URL = rawSiteUrl.replace(/\/+$/, '')
 
 export const SITE = {
+  // Short form used for PWA manifest short_name and compact UI labels.
   name: 'PetGen',
+  // Full brand used in every SERP-facing surface (title suffix, OG, JSON-LD).
+  // Must match the domain so users who search "codex pet ..." recognise the result.
   fullName: 'Codex Pet Generator',
+  titleBrand: 'Codex Pet Generator',
   url: SITE_URL,
   description:
     'Free AI pet generator — turn any photo into a custom pixel-art pet (spritesheet.webp + pet.json) for OpenAI Codex. Upload a picture, approve the character, and download your installable coding companion. Fast, no sign-up, works for cats, dogs, and fantasy pets.',
@@ -54,7 +58,15 @@ export function buildMetadata({
 }: SeoInput = {}): Metadata {
   const desc = description || SITE.description
   const url = SITE.url + (path === '/' ? '/' : path)
-  const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.fullName} — AI Pet Generator`
+
+  // SERP titles render at roughly 580px (~60 chars). Appending the brand to an
+  // already-long title pushes the keyword tail past the truncation point, which
+  // costs more clicks than the brand impression is worth. So: append the brand
+  // only when the result still fits; otherwise ship the focused title as-is.
+  const baseTitle = title || `${SITE.fullName} — AI Pet Generator`
+  const brandSuffix = ` | ${SITE.titleBrand}`
+  const fullTitle =
+    baseTitle.length + brandSuffix.length <= 60 ? baseTitle + brandSuffix : baseTitle
 
   const og = {
     type,
@@ -79,7 +91,9 @@ export function buildMetadata({
   }
 
   return {
-    title,
+    // `absolute` bypasses the root layout title template so the length rule above
+    // is the single source of truth for how a title reaches the SERP.
+    title: { absolute: fullTitle },
     description: desc,
     keywords: keywords || SITE.keywords,
     alternates: { canonical: url },
