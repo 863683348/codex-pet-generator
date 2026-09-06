@@ -2966,4 +2966,168 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+
+  {
+    slug: 'export-formats-explained',
+    title: 'Export Formats Explained: WebP, PNG and the ZIP Bundle',
+    description:
+      'When you generate a Codex pet you get a few file choices back. Here is what WebP, PNG, and the ZIP bundle each do, and which one you actually need to install a pet on your desktop.',
+    date: '2026-09-06',
+    author: 'PetGen',
+    keywords: [
+      'codex pet download format',
+      'codex pet webp vs png',
+      'pet zip download',
+      'codex pet file download',
+      'codex pet spritesheet format',
+      'webp vs png codex pet',
+    ],
+    related: [
+      'hd-vs-4k-spritesheets',
+      'what-is-pet-spritesheet',
+      'how-to-create-a-codex-pet',
+    ],
+    howTo: {
+      name: 'How to download your Codex pet files',
+      steps: [
+        'Generate the pet from a photo on codexpetgenerator.com and wait for the pixel-art base to render.',
+        'Approve the base so the tool renders all nine animation states into a spritesheet and a pet.json.',
+        'Click download to receive a single ZIP containing spritesheet.webp and pet.json.',
+        'Extract the ZIP and copy the folder into the Codex pets directory, keeping the folder name equal to the name field in pet.json.',
+        'Fully restart Codex and wait a few seconds for the pet to appear on your desktop.',
+      ],
+    },
+    faq: [
+      { question: 'What format does a Codex pet use?', answer: 'A Codex pet is built from a single WebP spritesheet plus a small pet.json file. The spritesheet holds all nine animation states in one image, and the JSON tells Codex how to slice and play it.' },
+      { question: 'Can I download a Codex pet as PNG instead of WebP?', answer: 'Yes, most generators also export a PNG version of the sheet. PNG is easier to open in plain image tools, but it is larger and lacks the compression WebP gives you, so it is best kept for edits rather than daily use.' },
+      { question: 'Is the ZIP bundle required to install a pet?', answer: 'For installation you need the folder with both spritesheet.webp and pet.json together. The ZIP is simply the bundled download that keeps those two files side by side, so it is the most reliable way to move them.' },
+      { question: 'What is the spritesheet.webp file?', answer: 'It is the master image that contains every animation frame for your pet. Codex reads it at startup, cuts it into the individual states, and loops them on your desktop.' },
+    ],
+    sections: [
+      {
+        heading: 'What the download contains',
+        paragraphs: [
+          'After you approve a pet, the generator hands you a codex pet file download in three flavors. There is a WebP spritesheet, a PNG version of that sheet, and a ZIP that bundles the WebP with the pet.json metadata. Knowing what each one is for saves confusion the first time you install.',
+        ],
+      },
+      {
+        heading: 'WebP vs PNG: what each file is for',
+        paragraphs: [
+          'The codex pet webp vs png question comes up on every first install. WebP is the format Codex actually reads: it carries a transparent background at a small file size, which keeps load time low on a sprite you stare at all day. PNG is the same picture in a heavier, more universally editable form.',
+          'Use WebP for running the pet. Use PNG when you want to open the sheet in Photoshop or a sprite editor, because nearly every tool understands PNG without extra plugins.',
+        ],
+      },
+      {
+        heading: 'Why the ZIP bundle is what you install',
+        paragraphs: [
+          'The pet zip download is the practical choice. Inside you get spritesheet.webp and pet.json sitting next to each other, which is exactly the layout Codex expects. Unpack it, drop the folder into the pets directory, and the pairing is already correct.',
+          'Grabbing the WebP alone is possible, but then you must supply the pet.json separately and keep the names in sync. The ZIP removes that step and the mistakes that come with it.',
+        ],
+      },
+      {
+        heading: 'WebP, PNG, and ZIP at a glance',
+        list: [
+          'WebP spritesheet: the live format Codex reads, small and transparent.',
+          'PNG sheet: the editable mirror, larger, good for editing only.',
+          'ZIP bundle: WebP plus pet.json, the file you actually install from.',
+        ],
+      },
+      {
+        heading: 'PNG when you need a single frame',
+        paragraphs: [
+          'Sometimes you do not want the whole animation. A PNG export lets you pull one frame into a thumbnail, a social post, or a custom edit without wrestling a multi-frame WebP. Treat it as a side product, not the install source.',
+        ],
+      },
+      {
+        heading: 'Getting the files onto your desktop',
+        paragraphs: [
+          'Extract the ZIP, copy the folder into the Codex pets directory, and make the folder name match the name field inside pet.json. Then fully restart Codex. The pet should appear within a few seconds.',
+          'If nothing shows, the cause is almost always the folder name not matching the JSON, or a restart that closed the window instead of quitting the process. Both are quick to fix.',
+          'Ready to make one? Generate a pet from any photo on codexpetgenerator.com, then follow the install guide at /blog/how-to-create-a-codex-pet or browse /blog for more. It all starts at /.',
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: 'export-formats-explained-zh',
+    title: '导出格式全解：WebP、PNG 与 ZIP 包的区别',
+    description:
+      '生成一只 Codex 桌宠后，你会拿到几种文件。本文说明 WebP、PNG 和 ZIP 包各自的作用，以及真正用来安装到桌面的到底是哪一个。',
+    date: '2026-09-06',
+    author: 'PetGen',
+    keywords: [
+      'codex pet 导出格式',
+      'codex pet webp png 区别',
+      'pet zip 下载',
+      'codex pet 文件下载',
+      'codex pet 精灵图格式',
+      'webp png codex pet',
+    ],
+    related: [
+      'hd-vs-4k-spritesheets',
+      'what-is-pet-spritesheet',
+      'how-to-create-a-codex-pet',
+    ],
+    howTo: {
+      name: '如何下载你的 Codex 桌宠文件',
+      steps: [
+        '在 codexpetgenerator.com 上传照片，等待像素风底图渲染完成。',
+        '确认底图，让工具把九个动画状态渲染成一张精灵图和一份 pet.json。',
+        '点击下载，拿到一个内含 spritesheet.webp 与 pet.json 的 ZIP。',
+        '解压 ZIP，把文件夹复制到 Codex 的 pets 目录，并保持文件夹名与 pet.json 里的 name 字段一致。',
+        '彻底重启 Codex，等待几秒，桌宠就会出现在桌面上。',
+      ],
+    },
+    faq: [
+      { question: 'Codex 桌宠用的是哪种格式？', answer: '一只 Codex 桌宠由一张 WebP 精灵图加一份很小的 pet.json 组成。精灵图把九个动画状态收进同一张图里，JSON 则告诉 Codex 怎么切片、怎么播放。' },
+      { question: '能不能把 Codex 桌宠下载成 PNG 而不是 WebP？', answer: '可以，多数生成器也会导出一张 PNG 版精灵图。PNG 更容易用普通图像工具打开，但体积更大、也没有 WebP 的压缩优势，所以更适合拿去改图，而不是日常运行。' },
+      { question: '安装桌宠一定要用 ZIP 包吗？', answer: '安装时你需要的是同时包含 spritesheet.webp 和 pet.json 的那个文件夹。ZIP 只是把这两个文件并排打包好的下载形式，所以它是移动文件最稳的方式。' },
+      { question: 'spritesheet.webp 到底是什么？', answer: '它是承载桌宠所有动画帧的主图。Codex 启动时会读取它，切成各个状态，然后在桌面上循环播放。' },
+    ],
+    sections: [
+      {
+        heading: '下载里到底有什么',
+        paragraphs: [
+          '确认底图后，生成器会给你一份 codex pet 文件下载，有三种形态：一张 WebP 精灵图、一张同图的 PNG 版本，以及一个把 WebP 和 pet.json 打包在一起的 ZIP。搞清楚各自用途，第一次安装时就不会乱。',
+        ],
+      },
+      {
+        heading: 'WebP 与 PNG：各管什么',
+        paragraphs: [
+          'codex pet 的 webp 与 png 之争，几乎每个新手都会碰到。WebP 才是 Codex 真正读取的格式：它带着透明背景、体积小，对你整天盯着的那只精灵来说加载也轻。PNG 是同一张图的更重、更通用的可编辑版本。',
+          '运行桌宠用 WebP。想用 Photoshop 或精灵图编辑器打开那张图时再用 PNG，因为几乎什么工具都认 PNG，不需要额外插件。',
+        ],
+      },
+      {
+        heading: '为什么安装真正用的是 ZIP 包',
+        paragraphs: [
+          'pet 的 zip 下载是最实用的选择。里面 spritesheet.webp 与 pet.json 并排摆好，正好是 Codex 期望的布局。解压后把文件夹丢进 pets 目录，配对就已经是对的。',
+          '只拿 WebP 也行，但你就得另外提供 pet.json，还得让两边名字对上。ZIP 省掉了这一步，也省掉了随之而来的各种手误。',
+        ],
+      },
+      {
+        heading: 'WebP、PNG、ZIP 一图速览',
+        list: [
+          'WebP 精灵图：Codex 实际读取的格式，体积小且透明。',
+          'PNG 精灵图：可编辑的镜像版，体积大，仅适合改图。',
+          'ZIP 包：WebP 加 pet.json，真正用来安装的那个文件。',
+        ],
+      },
+      {
+        heading: '什么时候用 PNG 单帧',
+        paragraphs: [
+          '有时你并不想要整段动画。PNG 导出能让你把某一帧塞进缩略图、社交帖或自定义改图里，而不必去折腾多帧的 WebP。把它当副产品，别当安装源。',
+        ],
+      },
+      {
+        heading: '把文件装到桌面上',
+        paragraphs: [
+          '解压 ZIP，把文件夹复制到 Codex 的 pets 目录，并让文件夹名和 pet.json 里的 name 字段一致。然后彻底重启 Codex，几秒内桌宠就该出现了。',
+          '如果什么都没出现，原因几乎总是文件夹名和 JSON 对不上，或者重启时只是关了窗口而没有退出进程。两种都很好修。',
+          '想自己做一只？到 codexpetgenerator.com 上传任意照片生成桌宠，然后看安装教程 /blog/how-to-create-a-codex-pet，或到 /blog 翻更多图文。一切从 / 开始。',
+        ],
+      },
+    ],
+  },
 ];
