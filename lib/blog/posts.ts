@@ -3260,4 +3260,177 @@ export const posts: BlogPost[] = [
           }
     ],
   },
+  {
+    slug: 'why-developers-love-desktop-companions',
+    title: 'Why Developers Love Desktop Companions',
+    description:
+      'A desktop companion does almost nothing, and that is the point. Here is why developers keep one on screen through long coding sessions, and what actually makes it stick.',
+    date: '2026-09-12',
+    author: 'PetGen',
+    keywords: [
+      'desktop companion developers',
+      'coding companion pet',
+      'developer wellbeing pet',
+      'codex pet motivation',
+    ],
+    related: [
+      'codex-pet-ecosystem',
+      'how-to-create-a-codex-pet',
+      'what-is-pet-spritesheet',
+    ],
+    faq: [
+      {
+        question: 'Do desktop companions actually help developers focus?',
+        answer: 'For some people, yes, and the effect is small. It comes from the break the pet prompts rather than from the animation itself. If you dislike interruptions, a quiet idle pet tends to fit better than a timer that fires mid-thought.',
+      },
+      {
+        question: 'Can I make a coding companion pet from my own photo?',
+        answer: 'Yes. Upload a photo to codexpetgenerator.com and the tool renders a pixel-art base, then a spritesheet and pet.json you can install in Codex.',
+      },
+      {
+        question: 'Will a desktop pet slow down my machine?',
+        answer: 'No. A pet is one small image plus a few kilobytes of JSON. There is no process running behind it and no network call after install.',
+      },
+      {
+        question: 'How long does making one take?',
+        answer: 'Usually under five minutes. Most of that time goes into picking a photo you actually want to see every day.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Why desktop companion developers keep coming back',
+        paragraphs: [
+          'A desktop companion does very little. It sits in a corner of the screen, blinks, stretches, and reacts when you ignore it for too long. For desktop companion developers the appeal is not the animation. It is the tiny excuse to stop grinding for two seconds.',
+          'That sounds trivial until you count the hours. A coding session that runs four hours straight is rarely four good hours. The last one is usually spent rereading the same function. A pet interrupts that slide without asking you to leave the desk.',
+          'Developers spend the day in a state of partial interruption. Slack, a failing build, a reviewer who wants changes. The pet is the one interruption that asks nothing back, which is why it works as a reset rather than another distraction.',
+        ],
+      },
+      {
+        heading: 'A coding companion pet is a focus tool, not a toy',
+        paragraphs: [
+          'People assume a coding companion pet is decoration. In practice it works more like a Pomodoro timer that does not nag. The sprite changes state when the tool idles, so you notice that you have been staring at a stack trace without actually reading it.',
+          'The difference from a timer is consent. A timer interrupts you in the middle of a thought. A pet simply exists, and you choose when to look at it. Developers who mute notification popups usually tolerate that arrangement just fine.',
+          'There is a practical side too. Most developers already know they should take breaks, and most of them still skip them. A pet lowers the cost of that decision. Looking away for ten seconds is easier to justify than standing up and leaving the desk.',
+        ],
+      },
+      {
+        heading: 'What a developer wellbeing pet actually changes',
+        paragraphs: [
+          'Burnout rarely arrives as one dramatic moment. It builds from hundreds of small sessions where you skipped the break because the bug was almost solved. A developer wellbeing pet does not fix a bad sprint, and it is not therapy.',
+          'What it can do is make the break visible. When the only feedback in the room is a compiler error and a blinking cursor, an idle animation becomes a readable change of state. Small, but it is real.',
+          'Teams notice this more than individuals do. When a companion sits on every screen in a shared room, breaks start to line up on their own, and the person who has been quiet for hours gets a nudge without a manager having to give one.',
+        ],
+      },
+      {
+        heading: 'Codex pet motivation, from novelty to habit',
+        paragraphs: [
+          'The first week of any Codex pet motivation is novelty. You watch it, you screenshot it, you show someone on your team. That part fades in about three days.',
+          'What lasts is the routine the pet anchors. Upload a photo, generate a pet, install it once, and it lives in the corner while you work. The pet stops being the point and the rhythm it marks takes over.',
+          'If you want the habit to survive a busy month, install the pet before the crunch instead of during it. A companion added mid-crunch reads as one more thing to manage. A companion that was already there is just part of the desk.',
+          'This is also why a personal pet outlasts a downloaded pack. A companion made from your own photo carries a joke only you get, and that small sense of ownership keeps it on screen long after the novelty is gone.',
+        ],
+      },
+      {
+        heading: 'What makes a companion worth keeping',
+        paragraphs: [
+          'Not every pack earns its place. These are the traits that separate a pet you keep for a year from one you delete in a day.',
+        ],
+        list: [
+          'Readable at a glance, even on a 32-pixel canvas',
+          'One idle animation instead of a busy slideshow',
+          'A transparent background so it never sits in a white box',
+          'A pet.json whose name field matches the folder name',
+          'Silent by default, with no sound and no popup',
+        ],
+      },
+      {
+        heading: 'Build one you will actually keep',
+        paragraphs: [
+          'You do not need art skills for this. Upload any photo to codexpetgenerator.com, let the tool render a pixel-art base, and download a spritesheet plus pet.json. Installing it is a folder copy.',
+          'If the format is new to you, read /blog/how-to-create-a-codex-pet first, then browse /blog for more walkthroughs. Open / when you are ready to generate another one.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'why-developers-love-desktop-companions-zh',
+    title: '玩过宠物，才懂开发者为什么需要「陪伴感」',
+    description:
+      '桌宠几乎什么都不做，而这正是它的价值。本文讲开发者为什么愿意让一只小宠物陪着自己写完一整个下午的代码，以及什么样的桌宠才能留得住。',
+    date: '2026-09-12',
+    author: 'PetGen',
+    keywords: [
+      '开发者 桌宠',
+      '陪伴感 开发',
+      '编程 桌宠 专注',
+      'codex 桌宠 动力',
+    ],
+    related: [
+      'codex-pet-ecosystem-zh',
+      'how-to-create-a-codex-pet',
+      'what-is-pet-spritesheet',
+    ],
+    faq: [
+      {
+        question: '桌宠真的能让开发者更专注吗？',
+        answer: '对一部分人有效，效果很轻。起作用的是它提示你停下来，而不是动画本身。如果你讨厌被打断，安静的桌宠通常比定时器更好用，后者总在你思路正顺时弹出。',
+      },
+      {
+        question: '可以用自己的照片做一只编程桌宠吗？',
+        answer: '可以。把照片上传到 codexpetgenerator.com，工具会渲染出像素底图，再输出精灵图和 pet.json，直接装进 Codex 即可。',
+      },
+      {
+        question: '做一只大概要多久？',
+        answer: '多数人五分钟以内。其中大半时间花在挑一张你每天愿意看到的照片上。',
+      },
+    ],
+    sections: [
+      {
+        heading: '桌宠几乎什么都不做，这恰恰是重点',
+        paragraphs: [
+          '一只桌宠做的事很少。它待在屏幕一角，眨眼、伸懒腰，你太久不理它时它会有反应。开发者愿意留着它，不是因为动画多好看，而是因为它给了你一个停两秒的理由。',
+          '听上去不值一提，但把时间算进去就不一样了。连续写四小时代码，很少真的都是高质量的四个小时。最后一个小时多半在反复读同一个函数。桌宠打断的正是这种下滑，而且不需要你离开工位。',
+        ],
+      },
+      {
+        heading: '编程桌宠是专注工具，不是装饰品',
+        paragraphs: [
+          '很多人以为编程桌宠只是摆件。实际用起来，它更像一个不催你的番茄钟。工具空闲后精灵状态会变，你就发现自己盯着一堆报错根本没在看。',
+          '和定时器的区别在于「许可」。定时器会在你想到一半时打断你；桌宠只是存在，什么时候看它由你决定。习惯关掉通知弹窗的开发者，通常能接受这种安排。',
+        ],
+      },
+      {
+        heading: '陪伴感真正改变的是什么',
+        paragraphs: [
+          '倦怠很少以某个戏剧性瞬间出现。它来自几百次「bug 就差一点了，先不休息」的小决定。桌宠治不好一个糟糕的迭代，它也不是心理治疗。',
+          '它能做的是让休息这件事变得可见。当房间里唯一的反馈是编译错误和闪烁的光标时，一段待机动画就是一种你能读到的状态变化。很小，但真实。',
+        ],
+      },
+      {
+        heading: '从新鲜感到习惯：桌宠的持续动力',
+        paragraphs: [
+          '任何桌宠的第一周都是新鲜感。你会盯着看、截图、发给同事。这部分大概三天就过去了。',
+          '能留下来的是它锚定的节奏。上传一张照片，生成一只，装好就让它待在角落。桌宠本身不再重要，重要的是它标记出的节奏。',
+          '这也是自制桌宠比下载的宠物包更耐看的原因。用自己的照片做出来的，只有你懂那个梗，这份归属感才是新鲜感消退后仍然留着它的原因。',
+        ],
+      },
+      {
+        heading: '什么样的桌宠值得长期留着',
+        list: [
+          '一眼能看清，哪怕画布只有 32 像素',
+          '一个待机动画，而不是一段热闹的幻灯片',
+          '透明背景，不会坐在一个白框里',
+          'pet.json 的 name 字段与文件夹名一致',
+          '默认安静，没有音效也不弹窗',
+        ],
+      },
+      {
+        heading: '做一只你愿意一直留着的桌宠',
+        paragraphs: [
+          '不需要任何美术基础。把任意照片上传到 codexpetgenerator.com，等工具渲染出像素底图，下载精灵图和 pet.json。安装就是把文件夹复制过去。',
+          '如果不熟悉格式，先读 /blog/how-to-create-a-codex-pet，再到 /blog 看更多教程。想再做一只时，从 / 开始即可。',
+        ],
+      },
+    ],
+  },
 ];
