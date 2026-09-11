@@ -3130,4 +3130,134 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-ecosystem',
+    title: 'The Codex Pet Ecosystem: Official, Community, and Everything Between',
+    description:
+      'Where Codex desktop pets actually come from: the official set, community galleries, generators, and how to tell which is worth installing.',
+    date: '2026-09-11',
+    author: 'PetGen',
+    keywords: ["codex pet ecosystem","codex pets community","codex pet resources","codex pet galleries"],
+    related: ['how-to-create-a-codex-pet', 'what-is-pet-spritesheet', 'export-formats-explained-zh'],
+    faq: [
+          {
+                "question": "Are community Codex pets safe to install?",
+                "answer": "A pet is a spritesheet image plus a small pet.json. Neither can execute code, so the risk is low. Still, download from places where you can see other people using the same pack."
+          },
+          {
+                "question": "Do I need to pay for a good Codex pet?",
+                "answer": "No. The official set is free, and generators like codexpetgenerator.com let you make your own from any photo at no cost."
+          },
+          {
+                "question": "Why do some community pets look blurry?",
+                "answer": "Usually a resolution mismatch. Pets are sized for a fixed canvas, so a 4K source scaled down to a 32px canvas loses detail. Generate at the right size instead of resizing."
+          }
+    ],
+    sections: [
+          {
+                "heading": "Three layers of the ecosystem",
+                "paragraphs": [
+                      "The Codex pet world sits in three layers. The official set ships with the app and updates with it. Community galleries collect user-made pets, often themed around characters or memes. Generators sit underneath both, turning a photo into a spritesheet you can install."
+                ]
+          },
+          {
+                "heading": "The official layer",
+                "paragraphs": [
+                      "Official pets are the safest bet. They are versioned with Codex, so an update never breaks them, and they follow the canvas size the app actually expects. If you just want a pet on your desktop today, start here and stop."
+                ]
+          },
+          {
+                "heading": "The community layer",
+                "paragraphs": [
+                      "Community pets are where the personality lives. You will find anime characters, game mascots, and running jokes you will not see anywhere else. The tradeoff is quality control: some packs are resized rather than re-rendered, which is why they look soft."
+                ]
+          },
+          {
+                "heading": "What actually makes a good pet",
+                "list": [
+                      "Sharp at native canvas size, not upscaled",
+                      "Sits still enough to not distract, but has one clear idle animation",
+                      "Transparent background so it does not sit on a white box",
+                      "A pet.json whose name field matches the folder name"
+                ]
+          },
+          {
+                "heading": "Making your own",
+                "paragraphs": [
+                      "Generators compress the whole loop into one upload. You pick a photo, the tool renders a pixel-art base, then a spritesheet plus pet.json. From upload to a working desktop pet is usually under five minutes."
+                ]
+          },
+          {
+                "heading": "How to judge a pack before installing",
+                "paragraphs": [
+                      "Open the spritesheet first. If the frames are cut off at the edges or the background is not transparent, skip it. A well-made pack is obvious the moment you look at the raw image."
+                ]
+          }
+    ],
+  },
+  {
+    slug: 'codex-pet-ecosystem-zh',
+    title: 'Codex 桌宠生态盘点：官方、社区与中间地带',
+    description:
+      'Codex 桌宠到底从哪来：官方套装、社区画廊、生成器，以及怎么判断一个宠物包值不值得装。',
+    date: '2026-09-11',
+    author: 'PetGen',
+    keywords: ["codex 桌宠 生态","codex 桌宠 社区","codex 宠物 资源","codex 桌宠 画廊"],
+    related: ['how-to-create-a-codex-pet', 'what-is-pet-spritesheet', 'export-formats-explained-zh'],
+    faq: [
+          {
+                "question": "社区桌宠安全吗？",
+                "answer": "一只桌宠就是一张精灵图加一份很小的 pet.json，两者都无法执行代码，风险很低。但仍建议从能看到别人同样在用的地方下载。"
+          },
+          {
+                "question": "好桌宠一定要花钱吗？",
+                "answer": "不用。官方套装免费，像 codexpetgenerator.com 这样的生成器也能用任意照片免费做一只。"
+          },
+          {
+                "question": "为什么有些社区桌宠看着很糊？",
+                "answer": "多半是分辨率不匹配。桌宠有固定画布尺寸，把 4K 素材硬缩到 32px 画布就会丢细节。正确做法是按目标尺寸生成，而不是事后缩放。"
+          }
+    ],
+    sections: [
+          {
+                "heading": "生态的三层结构",
+                "paragraphs": [
+                      "Codex 桌宠分三层。官方套装随应用发布，跟着版本更新；社区画廊收集用户自制的宠物，常围绕角色或梗；生成器在最底层，把一张照片变成可安装的精灵图。"
+                ]
+          },
+          {
+                "heading": "官方层",
+                "paragraphs": [
+                      "官方宠物最稳妥。它随 Codex 版本走，更新不会失效，并且严格符合应用期望的画布尺寸。如果你只想今天就拥有一只桌宠，从这里开始即可。"
+                ]
+          },
+          {
+                "heading": "社区层",
+                "paragraphs": [
+                      "个性都在社区层。这里能找到动漫角色、游戏吉祥物，以及别处看不到的梗。代价是质量参差：有些包是缩放而非重绘，所以看起来发虚。"
+                ]
+          },
+          {
+                "heading": "一只好桌宠的标准",
+                "list": [
+                      "原生画布尺寸下清晰，不是放大的",
+                      "足够安静不干扰，但有一个明确的待机动画",
+                      "透明背景，不会坐在一个白框里",
+                      "pet.json 的 name 字段与文件夹名一致"
+                ]
+          },
+          {
+                "heading": "自己动手做一只",
+                "paragraphs": [
+                      "生成器把整个流程压缩成一次上传。选一张照片，工具渲染出像素底图，再输出精灵图和 pet.json。从上传到桌面出现桌宠，通常不到五分钟。"
+                ]
+          },
+          {
+                "heading": "安装前怎么判断一个包",
+                "paragraphs": [
+                      "先打开精灵图看。如果帧被切到边缘，或者背景不是透明的，就跳过。做得好的包，看一眼原图就能看出来。"
+                ]
+          }
+    ],
+  },
 ];
