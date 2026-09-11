@@ -3131,6 +3131,386 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    slug: 'codex-pet-vs-codexpets',
+    title: 'Codex Pet Generator vs CodexPets: Download vs Create Your Own',
+    description:
+      'Two ways to get a Codex pet: generate one from your own photo, or download a ready-made pack. A side-by-side look at control, time, and quality.',
+    date: '2026-09-09',
+    author: 'PetGen',
+    keywords: [
+      'codex pet generator vs codexpets',
+      'codexpets alternative',
+      'download codex pets',
+      'create vs download pet',
+    ],
+    related: [
+      'codex-pet-ecosystem',
+      'how-to-create-a-codex-pet',
+      'what-is-pet-spritesheet',
+    ],
+    faq: [
+      {
+        question: 'Can I modify a pet downloaded from CodexPets?',
+        answer: 'Technically yes, but it means editing the JSON file and the spritesheet by hand. The generator is far easier when you want to change how a pet looks.',
+      },
+      {
+        question: 'Are CodexPets safe to download?',
+        answer: 'Most are. A pet is an image plus a small pet.json, so there is no code to run. Check community ratings and stick to packs that other people already use.',
+      },
+      {
+        question: 'How often does CodexPets add new pets?',
+        answer: 'New uploads arrive most weeks, but quality varies. Sort by newest or top rated instead of browsing at random.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What is Codex Pet Generator?',
+        paragraphs: [
+          'Codex Pet Generator creates pixel pets from your photos using AI. You upload an image, and the tool turns it into a pixel-art companion for your Codex desktop.',
+        ],
+        list: [
+          'Pro: personalized, so the pet looks like your actual pet or yourself',
+          'Pro: creative, because you control the style and the appearance',
+          'Pro: unique, since no two generated pets come out identical',
+          'Con: it takes effort, because you need decent photos and some settings tweaking',
+          'Con: quality varies with the source image you start from',
+          'Con: there is a learning curve before results feel predictable',
+        ],
+      },
+      {
+        heading: 'What is CodexPets?',
+        paragraphs: [
+          'CodexPets is a community marketplace where users share and download pre-made pixel pets. Think of it as an app store for Codex companions.',
+        ],
+        list: [
+          'Pro: instant results, since you download and use a pet right away',
+          'Pro: variety, with thousands of pets to choose from',
+          'Pro: community ratings help you find the good ones',
+          'Con: not unique, because others may already use the same pet',
+          'Con: limited personalization, since downloaded pets are hard to edit',
+          'Con: it depends on community contributions staying active',
+        ],
+      },
+      {
+        heading: 'Head-to-head comparison',
+        paragraphs: [
+          'Each row is scored out of five, with time and cost measured in practice.',
+        ],
+        list: [
+          'Uniqueness: generator 5/5, CodexPets 2/5',
+          'Ease of use: generator 3/5, CodexPets 5/5',
+          'Customization: generator 5/5, CodexPets 2/5',
+          'Time required: 30 to 60 minutes versus about 5 minutes',
+          'Cost: free on both sides',
+          'Quality control: you decide versus community ratings',
+        ],
+      },
+      {
+        heading: 'Which should you choose?',
+        list: [
+          'Pick the generator if you want a pet that looks like your real pet.',
+          'Pick the generator if you enjoy creative projects and do not mind the setup.',
+          'Pick the generator if you want something nobody else is using.',
+          'Pick CodexPets if you want instant results.',
+          'Pick CodexPets if you are happy with pre-made designs.',
+          'Pick CodexPets if you would rather browse many options than build one.',
+        ],
+      },
+      {
+        heading: 'The best of both worlds',
+        paragraphs: [
+          'Many power users do both. They download popular pets from CodexPets for quick variety, then reach for the generator when the pet has to be theirs, like a birthday or a new puppy. The hybrid approach covers the days you want something new and the days you want something personal.',
+        ],
+      },
+      {
+        heading: 'Make one that is yours',
+        paragraphs: [
+          'Generating your own pet takes a single upload. Open codexpetgenerator.com when you are ready to try it. If the spritesheet format is new to you, read /blog/how-to-create-a-codex-pet first, then browse /blog for more comparisons.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'codex-pet-vs-codexpets-zh',
+    title: 'Codex Pet 生成器 vs CodexPets：下载现成还是自制像素宠物',
+    description:
+      '拿到 Codex 桌宠的两条路：用生成器从照片自制，或从 CodexPets 下载现成包。从可控性、耗时和质量三个方面做对比。',
+    date: '2026-09-09',
+    author: 'PetGen',
+    keywords: [
+      'codex 桌宠 生成器 vs codexpets',
+      'codexpets 替代',
+      '下载 codex 桌宠',
+      '自制还是下载桌宠',
+    ],
+    related: [
+      'codex-pet-ecosystem-zh',
+      'how-to-create-a-codex-pet',
+      'what-is-pet-spritesheet',
+    ],
+    faq: [
+      {
+        question: '从 CodexPets 下载的宠物能改吗？',
+        answer: '可以，但要手动改 JSON 文件和精灵图。想调整外观时，生成器省事得多。',
+      },
+      {
+        question: 'CodexPets 下载安全吗？',
+        answer: '多数安全。一只桌宠就是一张图加一份很小的 pet.json，没有可执行的代码。看一下社区评分，优先选别人已经在用的包。',
+      },
+      {
+        question: 'CodexPets 多久上新一次？',
+        answer: '几乎每周都有新上传，但质量参差。建议按「最新」或「评分最高」排序，而不是随手翻。',
+      },
+    ],
+    sections: [
+      {
+        heading: '什么是 Codex Pet Generator？',
+        paragraphs: [
+          'Codex Pet Generator 用 AI 把照片变成像素宠物。上传一张图，工具就把它转成一只可以放进 Codex 桌面的像素伙伴。',
+        ],
+        list: [
+          '优点：个性化，宠物看起来像你真实的宠物，或者像你自己',
+          '优点：可控，风格和外观由你决定',
+          '优点：独特，没有两只生成出来的宠物是一样的',
+          '缺点：需要花点功夫，照片要过得去，设置也得调',
+          '缺点：质量随源图波动',
+          '缺点：上手有学习曲线，前几只不会太快出效果',
+        ],
+      },
+      {
+        heading: '什么是 CodexPets？',
+        paragraphs: [
+          'CodexPets 是一个社区市场，用户在上面分享和下载做好的像素宠物。可以把它理解成 Codex 伴侣的应用商店。',
+        ],
+        list: [
+          '优点：即时可用，下载完就能装上',
+          '优点：选择多，几千只宠物可以翻',
+          '优点：社区评分能帮你筛出好的',
+          '缺点：不独特，别人可能正在用同一只',
+          '缺点：个性化有限，下载来的宠物不好改',
+          '缺点：依赖社区持续贡献',
+        ],
+      },
+      {
+        heading: '正面对比',
+        paragraphs: [
+          '下面每一项按五分制打分，时间和成本按实际体验估算。',
+        ],
+        list: [
+          '独特性：生成器 5/5，CodexPets 2/5',
+          '易用性：生成器 3/5，CodexPets 5/5',
+          '自定义：生成器 5/5，CodexPets 2/5',
+          '所需时间：30 到 60 分钟，对比约 5 分钟',
+          '成本：两边都免费',
+          '质量控制：自己做主，对比社区评分',
+        ],
+      },
+      {
+        heading: '你应该选哪个？',
+        list: [
+          '想要一只像自己真实宠物的，选生成器。',
+          '喜欢动手、不介意花点时间设置的，选生成器。',
+          '想要别人都没有的，选生成器。',
+          '想要立刻就能用的，选 CodexPets。',
+          '对现成设计满意的，选 CodexPets。',
+          '比起亲手做、更愿意多翻几个选项的，选 CodexPets。',
+        ],
+      },
+      {
+        heading: '两全其美',
+        paragraphs: [
+          '很多重度用户两边都用：先从 CodexPets 下几只热门宠物换换花样，遇到生日、接回新小狗这类场合，再打开生成器做一只真正属于自己的。想换新鲜感的日子和想要专属感的日子，都能照顾到。',
+        ],
+      },
+      {
+        heading: '做一只真正属于你的',
+        paragraphs: [
+          '生成一只自己的宠物只要一次上传。准备好了就打开 codexpetgenerator.com。如果对精灵图格式还不熟，先读 /blog/how-to-create-a-codex-pet，再逛 /blog 看更多对比。',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'hand-drawn-vs-ai-pixel-pets',
+    title: 'Hand-Drawn vs AI-Generated Pixel Pets: Which Is Better?',
+    description:
+      'Drawing a Codex pet yourself or generating one with AI: an honest look at time, cost, control, and which route fits the pet you actually want.',
+    date: '2026-09-10',
+    author: 'PetGen',
+    keywords: [
+      'hand drawn pixel pet',
+      'draw your own codex pet',
+      'ai vs manual pixel art',
+      'pixel pet cost',
+    ],
+    related: [
+      'make-your-first-codex-pixel-pet',
+      'pixel-art-pet-design-guide',
+      'how-to-create-a-codex-pet',
+    ],
+    faq: [
+      {
+        question: 'Can I use an AI-generated pet in Codex?',
+        answer: 'Yes, as long as you export a spritesheet at the canvas size Codex expects and pair it with a pet.json. The format is the same whether you drew the pet or generated it.',
+      },
+      {
+        question: 'How long does a hand-drawn pet take?',
+        answer: 'A beginner usually needs two to four hours for a clean sprite. With practice it drops to about thirty minutes.',
+      },
+      {
+        question: 'Do I need paid software to draw pixel art?',
+        answer: 'No. Piskel runs in the browser for free, and basic paint tools work fine at small canvas sizes.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'The hand-drawn route',
+        paragraphs: [
+          'Drawing your own pixel pet gives you complete control. Every pixel, every color, every detail is a decision you make. The trade-off is time: a clean sprite can take a beginner two to four hours, while an experienced pixel artist finishes in about thirty minutes.',
+        ],
+        list: [
+          'Pro: total creative control',
+          'Pro: one-of-a-kind designs',
+          'Pro: you get better at pixel art as you go',
+          'Pro: free apart from your time',
+          'Pro: works in any tool, including Piskel, Aseprite, and Paint',
+          'Con: time-intensive',
+          'Con: steep learning curve at the start',
+          'Con: no undo for inspiration, so you begin from a blank canvas',
+        ],
+      },
+      {
+        heading: 'The AI-generated route',
+        paragraphs: [
+          'Tools like DALL-E, Midjourney, and dedicated pixel-art generators can produce a pet in seconds. The results are often good enough to keep, with a few catches.',
+        ],
+        list: [
+          'Pro: fast, usually 30 seconds to 2 minutes',
+          'Pro: no drawing skill required',
+          'Pro: endless variations for brainstorming',
+          'Con: not truly unique, since the model trains on existing art',
+          'Con: the output may not match the picture in your head',
+          'Con: some platforms restrict AI-generated content',
+          'Con: you learn less about pixel art along the way',
+        ],
+      },
+      {
+        heading: 'The cost comparison',
+        paragraphs: [
+          'Time and money, measured across the three common routes.',
+        ],
+        list: [
+          'Hand-drawn: 2 to 4 hours, free, real skill gained',
+          'AI-generated: 1 to 2 minutes, free to 20 dollars a month, no skill gained',
+          'Hybrid, AI base then hand edit: 30 to 60 minutes, free to 20 dollars a month, a little skill gained',
+        ],
+      },
+      {
+        heading: 'Our recommendation',
+        paragraphs: [
+          'Start with AI when you need inspiration, then refine by hand. Or draw one from scratch, which is hard to beat for satisfaction. Inside Codex Pet, the built-in generator returns decent results, but a custom-drawn pet is what stands out in a gallery.',
+          'The hybrid route works well too. Generate a concept, then rebuild it in Piskel or Aseprite. You keep the speed and end up with something that is actually yours.',
+        ],
+      },
+      {
+        heading: 'Try both routes on the same photo',
+        paragraphs: [
+          'A useful test is to generate one pet from a photo, then redraw it by hand and compare. Upload to codexpetgenerator.com for the AI base, then work from the exported spritesheet. If the format is new to you, read /blog/how-to-create-a-codex-pet first and browse /blog for more guides.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'hand-drawn-vs-ai-pixel-pets-zh',
+    title: '手绘像素宠物 vs AI 生成：哪种更适合你？',
+    description:
+      '自己画还是用 AI 生成 Codex 像素宠物？从时间、成本、可控性和最终效果四个角度给出对比。',
+    date: '2026-09-10',
+    author: 'PetGen',
+    keywords: [
+      '手绘像素宠物',
+      '自制 codex 桌宠',
+      'AI 与手工像素画',
+      '像素宠物 成本',
+    ],
+    related: [
+      'make-your-first-codex-pixel-pet',
+      'pixel-art-pet-design-guide',
+      'how-to-create-a-codex-pet',
+    ],
+    faq: [
+      {
+        question: 'AI 生成的宠物能用进 Codex 吗？',
+        answer: '可以。只要按 Codex 要求的画布尺寸导出精灵图，再配一份 pet.json 就行。不管是你画的还是生成的，格式都一样。',
+      },
+      {
+        question: '手绘一只大概要多久？',
+        answer: '初学者做一张干净的精灵图通常要 2 到 4 小时，熟练之后大概半小时。',
+      },
+      {
+        question: '画像素画一定要买软件吗？',
+        answer: '不用。Piskel 在浏览器里就能免费画，画布这么小，用基础工具一样能画。',
+      },
+    ],
+    sections: [
+      {
+        heading: '手绘路线',
+        paragraphs: [
+          '自己画像素宠物，控制权完全在你手上。每一个像素、每一种颜色、每一处细节都由你决定。代价是时间：初学者做一张干净的精灵图要 2 到 4 小时，熟练的像素画师半小时左右就能收工。',
+        ],
+        list: [
+          '优点：创意上完全可控',
+          '优点：独一无二的设计',
+          '优点：画得越多，像素画水平越高',
+          '优点：除了时间，不花别的钱',
+          '优点：Piskel、Aseprite 甚至画图工具都能用',
+          '缺点：很费时间',
+          '缺点：起步阶段学习曲线陡',
+          '缺点：灵感没法撤销，只能从空白画布重新开始',
+        ],
+      },
+      {
+        heading: 'AI 生成路线',
+        paragraphs: [
+          'DALL-E、Midjourney 以及专门的像素画生成器，几秒钟就能出一只宠物。结果往往已经能直接用，但有几个前提。',
+        ],
+        list: [
+          '优点：快，通常 30 秒到 2 分钟',
+          '优点：不需要绘画基础',
+          '优点：变化多，适合找灵感',
+          '缺点：不够独特，模型是在现有作品上训练的',
+          '缺点：出来未必是你脑子里想的那只',
+          '缺点：部分平台对 AI 生成内容有限制',
+          '缺点：过程中学不到像素画的技巧',
+        ],
+      },
+      {
+        heading: '成本对比',
+        paragraphs: [
+          '按常见的三条路线，把时间和钱都摊开来看。',
+        ],
+        list: [
+          '手绘：2 到 4 小时，不花钱，能积累真实技能',
+          'AI 生成：1 到 2 分钟，免费到每月 20 美元，技能上没有积累',
+          '混合（AI 打底再手工修）：30 到 60 分钟，免费到每月 20 美元，能学到一点',
+        ],
+      },
+      {
+        heading: '我们的建议',
+        paragraphs: [
+          '需要灵感时先用 AI，再手工精修；或者干脆从零画一只，满足感很难被替代。在 Codex Pet 里，内置生成器出的结果还不错，但能在画廊里被一眼看到的是手绘的宠物。',
+          '混合路线也很好用：先用 AI 生成一个概念，再在 Piskel 或 Aseprite 里重建一遍。速度保住了，拿到的东西又真正属于你。',
+        ],
+      },
+      {
+        heading: '同一张照片，两条路都试一次',
+        paragraphs: [
+          '一个实用的测试是：先用一张照片生成一只宠物，再照着它手绘一只，两者放一起比较。AI 底图可以直接上传到 codexpetgenerator.com 生成，画的时候对着导出的精灵图参考。如果对格式还不熟，先读 /blog/how-to-create-a-codex-pet，再逛 /blog 看更多教程。',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'codex-pet-ecosystem',
     title: 'The Codex Pet Ecosystem: Official, Community, and Everything Between',
     description:
