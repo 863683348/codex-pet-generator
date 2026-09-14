@@ -3813,4 +3813,187 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+{
+    "slug": "pixel-character-design-101",
+    "title": "Pixel Character Design 101: Making Pets Resemble Their Owners",
+    "description": "Pixel character design is a design problem, not a filter. Learn concrete techniques to turn a photo into a 32px pet sprite that actually resembles its owner.",
+    "date": "2026-09-14",
+    "author": "PetGen",
+    "keywords": [
+      "pixel character design",
+      "pixel character design tips",
+      "pet likeness pixel",
+      "pixel art character guide"
+    ],
+    "related": [
+      "codex-pet-ecosystem",
+      "how-to-create-a-codex-pet",
+      "what-is-pet-spritesheet"
+    ],
+    "faq": [
+      {
+        "question": "Why does my downscaled photo not look like my pet?",
+        "answer": "Direct downscaling keeps gradients and discards the edges that carry identity. The result is a smeared tone map, not a face. Build the sprite from the silhouette and proportions instead, using the photo only as a colour and shape reference."
+      },
+      {
+        "question": "How many colours should a 32px pet sprite use?",
+        "answer": "Aim for 8 to 12 colours across the whole character. This limit forces you to assign meaning to each tone and keeps the face readable. More than that at 32px usually reads as noise rather than detail."
+      },
+      {
+        "question": "What single feature matters most for likeness?",
+        "answer": "One anchor feature pushed slightly past realism, a beard, glasses, a nose patch. Five approximate traits produce a generic look; one strong signal lets the viewer's brain complete the rest of the pet."
+      },
+      {
+        "question": "How do I know a sprite is actually finished?",
+        "answer": "Place it on pure black and pure white. The outline should separate from the body on black, and the highlight should survive on white. If it only works on one background, adjust the outline by one value step and retest. When it passes both, publish it with the rest of the series on /blog."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "A photo is not a sprite",
+        "paragraphs": [
+          "Upload a photo and shrink it to 32x32 and you get a blur, not a pet. Photos carry millions of colours and smooth gradients that simply vanish at low resolution. The eye sees a brown smear where a face should be. That is why the Codex Pet tool at / treats your upload as a reference, never as a source.",
+          "A sprite is built, not captured. Every pixel is a deliberate decision. Going from a 1000px photo to a 32px sprite throws away roughly 99 percent of the information, and the viewer fills in the rest from memory. If those memory cues are missing, the likeness collapses. Start from the shape you want, not the pixels you happen to have. The full pipeline is in /blog/how-to-create-a-codex-pet."
+        ]
+      },
+      {
+        "heading": "Silhouette first, details never",
+        "paragraphs": [
+          "Before any colour goes down, draw the outline. A good pet sprite is recognizable at 16px as a solid black blob. If the silhouette is ambiguous, no amount of internal detail will rescue it. Cats, dogs, and people each carry a posture the eye locks onto within a fraction of a second.",
+          "Test this yourself: fill your sprite solid black and shrink it to icon size. Can you name the species? Can you tell it is your pet? If not, the silhouette is doing the work of three features you have not drawn yet. Build the body language first, then earn the right to add detail. Our /blog/rabbit-codex-pet post from Day 16 applies exactly this test to a real example."
+        ]
+      },
+      {
+        "heading": "Value contrast beats hue contrast",
+        "paragraphs": [
+          "At 32px the eye reads light and dark long before it reads red versus blue. Two shapes separated by value, a light face against a dark background, a bright belly against a mid coat, stay readable. Hue alone, when the brightness is similar, merges into one flat region that the brain cannot parse.",
+          "This is the pixel character design tip most beginners miss. Spend your contrast budget on value steps, not on a rainbow. A three value ramp, shadow, base, highlight, per material reads cleaner than twelve similar hues. The /blog/what-is-pet-spritesheet guide shows how those ramps become the frames of an animation."
+        ]
+      },
+      {
+        "heading": "Eight to twelve colours, no more",
+        "paragraphs": [
+          "Palette discipline is what separates a sprite from a screenshot. Cap the whole character at 8 to 12 colours. That forces real choices: which tone is the coat, which is the shadow, which is the eye. Constraints make the face legible because every colour now carries meaning instead of noise.",
+          "Dithering can fake a third tone between two colours with a checkerboard pattern, but it costs crispness. At 32px, dithering usually turns into visual noise. Use it sparingly, only across large calm areas like a sweater, and never on the eyes or the outline. A clean 10 colour sprite beats a dithered 30 colour one every single time."
+        ]
+      },
+      {
+        "heading": "Proportion and one anchor feature",
+        "paragraphs": [
+          "People judge that is my dog from proportion before from colour. A chihuahua and a retriever at 32px differ mostly in head to body ratio and ear placement. Get the ratio wrong and the breed disappears. Get it right and even a monochrome sprite reads as the correct animal. The same holds for people: a round head on a small body, a long face on a tall one.",
+          "Then pick one anchor. Five approximate features make a generic face; one exaggerated anchor makes a person. The anchor is what friends notice first, a curly beard, round glasses, a specific hairline, a pink nose on a pet. Push that single feature past realism and the brain supplies the rest. One strong signal beats five weak ones, and it is faster to draw."
+        ]
+      },
+      {
+        "heading": "Traits of a readable 32px sprite",
+        "list": [
+          "One clear silhouette that still reads at icon size",
+          "A three value ramp per material, built on value not hue",
+          "8 to 12 colours total, with the outline in the darkest tone",
+          "A single exaggerated anchor feature carrying the identity",
+          "Verified on both a dark and a light background"
+        ]
+      },
+      {
+        "heading": "Check your sprite on two backgrounds",
+        "list": [
+          "On pure black, the outline must still separate from the body",
+          "On pure white, the highlight must not vanish",
+          "If either fails, shift the outline one value step darker or lighter",
+          "A sprite that works on only one background is not finished"
+        ]
+      }
+    ]
+  },
+{
+    "slug": "pixel-character-design-101-zh",
+    "title": "像素角色设计 101：怎么让宠物更“像”",
+    "description": "像素角色设计不是加滤镜，而是做设计。本文用具体技法讲清楚：怎样把一张照片变成 32px 的宠物 sprite，并且真的像它的主人。",
+    "date": "2026-09-14",
+    "author": "PetGen",
+    "keywords": [
+      "像素角色设计",
+      "像素宠物 像主人",
+      "像素艺术 角色设计"
+    ],
+    "related": [
+      "codex-pet-ecosystem-zh",
+      "how-to-create-a-codex-pet",
+      "what-is-pet-spritesheet"
+    ],
+    "faq": [
+      {
+        "question": "为什么照片缩完不像我的宠物？",
+        "answer": "直接缩小留渐变、丢边缘，结果是糊掉的色调图而非脸。先按轮廓和比例建 sprite，照片只作颜色与形状参考。"
+      },
+      {
+        "question": "32px 宠物 sprite 用多少色？",
+        "answer": "整角色 8 到 12 种。这上限逼你给每色分配意义，脸也更清。再多，32px 上常读成噪声而非细节。"
+      },
+      {
+        "question": "相似度哪个特征最关键？",
+        "answer": "一个略夸张的锚点。五个将就的特征显路人；一个强信号让大脑补全其余部分。"
+      },
+      {
+        "question": "怎么判断 sprite 画完了？",
+        "answer": "分别放纯黑与纯白。黑上轮廓与身子分开，白上高光保住。只一边成立就调轮廓一档再测。两边能过，就和 /blog 其余系列一起发。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "照片不是 sprite",
+        "paragraphs": [
+          "把照片直接缩到 32×32，得到的是一团糊，不是宠物。照片里几百万种颜色和柔和渐变，低分辨率下全没了。眼睛看到的是棕色污渍，不是脸。所以 Codex Pet 把照片当参考，不是当素材——做法见 /。",
+          "sprite 是画出来的，不是抓出来的。每个 pixel 都是一次决定。从 1000px 到 32px，丢掉约 99% 的信息，观看者用记忆补全。记忆线索不在，相似度就塌。先从想要的形状开始，而不是手上的像素。流程写在 /blog/how-to-create-a-codex-pet。"
+        ]
+      },
+      {
+        "heading": "先画轮廓，再谈细节",
+        "paragraphs": [
+          "落色之前先画外轮廓。好的宠物 sprite，16px 涂黑也能认出。轮廓含糊，内部细节救不回。猫、狗、人各有姿态，眼睛瞬间锁定。",
+          "自己测：涂黑缩到图标大小，能说清物种吗？能认出你的宠物吗？不能，说明轮廓在替你扛三个没画的特征。先建肢体语言，再加细节。Day 16 的 /blog/rabbit-codex-pet 用此测试讲真例。"
+        ]
+      },
+      {
+        "heading": "明度对比胜过色相对比",
+        "paragraphs": [
+          "32px 上，眼睛先读亮暗，后读红蓝。靠明度分开的两个形——亮脸衬暗背景、亮肚皮衬中调毛——始终清楚。只靠色相、亮度相近的两块会糊成一片。",
+          "这是多数初学者漏掉的 pixel character design 要点。对比预算花在明度台阶，不花在彩虹上。每材质用三段 value（阴影、基色、高光）的 ramp，比十二个相近色相干净。/blog/what-is-pet-spritesheet 讲这些 ramp 如何变成动画帧。"
+        ]
+      },
+      {
+        "heading": "颜色控制在 8 到 12 种",
+        "paragraphs": [
+          "调色板克制，是 sprite 和截图的分界。整角色压到 8 到 12 色，逼你做选择：哪档是毛、哪档是阴影、哪档是眼。限制让脸清晰，每色都承载意义而非噪声。",
+          "dithering 用棋盘格在两色间假造第三档，代价是边缘变糊。32px 上它常变成噪声。只在大而平静的区域（如毛衣）少量用，绝不用在眼或轮廓。干净 10 色 sprite，胜过 dithering 的 30 色。"
+        ]
+      },
+      {
+        "heading": "比例，加一个锚点特征",
+        "paragraphs": [
+          "人先靠比例判断“这是我的狗”，再靠颜色。吉娃娃和金毛在 32px 上差在头身比和耳位。比例错，品种没了；比例对，单色 sprite 也读得出。人同理：圆头小身、长脸高个。",
+          "再选一个锚点。五个都差的特征拼出路人脸；一个夸张的锚点拼出人。锚点是朋友第一眼注意的：卷胡子、圆镜、某条发际线、宠物鼻上粉斑。推过真实，大脑补全其余。一强信号胜五弱信号，还更快画。"
+        ]
+      },
+      {
+        "heading": "一个能读的 32px sprite 长什么样",
+        "list": [
+          "清晰轮廓，图标大小仍认得出",
+          "每材质三段 value 的 ramp，靠明度不靠色相",
+          "共 8 到 12 色，轮廓用最暗档",
+          "一个夸张的锚点特征扛身份",
+          "深、浅背景都验证过"
+        ]
+      },
+      {
+        "heading": "在两种背景上检查你的 sprite",
+        "list": [
+          "纯黑上轮廓仍与身子分开",
+          "纯白上高光不消失",
+          "任一边失败，轮廓调暗或调亮一档",
+          "只一种背景成立的 sprite 不算画完"
+        ]
+      }
+    ]
+  },
 ];
