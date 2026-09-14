@@ -3996,4 +3996,175 @@ export const posts: BlogPost[] = [
       }
     ]
   },
+{
+    "slug": "golden-age-pixel-art-8bit-ai",
+    "title": "The Golden Age of Pixel Art: From 8-bit to AI",
+    "description": "Pixel art history runs from 8-bit hardware limits to today's AI tools. Trace the 16-bit step up, the indie revival, and what AI still gets wrong about sprites.",
+    "date": "2026-09-13",
+    "author": "PetGen",
+    "keywords": [
+      "pixel art history",
+      "history of pixel art",
+      "8 bit art",
+      "pixel art revival"
+    ],
+    "related": [
+      "codex-pet-ecosystem",
+      "how-to-create-a-codex-pet",
+      "what-is-pet-spritesheet"
+    ],
+    "faq": [
+      {
+        "question": "Why did old games use dithering?",
+        "answer": "Dithering faked gradients the hardware could not show. With only a handful of colors allowed on screen, artists checkerboarded two tones to imply a third. It was a memory workaround, not a style."
+      },
+      {
+        "question": "Is pixel art still limited by hardware today?",
+        "answer": "No. Modern pixel art is a deliberate style. Developers choose a low resolution and a small palette for look and readability, not because the machine demands it."
+      },
+      {
+        "question": "Can AI replace pixel artists?",
+        "answer": "For stills, partly. For animated spritesheets, not yet. AI drifts between frames and rarely respects a true indexed palette, so a human still cleans up consistency."
+      },
+      {
+        "question": "What is a spritesheet?",
+        "answer": "A single image that holds every animation frame in a grid. The game engine slices it at runtime. It is faster to load than many files and makes frame consistency visible at a glance."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "The hardware-constraint era",
+        "paragraphs": [
+          "Pixel art was not a style choice at first. On the Nintendo Entertainment System a sprite was 8 by 8 pixels, and the machine could show 64 of them at once. The master palette held 64 colors but only 25 to 54 appeared on screen at once, split across background and sprite layers. Artists worked inside a byte budget, not a taste budget.",
+          "Limited palettes forced dithering. When a machine could not show a smooth gradient between two colors, artists placed the two in a checkerboard to fake an in-between tone. Dithering was a workaround for memory, not an aesthetic. The tile system also mattered: backgrounds were built from 8x8 or 16x16 tiles in a small shared pool, so repeats saved sprite memory."
+        ]
+      },
+      {
+        "heading": "The 16-bit step up",
+        "paragraphs": [
+          "The Super Nintendo and Sega Genesis widened everything. Palettes grew to 256 colors with 15 or 16 available per sprite, and sprites could be 16x16, 32x32, or 64x64. That let characters read clearly at small sizes and gave backgrounds more depth through layered parallax. The craft stayed constrained, but the ceiling moved up enough that games like the 1994 Donkey Kong Country could mix pre-rendered 3D with hand-tuned pixel output.",
+          "Even with more room, teams kept tight palettes. A 16-color sprite is easier to animate and stays readable against busy backgrounds. The constraint had become a tool."
+        ]
+      },
+      {
+        "heading": "The hi-bit indie revival",
+        "paragraphs": [
+          "When HD displays arrived, pixel art should have died. Instead it came back as a choice. Games like Cave Story (2004), Spelunky (2008), and Shovel Knight (2014) used low resolutions to signal a feel: chunky, readable, nostalgic but precise. The limit was no longer hardware. It was a style the developer picked and the audience recognized.",
+          "This shift changed who made the art. Hobbyists and small teams could match the look of a 1990s studio without a 1990s budget. Pixel art became a craft with its own schools of thought, shared palettes, and tutorials, rather than a side effect of expensive silicon."
+        ]
+      },
+      {
+        "heading": "Craft rules that survived",
+        "paragraphs": [
+          "A few rules carried across four decades. The silhouette must read at a glance: you should recognize a character from its outline before you see a single color. Limited palettes still beat thousands of colors for clarity and for animation work.",
+          "Sub-pixel motion is the quiet one. Instead of moving a character a full pixel each frame, animators shift weight, squash, and stretch within a pixel to imply smoother movement than the grid allows. It is why good pixel animation feels alive at 30 frames per second while bad pixel animation looks like it is snapping."
+        ]
+      },
+      {
+        "heading": "Modern tooling changed the workflow",
+        "paragraphs": [
+          "Tools like Aseprite turned pixel art into a structured pipeline. Artists paint on indexed palettes, where each pixel stores a palette index instead of a raw color, which keeps files small and colors consistent across frames. The export step produces a spritesheet: one image holding every frame, laid out in a grid the game engine slices at runtime.",
+          "Spritesheets solve a real problem. Loading one packed image beats hundreds of separate files, and one grid makes frame consistency visible at a glance. If you want to build your own character, the walkthrough at /blog/how-to-create-a-codex-pet covers the sheets, and /blog/what-is-pet-spritesheet explains how the frames are packed and sliced."
+        ]
+      },
+      {
+        "heading": "What AI image models get right and wrong",
+        "paragraphs": [
+          "Modern image models are good at pixel art stills. Point one at a 16-color dungeon tile and you often get a convincing single frame with crisp edges and a believable palette. The failure shows up the moment you need a sequence.",
+          "A walk cycle needs the same character, palette, and outline shifted slightly across eight frames. Models drift: a hand moves, a color index changes, the silhouette wobbles. They also rarely honor a true indexed palette, so output needs manual cleanup before a spritesheet. That human pass is the difference between a toy and a usable asset."
+        ]
+      },
+      {
+        "heading": "Where to go next",
+        "paragraphs": [
+          "Pixel art is a live craft, not a museum piece. The constraint era taught the rules, the indie revival proved they were worth keeping, and current tools make them teachable. Start at / to generate a pixel pet, and read more on the craft at /blog."
+        ]
+      }
+    ]
+  },
+{
+    "slug": "golden-age-pixel-art-8bit-ai-zh",
+    "title": "像素艺术的黄金时代：从 8-bit 到 AI 生成",
+    "description": "像素艺术历史从 8-bit 硬件限制走到今天的 AI 工具。我们追溯这门手艺、16-bit 的进阶、独立复兴，以及 AI 至今仍做错的地方。",
+    "date": "2026-09-13",
+    "author": "PetGen",
+    "keywords": [
+      "像素艺术 历史",
+      "8 bit 像素",
+      "像素艺术 复兴"
+    ],
+    "related": [
+      "codex-pet-ecosystem-zh",
+      "how-to-create-a-codex-pet",
+      "what-is-pet-spritesheet"
+    ],
+    "faq": [
+      {
+        "question": "为什么老游戏要用抖色？",
+        "answer": "抖色用来伪造硬件表现不出的渐变。屏幕上同时允许的颜色很少，美术把两种色调交错成棋盘格，暗示出第三种。这是对内存的妥协，不是风格。"
+      },
+      {
+        "question": "今天的像素艺术还受硬件限制吗？",
+        "answer": "不受了。现代像素艺术是主动选择的风格。开发者为了观感和可读性，主动用低分辨率和少色板，而不是机器逼的。"
+      },
+      {
+        "question": "AI 能取代像素美术吗？",
+        "answer": "静帧上能替代一部分。动画精灵表上还不行。AI 在不同帧之间会漂移，也很少遵守真正的索引调色板，所以仍要人工修一致性。"
+      },
+      {
+        "question": "什么是精灵表？",
+        "answer": "一张把每一帧动画排成网格的图。游戏引擎在运行时切片。它比加载很多文件更快，也让逐帧一致性一眼可见。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "硬件限制的时代",
+        "paragraphs": [
+          "红白机上精灵仅 8×8 像素，整机同屏最多 64 个。64 色调色板，但屏上同显只 25 至 54 色，还要分给背景与精灵层。美术在按字节算的硬预算里工作。",
+          "受限调色板逼出抖色：两色无法平滑过渡时，美术用棋盘格伪造中间调，这是为内存妥协，非美学。背景由 8×8 或 16×16 瓦片拼成，取自小共享池，重复瓦片省下宝贵内存。"
+        ]
+      },
+      {
+        "heading": "16-bit 的进阶",
+        "paragraphs": [
+          "超级任天堂把调色板升到 256 色，每精灵可用 15 或 16 色，尺寸达 64×64，角色小尺寸也清晰。",
+          "即便空间更大，团队仍故意精简调色板。16 色精灵更易逐帧动画，也更易在繁忙背景前保持可读。"
+        ]
+      },
+      {
+        "heading": "高清时代的独立复兴",
+        "paragraphs": [
+          "高清屏到来，像素艺术反成主动选择。《洞窟物语》《铲子骑士》用低分辨率传达厚重、清晰、怀旧的手感。",
+          "这改变了创作者。爱好者和小团队不用 90 年代预算，也能做出那时工作室的观感，像素艺术成了有流派的手艺。"
+        ]
+      },
+      {
+        "heading": "留存下来的工艺规则",
+        "paragraphs": [
+          "剪影须一眼可辨：看见颜色前就能从轮廓认出角色。精简调色板在清晰度和动画上仍胜万色。",
+          "亚像素运动：动画师不每帧移整整一像素，而在一像素内挪重心、挤压拉伸，暗示比网格更顺滑的动作。"
+        ]
+      },
+      {
+        "heading": "现代工具改变了工作流",
+        "paragraphs": [
+          "Aseprite 让每像素存调色板索引而非原始色，文件小、各帧色一致，导出即一张网格精灵表，引擎运行时切片。",
+          "精灵表加载快过上百文件，逐帧一致性肉眼可见。做自己的角色见 /blog/how-to-create-a-codex-pet，帧如何切片见 /blog/what-is-pet-spritesheet。"
+        ]
+      },
+      {
+        "heading": "AI 图像模型做对和做错的地方",
+        "paragraphs": [
+          "现代模型很会像素静帧，给“16 色地牢瓦片”常得边缘锐利的可信单帧。失败在你需要动画序列时。",
+          "AI 在逐帧一致性上吃力：同角色、同调色板、同轮廓要在八帧间微偏移，模型会漂，且少守索引调色板，进精灵表前仍要人工清理。"
+        ]
+      },
+      {
+        "heading": "接下来去哪里",
+        "paragraphs": [
+          "像素艺术是活的手艺。从 / 生成像素宠物，更多工艺文见 /blog。"
+        ]
+      }
+    ]
+  },
 ];
