@@ -4167,4 +4167,71 @@ export const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    slug: 'color-psychology-pet-mood',
+    title: 'Color Psychology: How Your Pixel Pet Palette Affects Your Mood',
+    description:
+      'Why the color palette you pick for a pixel pet changes how you feel at your desk, what the research actually shows, and how to choose a palette that helps you focus.',
+    date: '2026-09-15',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet colors',
+      'pet color palette',
+      'calming colors',
+      'codex pet design',
+    ],
+    faq: [
+      { question: 'Will a calming palette actually help me focus?', answer: 'Not on its own. It removes one source of visual noise, which is a small but real gain.' },
+      { question: 'Can I change colors after generating a pet?', answer: 'Yes, regenerate with a different description. Colors come from the description and the reference photo, so a small wording change can shift the palette.' },
+      { question: 'Do darker pets look bad on light themes?', answer: 'They need more contrast, not brighter colors. Add a contrasting outline in your description.' },
+    ],
+    sections: [
+      {
+        heading: 'Why pet colors matter more than you think',
+        paragraphs: [
+          'A pixel pet sits in the corner of your editor for hours at a time. That makes it the single most-viewed graphic in your workspace, and unlike a wallpaper you actually notice it every time you glance away from code.',
+          'Color is the part of a pet you perceive before you register its shape. So the palette does most of the emotional work, whether you chose it deliberately or just picked something that looked good on the preview page.',
+        ],
+      },
+      {
+        heading: 'What the research supports, and what it does not',
+        paragraphs: [
+          'The honest summary: warm colors do tend to raise arousal and cool colors tend to lower it, and this is one of the more replicable findings in color research. Beyond that, many popular claims about specific colors causing specific emotions do not survive replication.',
+          'That is still useful. If you want your pet to feel alert and playful, warmer hues are the safer bet. If you want it to fade into the background while you work, cooler and desaturated hues do that reliably.',
+        ],
+      },
+      {
+        heading: 'Three palette directions',
+        list: [
+          'Calm and low-stimulus: desaturated blue, slate, and soft grey. Best for long focus sessions and for anyone who already has a busy screen.',
+          'Warm and friendly: amber, coral, terracotta. Best when the pet is meant to feel like company rather than furniture.',
+          'High-contrast accent: one saturated hue against near-black. Best when you want the pet to be a focal point you check on rather than something you ignore.',
+        ],
+      },
+      {
+        heading: 'Contrast matters more than hue',
+        paragraphs: [
+          'The most common mistake is picking colors that are pleasant in isolation but nearly invisible against the editor theme. A pet that vanishes is a pet you stop noticing, and a pet that vibrates against the background is worse: it pulls your eye away from code every few seconds.',
+          'Aim for clear separation from your theme background. On a dark theme, that usually means staying above a certain lightness; on a light theme, the reverse. PetGen previews every pet on both, which is the fastest way to catch a palette that only works in one.',
+        ],
+      },
+      {
+        heading: 'Making the choice stick',
+        paragraphs: [
+          'Pick the palette for the mood you want in the last hour of work, not the first. Most people choose bright and cheerful, then find it tiring by late afternoon. If you work past dark, a calmer palette usually holds up better.',
+        ],
+      },
+      {
+        heading: 'FAQ',
+        paragraphs: [
+          'Will a calming palette actually help me focus? Not on its own. It removes one source of visual noise, which is a small but real gain.',
+          'Can I change colors after generating a pet? Yes, regenerate with a different description. Colors come from the description and the reference photo, so a small wording change can shift the palette.',
+          'Do darker pets look bad on light themes? They need more contrast, not brighter colors. Add a contrasting outline in your description.',
+        ],
+      },
+      {
+        heading: 'Try it on your own pet',
+      },
+    ],
+  },
 ];
