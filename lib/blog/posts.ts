@@ -4234,4 +4234,27 @@ export const posts: BlogPost[] = [
       },
     ],
   },
-];
+
+  {
+    slug: "celebrity-pet-copyright-guidelines",
+    date: "2026-09-17",
+    titleEn: "Celebrity Pets and Copyright: What You Can and Can't Do",
+    titleZh: "名人宠物与版权：你能做什么不能做什么",
+    excerptEn: "Creating pixel art of celebrity pets is a popular trend. Learn what you can and cannot do with copyright.",
+    excerptZh: "创作名人宠物的像素艺术是一种流行趋势。了解版权方面你能做什么不能做什么。",
+    bodyEn: [
+      { type: "h2", text: "Understanding Copyright Basics" },
+      { type: "p", text: "Copyright protects original works of authorship, including photographs of celebrities and their pets." },
+      { type: "ul", items: ["Create original pet designs", "Use general concepts", "Add transformative elements"] },
+      { type: "h2", text: "FAQ" },
+      { type: "faq", questions: [
+        { q: "Can I sell pixel art of celebrity pets?", a: "Generally no, unless you have permission." }
+      ]}
+    ],
+    bodyZh: [
+      { type: "h2", text: "理解版权基础" },
+      { type: "p", text: "版权保护原创作者作品，包括名人和其宠物的照片。" }
+    ],
+    category: "copyright",
+    tags: ["pixel art", "copyright", "celebrity pets"]
+  },];
