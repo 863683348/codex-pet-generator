@@ -4239,33 +4239,156 @@ export const posts: BlogPost[] = [
     slug: 'celebrity-pet-copyright-guidelines',
     title: "Celebrity Pets and Copyright: What You Can and Can't Do",
     description:
-      'Creating pixel art of celebrity pets is a popular trend. Learn what you can and cannot do with copyright.',
+      "",
     date: '2026-09-17',
     author: 'PetGen',
-    keywords: ['pixel art', 'copyright', 'celebrity pets'],
-    sections: [
-      {
-        heading: 'Understanding Copyright Basics',
-        paragraphs: [
-          'Copyright protects original works of authorship, including photographs of celebrities and their pets.',
-        ],
-        list: [
-          'Create original pet designs',
-          'Use general concepts',
-          'Add transformative elements',
-        ],
-      },
-      {
-        heading: 'FAQ',
-        paragraphs: [
-          'Can I sell pixel art of celebrity pets? Generally no, unless you have permission.',
-        ],
-      },
+    keywords: [
+      'celebrity pet copyright guidelines',
+      'celebrity pet copyright',
+      'celebrity pet',
     ],
     faq: [
       {
-        question: 'Can I sell pixel art of celebrity pets?',
-        answer: 'Generally no, unless you have permission.',
+        question: "Can I sell pixel art of celebrity pets?",
+        answer: "Generally no, unless you have permission.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Understanding Copyright Basics",
+        paragraphs: [
+          "Copyright protects original works of authorship, including photographs of celebrities and their pets.",
+        ],
+        list: [
+          "Create original pet designs",
+          "Use general concepts",
+          "Add transformative elements",
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'coding-mood-journal-pixel-pet',
+    title: "Keep a Coding Mood Journal with Your Pixel Pet",
+    description:
+      "",
+    date: '2026-09-19',
+    author: 'PetGen',
+    keywords: [
+      'coding mood journal pixel pet',
+      'coding mood journal',
+      'coding mood',
+    ],
+    faq: [
+      {
+        question: "How often should I journal?",
+        answer: "Daily check-ins work best. Even 2 minutes creates meaningful patterns.",
+      },
+      {
+        question: "Can I share my pixel pet?",
+        answer: "Yes! Share progress, get encouragement, or compete in friendly mood challenges.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Why Mood Journaling Matters for Developers",
+        paragraphs: [
+          "Coding is emotional work. You debug frustration, celebrate breakthroughs, and navigate imposter syndrome daily. A mood journal makes these patterns visible.",
+        ],
+      },
+      {
+        heading: "Meet Your Pixel Companion",
+        paragraphs: [
+          "A pixel pet evolves with your coding journey. Different moods trigger different expressions, colors, and animations.",
+        ],
+      },
+      {
+        heading: "Setting Up Your Journal",
+        list: [
+          "Choose a pixel pet template",
+          "Set daily check-in reminders",
+          "Log mood alongside coding sessions",
+          "Review weekly patterns",
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'the-ai-behind-the-pet-how-diffusion-models-draw-pixels',
+    title: 'The AI Behind the Pet: How Diffusion Models Draw Pixels',
+    description:
+      'A plain-language explanation of how diffusion models turn text into pixel art: the forward noising process, the reverse denoising loop, and why pixel art needs extra work at the end.',
+    date: '2026-09-21',
+    author: 'PetGen',
+    keywords: [
+      'how diffusion models work',
+      'ai pixel art generation',
+      'text to pixel art ai',
+      'diffusion model explained',
+      'codex pet generation',
+      'ai sprite generation',
+      'denoising diffusion',
+      'pixel art ai pipeline',
+    ],
+    faq: [
+      {
+        question: 'How does a diffusion model actually make an image?',
+        answer: 'It starts from random noise and removes a little noise at a time, over dozens of steps, until a coherent image appears. The model learned what to remove by being trained on millions of images with noise added and removed again.',
+      },
+      {
+        question: 'Why is pixel art harder for AI than photo-realistic images?',
+        answer: 'Pixel art has a hard constraint: every pixel must land on a grid, and the palette is deliberately tiny. Diffusion models work in continuous values, so the output has to be snapped to a grid and reduced to a palette afterwards, and that step can destroy detail if it is done carelessly.',
+      },
+      {
+        question: 'Does the AI copy existing pixel art?',
+        answer: 'It synthesizes from learned statistical patterns rather than retrieving stored images. That makes exact copying unlikely, but it also means the model has no idea whether the result is aesthetically good — that judgment is still yours.',
+      },
+      {
+        question: 'How long does one pet take to generate?',
+        answer: 'On consumer hardware, a few seconds to under a minute depending on resolution and step count. Higher step counts give cleaner results at the cost of time.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a diffusion model is doing',
+        paragraphs: [
+          'The name comes from physics. Diffusion describes particles spreading out until they are evenly mixed. The model uses the same idea in reverse: take a real image, gradually destroy it with noise until nothing but static remains, then learn to undo that destruction step by step.',
+          'Once the model can undo one small step of noise reliably, you can start from pure static and run the process backwards. The result is an image that never existed but follows the same statistical rules as the images it trained on.',
+        ],
+      },
+      {
+        heading: 'Why text turns into the right picture',
+        paragraphs: [
+          'Text enters separately. A text encoder turns your prompt into a numeric description, and the denoising step is conditioned on that description. Every step the model asks: given this description, what should be removed from this noise to move one step closer to a matching image?',
+          'That conditioning is what makes "a small red fox sprite with a green scarf" produce something specific rather than a generic animal. The stronger the conditioning, the more literally the prompt is followed, and the less freedom the model has to produce something pleasant.',
+        ],
+      },
+      {
+        heading: 'Why pixel art needs a second stage',
+        paragraphs: [
+          'A diffusion model outputs continuous colour values at whatever resolution you asked for. Pixel art is the opposite: a fixed grid with a small, deliberate palette where every pixel is visible.',
+          'The usual pipeline therefore generates at a modest resolution, then quantizes: snap each pixel to the nearest colour in a chosen palette, clean up stray pixels, and remove anti-aliasing that would blur the grid.',
+          'Done badly this step produces a muddy image with outline artefacts. Done well it produces something that reads cleanly at 4x zoom, which is the whole point of the style.',
+        ],
+        list: [
+          'Generate at a low native resolution rather than downscaling a large image — downscaling invents detail that cannot survive quantization.',
+          'Limit the palette before generating if the tool supports it; deciding after the fact loses colour information you cannot recover.',
+          'Check the result at 400 percent zoom. If the grid is inconsistent at that magnification, the sprite will look wrong everywhere.',
+        ],
+      },
+      {
+        heading: 'What the model cannot judge',
+        paragraphs: [
+          'The model has no concept of whether a pet looks friendly, whether a scarf colour suits the fur, or whether the silhouette reads at small sizes. It optimizes for matching the prompt, not for looking good.',
+          'That gap is why generating a pet is a loop rather than a single click. You generate, look at it as a piece of design rather than as an answer, and adjust the prompt. The model handles the drawing; the taste is still yours.',
+        ],
+      },
+      {
+        heading: 'Where this leaves you',
+        paragraphs: [
+          'Understanding the pipeline mainly changes what you ask for. Prompts that specify silhouette, palette and pose get better results than prompts that describe a mood, because those are the things the conditioning can act on.',
+          'If you want to try it, generate a pet and look at it zoomed in. The artefacts are visible once you know what produced them.',
+        ],
       },
     ],
   },
