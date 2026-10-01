@@ -4392,4 +4392,194 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'coding-marathon-pet-guide',
+    title: 'Coding Marathon Guide: Pets for the Long Haul',
+    description:
+      'A coding marathon pet will not write your code, and that is why it works. Here is how to set one up for overnight sessions and hackathons, and which settings survive hour ten.',
+    date: '2026-10-02',
+    author: 'PetGen',
+    keywords: [
+      'coding marathon pet',
+      'overnight coding companion',
+      'hackathon pet',
+      'long session motivation pet',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'how-to-create-a-codex-pet',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: 'Does a coding marathon pet actually help you finish a session?',
+        answer: 'It helps by marking time, not by adding willpower. The pet changes state when you have been still for a while, which turns an invisible stretch of work into something you can see. Whether you act on it is still your call, and that is the part timers get wrong.',
+      },
+      {
+        question: 'Can I use a photo of my own pet for an overnight coding companion?',
+        answer: 'Yes, and it tends to work better than a generated one. Upload a photo to codexpetgenerator.com and the tool renders a pixel base, a spritesheet and a pet.json. You chose the animal, so you are still happy to look at it at hour ten.',
+      },
+      {
+        question: 'Will a hackathon pet slow down my editor?',
+        answer: 'No. A pet is one small image plus a few kilobytes of JSON. Nothing runs in the background and there is no network call after install, so the cost is a static file being drawn in a corner.',
+      },
+      {
+        question: 'How many states should a long session motivation pet have?',
+        answer: 'Four is plenty: idle, active, rest and alert. More states means more configuration you will not maintain once the session gets hard, and the extra states rarely change what you do.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a coding marathon pet actually does',
+        paragraphs: [
+          'A coding marathon pet will not write your code, and that is the reason it works. Six hours into an overnight session the problem is rarely knowledge. It is that you stopped noticing time passing. A small pixel companion in the corner of the screen gives the session a shape: it reacts when you have been still too long, and it reacts when you ship something. That feedback loop is what long stretches of work usually lack.',
+          'Strip away the animation and the thing is three parts: a sprite, a state machine, and a small JSON file. The sprite is the image. The state machine decides which frame shows, whether the pet is idle, walking, sleeping or reacting. The JSON ties them together and tells Codex when to move between states.',
+          'The last part is where the value sits. Because the states are data rather than code, you can attach them to things your editor already knows about: a file saved, a test run finishing, an hour going by without a commit. The pet is not decoration laid over your work. It is a display for signals you already produce.',
+        ],
+        list: [
+          'Idle: the default frame loop, kept slow enough that you stop noticing it',
+          'Active: triggered by saves and passing tests, faster and brighter',
+          'Rest: triggered by elapsed time, the pet sleeps and dims',
+          'Alert: triggered by inactivity past a threshold you set',
+        ],
+      },
+      {
+        heading: 'Why an overnight coding companion beats a timer',
+        paragraphs: [
+          'Timers fail at three in the morning because they ask you to fight your own attention. A notification telling you to take a break arrives while you are mid-thought, and you dismiss it without looking up. The interruption is hostile to the work it is meant to protect.',
+          'An overnight coding companion does the same job without the demand. The pet simply falls asleep. Nothing pops up, nothing sounds. When you glance over, the sleeping sprite tells you that a block of time has passed since your last break. You decide what to do about it.',
+          'People who work overnight regularly describe the same effect. The pet works because it is ambient: it sits in peripheral vision and changes state on its own schedule rather than yours. A timer demands a response. A sleeping cat does not.',
+        ],
+        list: [
+          'Park the pet in a bottom corner rather than the middle of the screen',
+          'Keep the idle animation under one frame per second',
+          'Tie the rest state to elapsed time, not to wall-clock time',
+        ],
+      },
+      {
+        heading: 'Building a hackathon pet that survives twelve hours',
+        paragraphs: [
+          'Hackathon sessions break pets in predictable ways. The first failure is colour. A sprite tuned on a bright monitor looks washed out at two in the morning, when the room is dark and you have dimmed the screen to forty percent. Check the palette at the brightness you will actually use before you commit to it.',
+          'The second failure is motion. A pet that bounces every few seconds is charming for twenty minutes and tiring by hour four. For a hackathon pet, cap the movement budget: one reaction per meaningful event plus a slow idle loop, and nothing else. Random motion is the first thing to cut when the session gets long.',
+          'The third failure is scale. Most pets render at 32 or 64 pixels and scale up from there. At four times zoom on a high-density display the grid has to stay consistent, or the sprite starts to look soft and cheap exactly when you have been staring at it longest.',
+        ],
+        list: [
+          'Preview the sprite at the brightness you use at night',
+          'Cap reactions: idle loop plus event triggers, no random movement',
+          'Inspect the pixel grid at 400 percent zoom before you ship it',
+        ],
+      },
+      {
+        heading: 'Long session motivation pet: a schedule that holds',
+        paragraphs: [
+          'A long session motivation pet only works if the schedule behind it is small enough to keep. Four states, four triggers and one number, the interval between rest prompts, is enough. Everything past that is configuration you will abandon by hour eight.',
+          'The intervals that hold up in practice: work blocks near fifty minutes, rest prompts near ten, and a hard stop you set before you start rather than during. Write the hard stop down somewhere you will see it. Sessions without one end when your body gives out rather than when the work does.',
+          'Pair the pet with something physical it cannot do for you. Water within reach, a lamp that changes with the room, and a keyboard you are willing to walk away from at the stop time. The pet reminds you. The stopping is yours.',
+        ],
+      },
+      {
+        heading: 'Where to start',
+        paragraphs: [
+          'Make the pet first, then wire the states. A photo of your own animal converts into a better companion than anything generated from a prompt, because you picked it and you will still want to look at it after midnight.',
+          'Generate yours at codexpetgenerator.com. Start from the home page at /, follow the build walkthrough at /blog/how-to-create-a-codex-pet, then read why long-session companions stick at /blog/why-developers-love-desktop-companions.',
+          'Five minutes of setup, and the rest of the night has a shape.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'coding-marathon-pet-guide-zh',
+    title: '编码马拉松指南：让宠物陪你通宵',
+    description:
+      '编码马拉松桌宠不会替你写代码，这正是它有用的原因。这篇讲怎么为通宵和黑客松配一只桌宠，以及哪些设置在第十个小时还撑得住。',
+    date: '2026-10-02',
+    author: 'PetGen',
+    keywords: [
+      '编码马拉松 桌宠',
+      '通宵编程 陪伴',
+      '黑客松 桌宠',
+      '长时间编程 动力',
+    ],
+    related: [
+      'why-developers-love-desktop-companions-zh',
+      'how-to-create-a-codex-pet',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: '桌宠真的能帮你撑完一整场编码马拉松吗？',
+        answer: '它靠标记时间起作用，不是靠给你加意志力。你长时间不动时桌宠会切换状态，把一段本来无感的工作变成看得见的东西。要不要响应仍然由你决定，这正是定时器做错的地方。',
+      },
+      {
+        question: '可以用自己家宠物的照片做通宵陪伴桌宠吗？',
+        answer: '可以，而且效果通常比生成的更好。把照片传到 codexpetgenerator.com，工具会渲染出像素底图、精灵图和 pet.json。动物是你自己挑的，所以到了第十个小时你还愿意看它。',
+      },
+      {
+        question: '黑客松桌宠会拖慢编辑器吗？',
+        answer: '不会。桌宠就是一张小图加几 KB 的 JSON，后台没有任何进程，安装后也不再发起网络请求，开销只是在角落画一张静态图。',
+      },
+      {
+        question: '长时间编程的桌宠该设几个状态？',
+        answer: '四个足够：待机、活跃、休息、提醒。状态再多，就是你在会话变难之后不会再维护的配置，而且多出来的状态很少改变你的行为。',
+      },
+    ],
+    sections: [
+      {
+        heading: '编码马拉松桌宠到底在做什么',
+        paragraphs: [
+          '编码马拉松桌宠不会替你写代码，而这正是它有用的原因。通宵到第六个小时，问题通常不是你不会，而是你不再察觉时间在走。屏幕角落里一只小像素宠物给这段会话一个形状：你太久没动，它有反应；你交付了东西，它也有反应。长时段工作缺的往往就是这条反馈回路。',
+          '把动画剥掉，这东西由三部分组成：一张精灵图、一个状态机、一个很小的 JSON 文件。精灵图是你看到的画面。状态机决定显示哪一帧，是待机、走动、睡觉还是在反应。JSON 把两者连起来，告诉 Codex 什么时候在状态之间切换。',
+          '价值在最后那部分。因为状态是数据而不是代码，你可以把它挂到编辑器本来就知道的事情上：保存了一个文件、跑完一轮测试、一个小时没有提交。桌宠不是盖在工作上面的一层装饰，它是你已经在产生的信号的一块显示屏。',
+        ],
+        list: [
+          '待机：默认帧循环，慢到你不会再注意到它',
+          '活跃：由保存和测试通过触发，更快更亮',
+          '休息：由累计时长触发，宠物睡觉并变暗',
+          '提醒：由超过你设定的静止阈值触发',
+        ],
+      },
+      {
+        heading: '为什么通宵时它比定时器更管用',
+        paragraphs: [
+          '定时器在凌晨三点失效，是因为它要你跟自己的注意力对着干。一条让你休息的通知，总是出现在你思路正顺的时候，你看都不看就划掉。这个打断本身就在伤害它想保护的工作。',
+          '通宵陪伴桌宠做的是同一件事，但不提要求。宠物只是睡着了。没有弹窗，没有声音。你瞥一眼，那只睡着的像素动物告诉你：距离上次休息已经过去一段时间了。要不要动，你自己判断。',
+          '经常通宵的人描述的感受很一致：桌宠有用是因为它是环境的一部分。它待在余光里，按自己的节奏而不是你的节奏改变状态。定时器要求你回应，一只睡着的猫不要求。',
+        ],
+        list: [
+          '把桌宠放在屏幕下角，不要放在中间',
+          '待机动画保持在每秒一帧以内',
+          '休息状态绑累计时长，不要绑墙上时钟',
+        ],
+      },
+      {
+        heading: '能撑过十二小时的黑客松桌宠',
+        paragraphs: [
+          '黑客松会以几种固定的方式把桌宠用坏。第一种是颜色：在亮着的显示器上调好的精灵图，到了凌晨两点房间很暗、屏幕调到百分之四十亮度时，就发灰了。定稿前先在你真正会用的亮度下看一遍配色。',
+          '第二种是动作：一只每隔几秒就跳一下的宠物，前二十分钟可爱，到第四个小时烦人。黑客松桌宠要给动作设上限——每个有意义的事件触发一次反应，外加一个很慢的待机循环，别的都不要。会话一变长，随机动作就是第一个该砍掉的东西。',
+          '第三种是缩放：多数桌宠以 32 或 64 像素渲染再放大。在高分屏上放大四倍时，像素格必须保持一致，否则精灵图会开始发虚、发廉价，而那一眼恰好出现在你已经盯了它最久的时候。',
+        ],
+        list: [
+          '在夜间实际亮度下预览精灵图',
+          '给反应设上限：待机循环加事件触发，不要随机动作',
+          '定稿前用 400% 缩放检查像素格',
+        ],
+      },
+      {
+        heading: '长时间编程的动力：一份能坚持的节奏',
+        paragraphs: [
+          '长时间编程的桌宠只有在背后的节奏小到你守得住时才有效。四个状态、四个触发器、一个数字（休息提示的间隔），就够了。再多的配置，到第八个小时你一定会放弃维护。',
+          '实践里撑得住的间隔是：工作块大约五十分钟，休息提示大约十分钟，还有一个你在开始之前、而不是进行之中就定好的硬停止时间。把这个停止时间写在你会看到的地方。没有硬停止的会话，结束在身体撑不住的时候，而不是工作完成的时候。',
+          '再给它配几件它替不了你做的事：手边有水、一盏跟着房间变的灯、一张到了停止时间你舍得放下的键盘。桌宠负责提醒，停下来是你自己的事。',
+        ],
+      },
+      {
+        heading: '从哪里开始',
+        paragraphs: [
+          '先做宠物，再接状态。用自己家动物的照片做出来的陪伴感，比任何用提示词生成的都好，因为是你挑的，过了午夜你还愿意看它。',
+          '在 codexpetgenerator.com 生成你的那只。从首页 / 开始，照着 /blog/how-to-create-a-codex-pet 的搭建步骤走一遍，再到 /blog/why-developers-love-desktop-companions-zh 看长时段陪伴为什么留得住。',
+          '五分钟配置，剩下的一整晚就有了形状。',
+        ],
+      },
+    ],
+  },
 ];
