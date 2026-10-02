@@ -4582,4 +4582,214 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'sync-codex-pet-across-machines',
+    title: 'Sync Your Codex Pet Across Work and Home Machines',
+    description:
+      'Two machines, one pet. This guide covers sync codex pet options that actually hold up: zipping the pets folder by hand, keeping ~/.codex/pets inside a synced drive, and versioning it in a private repo. Plus the checks that matter when your pet loads on one machine and not the other.',
+    date: '2026-10-03',
+    author: 'PetGen',
+    keywords: [
+      'sync codex pet',
+      'codex pet sync',
+      'copy pet another computer',
+      'sync pets folder',
+      'codex pet multiple machines',
+      'pet.json transfer',
+      'codex pet backup sync',
+      'same pet on two computers',
+    ],
+    related: [
+      'how-to-install-codex-pet',
+      'export-formats-explained',
+      'codex-pet-ecosystem',
+    ],
+    faq: [
+      {
+        question: 'How do I sync my Codex pet between two computers?',
+        answer: 'Copy the folder, not just the image. Zip the folder holding spritesheet.webp and pet.json, move it to the second machine, unzip it into ~/.codex/pets on macOS or Linux or %USERPROFILE%\\.codex\\pets on Windows, then fully quit and reopen Codex. If you want the sync to keep happening, put the whole pets folder inside a synced drive instead.',
+      },
+      {
+        question: 'Can I run the same pet on a work laptop and a home desktop?',
+        answer: 'Yes. A Codex pet is not tied to a machine, an account or a license key. The pet is two files in a correctly named folder, and any machine whose pets directory contains that folder will show it after a restart.',
+      },
+      {
+        question: 'Why does my pet appear on one machine but not the other?',
+        answer: 'Check three things in order. The folder may sit in a different .codex directory than the one Codex reads, which happens often with WSL or a second installer. The folder name may no longer match the name field in pet.json after a rename. Or Codex was already running when the files arrived, in which case a full restart is all it needs.',
+      },
+      {
+        question: 'Will syncing my pets folder slow Codex down?',
+        answer: 'No. A pet is a spritesheet plus a few kilobytes of JSON, and Codex reads the folder once at launch. Even with a sync client watching the directory there is no background process and no network request after installation.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What you are actually moving when you copy a pet to another computer',
+        paragraphs: [
+          'A Codex pet is two files: spritesheet.webp and pet.json. That is the entire package. When you copy pet files to another computer you are moving those two items inside one folder, and the folder name has to match the name field inside pet.json. Nothing else on the machine matters. There is no registry entry, no installer step, and no license check tied to the hardware.',
+          'That is why codex pet sync is less work than people expect. There is no account to sign into and no cloud profile to restore from. The pet lives in a directory Codex reads when it launches, so if the same directory exists on a second machine with the same contents, the same pet shows up there.',
+        ],
+        list: [
+          'spritesheet.webp: the frames, usually eight or nine states stacked in one image',
+          'pet.json: the id, displayName, and the timing for each state',
+          'the folder wrapping both, named to match displayName',
+        ],
+      },
+      {
+        heading: 'Where the pets folder lives on each machine',
+        paragraphs: [
+          'On macOS and Linux the path is ~/.codex/pets. On Windows it is %USERPROFILE%\\.codex\\pets. If the folder does not exist yet, create it. Codex reads the directory at launch, so a pet dropped in before you open the app appears on the very first run.',
+          'Write the path down for both machines before you start moving anything. Most failed syncs are not sync problems: the pet landed inside a second .codex folder created by a different installer, or one level too deep inside a subfolder Codex never scans.',
+        ],
+        list: [
+          'macOS and Linux: ~/.codex/pets/',
+          'Windows: C:\\Users\\<you>\\.codex\\pets\\',
+          'Confirm with ls ~/.codex/pets, or dir %USERPROFILE%\\.codex\\pets on Windows',
+        ],
+      },
+      {
+        heading: 'Three ways to sync your pets folder between machines',
+        paragraphs: [
+          'Pick one method and stay with it. Mixing them is how you end up with two slightly different pets that both look correct until you screenshot them side by side.',
+        ],
+        list: [
+          'Zip and copy: zip the pet folder, move it by USB stick, AirDrop or email, unzip it into the pets folder on the second machine. Right choice for a one-off move.',
+          'Synced drive: place ~/.codex/pets inside a folder managed by Dropbox, iCloud Drive, OneDrive or Syncthing and let it replicate. Right choice when you edit pets on both machines.',
+          'Private git repo: commit the folder and pull on the other machine. Right choice if you already version your dotfiles and want a history of changes.',
+        ],
+      },
+      {
+        heading: 'Multi-machine setup: what breaks',
+        paragraphs: [
+          'Codex pet multiple machines setups fail in a short list of repeatable ways. Path drift is the most common: a WSL home directory and a Windows home directory are not the same place, and a pet copied into one stays invisible to Codex running from the other.',
+          'The second is a name mismatch after a rename. If you rename the folder on one machine and the sync only carries file contents, the other machine keeps the old folder name while pet.json declares a new one. Codex skips it without an error message, which makes it look like a bug in the pet rather than a mismatch.',
+          'The third is a read that happened too early. Codex reads the folder at launch, so a pet that arrives while Codex is open will not show up until you quit and reopen it.',
+        ],
+        list: [
+          'Pet missing on one machine only: check which .codex directory Codex actually reads',
+          'Pet appears then disappears: a sync client is mid-write, wait for it to finish',
+          'Pet renders as a blank square: spritesheet.webp did not finish transferring',
+        ],
+      },
+      {
+        heading: 'Keeping pet.json in step across machines',
+        paragraphs: [
+          'Treat pet.json as the source of truth. When you adjust animation timing or state names on one machine, export the folder again and let the sync carry the whole thing across. Editing pet.json in two places produces two pets that drift apart quietly, and quiet drift is worse than a pet that fails to load, because a failure is at least visible.',
+          'If you regenerate a pet from a photo, download the fresh ZIP and overwrite the folder rather than merging files. A generator emits the spritesheet and pet.json as a matched pair, and pairing a new image with an old JSON is the usual reason frames play at the wrong speed.',
+        ],
+      },
+      {
+        heading: 'One pet, two machines',
+        paragraphs: [
+          'Generate once, then point both machines at the same folder. That is the whole habit, and it takes about two minutes to set up.',
+          'Start at / to turn a photo into a pixel companion, follow the install walkthrough at /blog/how-to-install-codex-pet for the path on each operating system, and read /blog/export-formats-explained before you decide which format to carry between machines.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'sync-codex-pet-across-machines-zh',
+    title: '多设备同步：公司和家里用同一只桌宠',
+    description:
+      '桌宠不绑机器。这篇讲 codex pet sync 的三种可行做法：手动拷贝 pets 文件夹、放进同步盘、用私有仓库版本化，以及桌宠在一台机器显示、另一台不显示时的排查顺序。',
+    date: '2026-10-03',
+    author: 'PetGen',
+    keywords: [
+      '桌宠 多设备同步',
+      'codex pet sync',
+      '桌宠 拷贝到另一台电脑',
+      'pets 文件夹 同步',
+      '公司 家里 同一只桌宠',
+      'pet.json 迁移',
+      '桌宠 备份同步',
+      '两台电脑 同一宠物',
+    ],
+    related: [
+      'how-to-install-codex-pet',
+      'export-formats-explained-zh',
+      'codex-pet-ecosystem-zh',
+    ],
+    faq: [
+      {
+        question: '怎么把桌宠同步到另一台电脑？',
+        answer: '拷文件夹，不要只拷图片。把装着 spritesheet.webp 和 pet.json 的那个文件夹打包，拷到第二台机器，解压进 macOS 或 Linux 的 ~/.codex/pets、Windows 的 %USERPROFILE%\\.codex\\pets，然后彻底退出再打开 Codex。想让它以后一直同步，就把整个 pets 文件夹放进同步盘。',
+      },
+      {
+        question: '公司笔记本和家里台式机能用同一只桌宠吗？',
+        answer: '可以。桌宠不绑机器、不绑账号、也不校验授权，它就是两个文件放在一个名字正确的文件夹里。任何一台机器的 pets 目录里有这个文件夹，重启之后就会显示。',
+      },
+      {
+        question: '为什么桌宠在一台机器上显示、另一台不显示？',
+        answer: '按顺序查三件事。一是文件夹放进了另一个 .codex 目录，WSL 或装过第二个客户端时最常见；二是改名之后文件夹名和 pet.json 里的 name 对不上；三是文件到位时 Codex 正在运行，它只在启动时读一次目录，彻底重启就好了。',
+      },
+      {
+        question: '同步 pets 文件夹会拖慢 Codex 吗？',
+        answer: '不会。一只桌宠是一张精灵图加几 KB 的 JSON，Codex 启动时读一次目录。就算同步客户端在监听这个目录，安装之后也没有后台进程，不再发起网络请求。',
+      },
+    ],
+    sections: [
+      {
+        heading: '把桌宠拷到另一台电脑，实际在拷什么',
+        paragraphs: [
+          '一只桌宠就是两个文件：spritesheet.webp 和 pet.json，没有第三样。所谓把桌宠拷到另一台电脑，就是把这个装着两个文件的文件夹整个搬过去，而且文件夹名必须和 pet.json 里的 name 字段一致。机器上其它东西都不相干：没有注册表项，不用重新安装，也不做跟硬件绑定的授权校验。',
+          '所以 codex pet sync 比多数人想的省事。没有账号要登录，没有云端存档要恢复。桌宠就是 Codex 启动时会读的一个目录，只要第二台机器上这个目录里放着同样的内容，同样的桌宠就会出现在那儿。',
+        ],
+        list: [
+          'spritesheet.webp：所有帧，一般是八到九个状态排在一张图里',
+          'pet.json：id、displayName，以及每个状态的播放节奏',
+          '装着两者的文件夹，名字跟 displayName 保持一致',
+        ],
+      },
+      {
+        heading: '每台机器上 pets 文件夹在哪',
+        paragraphs: [
+          'macOS 和 Linux 是 ~/.codex/pets，Windows 是 %USERPROFILE%\\.codex\\pets。目录不存在就自己建一个。Codex 在启动时读这个目录，所以在打开应用之前放进去的桌宠，第一次运行就能看到。',
+          '动手之前先把两台机器的路径写下来。多数同步失败其实不是同步的问题：文件夹进了另一个客户端创建的 .codex 目录，或者多套了一层子目录，而 Codex 根本不会往里扫。',
+        ],
+        list: [
+          'macOS 和 Linux：~/.codex/pets/',
+          'Windows：C:\\Users\\<你>\\.codex\\pets\\',
+          '用 ls ~/.codex/pets 确认，Windows 用 dir %USERPROFILE%\\.codex\\pets',
+        ],
+      },
+      {
+        heading: '同步 pets 文件夹的三种做法',
+        paragraphs: [
+          '选一种，然后一直用它。混着用的结果是两只略有差别的桌宠，各自看着都对，直到你把两张截图摆在一起才发现不一样。',
+        ],
+        list: [
+          '打包拷贝：把桌宠文件夹压缩，用 U 盘、隔空投送或邮件搬过去，在第二台机器解压进 pets 目录。适合一次性迁移。',
+          '同步盘：把 ~/.codex/pets 放进 Dropbox、iCloud Drive、OneDrive 或 Syncthing 管理的目录，让它自己复制。适合两台机器都会改桌宠的情况。',
+          '私有 git 仓库：提交这个文件夹，在另一台机器上拉取。适合本来就在版本化 dotfiles、想留下改动记录的人。',
+        ],
+      },
+      {
+        heading: '多台机器会坏在哪',
+        paragraphs: [
+          '多设备桌宠坏的方式很固定，翻来覆去就那么几种。最常见的是路径漂移：WSL 的家目录和 Windows 的家目录不是一个地方，拷进其中一个，另一个环境里运行的 Codex 就看不见。',
+          '第二种是改名之后的名字错位。你在一台机器上改了文件夹名，而同步只搬运了文件内容，另一台机器还留着旧文件夹名，pet.json 里却已经是新名字。Codex 不报错，直接跳过，看上去像桌宠坏了，其实是名字没对上。',
+          '第三种是读得太早。Codex 只在启动时读这个目录，开着 Codex 拷进去的桌宠要彻底退出再打开才会出现。',
+        ],
+        list: [
+          '只有一台机器看不到：先确认 Codex 实际读的是哪个 .codex 目录',
+          '先出现又消失：同步客户端正在写入，等它跑完',
+          '显示成空白方块：spritesheet.webp 没传完整',
+        ],
+      },
+      {
+        heading: '让 pet.json 在两台机器上保持一致',
+        paragraphs: [
+          '把 pet.json 当作唯一的事实来源。在一台机器上调了动画节奏或状态名，就重新导出整个文件夹，让同步把整包带过去。两头各改一次，会养出两只悄悄分叉的桌宠；安静的分叉比加载失败更麻烦，因为失败至少看得见。',
+          '重新生成桌宠的时候，下载新的 ZIP 覆盖整个文件夹，不要只替换部分文件。生成器输出的精灵图和 pet.json 是一套配套的，新图配旧 JSON，最常见的后果就是帧播速度不对。',
+        ],
+      },
+      {
+        heading: '一只桌宠，两台机器',
+        paragraphs: [
+          '生成一次，然后让两台机器指向同一个文件夹。这个习惯的全部内容就是这些，搭起来大概两分钟。',
+          '从 / 开始，把照片变成像素伴侣；每台系统的具体路径看 /blog/how-to-install-codex-pet；决定用什么格式在机器之间搬运之前，先读 /blog/export-formats-explained。',
+        ],
+      },
+    ],
+  },
 ];
