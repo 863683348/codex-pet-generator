@@ -4792,4 +4792,219 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'backup-codex-pets-guide',
+    title: 'Back Up Your Pets: Do Not Lose Your Pixel Companion',
+    description:
+      'A codex pet backup takes thirty seconds, and almost nobody makes one until a pet is already gone. What to copy, where to keep it, and how to restore a Codex pet on a fresh machine.',
+    date: '2026-10-04',
+    author: 'PetGen',
+    keywords: [
+      'codex pet backup',
+      'backup pets folder',
+      'pet zip backup',
+      'restore codex pet',
+      'codex pet restore',
+      'backup codex pets',
+      'pet.json backup',
+      'codex pet backup folder',
+    ],
+    related: [
+      'how-to-install-codex-pet',
+      'export-formats-explained',
+      'sync-codex-pet-across-machines',
+    ],
+    faq: [
+      {
+        question: 'How do I back up my Codex pets?',
+        answer: 'Zip the pet folder holding both spritesheet.webp and pet.json, then store the archive somewhere off the machine: a cloud drive, an external disk, or a private git repo. Copying the image alone is not a backup, because pet.json carries the id, the name and the animation timing Codex needs to recognise the pet.',
+      },
+      {
+        question: 'Where is the Codex pets folder?',
+        answer: 'It is ~/.codex/pets on macOS and Linux, and C:/Users/<you>/.codex/pets on Windows. Every subfolder inside that directory is one pet.',
+      },
+      {
+        question: 'How do I restore a pet from a backup?',
+        answer: 'Unzip the archive into the pets folder for your operating system, confirm the folder name matches the name field inside pet.json, then quit Codex completely and reopen it. Codex reads the directory at launch, so the pet will not appear until you restart.',
+      },
+      {
+        question: 'Can I restore a pet after reinstalling Codex or the operating system?',
+        answer: 'Yes. A pet is not tied to an account or a licence key, so the same folder works on a fresh install. Reinstall Codex, recreate the pets directory, drop the folder in, and restart the app.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a pet backup has to contain',
+        paragraphs: [
+          'The thing you are saving is the pet folder, not the image on its own. spritesheet.webp holds every frame, while pet.json holds the id, the display name and the timing for each state. A backup missing pet.json cannot be restored, because that file is how Codex tells one pet from another.',
+          'You can check an archive by opening it. If both files are there and the folder name matches the name inside pet.json, it will restore. If you see one file, or a folder nested inside another folder, it will not.',
+        ],
+        list: [
+          'spritesheet.webp: every frame, usually eight or nine states stacked in one image',
+          'pet.json: the id, displayName, and the timing for each state',
+          'the folder wrapping both, named to match displayName',
+          'the original photo you generated from, optional but worth keeping if you may regenerate later',
+        ],
+      },
+      {
+        heading: 'Three backup habits that hold up',
+        paragraphs: [
+          'Pick one method and stay with it. What breaks is rarely the method itself. It is switching between methods halfway through and losing track of which copy is the current one.',
+        ],
+        list: [
+          'Zip and file away: compress the pet folder into something like pets-backup-2026-10.zip and drop it in cloud storage. The right choice if you set pets up once and leave them alone.',
+          'Synced directory: point Dropbox, iCloud Drive, OneDrive or Syncthing at ~/.codex/pets and let it replicate. The right choice if you edit pets often.',
+          'Private git repo: commit the folder so every change has a history. The right choice if you already version your dotfiles.',
+        ],
+      },
+      {
+        heading: 'Where the backup has to live to count',
+        paragraphs: [
+          'A second copy on the same machine is not a backup. An external drive carried in the same bag is one layer better, but both still disappear together. The cheapest answer that actually works is a cloud folder you are already paying for.',
+          'Decide what you are protecting against. Disk failure needs a copy somewhere else entirely. Accidental deletion needs a copy with version history. Reinstalling the operating system needs a copy you can reach before you sign back into anything.',
+        ],
+        list: [
+          'A cloud drive already in your routine: lowest effort, survives disk failure',
+          'A second machine you sync with: fine, but not independent if both pull from the same source',
+          'An encrypted archive in cold storage: right for pets made from photos you no longer have',
+        ],
+      },
+      {
+        heading: 'Restoring a pet from a backup',
+        paragraphs: [
+          'Restoring is the install walkthrough run in reverse. Unzip into ~/.codex/pets on macOS or Linux, or C:/Users/<you>/.codex/pets on Windows, check that the folder name matches the name field inside pet.json, then quit Codex completely and open it again.',
+          'Codex reads the pets directory once at launch, so a pet that arrives while the app is running stays invisible until you restart. If it is still missing after a restart, check the folder name first. A mismatch produces no error message, just an empty corner of the screen.',
+        ],
+      },
+      {
+        heading: 'How backups fail',
+        paragraphs: [
+          'The ways a codex pet backup stops working are a short list, and they repeat.',
+        ],
+        list: [
+          'Image only: pet.json is missing, so Codex cannot identify the pet',
+          'Renamed after the fact: the pet.json inside the archive still declares the old name',
+          'Nested one level too deep: you archived the parent directory, and Codex does not scan subfolders',
+          'Never tested: the archive looks fine right up to the day you need it',
+          'Backed up once, two years ago: the current pet has different animation timing',
+        ],
+      },
+      {
+        heading: 'A habit that costs ten minutes a year',
+        paragraphs: [
+          'Back up when you generate a pet, and again whenever you edit one. That is the whole schedule. Two minutes at generation time, thirty seconds after an edit, one archive with the date in its name.',
+          'Test the restore once, on a machine that does not have the pet. Unzip, restart Codex, and confirm the pet animates. A backup you have never restored is a guess.',
+          'Start at / to turn a photo into a pixel companion, follow the install walkthrough at /blog/how-to-install-codex-pet for the path on each operating system, and read /blog/export-formats-explained before you decide what to put in the archive.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'backup-codex-pets-guide-zh',
+    title: '桌宠备份指南：别丢了你的像素伙伴',
+    description:
+      '桌宠备份只要三十秒，多数人却等到桌宠丢了才想起来。这篇讲该拷什么、放哪里，以及换机器或重装系统之后怎么把桌宠还原回来。',
+    date: '2026-10-04',
+    author: 'PetGen',
+    keywords: [
+      '桌宠 备份',
+      'codex pet backup',
+      'pets 文件夹 备份',
+      '桌宠 打包备份',
+      '还原 codex 桌宠',
+      '重装后 恢复桌宠',
+      'pet.json 备份',
+      '桌宠 归档',
+    ],
+    related: [
+      'how-to-install-codex-pet',
+      'export-formats-explained-zh',
+      'sync-codex-pet-across-machines-zh',
+    ],
+    faq: [
+      {
+        question: '怎么备份 Codex 桌宠？',
+        answer: '把装着 spritesheet.webp 和 pet.json 的桌宠文件夹整个打包，存到机器之外的地方：网盘、外接硬盘或私有 git 仓库。只拷图片不算备份，pet.json 里有 Codex 识别这只桌宠要用的 id、名称和动画节奏。',
+      },
+      {
+        question: 'Codex 的 pets 文件夹在哪？',
+        answer: 'macOS 和 Linux 是 ~/.codex/pets，Windows 是 C:/Users/<你>/.codex/pets。这个目录里的每个子文件夹就是一只桌宠。',
+      },
+      {
+        question: '怎么从备份还原桌宠？',
+        answer: '把归档解压进对应系统的 pets 文件夹，确认文件夹名和 pet.json 里的 name 一致，然后彻底退出 Codex 再打开。Codex 只在启动时读一次这个目录，不重启不会出现。',
+      },
+      {
+        question: '重装 Codex 或系统之后还能还原吗？',
+        answer: '可以。桌宠不绑账号也不绑授权，同一份文件夹在新环境里照样能用。装好 Codex，重建 pets 目录，把文件夹放进去，重启即可。',
+      },
+    ],
+    sections: [
+      {
+        heading: '备份一只桌宠，到底要装什么',
+        paragraphs: [
+          '要装的是整个桌宠文件夹，不是单独一张图。spritesheet.webp 存着所有帧，pet.json 存着 id、名称和每个状态的播放节奏。缺了 pet.json 的备份还原不了，因为 Codex 是靠它认出这只桌宠的。',
+          '判断备份对不对，打开看一眼就够：两个文件都在，文件夹名和 pet.json 里的 name 一致，就能还原。只有一个文件，或者文件夹里还套着一层，就不行。',
+        ],
+        list: [
+          'spritesheet.webp：所有帧，一般是八到九个状态排在一张图里',
+          'pet.json：id、displayName，以及每个状态的播放节奏',
+          '装着两者的文件夹，名字跟 displayName 保持一致',
+          '生成时用的原图，可选，留着以后想重新生成时省一次拍摄',
+        ],
+      },
+      {
+        heading: '三种能长期坚持的备份方式',
+        paragraphs: [
+          '选一种然后一直用。坏掉的通常不是方法，而是中途换方法，最后搞不清哪一份是最新的。',
+        ],
+        list: [
+          '打包归档：把桌宠文件夹压成 pets-backup-2026-10.zip 这样的压缩包，丢进网盘。适合配好之后基本不动的情况。',
+          '整个 pets 目录放进同步盘：让 Dropbox、iCloud Drive、OneDrive 或 Syncthing 管着 ~/.codex/pets，让它自己复制。适合经常改桌宠的情况。',
+          '提交到私有 git 仓库：版本化这个文件夹，每次改动都留记录。适合本来就在管 dotfiles 的人。',
+        ],
+      },
+      {
+        heading: '备份放在哪才算数',
+        paragraphs: [
+          '同一台机器上的第二份拷贝不算备份。外接硬盘放在同一个包里勉强多一层，但一起丢的概率仍然很高。最省事的真答案是你已经在付费的网盘目录。',
+          '想清楚你在防什么。硬盘坏需要异地的一份；误删需要带历史版本的一份；重装系统需要一份在你重新登录任何账号之前就能拿到的。',
+        ],
+        list: [
+          '已经在用的网盘目录：成本最低，扛得住硬盘故障',
+          '同步的第二台机器：可以，但如果两台都从同一个源同步，就不算独立的一份',
+          '加密归档放冷存：适合那些原图已经找不回来的桌宠',
+        ],
+      },
+      {
+        heading: '从备份还原一只桌宠',
+        paragraphs: [
+          '还原就是安装倒着走一遍。macOS 或 Linux 解压进 ~/.codex/pets，Windows 解压进 C:/Users/<你>/.codex/pets，确认文件夹名和 pet.json 里的 name 对得上，然后彻底退出 Codex 再打开。',
+          'Codex 只在启动时读一次这个目录，所以应用开着时放进来的桌宠不会立刻出现。彻底重启之后还是不显示，先查文件夹名。名字对不上不会报错，只是屏幕角落一直是空的。',
+        ],
+      },
+      {
+        heading: '备份是怎么失效的',
+        paragraphs: [
+          '备份失效的方式不多，而且翻来覆去就那几种。',
+        ],
+        list: [
+          '只备份了图片：pet.json 没带，Codex 认不出这只桌宠',
+          '备份之后改了文件夹名：归档里的 pet.json 还写着旧名字',
+          '套了一层目录：你打包的是父目录，还原之后桌宠比 Codex 扫描的层级深了一层',
+          '从没试过还原：归档看着没问题，直到真要用的那天',
+          '只备份过一次，还是两年前：现在的桌宠动画节奏已经不一样了',
+        ],
+      },
+      {
+        heading: '一年十分钟的习惯',
+        paragraphs: [
+          '生成一只桌宠时备份一次，改动之后再备份一次。这就是全部日程：生成时两分钟，改完三十秒，归档名字带上日期。',
+          '至少在一台没有这只桌宠的机器上试一次还原。解压，重启 Codex，确认它会动。从没还原过的备份只是个猜测。',
+          '从 / 开始把照片变成像素伙伴；每台系统的具体路径看 /blog/how-to-install-codex-pet；决定归档里放什么之前，先读 /blog/export-formats-explained。',
+        ],
+      },
+    ],
+  },
+
 ];
