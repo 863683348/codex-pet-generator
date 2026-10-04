@@ -5007,4 +5007,220 @@ export const posts: BlogPost[] = [
     ],
   },
 
+  {
+    slug: 'custom-color-palettes-codex-pet',
+    title: 'Custom Color Palettes: Give Your Codex Pet Its Own Colors',
+    description:
+      'A custom color palette decides how your codex pet looks before a single pixel is drawn. Which plan lets you set one, what each color slot controls, and how to fix colors that look wrong once the pet is installed.',
+    date: '2026-10-05',
+    author: 'PetGen',
+    keywords: [
+      'custom palette pet',
+      'codex pet custom colors',
+      'palette pet unlimited',
+      'personalized pet colors',
+      'codex pet color palette',
+      'custom colors pixel pet',
+      'codex pet unlimited palette',
+    ],
+    related: [
+      'codex-pet-color-customization',
+      'codex-pet-pro-vs-unlimited',
+      'export-formats-explained',
+    ],
+    faq: [
+      {
+        question: 'What is a custom color palette for a Codex pet?',
+        answer: 'It is the list of colors you hand to the generator before it draws anything: the body or fur tone, the shadow, the outline, and the accent used on small details. All nine animation states are drawn from that same list, so changing the palette regenerates the whole spritesheet rather than tinting a finished image.',
+      },
+      {
+        question: 'Which Codex pet plan lets me set my own palette?',
+        answer: 'Unlimited. On Starter and Pro the generator reads colors out of your photo, which is fine until the lighting in that photo drifts warm and your grey cat comes back orange. On the Unlimited plan you set the colors yourself, so a pet can match a brand guide or a wallpaper even when the source photo cannot produce that color.',
+      },
+      {
+        question: 'Do my palette colors survive editing pet.json?',
+        answer: 'Yes, because the palette lives in the pixels of spritesheet.webp and pet.json holds no color data at all. Editing pet.json changes the id, the display name and animation timing. To replace the colors you regenerate the pet with the new palette and download it again.',
+      },
+      {
+        question: 'Can I reuse the same palette for several pets?',
+        answer: 'Yes, and that is the main reason to write your colors down. Keep the hex values in a text file next to the pet folders, paste the same list for each new pet, and a set of pets reads as one family instead of a pile of unrelated sprites.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a custom palette decides before anything is drawn',
+        paragraphs: [
+          'A custom palette is the set of colors you choose before the generator starts, and for a codex pet it shapes the result more than the photo does. The photo supplies the silhouette. The palette supplies every pixel inside it. Pick the wrong palette and even a clean generation comes back looking like somebody else\'s pet.',
+          'Order matters. Colors are applied while the frames are drawn, not afterwards, so there is no tint slider waiting at the end. The generator commits to one palette for all nine states at once.',
+        ],
+      },
+      {
+        heading: 'What the Unlimited plan adds to the palette',
+        paragraphs: [
+          'On the free tier and on Pro, the palette comes from your photo. That works until it doesn\'t: one warm lamp, one auto white balance that drifted, and the grey cat you photographed arrives in the spritesheet as orange.',
+          'The Unlimited plan hands the palette back to you. You set the colors, they carry through every state, and the photo goes back to doing the one job it is good at.',
+          'I did not expect to care about this feature. Then I tried to match a pet to a desktop wallpaper, took six photos, and none of them produced the color I wanted. Pasting a hex value took four seconds.',
+        ],
+        list: [
+          'Starter and Pro: palette is derived from the uploaded photo, no manual input',
+          'Unlimited: palette is yours to set, by hex value or picker',
+          'Every tier: the same colors run through all nine animation states',
+          'Every tier: changing colors means regenerating, not recoloring',
+        ],
+      },
+      {
+        heading: 'The four color slots and what each one controls',
+        paragraphs: [
+          'Four slots do almost all of the visible work. Set them in this order, because the later ones only make sense once the earlier ones are settled.',
+        ],
+        list: [
+          'Body: the mid tone that reads as fur, feathers or skin. Set it first, it covers the most pixels',
+          'Shadow: one step darker than the body. Go two steps and the pet looks dirty rather than shaded',
+          'Outline: usually near black, but a dark version of the body color keeps small pets from looking like clip art',
+          'Accent: collars, eyes and small details. This is where contrast comes from, so it should be the most saturated color in the set',
+        ],
+      },
+      {
+        heading: 'Keeping personalized pet colors consistent',
+        paragraphs: [
+          'Write your colors down. A year from now you will want a second pet that matches the first, and something like a dusty blue will not get you back there. Put the hex values in a plain text file inside the pets folder where you will trip over them.',
+          'Check the pet against the background it will actually sit on. A mid grey body vanishes against grey editor chrome, which is the single most common complaint I hear after install.',
+        ],
+        list: [
+          'Save the hex list next to the pet folders, not in your head',
+          'Preview against your real desktop background, not the plain preview canvas',
+          'Avoid pure white and pure black in any slot, both clip at the edges',
+          'Keep the accent saturated and everything else quiet',
+        ],
+      },
+      {
+        heading: 'When the colors come out wrong',
+        paragraphs: [
+          'A short list of failures accounts for nearly every complaint about pet colors, and almost none of them are the generator being random.',
+        ],
+        list: [
+          'Everything looks muddy: the shadow is too close to the body, push them further apart',
+          'The pet looks flat: there is no accent color separating features from the body',
+          'Fine in preview, wrong after install: your desktop background sits closer to the body color than you thought',
+          'One frame looks off but the rest are fine: that is animation timing, not the palette, see /blog/codex-pet-9-animation-states',
+          'You changed the palette and nothing moved: you edited pet.json, which holds no colors. Regenerate instead',
+        ],
+      },
+      {
+        heading: 'Start with the body color',
+        paragraphs: [
+          'Pick a body color, let the other three follow from it, and spend one extra minute before you generate. Custom colors are the part of a pet you look at every day for months, which makes them the cheapest upgrade available.',
+          'Head to / to generate a pet with a palette of your own, read /blog/codex-pet-color-customization if you would rather repaint the spritesheet by hand, and see /pricing for what the Unlimited plan includes.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'custom-color-palettes-codex-pet-zh',
+    title: '自定义调色板：给桌宠定一套自己的颜色',
+    description:
+      '自定义调色板在桌宠被画出来之前就决定了它的配色。哪个套餐开放手动调色、四个颜色槽各自管什么，以及装好之后发现颜色不对该怎么改。',
+    date: '2026-10-05',
+    author: 'PetGen',
+    keywords: [
+      'codex 桌宠调色板',
+      '桌宠自定义颜色',
+      'Unlimited 调色板',
+      '桌宠配色方案',
+      'codex pet 自定义颜色',
+      '像素桌宠配色',
+    ],
+    related: [
+      'codex-pet-color-customization',
+      'codex-pet-pro-vs-unlimited',
+      'export-formats-explained',
+    ],
+    faq: [
+      {
+        question: '桌宠的自定义调色板到底是什么？',
+        answer: '它是生成之前交给生成器的一组颜色：毛发或身体的主色、暗部色、描边色，以及用在眼睛、项圈等细节上的点缀色。九个动画状态全部由这组颜色画出来，所以改调色板等于重新生成整张精灵图，而不是给画好的图套一层滤镜。',
+      },
+      {
+        question: '哪个套餐可以自己设调色板？',
+        answer: 'Unlimited。Starter 和 Pro 的配色由生成器从照片里读取，灯光一偏色就跟着偏：灰猫拍出来橙了一圈，很多时候就是这一步出的岔子。升到 Unlimited 之后颜色由你自己填，哪怕原图给出不来那个颜色，也能让桌宠去匹配品牌色或壁纸。',
+      },
+      {
+        question: '手改 pet.json 会影响这些颜色吗？',
+        answer: '不会。颜色只存在于 spritesheet.webp 的像素里，pet.json 里一个颜色字段都没有，改它只会动 id、显示名和动画时序。想换配色只有一条路：带着新调色板重新生成一次再下载。',
+      },
+      {
+        question: '同一套配色能用在多只桌宠上吗？',
+        answer: '可以，这也是值得把色值记下来的主要原因。把十六进制色值存在一个文本里，放在 pets 目录旁边，每次新建桌宠都贴同一套，一整排桌宠看起来才像一家人，而不是互不相干的几张图。',
+      },
+    ],
+    sections: [
+      {
+        heading: '调色板在动笔之前就定了结果',
+        paragraphs: [
+          '自定义调色板是你在点击生成之前选定的一组颜色，它对桌宠成品的影响比照片更大。照片负责轮廓，调色板负责轮廓里的每一个像素。配色选错，就算生成过程毫无瑕疵，出来的东西也像是别人的桌宠。',
+          '顺序很关键。颜色是在画帧的时候写进去的，不是画完之后再调的，所以结尾处不会有一个可以拉来拉去的色相滑块。生成器一次为九个状态绑定同一套颜色。',
+        ],
+      },
+      {
+        heading: 'Unlimited 给调色板加了什么',
+        paragraphs: [
+          '免费版和 Pro 的配色来自你上传的照片。多数时候够用，然后突然就不行了：一盏暖光灯，或者自动白平衡飘了一点，你拍的灰猫在精灵图里就变成了橘猫。',
+          'Unlimited 把调色板交回你手上。你自己定颜色，颜色贯穿全部状态，照片重新回到它擅长的那一件事上去。',
+          '我原本没把这个功能当回事。后来想让一只桌宠配桌面壁纸，连拍了六张照片，没有一张能出那个颜色。把色值贴进去花了四秒。',
+        ],
+        list: [
+          'Starter 与 Pro：配色由上传的照片推导，不能手动指定',
+          'Unlimited：配色由你指定，可以填色值也可以用取色器',
+          '全部套餐：九个动画状态共用同一套颜色',
+          '全部套餐：改颜色等于重新生成，不是给成品改色',
+        ],
+      },
+      {
+        heading: '四个颜色槽各自管什么',
+        paragraphs: [
+          '肉眼能看到的部分基本由四个颜色槽决定。按这个顺序填，后面两个只有在前面定了之后才有意义。',
+        ],
+        list: [
+          '主色：读作毛发、羽毛或皮肤的那个中间调，先填它，它占的像素最多',
+          '暗部：比主色深一档。深两档就不是阴影，是脏',
+          '描边：通常接近黑，但用主色的深色版会让小体型桌宠不至于像剪贴画',
+          '点缀：项圈、眼睛和小细节靠它。对比度基本都由它撑起来，所以它应当是整套里最饱和的一个',
+        ],
+      },
+      {
+        heading: '把专属颜色留住的方法',
+        paragraphs: [
+          '把色值写下来。半年后你想再配一只跟现在这只搭的桌宠时，那种偏灰的蓝是还原不出来的。把十六进制值存在一个文本文件里，放在 pets 目录旁边，下次一眼就能看见。',
+          '别忘了测真实背景。中等灰的主色放在灰色编辑器边框上会整只消失，这是我听到的最多的安装后抱怨。',
+        ],
+        list: [
+          '色值存在 pets 目录旁边，不要只存在脑子里',
+          '用真实桌面背景预览，别只看纯色预览画布',
+          '任何槽位都别用纯白或纯黑，边缘会直接爆掉',
+          '点缀色饱和，其余三个压住',
+        ],
+      },
+      {
+        heading: '颜色翻车的几种情况',
+        paragraphs: [
+          '关于桌宠配色的抱怨基本能被下面几条覆盖，而且几乎没有一条是生成器在随机发挥。',
+        ],
+        list: [
+          '整体发闷：暗部离主色太近，把两者的距离拉开',
+          '看起来是平的：没有点缀色，五官和身体分不开',
+          '预览里好看、装上就废：你的桌面背景和主色太接近',
+          '只有一帧不对、其余都好：那是动画时序的问题，不是配色，看 /blog/codex-pet-9-animation-states',
+          '改了调色板却没变化：你改的是 pet.json，它不存颜色，要重新生成',
+        ],
+      },
+      {
+        heading: '先把主色定下来',
+        paragraphs: [
+          '先定主色，其余三个跟着它走，生成之前多花一分钟。配色是你接下来几个月每天都会看的东西，它是所有投入里最便宜的一笔。',
+          '从 / 开始用你自己的调色板生成一只桌宠；想手工改图可以看 /blog/codex-pet-color-customization；套餐差异在 /pricing。',
+        ],
+      },
+    ],
+  },
+
 ];
