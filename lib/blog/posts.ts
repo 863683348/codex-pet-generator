@@ -5222,5 +5222,217 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pets-folder-structure',
+    title: 'Your Pets Folder, Dissected: The ~/.codex/pets Structure',
+    description:
+      'Every pet you install lands in one place. What the .codex pets folder holds, what each pets subdirectory contains, and the only file worth opening by hand.',
+    date: '2026-10-06',
+    author: 'PetGen',
+    keywords: [
+      '.codex pets folder',
+      'codex pets folder structure',
+      'pets directory layout',
+      'codex pets subfolder',
+      'where are codex pets stored',
+      'pet.json location',
+    ],
+    related: [
+      'install-codex-pet-terminal',
+      'pets-library-explained',
+      'backup-codex-pets-guide',
+    ],
+    faq: [
+      {
+      question: 'Where is the .codex pets folder on Windows?',
+      answer: 'At %USERPROFILE%\\.codex\\pets, which normally expands to C:\\Users\\<you>\\.codex\\pets. Paste that into the Explorer address bar or the Run dialog and it opens directly. If the folder is not there yet, install one pet or create it by hand, because Codex will not create it for you.',
+    },
+      {
+      question: 'Can I rename a pet folder?',
+      answer: 'Yes, as long as you also update the id inside pet.json to match the new folder name. When the two disagree Codex still loads the pet, but the picker can show the wrong label and anything that referenced the old id stops resolving.',
+    },
+      {
+      question: 'Why does my pet not appear after I copied the folder in?',
+      answer: 'Two causes cover almost every case. Either the folder sits one level too deep, or its id collides with a pet that is already installed. Codex reads only the immediate subdirectories of ~/.codex/pets and never scans below that.',
+    },
+      {
+      question: 'Does deleting the folder count as uninstalling?',
+      answer: 'It does. A pet is nothing but its subdirectory, so removing it removes the pet entirely. There is no registry entry and no second cache to clear. Zip the folder first if you might want it back, which is the backup routine in /blog/backup-codex-pets-guide.',
+    },
+    ],
+    sections: [
+            {
+        heading: 'Where the .codex pets folder sits',
+        paragraphs: [
+          'Every pet you install ends up in one place. On macOS and Linux that is ~/.codex/pets; on Windows it is %USERPROFILE%\\.codex\\pets. Codex reads the .codex pets folder once at startup and treats each subdirectory directly inside it as one pet. Files anywhere else on the disk might as well not exist.',
+          'That single rule explains most reports of a pet that installed and then never showed up. Codex does not scan recursively, so a pet sitting at ~/.codex/pets/cats/mochi never loads, while the same folder at ~/.codex/pets/mochi loads fine.',
+        ],
+      },
+            {
+        heading: 'Pets directory layout at a glance',
+        paragraphs: [
+          'The pets directory layout is flat on purpose. One level of subfolders, two or three files in each, and nothing else in the parent.',
+        ],
+        list: [
+          '~/.codex/pets/ — the parent. Only pet subdirectories belong here',
+          '<pet-id>/ — one pet. The folder name is the id Codex uses internally',
+          'spritesheet.webp — 1536x1872, nine animation states at eight frames each',
+          'pet.json — display name, frame counts, timing. No image data and no colors',
+          'Anything extra, such as the photo you uploaded, is skipped by Codex and harmless to leave',
+        ],
+      },
+            {
+        heading: 'What sits inside a codex pets subfolder',
+        paragraphs: [
+          'Open any one of them and you get the same small set of files every time. The generator writes them as a package, which is why you can download a pet, move the folder somewhere else, and have it still work.',
+        ],
+        list: [
+          'spritesheet.webp: the pixels. Nine rows, one per animation state, eight frames per row',
+          'pet.json: roughly forty lines of metadata. Id, display name, and per-state timing',
+          'Preview or readme files: some generators include them, Codex ignores them',
+          'Keep the pair together. A sprite sheet without its pet.json renders nothing at all',
+        ],
+      },
+            {
+        heading: 'pet.json is the only file worth opening',
+        paragraphs: [
+          'It is short enough to read in one sitting, and only two of its fields matter in practice.',
+          'The id has to match the folder name. When they disagree, Codex keys the pet under the folder and the picker shows a name you did not set. The displayName is the label in the picker and the one field you can edit by hand with no consequences.',
+        ],
+        list: [
+          'id — must equal the folder name, used for lookups',
+          'displayName — the label in the pet picker, safe to edit',
+          'states — nine entries, each with a frame count and a duration in milliseconds',
+          'No color data whatsoever. Editing pet.json will never change how a pet looks',
+        ],
+      },
+            {
+        heading: 'Edits you can make by hand, and edits you cannot',
+        paragraphs: [
+          'Hand editing is fine for a short list of things and a bad idea for everything past it.',
+        ],
+        list: [
+          'Fine: edit displayName, delete a subfolder to uninstall, copy a subfolder to another machine',
+          'Fine: keep a backup zip in the parent folder, but never inside a pet subfolder',
+          'Not fine: resizing spritesheet.webp. The dimensions are part of the contract, covered in /blog/spritesheet-dimensions',
+          'Not fine: changing frame counts unless you redrew the frames too',
+          'Not fine: changing colors here. Colors live in the pixels, so a new palette means regenerating at codexpetgenerator.com',
+        ],
+      },
+            {
+        heading: 'Keep the folder boring',
+        paragraphs: [
+          'The plainer the folder, the fewer surprises. One subdirectory per pet, no nesting, no duplicate ids, and a backup zip kept somewhere outside it.',
+          'Generate the next one at codexpetgenerator.com, drop the folder into ~/.codex/pets, and you are done. The terminal install walkthrough is at /blog/install-codex-pet-terminal, the backup routine is at /blog/backup-codex-pets-guide, and the plan limits sit on /pricing.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'codex-pets-folder-structure-zh',
+    title: '桌宠目录结构全解剖：~/.codex/pets 里到底有什么',
+    description:
+      '每只装上的桌宠最后都落在同一个目录里。.codex pets 目录在哪、每个子目录装什么、pet.json 能改哪几个字段，以及哪些操作会把桌宠弄坏。',
+    date: '2026-10-06',
+    author: 'PetGen',
+    keywords: [
+      'codex 桌宠目录',
+      '.codex pets 目录结构',
+      'pets 文件夹布局',
+      'codex 桌宠子目录',
+      '桌宠安装在哪里',
+      'pet.json 位置',
+    ],
+    related: [
+      'install-codex-pet-terminal',
+      'pets-library-explained',
+      'backup-codex-pets-guide',
+    ],
+    faq: [
+      {
+      question: 'Windows 上的 .codex pets 目录在哪？',
+      answer: '在 %USERPROFILE%\\.codex\\pets，展开后通常就是 C:\\Users\\<你>\\.codex\\pets。把这段粘进资源管理器的地址栏或者运行窗口就能直接打开。目录还不存在的话，先装一只桌宠或者手动新建，Codex 不会替你建。',
+    },
+      {
+      question: '桌宠目录能改名吗？',
+      answer: '能，但要同时把 pet.json 里的 id 改成新的目录名。两个对不上时 Codex 照样加载，只是选择器可能显示错名字，之前按旧 id 写的脚本或快捷方式也会失效。',
+    },
+      {
+      question: '把目录拷进去之后桌宠为什么不显示？',
+      answer: '基本就两个原因：目录多嵌了一层，或者 id 和已经装着的桌宠撞了。Codex 只认 ~/.codex/pets 的直接子目录，再深一层就不扫。',
+    },
+      {
+      question: '删掉目录算卸载吗？',
+      answer: '算。一只桌宠就是一个子目录，删掉就是彻底没了，没有注册表项，也没有别处的缓存要清。以后可能还想要就先打个压缩包，备份整件事就是这么简单，步骤在 /blog/backup-codex-pets-guide。',
+    },
+    ],
+    sections: [
+            {
+        heading: '.codex pets 目录在哪',
+        paragraphs: [
+          '每只装上的桌宠最后都落在同一个地方。macOS 和 Linux 是 ~/.codex/pets，Windows 是 %USERPROFILE%\\.codex\\pets。Codex 启动时读一次这个 .codex pets 目录，把它下面每一层子目录当成一只桌宠，磁盘上别处的文件它一概不看。',
+          '这一条规则能解释大部分「装上了却不显示」。Codex 不递归扫描，放在 ~/.codex/pets/cats/mochi 里的桌宠永远加载不出来，同样这个目录挪到 ~/.codex/pets/mochi 就正常了。',
+        ],
+      },
+            {
+        heading: 'pets 目录布局一览',
+        paragraphs: [
+          'pets 目录布局是刻意做成平的：只有一层子目录，每个子目录里两三个文件，父目录里除这些子目录之外不放别的。',
+        ],
+        list: [
+          '~/.codex/pets/：父目录，只放桌宠子目录',
+          '<pet-id>/：一只桌宠，目录名就是 Codex 内部用的 id',
+          'spritesheet.webp：1536×1872，九个动画状态各八帧',
+          'pet.json：显示名、帧数、时序，不含图像数据也不含颜色',
+          '多出来的东西（比如你上传的原图）Codex 会跳过，留着也不会出事',
+        ],
+      },
+            {
+        heading: '一个 codex 桌宠子目录里有什么',
+        paragraphs: [
+          '打开任意一个子目录，里面永远是那一小套文件。生成器把它们打成一个包，这也是为什么下载完直接把目录挪到别处照样能用。',
+        ],
+        list: [
+          'spritesheet.webp：像素本体，九行对应九个状态，每行八帧',
+          'pet.json：四十来行元数据，id、显示名、每个状态的时序',
+          '预览图或 readme：有些生成器会带，Codex 直接忽略',
+          '别把这俩拆开：精灵图没有对应的 pet.json 就渲染不出任何东西',
+        ],
+      },
+            {
+        heading: 'pet.json 是唯一值得打开的文件',
+        paragraphs: [
+          '它短到能一口气读完，实际用得上的只有两个字段。',
+          'id 必须和目录名一致。两者对不上时 Codex 照样加载，但选择器里显示的名字不是你设的那个。displayName 是选择器里的标签，也是唯一能随手改而不会出事的字段。',
+        ],
+        list: [
+          'id：必须等于目录名，查表时用它',
+          'displayName：选择器里显示的名字，可以改',
+          'states：九个条目，各自带帧数和毫秒级时长',
+          '一个颜色字段都没有：改 pet.json 永远改不动桌宠的颜色',
+        ],
+      },
+            {
+        heading: '哪些能手改，哪些不能',
+        paragraphs: [
+          '手改这件事，只有很短的一份清单是安全的，清单之外的都别碰。',
+        ],
+        list: [
+          '可以：改 displayName、删掉整个子目录卸载、把子目录拷到另一台机器',
+          '可以：备份压缩包放在父目录里，但别塞进桌宠子目录',
+          '不可以：改 spritesheet.webp 的尺寸，尺寸是约定好的一部分，见 /blog/spritesheet-dimensions',
+          '不可以：改帧数，除非你连帧一起重画',
+          '不可以：在这里改颜色。颜色在像素里，换配色得去 codexpetgenerator.com 重新生成',
+        ],
+      },
+            {
+        heading: '把目录收拾干净',
+        paragraphs: [
+          '目录越朴素，意外越少。一只桌宠一个子目录，不嵌套，id 不重复，备份放在目录外面。',
+          '下一只桌宠去 codexpetgenerator.com 生成，把目录拖进 ~/.codex/pets 就完事。终端安装步骤在 /blog/install-codex-pet-terminal，备份做法在 /blog/backup-codex-pets-guide，套餐次数看 /pricing。',
+        ],
+      },
+    ],
+  },
 
 ];
