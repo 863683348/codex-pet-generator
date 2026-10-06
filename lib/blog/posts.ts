@@ -5465,7 +5465,7 @@ export const posts: BlogPost[] = [
         answer: 'Three or four days. Two of the seven people found it distracting at first and moved it before it settled. If it still annoys you after a week, turn it off and stop there.',
       },
       {
-        question: 'Won't a desktop pet distract me while I read a diff?',
+        question: 'Won\'t a desktop pet distract me while I read a diff?',
         answer: 'It can, which is why placement matters more than the pet itself. Keep it in a corner away from the editor. The people in our experiment who parked it next to the diff were the same people who switched it off.',
       },
       {
@@ -5477,7 +5477,7 @@ export const posts: BlogPost[] = [
       {
         heading: 'What a code review pet can and cannot change',
         paragraphs: [
-          'A code review pet does not read your diff and it will never tell you a test is missing. What it does is narrower: it sits on your desktop while you read somebody else's work, and it gives the flat, slightly tense parts of review somewhere to go. We wanted to know whether that is worth anything, so we ran a developer happiness experiment on one team for two weeks.',
+          'A code review pet does not read your diff and it will never tell you a test is missing. What it does is narrower: it sits on your desktop while you read somebody else\'s work, and it gives the flat, slightly tense parts of review somewhere to go. We wanted to know whether that is worth anything, so we ran a developer happiness experiment on one team for two weeks.',
           'The short version: review threads got shorter and the wording in them got less sharp. Nobody became a better engineer. If you are hoping for something that makes code review enjoyable, this is not that.',
         ],
       },
@@ -5516,7 +5516,7 @@ export const posts: BlogPost[] = [
         ],
         list: [
           'Helps when feedback is long and you need a beat before replying',
-          'Helps on the days you have been reading other people's code for four hours',
+          'Helps on the days you have been reading other people\'s code for four hours',
           'Does nothing when the review itself is genuinely unclear',
           'Backfires if the pet sits on top of your diff, so park it away from the editor',
         ],
