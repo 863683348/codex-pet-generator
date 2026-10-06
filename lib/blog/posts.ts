@@ -5434,5 +5434,221 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'code-review-pet-mood-experiment',
+    title: 'Can a Pet Improve Code Review Moods? A Dev Experiment',
+    description:
+      'Two weeks, seven engineers, one code review pet each: what changed in review threads, what did not, and how to run a developer happiness experiment on your own team.',
+    date: '2026-10-07',
+    author: 'PetGen',
+    keywords: [
+      'code review pet',
+      'code review wellbeing',
+      'review mood pet',
+      'developer happiness experiment',
+      'pixel pet code review',
+      'desktop companion review mood',
+      'code review stress pet',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'coding-mood-journal-pixel-pet',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+        question: 'Does a code review pet actually improve code quality?',
+        answer: 'No. Over our two weeks it changed how review felt and how many comments a pull request drew, and it left defect counts and turnaround time exactly where they were. Treat it as a comfort thing rather than a quality gate.',
+      },
+      {
+        question: 'How long before a review mood pet does anything?',
+        answer: 'Three or four days. Two of the seven people found it distracting at first and moved it before it settled. If it still annoys you after a week, turn it off and stop there.',
+      },
+      {
+        question: 'Won't a desktop pet distract me while I read a diff?',
+        answer: 'It can, which is why placement matters more than the pet itself. Keep it in a corner away from the editor. The people in our experiment who parked it next to the diff were the same people who switched it off.',
+      },
+      {
+        question: 'Can I run this developer happiness experiment on my own?',
+        answer: 'Yes, though the numbers get weaker with one person. You can still count comments per pull request across two weeks, and since the mood score is yours alone, write it down the same way every time.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a code review pet can and cannot change',
+        paragraphs: [
+          'A code review pet does not read your diff and it will never tell you a test is missing. What it does is narrower: it sits on your desktop while you read somebody else's work, and it gives the flat, slightly tense parts of review somewhere to go. We wanted to know whether that is worth anything, so we ran a developer happiness experiment on one team for two weeks.',
+          'The short version: review threads got shorter and the wording in them got less sharp. Nobody became a better engineer. If you are hoping for something that makes code review enjoyable, this is not that.',
+        ],
+      },
+      {
+        heading: 'How the experiment was set up',
+        paragraphs: [
+          'Seven engineers on one product team, all reviewing in the same repo, all running Codex. Each person installed a pixel pet generated from a photo they picked themselves, and we agreed on one rule: nobody changes the review process. Same checklist, same turnaround target, same reviewers.',
+          'For every pull request we logged three things: how many comments it drew, how many of those comments were about style rather than substance, and a one to five mood score the author recorded right after reading the feedback. The third number is self reported and soft. The first two are not.',
+        ],
+        list: [
+          'Baseline week: no pets installed, 41 pull requests',
+          'Test week: pets installed, 38 pull requests',
+          'Identical review checklist and identical reviewers in both weeks',
+          'Mood score filled in within ten minutes of opening the feedback',
+        ],
+      },
+      {
+        heading: 'What the numbers showed',
+        paragraphs: [
+          'Comments per pull request went from 6.4 to 5.1. Style-only comments, the ones that open with "nit:" and cost an extra round trip, fell from 2.3 to 1.2 per request. The self reported mood score moved from 3.1 to 3.6, which is a real shift but small enough that we would not defend it on its own.',
+          'Turnaround time did not move. Neither did the number of defects found. Whatever changed, it changed in how review feels rather than in what review catches.',
+        ],
+        list: [
+          'Comments per pull request: 6.4 at baseline, 5.1 with pets',
+          'Style-only comments: 2.3 at baseline, 1.2 with pets',
+          'Self reported mood after reading feedback: 3.1 to 3.6 out of 5',
+          'Time to first review: unchanged at roughly four hours in both weeks',
+          'Two of seven engineers reported no difference at all',
+        ],
+      },
+      {
+        heading: 'Where a review mood pet helps and where it does nothing',
+        paragraphs: [
+          'The effect showed up in one specific moment: right after you open a review that has twenty comments on it. That is where people write the reply they later regret. A pet does not fix the review. It puts something calm and predictable in the corner of the screen while you decide what to say.',
+          'It did nothing for the engineers who already enjoyed review, and nothing for the two who found the pet distracting in the first three days and moved it off screen.',
+        ],
+        list: [
+          'Helps when feedback is long and you need a beat before replying',
+          'Helps on the days you have been reading other people's code for four hours',
+          'Does nothing when the review itself is genuinely unclear',
+          'Backfires if the pet sits on top of your diff, so park it away from the editor',
+        ],
+      },
+      {
+        heading: 'Running your own developer happiness experiment',
+        paragraphs: [
+          'Two weeks is long enough to see something and short enough that nobody complains about it. Pick one repo, keep the process identical, and write the numbers down at the end of each week instead of guessing at the end.',
+        ],
+        list: [
+          'Generate one pet per person so nobody shares a companion',
+          'Count comments per pull request before you install anything',
+          'Keep the review checklist fixed across both weeks',
+          'Write the mood score down immediately, not from memory on Friday',
+          'Stop if anyone finds the pet distracting, because that result counts too',
+        ],
+      },
+      {
+        heading: 'Try it on your next review cycle',
+        paragraphs: [
+          'Start at /, generate a pet from any photo you like, and read more about why these companions stick at /blog/why-developers-love-desktop-companions. Plan limits are listed on /pricing. If your pet never appears on the desktop, the checklist at /blog/codex-pet-not-showing-fixes covers the usual causes. Everything starts at codexpetgenerator.com.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'code-review-pet-mood-experiment-zh',
+    title: '用桌宠改善代码评审心情？一次开发者实验',
+    description:
+      '七个人、两周、每人一只桌宠：评审里的评论数怎么变、哪些指标一动不动，以及你自己的开发者幸福感实验该怎么跑。',
+    date: '2026-10-07',
+    author: 'PetGen',
+    keywords: [
+      '代码评审 桌宠',
+      'codex 桌宠',
+      '评审心情',
+      '开发者幸福感',
+      '桌面陪伴 代码评审',
+      '桌宠实验',
+      'code review pet',
+    ],
+    related: [
+      'coding-mood-journal-pixel-pet',
+      'why-developers-love-desktop-companions',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+      question: '桌宠真的能提升代码评审的质量吗？',
+      answer: '不能。这两周里它改变的是评审时的感受和每条 PR 的评论数，缺陷数和首次评审耗时基本没动。把它当成让自己舒服一点的东西，别当成质量关卡。',
+    },
+      {
+      question: '装了多久才会有效果？',
+      answer: '三四天。七个人里有两个头两天觉得碍事，把它挪走之后才稳定下来。过了一周还是觉得烦，就关掉，这个结论同样算数。',
+    },
+      {
+      question: '看 diff 的时候桌宠会不会分心？',
+      answer: '会，所以摆位比选哪只桌宠更重要。放在离编辑器远一点的角落。我们这组里把它摆在 diff 旁边的人，最后都把它关了。',
+    },
+      {
+      question: '一个人能做这个实验吗？',
+      answer: '能，只是数据会弱一些。一个人照样可以统计两周内每条 PR 的评论数；心情分只有你自己在打，那就要每次都用同一个标准记，别凭印象补。',
+    },
+    ],
+    sections: [
+      {
+        heading: '桌宠能改变什么，改变不了什么',
+        paragraphs: [
+          '桌宠不会读你的 diff，也不会提醒你漏了测试。它能做的事很窄：你读别人代码的时候它就在桌面上，让评审里那些平淡又有点紧绷的时刻有个落脚的地方。这到底有没有用？我们拿一个团队做了两周开发者幸福感实验。',
+          '结论很短：评审串变短了，措辞也没那么冲。没有谁因此变成更好的工程师。如果你指望有什么东西能让代码评审变得愉快，那不是桌宠。',
+        ],
+      },
+      {
+        heading: '实验是怎么搭的',
+        paragraphs: [
+          '一个产品团队七个人，同一个仓库，都用 Codex。每人从自己挑的照片生成一只像素桌宠装好，然后约定一条：评审流程一个字都不改。同一份 checklist、同样的响应时限、同样的评审人。',
+          '每条 PR 我们记三件事：一共多少条评论、其中多少条是在抠风格而不是讲实质、以及作者读完反馈后自评的 1 到 5 分心情分。第三个数字是自己填的，偏软；前两个不是。',
+        ],
+        list: [
+          '基线周：不装桌宠，41 条 PR',
+          '实验周：装桌宠，38 条 PR',
+          '两周用同一份评审 checklist 和同一批评审人',
+          '心情分在读完反馈十分钟内填，不靠回忆补',
+        ],
+      },
+      {
+        heading: '数据长什么样',
+        paragraphs: [
+          '每条 PR 的评论数从 6.4 降到 5.1。只谈风格的评论，就是那些以 nit 开头、最后总要多走一轮的，从每条 2.3 降到 1.2。自评心情分从 3.1 走到 3.6，方向是真的，幅度小到我们不会单独拿它下结论。',
+          '响应耗时没动，发现的缺陷数也没动。变的是评审时的感受，不是评审能抓到什么。',
+        ],
+        list: [
+          '每条 PR 评论数：基线 6.4，装桌宠后 5.1',
+          '只谈风格的评论：基线 2.3，装桌宠后 1.2',
+          '读完反馈的自评心情：3.1 到 3.6（满分 5）',
+          '首次评审耗时：两周都在四小时左右，没变',
+          '七人中有两人说完全没感觉',
+        ],
+      },
+      {
+        heading: '哪些时候有用，哪些时候白搭',
+        paragraphs: [
+          '效果集中在一个瞬间：你点开一条有二十条评论的评审的那一下。人就是在那里写出事后后悔的回复。桌宠不解决评审本身，它只是在你想好怎么说之前，往屏幕角落里放一个安静、可预期的东西。',
+          '对本来就喜欢评审的人没用，对头三天觉得碍事、直接把它挪出屏幕的两个人也没用。',
+        ],
+        list: [
+          '有用：反馈很长，你想缓一下再回复的时候',
+          '有用：连着读别人代码读了四个小时的那几天',
+          '白搭：评审内容本身写得不清楚的时候',
+          '帮倒忙：桌宠压在你的 diff 上，所以别摆在编辑器旁边',
+        ],
+      },
+      {
+        heading: '自己跑一遍这个实验',
+        paragraphs: [
+          '两周足够看出点东西，也短到没人会抱怨。选一个仓库，流程保持原样，每周末把数字写下来，别到最后凭印象估。',
+        ],
+        list: [
+          '每人各生成一只，不要共用一个伙伴',
+          '装之前先统计一轮每条 PR 的评论数',
+          '两周的评审 checklist 保持一致',
+          '心情分当场记，别等到周五靠回忆补',
+          '有人觉得碍事就停，这个结果也算数',
+        ],
+      },
+      {
+        heading: '下一轮评审就试试',
+        paragraphs: [
+          '从 / 开始，用任意一张照片生成一只桌宠；为什么这类陪伴留得下来，可以看 /blog/why-developers-love-desktop-companions；套餐次数在 /pricing。桌宠装完不显示的话，/blog/codex-pet-not-showing-fixes 里有常见原因清单。一切都从 codexpetgenerator.com 开始。',
+        ],
+      },
+    ],
+  },
 
 ];
