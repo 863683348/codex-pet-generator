@@ -5650,5 +5650,218 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'wild-ideas-pets-in-cicd',
+    title: 'Wild Ideas: Pets in CI/CD and Other Impossible Combos',
+    description:
+      'Forty pixel pet ideas from the Codex community, sorted by whether they actually run: build status mirrors, standup timers, and the impossible pet combos that keep coming back every thread.',
+    date: '2026-10-08',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet ideas',
+      'fun codex pet ideas',
+      'creative pet use',
+      'impossible pet combos',
+      'codex pet ci cd',
+      'desktop pet build status',
+      'pixel pet automation',
+      'codex pet scripts',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'creative-uses-for-codex-pet',
+      'codex-pet-ecosystem',
+    ],
+    faq: [
+      {
+        question: 'Can a pixel pet really show my build status?',
+        answer: 'Yes, through a script that swaps which pet folder Codex loads. The pet is not watching your CI. Your script is, and it moves files on disk. Expect the desktop to lag a few seconds behind the pipeline.',
+      },
+      {
+        question: 'How many fun codex pet ideas should one person run at once?',
+        answer: 'Two or three. Past that you stop registering which pet is on screen, and once you stop noticing it the whole setup stops doing anything.',
+      },
+      {
+        question: 'Do impossible pet combos ever become possible?',
+        answer: 'Some of them. The nine states are fixed by the format, so anything needing a new animation stays out of reach. Anything that only needs a file move tends to show up in a community repo within a few months.',
+      },
+      {
+        question: 'Does swapping pets all day slow the machine down?',
+        answer: 'No. A pet is a couple hundred kilobytes of sprite sheet plus a small JSON file. Swapping costs a file move, not a re-render.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Where these pixel pet ideas come from',
+        paragraphs: [
+          'Every couple of weeks somebody posts a screenshot with a pet parked next to a red pipeline, and the replies fill up with pixel pet ideas. Most are jokes. A few are jokes that somebody actually built.',
+          'I went through roughly forty of them and sorted them by effort. A handful run today with nothing but a shell script. Some need a real integration. The rest belong in the joke pile, and I say that as someone who likes them.',
+        ],
+      },
+      {
+        heading: 'The fun codex pet ideas that work today',
+        paragraphs: [
+          'The pet is a folder on disk. Anything that can move files around can change which one you see, which is why these four need no permission from Codex at all.',
+        ],
+        list: [
+          'Build status mirror: a script watches the pipeline and points Codex at the green pet or the red one',
+          'Standup timer: the pet drops into its waiting state two minutes before the call starts',
+          'Branch guard: a different pet on main than on feature branches, so you notice before running the wrong command',
+          'Focus blocks: one pet for deep work hours, another for the review block after lunch',
+          'None of these read your CI. Your script does, and it moves a folder.',
+        ],
+      },
+      {
+        heading: 'Creative pet use off the desktop',
+        paragraphs: [
+          'The creative pet use cases hold up better than the automation ones, mostly because a finished image does not break when an API changes.',
+        ],
+        list: [
+          'Changelog art: the same pet in every release image, so the series reads as one product',
+          'Team wiki: new hires generate one and it lands next to their name on the onboarding page',
+          'Conference slides: a pixel pet in the corner reads better than another stock illustration',
+          'Support docs: screenshots that all use one theme look like they came from one team',
+        ],
+      },
+      {
+        heading: 'The impossible pet combos',
+        paragraphs: [
+          'Now the part everybody asks about. These come up in every thread, and none of them work the way people describe them.',
+        ],
+        list: [
+          'Live reaction to test output: the sprite sheet has nine fixed states. A script can pick one, but it cannot invent a tenth.',
+          'A pet inside the pull request: pets render on your desktop. Anything inside a PR is an image somebody uploaded.',
+          'Coverage-driven pet moods: coverage is a number and the pet has no idea what a number is. You would still be the one reading it.',
+          'One shared pet for the whole team: every install is local, so two people see two pets on two machines.',
+          'A pet that fixes the build: this one I would pay for. It does not exist.',
+        ],
+      },
+      {
+        heading: 'What a working setup costs you',
+        paragraphs: [
+          'For one person this is usually more setup than the payoff. It starts making sense when five people share the same script.',
+        ],
+        list: [
+          'One shell script, 20 to 40 lines, no dependencies beyond curl',
+          'Two sprite sheets, one for green builds and one for red',
+          'A cron entry or a webhook that calls the script',
+          'Roughly nine seconds to install a pet by hand, less once the folder move is scripted',
+          'Five minutes of debugging the first time the script runs as the wrong user',
+        ],
+      },
+      {
+        heading: 'Pick one and try it',
+        paragraphs: [
+          'Start at /, generate a pet from any photo you have lying around, and read why these companions stick at /blog/why-developers-love-desktop-companions. Terminal install steps are at /blog/install-codex-pet-terminal and plan limits are on /pricing. The generator itself lives at codexpetgenerator.com.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'wild-ideas-pets-in-cicd-zh',
+    title: '把桌宠装进 CI/CD？五个做不出来的脑洞',
+    description:
+      '社区里流传的桌宠脑洞按能不能跑排一遍：构建状态镜像、站会计时器，以及那些每隔几周就被人提起一次、始终做不出来的组合。',
+    date: '2026-10-08',
+    author: 'PetGen',
+    keywords: [
+      '桌宠脑洞',
+      'codex 桌宠玩法',
+      '桌宠 CI/CD',
+      '像素宠物创意用法',
+      '桌面宠物自动化',
+      '构建状态桌宠',
+      'pixel pet ideas',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'creative-uses-for-codex-pet',
+      'codex-pet-ecosystem',
+    ],
+    faq: [
+      {
+        question: '桌宠真能显示构建状态吗？',
+        answer: '能，靠一个脚本切换 Codex 加载哪个桌宠目录。不是桌宠在盯你的 CI，是脚本在盯，然后挪了磁盘上的文件。桌面上的变化会比流水线晚几秒。',
+      },
+      {
+        question: '一个人同时跑几个桌宠脑洞合适？',
+        answer: '两到三个。再多你就不再注意屏幕上到底是哪一只，而一旦你不看了，这整套东西就没什么用了。',
+      },
+      {
+        question: '那些做不出来的组合以后有可能做成吗？',
+        answer: '有一部分会。九个状态是格式定死的，需要新动画的永远够不着。只靠挪文件就能实现的那些，几个月内通常就会在社区仓库里出现。',
+      },
+      {
+        question: '一天换很多次桌宠会不会拖慢机器？',
+        answer: '不会。一只桌宠就是几百 KB 的精灵图加一个很小的 JSON。换一次只是挪个文件，不涉及重新渲染。',
+      },
+    ],
+    sections: [
+      {
+        heading: '这些脑洞是怎么冒出来的',
+        paragraphs: [
+          '每隔几周就有人在社区里贴一张截图：桌宠蹲在一条飘红的流水线旁边。回复里全是桌宠脑洞，大部分是玩笑，有那么几个是玩笑被人真的做出来了。',
+          '我把大概四十个脑洞按工作量排了一遍。少数几个今天就能跑，只需要一个 shell 脚本；有几个得写真的集成；剩下的该待在玩笑堆里，虽然我本人挺喜欢它们。',
+        ],
+      },
+      {
+        heading: '今天就能跑起来的玩法',
+        paragraphs: [
+          '桌宠就是磁盘上的一个目录。任何能挪动文件的东西都能换掉你看到的那只，所以下面这几种完全不需要 Codex 点头。',
+        ],
+        list: [
+          '构建状态镜像：脚本盯着流水线，绿了就指向绿色那只，红了就换红色那只',
+          '站会计时器：开会前两分钟，桌宠切到等待状态',
+          '分支护栏：在 main 上换成另一只，敲错命令之前你就已经看见了',
+          '专注时段：深度工作时间一只，午饭后的评审时段另一只',
+          '这些都不是桌宠在读你的 CI，是脚本在读，然后挪了一个目录。',
+        ],
+      },
+      {
+        heading: '离开桌面之后的用法',
+        paragraphs: [
+          '这类用法比自动化那类活得久，原因很实在：一张做好的图不会因为接口变了就失效。',
+        ],
+        list: [
+          '更新日志配图：每个版本的图里都是同一只，整套日志读起来像一个产品',
+          '团队 wiki：新人生成一只，直接放进上手文档里名字旁边',
+          '会议 slides：角落里放一只像素宠物，比再贴一张素材图强',
+          '支持文档：截图统一用一套主题，看起来才像同一个团队出的',
+        ],
+      },
+      {
+        heading: '做不出来的那几个',
+        paragraphs: [
+          '下面是每次都有人问的部分。它们在每个帖子里都会出现，而且都做不到人们描述的那样。',
+        ],
+        list: [
+          '实时响应测试结果：精灵图固定九个状态。脚本能挑其中一个，但造不出第十个。',
+          '桌宠住进 PR 里：桌宠渲染在你的桌面上。PR 里能看到的东西，是有人上传上去的一张图。',
+          '按覆盖率变心情：覆盖率是个数字，桌宠并不知道数字是什么，读的人还是你自己。',
+          '全团队共用一只：每个安装都是本地的，两个人会在两台机器上看到两只。',
+          '能修构建的桌宠：这个我愿意花钱。它不存在。',
+        ],
+      },
+      {
+        heading: '真做起来要花多少功夫',
+        paragraphs: [
+          '对一个人来说，这套搭建常常不值那个收益。等五个人共用同一个脚本，账才算得过来。',
+        ],
+        list: [
+          '一个 shell 脚本，20 到 40 行，除了 curl 没有别的依赖',
+          '两张精灵图，一张给构建通过，一张给构建失败',
+          '一条 cron 或一个 webhook 去调这个脚本',
+          '手动装一只桌宠大概九秒，目录挪动脚本化之后更快',
+          '第一次因为脚本跑在错误的用户下而调试，大概要五分钟',
+        ],
+      },
+      {
+        heading: '挑一个试试',
+        paragraphs: [
+          '从 / 开始，随手拿一张照片生成一只；为什么这类陪伴能留下来，写在 /blog/why-developers-love-desktop-companions。终端安装步骤在 /blog/install-codex-pet-terminal，套餐次数看 /pricing。生成器本身在 codexpetgenerator.com。',
+        ],
+      },
+    ],
+  },
 
 ];
