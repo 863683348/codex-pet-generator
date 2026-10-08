@@ -5863,5 +5863,223 @@ export const posts: BlogPost[] = [
       },
     ],
   },
-
+  {
+    slug: 'dual-monitor-pet-placement',
+    title: 'Dual Monitor Pet Placement Tips for Two-Screen Desks',
+    description:
+      'Practical pet placement for a pixel pet dual monitor desk: which screen it should sit on, why it keeps jumping back to the laptop display, and what mixed scaling does to its size.',
+    date: '2026-10-09',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet dual monitor',
+      'pet on second monitor',
+      'dual screen pet position',
+      'desktop pet placement',
+      'codex pet two monitors',
+      'pixel pet second display',
+      'multi monitor desktop pet',
+      'petgen dual screen setup',
+    ],
+    related: [
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+      'sync-codex-pet-across-machines',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+        question: 'Can I put my pet on the second monitor?',
+        answer: 'Yes. Drag it over, or change which display your system treats as primary so Codex opens there. Codex restores the last position on restart, so once the pet sits where you want it, leave it alone.',
+      },
+      {
+        question: 'Why does my pet jump to the laptop screen when I unplug the monitor?',
+        answer: 'When the display a window lives on goes away, the desktop moves everything floating back onto what is left. Plug the monitor in again, drag the pet where you want it, then restart Codex so the position sticks.',
+      },
+      {
+        question: 'Does different scaling change the size of the pet?',
+        answer: 'It does. A 100% laptop panel next to a 150% 4K monitor draws the same sprite at two noticeably different sizes. Match the scaling on both screens if that bothers you, or keep the pet on the display you read most.',
+      },
+      {
+        question: 'Should one monitor have the pet and the other stay clean?',
+        answer: 'Usually. One pet on the screen you look at most still does its job. Spread across two displays, it turns into something you stop noticing within a week.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Why dual monitor pet placement is worth two minutes',
+        paragraphs: [
+          'A pixel pet dual monitor setup is easy until the second screen joins in. The pet lands on whatever your system calls the primary display, and on plenty of desks that is the wrong one: the laptop panel you keep closing, or the vertical monitor where a 192-pixel sprite ends up sitting on top of your code.',
+          'Two minutes of moving it pays off later. A pet you catch in the corner of your eye without turning your head does something for you. One you have to hunt for gets switched off before the week is out.',
+        ],
+      },
+      {
+        heading: 'Which monitor your pet belongs on',
+        paragraphs: [
+          'A pet on second monitor hardware only helps if you look at that screen. A second display you check once an hour is the one place your desktop pet placement should avoid.',
+          'Most two-screen desks fall into one of these shapes, and each has an obvious answer:',
+        ],
+        list: [
+          'Editor left, browser right: bottom-right of the browser screen, near where your tabs end',
+          'Laptop plus external monitor: the external one, since the lid moves during the day',
+          'Horizontal plus vertical: the bottom of the horizontal screen, because the vertical one is usually a file tree',
+          'One big monitor doing everything: bottom-left, clear of the line-number gutter',
+          'Whatever you pick, keep it out of the gutter and away from the notification area, the two spots that make people quit',
+        ],
+      },
+      {
+        heading: 'Four dual screen pet positions that survive a workday',
+        paragraphs: [
+          'These four come up constantly in dual monitor threads, mostly because they stay out of the way when another window opens.',
+        ],
+        list: [
+          'Bottom outer corner: works on every layout and never collides with a menu',
+          'Just above the taskbar or dock: the pet reads as part of the furniture rather than a floating window',
+          'Next to a terminal you keep open: it becomes a marker for which window does what',
+          'Bottom edge of the left screen when your dock auto-hides on the right',
+          'Skip the centre seam between two monitors. That line is where dragged windows and the dock both end up',
+        ],
+      },
+      {
+        heading: 'What actually breaks desktop pet placement',
+        paragraphs: [
+          'Most complaints trace back to four things, and only one of them is your fault.',
+        ],
+        list: [
+          'Mixed scaling: two different zoom levels draw the pet at two sizes, and a position that looks fine on one swallows a menu on the other',
+          'Sleep and resume: waking one monitor often relocates the pet, and it does not always come back',
+          'Full-screen apps: an editor or game in full screen takes the whole surface, and the pet reappears when you exit',
+          'Rearranging displays: swapping left and right in system settings sends the pet where it logically belongs, which is now somewhere else',
+          'For any of these, a full Codex restart cleans up more than dragging does',
+        ],
+      },
+      {
+        heading: 'A five-minute check before you settle',
+        paragraphs: [
+          'Run this once with the machine in its normal state, external monitor plugged in and the lid wherever you usually keep it.',
+        ],
+        list: [
+          'Start Codex and note which monitor the pet landed on',
+          'Unplug and replug the external display, then watch where it goes',
+          'Open your most-used full-screen app and confirm the pet comes back',
+          'Change nothing for a day, then move it once if it annoyed you',
+          'Redo this after any OS display update, since both Windows and macOS forget arrangements now and then',
+        ],
+      },
+      {
+        heading: 'Set it and forget it',
+        paragraphs: [
+          'Generate one at codexpetgenerator.com from any photo you have, then drop it into place with the terminal steps at /blog/install-codex-pet-terminal. If your second screen is on another machine, /blog/sync-codex-pet-across-machines covers moving the same pet across. The nine states at /blog/codex-pet-9-animation-states explain why the idle loop suits a monitor you glance at all day better than the busy ones do, and /blog/codex-pet-not-showing-fixes handles the case where nothing appears at all. Generation limits are on /pricing, and the generator itself is at /.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'dual-monitor-pet-placement-zh',
+    title: '双屏玩家的桌宠摆位技巧',
+    description:
+      '给两块屏的桌面做桌宠摆位：它该待在哪一块屏幕上、为什么一拔外接显示器它就跑回笔记本屏、两块屏缩放不一致时该怎么处理。',
+    date: '2026-10-09',
+    author: 'PetGen',
+    keywords: [
+      '桌宠双屏',
+      '像素桌宠第二个显示器',
+      '双屏桌宠位置',
+      '桌面宠物摆放',
+      'codex 桌宠双显示器',
+      '桌宠显示器摆位',
+      'pixel pet dual monitor',
+    ],
+    related: [
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+      'sync-codex-pet-across-machines',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+        question: '桌宠能放到第二块显示器上吗？',
+        answer: '可以。直接拖过去，或者在系统里把那块屏设成主显示器，让 Codex 打开时就落在那里。重启后 Codex 会沿用上次的位置，所以摆好之后先别动它。',
+      },
+      {
+        question: '为什么拔掉外接显示器后桌宠跑回笔记本屏幕了？',
+        answer: '它原来所在的那块屏没了，系统会把浮在上面的一切挪回剩下的屏幕。先把显示器插回去，手动拖到想要的位置，再重启一次 Codex，位置就留住了。',
+      },
+      {
+        question: '两块屏缩放不一样，桌宠大小会跟着变吗？',
+        answer: '会。一块 100% 的笔记本屏配一块 150% 的 4K 屏，同一张精灵图在两边画出来大小明显不同。在意的话把两块屏的缩放设成一致，或者干脆把桌宠放在你看得最多的那块上。',
+      },
+      {
+        question: '是不是只在其中一块屏上放桌宠、另一块留空比较好？',
+        answer: '一般是这样。放在你看得最多的那块上，它才有用；两块都摆，一周之后你就不看见了。',
+      },
+    ],
+    sections: [
+      {
+        heading: '为什么双屏摆位值得花两分钟',
+        paragraphs: [
+          '单屏摆位不算事儿，双屏才容易出问题。桌宠会落在系统认定的主屏上，而很多人的主屏恰好是不合适的那一块：一会儿要合上的笔记本屏，或者是那块竖着的屏，192 像素的精灵图正好压在你的代码上面。',
+          '花两分钟挪一下是划算的。抬眼就能瞄到的桌宠才起作用，得满屏幕找的那种，撑不到周末就被人关了。',
+        ],
+      },
+      {
+        heading: '桌宠该待在哪块屏上',
+        paragraphs: [
+          '只有当第二块屏你经常看的时候，把桌宠放上去才有意义。一小时才瞄一眼的那块屏，恰恰是最不该摆的地方。',
+          '常见的双屏布局就这几种，每种都有个显而易见的答案：',
+        ],
+        list: [
+          '左边编辑器、右边浏览器：摆在浏览器那块的右下角，靠标签栏收尾的地方',
+          '笔记本 + 外接显示器：放外接那块，因为笔记本盖一天要开合好几次',
+          '横屏 + 竖屏：放横屏的下边缘，竖屏通常被文件树占着',
+          '一块大屏干所有事：左下角，避开行号槽',
+          '不管哪种，都别压在行号槽和通知区上，这两个位置最容易让人直接关掉它',
+        ],
+      },
+      {
+        heading: '四个能撑完整天的双屏位置',
+        paragraphs: [
+          '下面这四个在双屏讨论里反复出现，原因很简单：别的窗口打开时，它们不会挡事。',
+        ],
+        list: [
+          '最外侧的下角：什么布局都能用，也不会跟菜单撞上',
+          '任务栏或 Dock 上方一点：看起来像桌面自带的一部分，不像个飘着的窗口',
+          '常开的终端旁边：它顺带变成了「这块是干嘛的」的标记',
+          'Dock 在右边且自动隐藏时，放左边那块屏的下边缘',
+          '别放在两块屏中间的接缝处，那道线是拖拽窗口和 Dock 都喜欢落下的地方',
+        ],
+      },
+      {
+        heading: '真正会让摆位失效的几个情况',
+        paragraphs: [
+          '大多数抱怨最后都能归到下面四项，其中只有一项算你的问题。',
+        ],
+        list: [
+          '缩放不一致：两档不同的缩放把同一只桌宠画成两种大小，在这边刚好的位置，到那边就把菜单压住了',
+          '睡眠与唤醒：只唤醒一块屏时，桌宠常被挪走，而且不一定回来',
+          '全屏应用：编辑器或游戏全屏会占满整面桌面，退出后桌宠才重新出现',
+          '重排显示顺序：在系统里把左右屏换一下，桌宠会去它「逻辑上」该在的地方，而那个地方已经换人了',
+          '遇到以上任意一种，完整重启一次 Codex 比反复拖拽管用',
+        ],
+      },
+      {
+        heading: '定下来之前的五分钟检查',
+        paragraphs: [
+          '挑机器处于日常状态的时候跑一遍：外接显示器插着，笔记本盖按你平时的习惯开着或合着。',
+        ],
+        list: [
+          '启动 Codex，记住桌宠落在哪块屏上',
+          '拔掉再插回外接显示器，看它跑到哪去了',
+          '打开最常用的那个全屏应用，确认退出后桌宠会回来',
+          '先别改，观察一天，如果真碍事了再挪一次',
+          '系统做过显示相关的更新之后重做一遍，Windows 和 macOS 都会偶尔忘记排列',
+        ],
+      },
+      {
+        heading: '摆好就不用再管了',
+        paragraphs: [
+          '拿手边任意一张照片到 codexpetgenerator.com 生成一只，再照着 /blog/install-codex-pet-terminal 的终端步骤放到位。如果第二块屏在另一台机器上，/blog/sync-codex-pet-across-machines 讲了怎么把同一只挪过去。九个状态在 /blog/codex-pet-9-animation-states：为什么待机循环比那些动作大的状态更适合你整天瞄的那块屏。完全不显示的状况看 /blog/codex-pet-not-showing-fixes，生成次数放在 /pricing，入口在 /。',
+        ],
+      },
+    ],
+  },
 ];
