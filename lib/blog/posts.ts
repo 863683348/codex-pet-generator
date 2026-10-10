@@ -6082,4 +6082,212 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'hide-codex-pet-screen-share',
+    title: 'Hiding Your Pet During Screen Sharing: How to Hide Codex Pet Overlays Fast',
+    description:
+      'How to hide codex pet overlays before a call or recording: what Zoom and OBS really capture, four ways to pause codex pet motion, and why a hidden pet comes back exactly where it was.',
+    date: '2026-10-11',
+    author: 'PetGen',
+    keywords: [
+      'hide codex pet',
+      'hide pixel pet',
+      'pet during screenshare',
+      'pause codex pet',
+      'codex pet screen share',
+      'pixel pet screen recording',
+      'hide desktop pet on calls',
+      'petgen hide pet overlay',
+    ],
+    related: [
+      'codex-pet-not-showing-fixes',
+      'dual-monitor-pet-placement',
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+    ],
+    faq: [
+      {
+        question: 'Does hiding my pet during a screen share break the install?',
+        answer: 'No. Hiding only decides whether the pet gets drawn this second. Nothing in ~/.codex/pets moves, and it comes back in the same corner after Codex restarts.',
+      },
+      {
+        question: 'Can I hide the pet from one app but keep it everywhere else?',
+        answer: 'Yes. Share a single window instead of the whole display and the pet falls outside the captured frame, while every other app still shows it.',
+      },
+      {
+        question: 'Will a paused pixel pet still cost me CPU while recording?',
+        answer: 'An idle sprite costs close to nothing. Full-screen recording is what eats your CPU, so if the fans spin up, check the encoder before blaming the pet.',
+      },
+      {
+        question: 'What is the fastest hide when someone pulls me into a demo unannounced?',
+        answer: 'Switch from sharing your entire display to sharing one window. It is the same click you were already going to make, and it leaves Codex alone.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Why you need to hide codex pet overlays before you record',
+        paragraphs: [
+          'A pet placed so it sits in the corner of your eye all day ends up in every recording you make. Most people find out during playback, usually four minutes into a client demo they have already sent.',
+          'The good news: getting rid of it takes about two seconds once you know which lever to pull. That matters more than it sounds, because a hide that takes four menus doesn\'t become a habit.',
+        ],
+      },
+      {
+        heading: 'What screen sharing tools actually capture',
+        paragraphs: [
+          'Here is the part people get wrong. A pet during screenshare behaves differently depending on what you hand over: pick one window and the pet usually falls outside the frame, pick a whole display and it rides along every time.',
+          'Recording is stricter than sharing. Anything your GPU paints onto that monitor lands in the file, whatever you thought the app was pointed at.',
+        ],
+        list: [
+          'Zoom or Meet sharing a full display: the pet comes along regardless of which app you selected',
+          'Zoom or Meet sharing a single window: the pet mostly lands outside the cropped frame',
+          'OBS, QuickTime and ScreenFlow: everything on the captured monitor, floating sprite included',
+          'Virtual cameras and similar plug-ins: same rule as window capture, plus whatever your compositor layers on top',
+          'Slide tools that mirror the whole desktop: the worst case, and the one everybody forgets exists',
+        ],
+      },
+      {
+        heading: 'Four ways to pause codex pet motion',
+        paragraphs: [
+          'These are ordered by how much they cost you. Start at the top and stop as soon as one of them solves it.',
+        ],
+        list: [
+          'Share one window rather than the entire display. Nothing else changes and the pet leaves the frame',
+          'Drag the pet onto a monitor you are not sharing. This alone justifies a second screen for many people: /blog/dual-monitor-pet-placement covers the placement math',
+          'Move Codex to another virtual desktop (Win+Tab on Windows, another Space on macOS) and share from the clean one',
+          'Quit Codex for the length of the call, then reopen it after',
+        ],
+      },
+      {
+        heading: 'Hide pixel pet overlays for one app instead of quitting everything',
+        paragraphs: [
+          'Quitting Codex to sit through a fifteen-minute call costs more than it saves, especially with a long task still running in the background. Two options sit between doing nothing and killing the app.',
+          'On macOS, put Codex in its own Space and share a different one. On Windows, virtual desktops do the same job. Either way the pet keeps going where you left it. Which states stop cleanly and which restart from frame one is spelled out in /blog/codex-pet-9-animation-states.',
+        ],
+      },
+      {
+        heading: 'Ninety seconds before the call',
+        paragraphs: [
+          'This is the whole check, and it catches nearly everything that goes wrong:',
+        ],
+        list: [
+          'Start the recording tool and read the preview thumbnail, not the meeting window',
+          'Open the window you plan to share and look at all four corners',
+          'Record five seconds, stop, and watch it back',
+          'If you are sharing a whole display, hide the pet first',
+          'Ask whoever else is on the call. They notice things you stopped seeing months ago',
+        ],
+      },
+      {
+        heading: 'Bring it back when you are done',
+        paragraphs: [
+          'Nothing you did to hide the pet touched your files on disk. The sprite, the palette and the last position stay put, so reopening Codex drops the pet into the same corner. When it does not, the cause is usually a change in display arrangement rather than a broken install, and /blog/codex-pet-not-showing-fixes walks through that order.',
+          'Generate one at codexpetgenerator.com from any photo you have lying around, install it with the terminal steps at /blog/install-codex-pet-terminal, and check /pricing for how many generations your plan allows. The generator itself lives at /.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'hide-codex-pet-screen-share-zh',
+    title: '屏幕录制时桌宠抢镜？几种把它藏起来的办法',
+    description:
+      '屏幕共享和录屏时怎么把 Codex 桌宠藏起来：Zoom 与 OBS 到底录到什么、四种暂停桌宠的办法，以及藏起来之后它为什么还留在原位。',
+    date: '2026-10-11',
+    author: 'PetGen',
+    keywords: [
+      '隐藏 codex 桌宠',
+      '桌宠录屏',
+      '屏幕共享桌宠',
+      '暂停桌宠',
+      'codex 桌宠隐藏技巧',
+      '桌宠抢镜',
+      '像素桌宠录屏隐藏',
+      'hide codex pet',
+    ],
+    related: [
+      'codex-pet-not-showing-fixes',
+      'dual-monitor-pet-placement',
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+    ],
+    faq: [
+      {
+        question: '录屏时把桌宠藏起来，会不会弄坏安装？',
+        answer: '不会。隐藏只是决定这一刻要不要把它画出来，~/.codex/pets 里的文件一个都没动，重启 Codex 之后它还在原来的那个角上。',
+      },
+      {
+        question: '能不能只对一个软件隐藏桌宠？',
+        answer: '可以。共享单个窗口而不是整块屏幕，桌宠就落在捕获范围之外，其它软件里照常显示。',
+      },
+      {
+        question: '录屏的时候桌宠会占 CPU 吗？',
+        answer: '待机状态的像素动画几乎不占什么。全屏录制本身才吃 CPU，所以风扇转起来的时候先看编码器，别急着怪桌宠。',
+      },
+      {
+        question: '临时被拉去演示，最快怎么处理？',
+        answer: '把共享对象从整块屏幕切成单个窗口。这跟你本来就要点的那一下是同一步操作，也不用去动 Codex。',
+      },
+    ],
+    sections: [
+      {
+        heading: '为什么录屏之前先要把桌宠藏起来',
+        paragraphs: [
+          '桌宠整天待在你余光能看到的地方，所以它也顺理成章地出现在你每一段录屏里。大部分人是在回放的时候才发现的，通常已经是把客户 Demo 发出去的第四分钟。',
+          '好消息是，知道该拉哪个开关之后，藏起来大概只要两秒。这一点比听起来重要：一个要点四层菜单才能打开的开关，永远变不成习惯。',
+        ],
+      },
+      {
+        heading: '共享屏幕的工具到底录到了什么',
+        paragraphs: [
+          '这里是最容易搞错的一环。屏幕共享时的桌宠表现取决于你交出去的是什么：选单个窗口，桌宠一般落在框外；选整块屏幕，它就每次都跟着上车。',
+          '录屏比共享更严格。只要是被显卡画到那块显示器上的东西，都会进到文件里，不管你以为软件指向的是哪里。',
+        ],
+        list: [
+          'Zoom、Meet 共享整块屏幕：桌宠跟着走，跟你选了哪个应用无关',
+          'Zoom、Meet 共享单个窗口：桌宠多半落在裁剪范围之外',
+          'OBS、QuickTime、ScreenFlow：捕获的那块屏上什么都逃不掉，浮动的像素小图也在',
+          '虚拟摄像头一类插件：规则跟窗口捕获一样，外加合成器叠上去的那些图层',
+          '把整个桌面镜像出去的演示工具：最糟的一种，而且大家总是忘了还有它',
+        ],
+      },
+      {
+        heading: '四种让桌宠停下来的办法',
+        paragraphs: [
+          '下面按代价从低到高排。从头往下试，哪个解决了就停手。',
+        ],
+        list: [
+          '共享单个窗口而不是整块屏幕：别的都不用改，桌宠就离开了画面',
+          '把桌宠拖到你不共享的那块显示器上。光这一条就让很多人觉得第二块屏值了，摆位细节在 /blog/dual-monitor-pet-placement',
+          '把 Codex 挪到另一个虚拟桌面（Windows 用 Win+Tab，macOS 用另一个 Space），从干净的那桌共享出去',
+          '开会这段时间直接退出 Codex，结束后重新打开',
+        ],
+      },
+      {
+        heading: '只对一个软件隐藏，而不是把整个工具干掉',
+        paragraphs: [
+          '为了十五分钟的会议退出 Codex，代价通常比收益大，尤其后台还跑着一个长任务的时候。除了硬退，还有两个折中选择。',
+          'macOS 上把 Codex 单独放进一个 Space，从别的 Space 共享出去；Windows 上用虚拟桌面做同样的事。两种方式下桌宠都还在原来的地方跑着。哪些状态会干净地停住、哪些要从第一帧重新开始，写在 /blog/codex-pet-9-animation-states。',
+        ],
+      },
+      {
+        heading: '开会前九十秒查一遍',
+        paragraphs: [
+          '就这几步，基本能把会出的问题都拦下来：',
+        ],
+        list: [
+          '打开录制软件，看预览缩略图，不要只看会议窗口',
+          '打开你准备共享的那个窗口，四个角都扫一遍',
+          '录五秒，停，回放看看',
+          '如果要共享整块屏幕，先把桌宠藏起来',
+          '问一句对面的人。你几个月前就不再注意的东西，他们一眼能看见',
+        ],
+      },
+      {
+        heading: '开完会再把它放回来',
+        paragraphs: [
+          '隐藏过程中没有任何一步动到磁盘上的文件。精灵图、配色和最后的位置都原样留着，重新打开 Codex 它就回到同一个角上。如果位置变了，通常是因为系统改了显示器排列，而不是安装坏了，/blog/codex-pet-not-showing-fixes 里有完整的排查顺序。',
+          '随手拿一张照片到 codexpetgenerator.com 生成一只，照着 /blog/install-codex-pet-terminal 的终端步骤装上，生成次数看 /pricing。生成器入口在 /。',
+        ],
+      },
+    ],
+  },
 ];
