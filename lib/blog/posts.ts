@@ -6290,4 +6290,206 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'ai-companion-culture',
+    title: 'AI Companion Culture in Development: Why Developers Keep a Pet on Screen',
+    description:
+      'AI companion culture showed up in code editors first. What the ai coding companion trend actually is, where a developer ai pet fits in the day, and how to tell a companion from a distraction.',
+    date: '2026-10-12',
+    author: 'PetGen',
+    keywords: [
+      'ai companion culture',
+      'ai coding companion trend',
+      'developer ai pet',
+      'companion culture dev',
+      'codex pet companion',
+      'ai desktop companion for developers',
+      'petgen ai companion',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: 'Is ai companion culture just another word for a chatbot?',
+        answer: 'No. A chatbot answers when you ask. A companion sits there whether you asked or not, and the relationship is closer to a plant on your desk than to a conversation.',
+      },
+      {
+        question: 'Does a developer ai pet change what the model produces?',
+        answer: 'No. The pet is a spritesheet plus a small config file that Codex draws on screen. It never touches prompts, context or output, which is why trying one costs you nothing.',
+      },
+      {
+        question: 'Why did this trend start in code editors rather than somewhere else?',
+        answer: 'The editor is the window that stays open all day, and agent runs leave long stretches of waiting that a progress bar never filled. Both conditions were already in place.',
+      },
+      {
+        question: 'How do I know if my companion is helping or just distracting me?',
+        answer: 'Turn it off for one afternoon. If you catch yourself looking at the empty corner, it was doing something for you. If you feel relieved, leave it off.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What ai companion culture actually means',
+        paragraphs: [
+          'Companion culture is the habit of keeping a small persistent character next to the tools you work in. Call it ai companion culture if you want the label: a pixel pet in the corner of the editor, a mascot that reacts when a build finishes, an avatar that stays on screen between tasks. None of it changes what the model can do. It changes what the room feels like while you work.',
+          'The interesting part is who started it. Not the teams training the models and not a marketing department. It came from developers who were already spending nine hours a day inside one window and decided that window should hold something that is not a diff.',
+        ],
+      },
+      {
+        heading: 'Why the ai coding companion trend started in the editor',
+        paragraphs: [
+          'An editor is the one window most of us keep open from the first coffee to the last commit. That makes it the natural home for anything persistent. A companion living in a browser tab gets closed by Thursday. One living next to your terminal is there whether you meant to look at it or not.',
+          'There is a timing reason too. Agentic coding turned waiting into the default: you hand off a task and watch it work. Something on screen that reflects that state fills a gap a spinner never did.',
+        ],
+        list: [
+          'The editor stays open longer than every other window, so a persistent companion actually gets seen',
+          'Agent runs create dead time, and dead time is where a companion earns its place',
+          'Terminal setups are already personal, so one more personal thing fits without comment',
+          'None of it touches the model, which keeps the cost of trying it close to zero',
+        ],
+      },
+      {
+        heading: 'Where a developer ai pet fits into the day',
+        paragraphs: [
+          'Most people use one for three things: a sense that the session is still running, a short break for the eyes, and something to blame when a build fails. That last one is half a joke and half the point.',
+        ],
+        list: [
+          'While a long task runs, the idle loop tells you the session is alive without a single notification',
+          'Between two hard problems, a few seconds of watching something small move is enough of a reset',
+          'When you come back the next morning the same sprite is where you left it, and that continuity is most of the value',
+          'Which states run during which phase is laid out at /blog/codex-pet-9-animation-states',
+        ],
+      },
+      {
+        heading: 'Companion culture dev: what teams are doing with it',
+        paragraphs: [
+          'Team use is quieter than individual use and more telling. Groups that adopt a shared pet usually do it after somebody brings one to a demo and everyone asks where it came from. The pet turns into shared vocabulary, the way a team sticker or an inside joke does.',
+          'The practical version is one pet per repo or one per service, so you can tell at a glance which project you are looking at. That is the same trick as reading states, except the signal is identity instead of status.',
+        ],
+      },
+      {
+        heading: 'How to tell a companion from a distraction',
+        paragraphs: [
+          'The honest test is whether you look at it on purpose. A companion that only shows up when your attention wanders is doing its job. One that pulls your eyes off a function you were halfway through reading is not.',
+        ],
+        list: [
+          'Put it in the corner of your eye, not beside the code. Placement decides this more than the sprite does',
+          'If you catch yourself watching it instead of the diff, move it to another monitor',
+          'Switch it off for one afternoon and see whether you miss it. You will know inside two hours',
+          'Recordings are the exception, and /blog/hide-codex-pet-screen-share covers that in ninety seconds',
+        ],
+      },
+      {
+        heading: 'Try one for a week',
+        paragraphs: [
+          'Generate a pet from any photo at codexpetgenerator.com, install it with the terminal steps at /blog/install-codex-pet-terminal, and leave it in the same corner for five working days. Do not move it and do not swap it out. By Friday you will know which kind of person you are.',
+          'The longer argument for why developers keep them is at /blog/why-developers-love-desktop-companions, and turning the whole thing into a record of your week is at /blog/coding-mood-journal-pixel-pet. Generation counts live at /pricing. The generator itself is at /.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'ai-companion-culture-zh',
+    title: '开发者与 AI 的"伙伴文化"正在形成：为什么大家开始在屏幕上养一只',
+    description:
+      'AI 伙伴文化最先出现在代码编辑器里。这篇讲清 ai coding companion trend 到底指什么、developer ai pet 在一天里占哪个位置，以及怎么分辨陪伴和分心。',
+    date: '2026-10-12',
+    author: 'PetGen',
+    keywords: [
+      'AI 伙伴文化',
+      '开发者 AI 桌宠',
+      '代码编辑器陪伴',
+      'codex 桌宠趋势',
+      '桌面陪伴开发者',
+      'ai companion culture',
+      'developer ai pet',
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'codex-pet-9-animation-states',
+      'install-codex-pet-terminal',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: 'AI 伙伴文化是不是就是聊天机器人的另一个说法？',
+        answer: '不是。聊天机器人是你问了才答；桌宠不管你问没问都在那儿，关系更接近办公桌上的一盆植物，而不是一段对话。',
+      },
+      {
+        question: '桌宠会影响模型给出的结果吗？',
+        answer: '不会。桌宠就是一张精灵图加一个小配置文件，Codex 把它画在屏幕上而已，不碰提示词、上下文和输出，所以试一下的代价基本为零。',
+      },
+      {
+        question: '为什么这股趋势先长在编辑器里，而不是别的地方？',
+        answer: '编辑器是一天开到关的那个窗口，而 agent 跑任务留下了大量等待时间，进度条从来没填满过这段时间。两个条件本来就在那儿。',
+      },
+      {
+        question: '怎么知道桌宠是在陪我还是在让我分心？',
+        answer: '关掉一个下午。如果你会去看那个空出来的角落，说明它确实起了作用；如果你松了一口气，那就别开了。',
+      },
+    ],
+    sections: [
+      {
+        heading: 'AI 伙伴文化到底指什么',
+        paragraphs: [
+          '伙伴文化说的是这么个习惯：在你干活用的工具旁边，长期放着一个小东西。要用词的话就是 ai companion culture，指的是编辑器角落里的像素宠物、构建结束时会有反应的吉祥物、任务之间一直待在屏幕上的那个形象。这些东西都不改变模型能做什么，改变的是你干活时这个空间给人的感觉。',
+          '有意思的是谁先开始的。不是训练模型的那批人，也不是哪个市场部。是一天要在同一个窗口里待九个小时的开发者，他们觉得那个窗口里除了 diff 还该有点别的。',
+        ],
+      },
+      {
+        heading: '为什么这股趋势先长在编辑器里',
+        paragraphs: [
+          '编辑器是大多数人从第一杯咖啡到最后一次提交都开着的唯一窗口，任何要长期存在的东西自然往这儿放。待在浏览器标签页里的伙伴，周四就被关掉了；待在终端旁边的那个，不管你想不想看它都在。',
+          '还有个时间上的原因：agent 式编码把等待变成了常态，你把任务交出去然后看着它干活。屏幕上有东西反映这个状态，填补了转圈动画从来没填上的空。',
+        ],
+        list: [
+          '编辑器开着的时间比别的窗口都长，所以长期存在的伙伴真的会被看见',
+          'agent 跑任务制造出空档时间，而空档时间正是伙伴能派上用场的地方',
+          '终端配置本来就私人化，再多一件私人化的东西也不会有人多问一句',
+          '它不碰模型，所以试一下的代价几乎为零',
+        ],
+      },
+      {
+        heading: '一天里桌宠占的是哪个位置',
+        paragraphs: [
+          '多数人用它做三件事：确认会话还在跑、让眼睛歇两秒，以及构建挂掉时有个东西可以怪。最后这条一半是玩笑，一半才是重点。',
+        ],
+        list: [
+          '长任务跑着的时候，待机循环不用任何通知就能告诉你会话还活着',
+          '两个难题之间，看几秒小东西动一动就已经够回血了',
+          '第二天早上回来，同一只还在原位，这种连续性才是它大部分的价值',
+          '哪个阶段跑哪个状态，写在 /blog/codex-pet-9-animation-states',
+        ],
+      },
+      {
+        heading: '团队里的伙伴文化在做什么',
+        paragraphs: [
+          '团队用法比个人用法安静，但更能说明问题。一个组开始用统一的桌宠，通常是某人在演示里带了它，然后所有人问这东西哪来的。桌宠于是变成了一句内部黑话，跟团队贴纸或者内部梗差不多。',
+          '实用一点的做法是每个仓库一只，或者每个服务一只，扫一眼就知道自己在看哪个项目。这跟读状态的思路是一样的，只不过信号从"进度"换成了"身份"。',
+        ],
+      },
+      {
+        heading: '怎么分辨陪伴和分心',
+        paragraphs: [
+          '诚实的检验标准是你是不是主动去看它。只在注意力飘走时才出现在视野里的桌宠，是在干活的；把你目光从读了一半的函数上拽走的那个，不是。',
+        ],
+        list: [
+          '放在余光里，不要放在代码旁边。位置比精灵图本身更决定这件事',
+          '如果发现自己在看它而不是看 diff，把它挪到另一块显示器上',
+          '关掉一个下午看看想不想它，两个小时内你就有答案',
+          '录屏是例外情况，/blog/hide-codex-pet-screen-share 里九十秒就能处理完',
+        ],
+      },
+      {
+        heading: '试一周看看',
+        paragraphs: [
+          '随手拿一张照片到 codexpetgenerator.com 生成一只，照着 /blog/install-codex-pet-terminal 的终端步骤装上，然后连续五个工作日别挪它、别换它。到周五你就知道自己属不属于需要它的那类人。',
+          '关于开发者为什么留着它们的长篇说法在 /blog/why-developers-love-desktop-companions，把它变成一周记录的写法在 /blog/coding-mood-journal-pixel-pet。生成次数看 /pricing，生成器入口在 /。',
+        ],
+      },
+    ],
+  },
 ];
