@@ -6492,4 +6492,206 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-vm',
+    title: 'Codex Pet VM Setup: Pets on Virtual Machines and External Displays',
+    description:
+      'A codex pet vm walkthrough: which home directory the pet files sit in, what changes when you add a second monitor, and how a remote desktop pet behaves when the window gets compressed.',
+    date: '2026-10-13',
+    author: 'PetGen',
+    keywords: [
+      'codex pet vm',
+      'codex pet virtual machine',
+      'pet external display',
+      'remote desktop pet',
+      'codex pet second monitor',
+      'pixel pet multi monitor setup',
+    ],
+    related: [
+      'dual-monitor-pet-placement',
+      'sync-codex-pet-across-machines',
+      'install-codex-pet-terminal',
+      'hide-codex-pet-screen-share',
+    ],
+    faq: [
+      {
+        question: 'Does a codex pet work inside a virtual machine?',
+        answer: 'Yes, as long as that VM has its own copy of the pets folder. The pet lives in the home directory of whichever machine runs Codex, so a freshly created VM starts with no pets at all.',
+      },
+      {
+        question: 'Why does my pet look a different size on my second monitor?',
+        answer: 'Display scaling. A monitor set to 150 percent draws the same spritesheet larger than one at 100 percent. The file does not change; match the scaling on both screens if you want an identical look.',
+      },
+      {
+        question: 'Will the pet show up over remote desktop?',
+        answer: 'It will, because a remote session shows you the other machine running its own Codex window. Expect the animation to stutter when the connection does, and check that the window is not cropped at the corner.',
+      },
+      {
+        question: 'Can a host and a VM share one pets folder?',
+        answer: 'You can point a shared or synced folder at it and both sides will read the same files. Two machines writing at the same time is where it gets messy, so sync in one direction.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Where a codex pet actually lives',
+        paragraphs: [
+          'Every codex pet is two files in one folder: a spritesheet.webp and a pet.json, both sitting under the pets directory in the home folder of the machine that runs Codex. Nothing about them is display-aware. The renderer draws them at a fixed size in a corner of the Codex window, which is why a codex pet vm setup is mostly a question of which home directory you are looking at.',
+          'That distinction matters the moment you stop working on a single box. The pet follows the home directory, not the monitor and not the person. Drop the same folder onto a second machine and you get the same pet. Log into a VM with a fresh home and you get an empty corner.',
+        ],
+        list: [
+          'Pets folder on the host: the pet shows in your normal Codex window',
+          'Pets folder inside the VM: the pet shows only when Codex runs there',
+          'Shared or synced folder: the pet shows on both, as long as the paths match',
+          'Remote desktop into the host: the pet shows, because you are looking at the host window',
+        ],
+      },
+      {
+        heading: 'External displays: what changes and what does not',
+        paragraphs: [
+          'Plugging in a monitor does not move the pet, but it does move your eyes, and that is the usual reason people report a missing pet on an external display. It is sitting in the same corner of the same window; the window just is not where you are looking anymore.',
+          'Two things genuinely do change. Scaling affects how large the sprite appears, and window position decides whether the corner it occupies is on the screen you read.',
+        ],
+        list: [
+          'Drag the Codex window to the monitor you actually read and the pet comes along',
+          'Scaling at 100 versus 150 percent changes the drawn size, the spritesheet file stays identical',
+          'A different refresh rate does not speed up or slow the animation, the sprite cycles on its own timer',
+          'Placement across two screens is written up at /blog/dual-monitor-pet-placement',
+        ],
+      },
+      {
+        heading: 'Virtual machines and remote desktop pet sessions',
+        paragraphs: [
+          'A codex pet virtual machine is the case that trips people up, because there are two home directories and usually only one of them has your pets folder. If you run Codex inside a Linux VM on a Windows host, that VM needs its own copy of the folder before anything appears.',
+          'Remote desktop is the easier half. You are watching the remote machine\'s Codex window, so whatever that machine has installed is what you see. The catch is bandwidth: compression and lag apply to the pet exactly as they do to the rest of the window.',
+        ],
+        list: [
+          'Copy the pets folder into the VM home directory, then restart Codex inside the VM',
+          'Over remote desktop the pet renders on the remote machine, so lag hits it too',
+          'Full-screen remote sessions are fine; windowed ones can crop the corner where the pet sits',
+          '/blog/sync-codex-pet-across-machines covers keeping both copies identical',
+        ],
+      },
+      {
+        heading: 'Check this before you blame the pet',
+        paragraphs: [
+          'Most missing-pet reports are a path problem rather than a generation problem. Run through this list before you regenerate anything.',
+        ],
+        list: [
+          'Is Codex running on the machine you are looking at?',
+          'Does the pets folder exist in that machine home directory?',
+          'Does pet.json point at a spritesheet that is actually present?',
+          'Is the Codex window wide enough for the corner the pet occupies?',
+          'If you need to redo it, the install steps are at /blog/install-codex-pet-terminal',
+        ],
+      },
+      {
+        heading: 'One install per machine, then forget about it',
+        paragraphs: [
+          'Generate a pet at codexpetgenerator.com, download the ZIP, and install it with the terminal steps at /blog/install-codex-pet-terminal. Do that once per machine, VM included, and the pet stops being something you have to think about.',
+          'If you want the same pet everywhere, the folder sync method at /blog/sync-codex-pet-across-machines is the piece that makes it stick. Generation counts are listed at /pricing, and the generator itself is at /. Recording a session is the one case where you want the pet out of frame, and /blog/hide-codex-pet-screen-share handles that in about ninety seconds.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'codex-pet-vm-zh',
+    title: '外接显示器和虚拟机里，Codex 桌宠还能用吗',
+    description:
+      'codex pet vm 一次说清：宠物文件在哪个 home 目录、外接显示器上位置怎么变、远程桌面下动画为什么会卡，以及每台机器各装一次就够了。',
+    date: '2026-10-13',
+    author: 'PetGen',
+    keywords: [
+      'Codex 桌宠 虚拟机',
+      '外接显示器 桌宠',
+      '远程桌面 桌宠',
+      'codex pet vm',
+      '桌宠文件位置',
+      '虚拟机 Codex 宠物',
+    ],
+    related: [
+      'dual-monitor-pet-placement',
+      'sync-codex-pet-across-machines',
+      'install-codex-pet-terminal',
+      'hide-codex-pet-screen-share',
+    ],
+    faq: [
+      {
+        question: '虚拟机里能装 Codex 桌宠吗？',
+        answer: '能，前提是那台虚拟机自己有一份宠物目录。桌宠跟着运行 Codex 那台机器的 home 目录走，新建的虚拟机一开始是空的。',
+      },
+      {
+        question: '为什么宠物在副屏上看起来大小不一样？',
+        answer: '缩放比例不同。150% 的显示器会把同一张精灵图放大画出来，文件本身没变。想让两边看起来一致，就把两块屏设成同一个缩放值。',
+      },
+      {
+        question: '远程桌面里能看到桌宠吗？',
+        answer: '能看到，因为远程桌面显示的是另一台机器自己的 Codex 窗口。要注意的是网络：连接卡的时候动画也会跟着卡，另外确认窗口没被裁掉角落。',
+      },
+      {
+        question: '宿主机和虚拟机可以共用同一份宠物目录吗？',
+        answer: '可以指向同一个共享或同步目录，两边都能读到同样的文件。麻烦出在两台机器同时写入，所以只做单向同步。',
+      },
+    ],
+    sections: [
+      {
+        heading: '桌宠到底装在哪儿',
+        paragraphs: [
+          '一只 Codex 桌宠就是同一个目录里的两个文件：spritesheet.webp 和 pet.json，放在运行 Codex 那台机器的 home 目录下。它们跟显示器没有任何关系，渲染器只是把图按固定尺寸画在 Codex 窗口的某个角上。所以 codex pet vm 这件事，本质上是「你在看哪台机器的 home 目录」。',
+          '一旦你不止在一台机器上干活，这个区别就开始咬人。桌宠跟着 home 目录走，不跟着显示器走，也不跟着人走。把同一份目录复制到第二台机器，你得到同一只；登录一台全新的虚拟机，你得到一片空角落。',
+        ],
+        list: [
+          '目录在宿主机：桌宠出现在你平时那个 Codex 窗口里',
+          '目录在虚拟机：只有 Codex 在那台虚拟机里运行时才出现',
+          '共享或同步目录：两边都能出现，前提是路径一致',
+          '远程桌面连宿主机：能看到，因为你看到的就是宿主机的窗口',
+        ],
+      },
+      {
+        heading: '外接显示器：变的是什么',
+        paragraphs: [
+          '插上第二块屏并不会挪走桌宠，挪走的是你的视线。多数「副屏上桌宠不见了」的报告都属于这一种：它还在同一个窗口的同一个角上，只是那个窗口已经不在你盯着的地方了。',
+          '真正会变的只有两样：缩放决定了画出来有多大，窗口位置决定了它占的那个角落在不在你读的屏幕上。',
+        ],
+        list: [
+          '把 Codex 窗口拖到你常看的显示器，桌宠跟着走',
+          '100% 和 150% 的缩放会改变显示大小，精灵图文件本身不变',
+          '刷新率不同不会影响动画快慢，帧循环走自己的计时器',
+          '双屏摆放的细节写在 /blog/dual-monitor-pet-placement',
+        ],
+      },
+      {
+        heading: '虚拟机与远程桌面这两种情况',
+        paragraphs: [
+          '虚拟机是最容易踩的坑，因为有两个 home 目录，而通常只有其中一个有你的宠物目录。如果你在 Windows 宿主机上跑 Linux 虚拟机并在里面开 Codex，那台虚拟机得先有自己的一份目录，否则什么都不显示。',
+          '远程桌面这一半简单些：你看的是远程机器自己的 Codex 窗口，那台机器装了什么你就看到什么。唯一的变量是带宽，压缩和延迟会跟窗口其它部分一样作用在桌宠身上。',
+        ],
+        list: [
+          '把宠物目录复制进虚拟机的 home 目录，然后重启里面的 Codex',
+          '远程桌面下桌宠由远程机器渲染，所以网络卡它也会卡',
+          '全屏远程没问题，窗口模式可能把桌宠所在的角落裁掉',
+          '两边目录保持一致的做法在 /blog/sync-codex-pet-across-machines',
+        ],
+      },
+      {
+        heading: '先查这几项，再怪桌宠',
+        paragraphs: [
+          '大部分「桌宠不见了」其实是路径问题，不是生成问题。重新生成之前先把这张清单过一遍。',
+        ],
+        list: [
+          'Codex 是不是跑在你正在看的这台机器上？',
+          '那台机器的 home 目录下有没有宠物目录？',
+          'pet.json 指向的精灵图是不是真的在？',
+          'Codex 窗口宽度够不够放下桌宠占的那个角落？',
+          '需要重装的话，步骤在 /blog/install-codex-pet-terminal',
+        ],
+      },
+      {
+        heading: '每台机器装一次就够了',
+        paragraphs: [
+          '到 codexpetgenerator.com 生成一只，下载 ZIP，照着 /blog/install-codex-pet-terminal 的终端步骤装上。每台机器做一次，虚拟机也算一台，之后就不用再管它了。',
+          '想让同一只跟着你到处跑，靠的是 /blog/sync-codex-pet-across-machines 里的目录同步办法。生成次数看 /pricing，生成器入口在 /。录屏是唯一需要让桌宠出画的情况，/blog/hide-codex-pet-screen-share 里大约九十秒能处理完。',
+        ],
+      },
+    ],
+  },
 ];
