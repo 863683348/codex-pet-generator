@@ -6694,4 +6694,206 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-pet-showcase',
+    title: 'Codex Pet Showcase: The Best Community Pixel Pets This Month',
+    description:
+      'A codex pet showcase roundup: the community pixel pets that stood out this month, what the best codex pets share, and how to get yours into the next pet showcase gallery.',
+    date: '2026-10-14',
+    author: 'PetGen',
+    keywords: [
+      'codex pet showcase',
+      'community pixel pets',
+      'best codex pets',
+      'pet showcase gallery',
+      'codex pet community',
+      'pixel pet collection',
+      'codex pet gallery roundup',
+    ],
+    related: [
+      'pets-library-explained',
+      'share-codex-pet-with-friends',
+      'codex-pet-ecosystem',
+      'pixel-art-pet-design-guide',
+    ],
+    faq: [
+      {
+        question: 'How do I submit a pet to the codex pet showcase?',
+        answer: 'Generate it and share it. There is no form to fill in. The showcase is a curated look at community pixel pets people have already posted, so the practical step is making one worth looking at.',
+      },
+      {
+        question: 'Do I need a paid plan to be featured in the showcase?',
+        answer: 'No. Pets from the free starter tier appear alongside Pro and Unlimited ones. The plan changes resolution and how many you can generate, not whether the result is worth showing.',
+      },
+      {
+        question: 'Can I showcase a pet made from someone else\'s photo?',
+        answer: 'Only if you have permission to use that photo. The pet is derived from the input, so the usual rule applies: your own photos, your own logo, or something you were given the rights to.',
+      },
+      {
+        question: 'How often does the pet showcase gallery update?',
+        answer: 'Monthly. Each round replaces the last, so a pet that missed this month is still eligible for the next one rather than being filtered out for good.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a pet showcase gallery actually collects',
+        paragraphs: [
+          'A codex pet showcase is a gallery of pets other people generated, grouped so you can see what the generator does with different kinds of input. It is not a contest with rules. It exists because the fastest way to understand what makes a good pet is to look at forty of them side by side.',
+          'The gallery is organised by what went in rather than what came out: pets made from cats, from dogs, from logos, from old scanned photos. That framing helps, because the same generator produces very different results depending on the input, and a pet showcase gallery makes that visible in about a minute.',
+        ],
+        list: [
+          'Pets generated from pet photos, the most common entry by a wide margin',
+          'Pets from logos and mascots, usually the cleanest results',
+          'Pets from old or low-resolution photos, where the HD option matters',
+          'Pets from illustrations and avatars, which skip the photo step entirely',
+        ],
+      },
+      {
+        heading: 'Community pixel pets and the styles people keep choosing',
+        paragraphs: [
+          'Community pixel pets cluster into a few looks. Most people land somewhere between "my actual animal" and "a creature that reads clearly at 48 pixels", and the entries that get saved most often are the ones that solved both at once.',
+          'Colour is where most of the variation sits. Two pets generated from the same photo can look unrelated if one keeps the original palette and the other pushes saturation.',
+        ],
+        list: [
+          'Straight-from-photo pets that keep the original colours',
+          'Recoloured pets that trade accuracy for a palette that pops on a dark terminal',
+          'Seasonal and themed pets built around a holiday or a team colour',
+          'Minimal pets with four or five colours, which survive small sizes best',
+        ],
+      },
+      {
+        heading: 'What the best codex pets have in common',
+        paragraphs: [
+          'Looking across the best codex pets in this round, four things show up repeatedly. None of them require a paid plan, and all of them are decisions you make before you generate rather than after.',
+        ],
+        list: [
+          'A single clear subject: one animal, centred, not a group',
+          'A background that separates from the subject, even a plain one',
+          'Enough resolution that the eyes survive the shrink to sprite size',
+          'A palette with three or four dominant colours rather than twelve',
+        ],
+      },
+      {
+        heading: 'Getting your pet into the next showcase',
+        paragraphs: [
+          'Submission is informal: generate the pet, share it, and it becomes part of the pool people are looking at. What helps is including the input photo alongside the result, because that is the part other people learn from.',
+          'If your first attempt does not land, regenerate before you give up. The generator averages over several attempts, and the difference between attempt one and attempt three is usually the difference between a pet you keep and one you replace.',
+        ],
+        list: [
+          'Start from a photo with one subject and a plain background',
+          'Generate two or three versions before picking one',
+          'Compare at actual sprite size, not zoomed in',
+          'The input side is written up at /blog/best-photos-for-pixel-pet-generator',
+        ],
+      },
+      {
+        heading: 'Where the gallery lives and what to do next',
+        paragraphs: [
+          'Generate a pet at codexpetgenerator.com, then browse what everyone else made at /blog. Generation counts per plan are listed at /pricing, and the starter tier covers enough attempts to try every idea above.',
+          'If you want the pet on more than one machine, /blog/sync-codex-pet-across-machines covers that. For the wider picture of what people are building, /blog/codex-pet-ecosystem is the roundup, and /blog/pets-library-explained explains how the pets folder keeps them organised.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'codex-pet-showcase-zh',
+    title: '社区宠物秀：本月最佳 Codex 桌宠作品盘点',
+    description:
+      'codex pet showcase 本月盘点：社区里哪几类像素宠物最常被收藏、最好的那几只共同点是什么，以及怎么让你那只进下一期画廊。',
+    date: '2026-10-14',
+    author: 'PetGen',
+    keywords: [
+      'Codex 桌宠 作品秀',
+      '社区像素宠物',
+      'Codex 宠物 画廊',
+      'codex pet showcase',
+      '桌宠作品盘点',
+      '最佳 Codex 桌宠',
+      '像素宠物合集',
+    ],
+    related: [
+      'pets-library-explained',
+      'share-codex-pet-with-friends',
+      'codex-pet-ecosystem',
+      'pixel-art-pet-design-guide',
+    ],
+    faq: [
+      {
+        question: '怎么把作品投到 Codex 桌宠作品秀？',
+        answer: '生成之后分享出来就行，没有表要填。作品秀是对社区已经公开的像素宠物做的一轮挑选，所以实际要做的事是生成一只值得看的。',
+      },
+      {
+        question: '进作品秀需要付费套餐吗？',
+        answer: '不需要。免费 Starter 档生成的宠物和 Pro、Unlimited 的放在一起展示。套餐改变的是分辨率和生成次数，不改变作品值不值得看。',
+      },
+      {
+        question: '能用别人的照片生成宠物再拿去展示吗？',
+        answer: '拿到授权才行。宠物是从输入照片推导出来的，所以规矩照旧：自己的照片、自己的 Logo，或者你确实拿到了使用权的素材。',
+      },
+      {
+        question: '作品画廊多久更新一次？',
+        answer: '一个月一轮。每轮替换上一轮，所以这个月没选上的宠物下个月仍然有资格，不会被永久筛掉。',
+      },
+    ],
+    sections: [
+      {
+        heading: '作品画廊到底在收集什么',
+        paragraphs: [
+          'Codex 桌宠作品秀是一个画廊，收的是别人生成的宠物，按类别排好，让你一眼看出生成器拿到不同输入时会给出什么结果。它不是有规则的比赛。它存在的理由是：想弄懂什么样的宠物算好，最快的办法是把四十只并排摆在一起看。',
+          '画廊按「输入了什么」分类，而不是按「生成了什么」：猫生的、狗生的、Logo 生的、旧扫描照片生的。这种分法有用，因为同一个生成器遇上不同照片会给出差别很大的结果，而作品画廊大概一分钟就能把这件事说清楚。',
+        ],
+        list: [
+          '宠物照片生成的宠物：数量最多，领先第二名一大截',
+          'Logo 和吉祥物生成的宠物：通常最干净',
+          '旧照片或低分辨率照片生成的宠物：这种最吃 HD 选项',
+          '插画和头像生成的宠物：直接跳过照片这步',
+        ],
+      },
+      {
+        heading: '社区像素宠物：大家反复选的几种风格',
+        paragraphs: [
+          '社区像素宠物聚成了几类样子。多数人最后落在「我家那只真动物」和「缩到 48 像素还看得清的生物」之间，而保存次数最多的作品，往往是两个问题一起解决的那些。',
+          '差别主要出在颜色上。同一张照片生成的两只宠物，一只保留原配色、一只把饱和度推高，看起来可能毫无关系。',
+        ],
+        list: [
+          '原色派：保留照片原本的配色',
+          '改色派：牺牲还原度，换一套在深色终端上更跳的配色',
+          '节日派：围绕某个节日或团队色做的主题宠物',
+          '极简派：只用四五种颜色，缩到最小尺寸最不吃亏',
+        ],
+      },
+      {
+        heading: '最好的那几只 Codex 桌宠有什么共同点',
+        paragraphs: [
+          '把这一轮最好的 Codex 桌宠摆在一起看，有四件事反复出现。没有一件需要付费套餐，而且全都是你在生成之前做的决定，不是生成之后。',
+        ],
+        list: [
+          '主体单一：一只动物，居中，不要一群',
+          '背景能和主体分开，哪怕是纯色背景',
+          '分辨率够高，缩到精灵尺寸后眼睛还在',
+          '配色只有三四个主色，而不是十二个',
+        ],
+      },
+      {
+        heading: '怎么让你那只进下一期',
+        paragraphs: [
+          '投稿这件事没有流程：生成宠物，分享出来，它就进了大家会看到的那个池子。有帮助的做法是把输入照片和成品一起发，因为别人能从中学习的正是这一步。',
+          '第一次生成不满意，先重新生成再说不玩了。生成器会在多次尝试之间取平均，第一次和第三次之间的差别，通常就是「留下」和「换掉」之间的差别。',
+        ],
+        list: [
+          '从一张主体单一、背景干净的照片开始',
+          '生成两三个版本再挑一个',
+          '按实际精灵尺寸比较，不要放大了看',
+          '输入这边的讲究写在 /blog/best-photos-for-pixel-pet-generator',
+        ],
+      },
+      {
+        heading: '接下来去哪儿',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，然后到 /blog 看看别人都做了什么。各档套餐的生成次数列在 /pricing，Starter 免费档包含的次数量足够把上面的想法全试一遍。',
+          '想让宠物出现在不止一台机器上，/blog/sync-codex-pet-across-machines 讲的是这件事。想看更大的图景，/blog/codex-pet-ecosystem 是总览；/blog/pets-library-explained 则解释了 pets 目录怎么把它们都收纳好。',
+        ],
+      },
+    ],
+  },
 ];
