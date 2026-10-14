@@ -6896,4 +6896,204 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'codex-desktop-updates-pets',
+    title: 'Codex Desktop Updates: What\'s New for Pets',
+    description:
+      'A codex pet update roundup: what changes when the Codex desktop app ships a new build, why your pet files are never touched by the installer, which changelog lines matter, and the checks worth running before you report a broken pet.',
+    date: '2026-10-15',
+    author: 'PetGen',
+    keywords: [
+      'codex pet update',
+      'codex desktop update pets',
+      'codex pet changelog',
+      'new pet features',
+      'codex pet version check',
+      'pixel pet after update',
+    ],
+    related: [
+      'codex-pet-ecosystem',
+      'codex-pets-folder-structure',
+      'backup-codex-pets-guide',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+        question: 'Do I need to reinstall my pets after a Codex desktop update?',
+        answer: 'No. Your pets sit in the pets folder inside your home directory and the installer writes to the application directory, which is somewhere else entirely. Relaunch Codex once after the update and the same pets load.',
+      },
+      {
+        question: 'How do I find out what changed for pets in the latest release?',
+        answer: 'Read the desktop app changelog and scan for lines about the renderer, the desktop window, or assets and sprites. Pets rarely get a section of their own, and a line about models or API keys has no effect on them.',
+      },
+      {
+        question: 'My pet disappeared after an update. What should I check first?',
+        answer: 'Quit Codex completely and open it again, then check that the folder name in your pets directory matches the name field in pet.json, including capital letters. Those two cover most cases. The longer list is at /blog/codex-pet-not-showing-fixes.',
+      },
+      {
+        question: 'Will a new desktop version change how my pet looks?',
+        answer: 'Your spritesheet is not regenerated, so the artwork stays as it was. What can shift is the drawn size and the animation timing, because both come from the app. If the sprite looks rough at its real size, generate again at a higher resolution instead of stretching the file.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a codex pet update actually touches',
+        paragraphs: [
+          'A codex pet update arrives inside the Codex desktop app. There is no pet updater to run and nothing to reinstall. When you install a new desktop build, the code that draws your sprite comes along with it, and whatever that build changed in the drawing path shows up the next time you launch.',
+          'That is the part people get wrong. They go looking for a pet release note. The pet is two files you own, a spritesheet.webp and a pet.json, plus the app code that reads them, and only the second half gets replaced.',
+        ],
+        list: [
+          'Your pets folder: untouched by the installer',
+          'The spritesheet and pet.json you generated: untouched',
+          'Your custom palette and animation states: untouched',
+          'The renderer, the animation timer and the default pet set: replaced with the new build',
+        ],
+      },
+      {
+        heading: 'Where the pet files sit during an upgrade',
+        paragraphs: [
+          'Everything you own lives under the pets directory in your home folder: ~/.codex/pets/ on macOS, %USERPROFILE%/.codex/pets/ on Windows. Installers write to the application directory, which is a different place, so an upgrade has no reason to walk into your pets folder.',
+          'One exception is worth knowing. Some builds change the default pet that ships with the app. If you never generated your own, the pet you see can be swapped for whatever the new build picked. Generate a pet once and you stop being affected, because yours lives in your home folder rather than inside the app.',
+        ],
+        list: [
+          'macOS: ~/.codex/pets/<pet-name>/',
+          'Windows: %USERPROFILE%/.codex/pets/<pet-name>/',
+          'Each folder holds one spritesheet.webp and one pet.json',
+          'Layout, backups and sync are covered at /blog/codex-pets-folder-structure, /blog/backup-codex-pets-guide and /blog/sync-codex-pet-across-machines',
+        ],
+      },
+      {
+        heading: 'Reading a codex pet changelog without the noise',
+        paragraphs: [
+          'Changelogs are written for the whole app, and the pet-related lines hide somewhere in the middle. The words worth scanning for are renderer, window, assets and sprite. A line about model routing or API keys will not change anything you can see in the corner of your screen.',
+          'When a release note does mention pets, it tends to be about the animation frame budget, the default pet set, or how a malformed pet.json gets handled. Anything else you notice is usually a side effect of a larger interface change rather than a pet change.',
+        ],
+        list: [
+          'Animation or frame budget changes: your spritesheet keeps working, the timing can feel different',
+          'Default pet set changes: only affects people who never generated one',
+          'pet.json validation changes: a pet that loaded before may now be rejected, usually over a missing field',
+          'Window or tray changes: the corner the pet occupies can move, which reads as a missing pet',
+        ],
+      },
+      {
+        heading: 'What to check before you report a broken pet',
+        paragraphs: [
+          'Most reports of an update breaking a pet turn out to be one of four things, and all four take under a minute to rule out. Run them in this order before you write anything up.',
+        ],
+        list: [
+          'Quit Codex completely and relaunch. A hot reload does not always restart the animation timer.',
+          'Confirm the folder name in your pets directory matches the name field in pet.json exactly, including capital letters.',
+          'Open the spritesheet in an image viewer. If it will not open, the file was damaged before the update.',
+          'Check that the Codex window is on the monitor you are looking at. Pets do not follow your eyes.',
+        ],
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet at codexpetgenerator.com, keep the folder in your home directory, and updates stop being an event. The generator writes the same two files no matter which desktop build you are on, so a pet made today keeps drawing after the next release.',
+          'The wider picture is at /blog/codex-pet-ecosystem, /blog/pets-library-explained covers keeping several pets straight in one folder, and /blog/backup-codex-pets-guide is a ten minute insurance policy against a bad afternoon. Start at /blog for the rest.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'codex-desktop-updates-pets-zh',
+    title: 'Codex 桌面端更新，宠物功能有哪些变化',
+    description:
+      '一次 codex pet update 到底动了什么：宠物文件为什么不会被安装器碰掉，更新日志里哪几行跟宠物有关，以及报 bug 之前值得先跑的四项检查。',
+    date: '2026-10-15',
+    author: 'PetGen',
+    keywords: [
+      'codex pet update',
+      'Codex 桌面端更新',
+      '宠物功能更新',
+      'codex pet changelog',
+      '更新后宠物不见了',
+      '像素宠物版本检查',
+    ],
+    related: [
+      'codex-pet-ecosystem',
+      'codex-pets-folder-structure',
+      'backup-codex-pets-guide',
+      'codex-pet-not-showing-fixes',
+    ],
+    faq: [
+      {
+        question: 'Codex 桌面端更新之后，宠物要重装吗？',
+        answer: '不用。宠物放在你用户目录下的 pets 文件夹里，安装器写的是应用程序目录，两个地方不重合。更新完把 Codex 完整重启一次，原来的宠物照常出现。',
+      },
+      {
+        question: '怎么知道最新版本里宠物相关的改动？',
+        answer: '看桌面端的更新日志，找渲染器、窗口、素材、精灵图这几个词。宠物一般不会有独立章节，而讲模型路由或 API key 的那几行跟宠物没关系。',
+      },
+      {
+        question: '更新之后宠物不见了，先查什么？',
+        answer: '先把 Codex 完全退出再打开，然后确认 pets 目录里的文件夹名和 pet.json 里的 name 字段完全一致，大小写也要一样。这两步能覆盖绝大多数情况，更长的排查清单在 /blog/codex-pet-not-showing-fixes。',
+      },
+      {
+        question: '新版会改变宠物的外观吗？',
+        answer: '精灵图不会被重新生成，画面本身还是原来那张。可能变的是显示尺寸和动画节奏，因为这两样由应用决定。如果按实际尺寸看觉得糊，重新生成一张更高分辨率的，别去拉伸原文件。',
+      },
+    ],
+    sections: [
+      {
+        heading: '一次更新到底动了哪些东西',
+        paragraphs: [
+          'codex pet update 是跟着 Codex 桌面端一起来的，没有单独的宠物升级包，也没有要重装的东西。你装上新版本，画精灵图的那部分代码跟着一起换掉，这次改动在绘制路径上留下的痕迹，下次启动就能看到。',
+          '这里最容易搞错的一点是：很多人去找宠物的发布说明，其实没有这个东西。一只宠物等于你自己的两个文件（spritesheet.webp 和 pet.json）加上读取它们的应用代码，而换掉的只有后半部分。',
+        ],
+        list: [
+          '你的 pets 文件夹：安装器不碰',
+          '你生成的精灵图和 pet.json：不碰',
+          '你自定义的配色和动画状态：不碰',
+          '渲染器、动画计时器、默认宠物：随新版本换掉',
+        ],
+      },
+      {
+        heading: '升级时宠物文件放在哪儿',
+        paragraphs: [
+          '属于你的东西全在你用户目录下的 pets 文件夹里：macOS 是 ~/.codex/pets/，Windows 是 %USERPROFILE%/.codex/pets/。安装器写的是应用程序目录，两个地方不同，所以升级没有理由进到 pets 文件夹里。',
+          '有一个例外值得知道：有些版本会换掉应用自带的默认宠物。如果你从来没自己生成过，看到的就可能被换成新版挑的那只。生成过一次就不会受影响，因为你那只放在用户目录里，不在应用里面。',
+        ],
+        list: [
+          'macOS：~/.codex/pets/<宠物名>/',
+          'Windows：%USERPROFILE%/.codex/pets/<宠物名>/',
+          '每个文件夹里放一个 spritesheet.webp 和一个 pet.json',
+          '目录结构、备份和同步分别写在 /blog/codex-pets-folder-structure、/blog/backup-codex-pets-guide 和 /blog/sync-codex-pet-across-machines',
+        ],
+      },
+      {
+        heading: '怎么从更新日志里挑出跟宠物有关的行',
+        paragraphs: [
+          '更新日志是写给整个应用的，跟宠物有关的几行藏在中间。值得扫的词是渲染器、窗口、素材、精灵图。讲模型路由或者 API key 的那几行，不会让你在屏幕角落里看到任何变化。',
+          '发布说明真的提到宠物时，通常是这几类：动画帧数的预算、默认宠物集合，或者 pet.json 写错时的处理方式。你注意到的其它变化，多数是更大的界面改动带来的副作用，不是宠物本身改了。',
+        ],
+        list: [
+          '动画或帧数预算改动：精灵图照常能用，节奏可能不一样',
+          '默认宠物集合改动：只影响从没自己生成过的人',
+          'pet.json 校验改动：之前能加载的宠物现在可能被拒，多半是少了一个字段',
+          '窗口或托盘改动：宠物占的那个角会挪位置，看起来像宠物没了',
+        ],
+      },
+      {
+        heading: '报「更新把宠物搞坏了」之前先查这四项',
+        paragraphs: [
+          '大多数「更新之后宠物坏了」的报告，最后都落在下面四类里，而每一类一分钟之内就能排除。按顺序跑一遍再写反馈。',
+        ],
+        list: [
+          '把 Codex 完全退出再打开。热重载不一定会重启动画计时器。',
+          '确认 pets 目录里的文件夹名和 pet.json 里的 name 字段完全一致，大小写也算。',
+          '用图片查看器打开精灵图。打不开就说明文件在更新之前就已经坏了。',
+          '确认 Codex 窗口在你正在看的那块屏幕上。宠物不会跟着你的视线走。',
+        ],
+      },
+      {
+        heading: '接下来去哪儿',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，把文件夹留在用户目录里，更新就不再是件事。生成器不管你是哪个桌面版本都写出同样的两个文件，所以今天做的宠物，下个版本照样会动。',
+          '更大的图景在 /blog/codex-pet-ecosystem，/blog/pets-library-explained 讲一个文件夹里怎么摆好几只宠物，/blog/backup-codex-pets-guide 是花十分钟买的一份保险。其余内容从 /blog 进去。',
+        ],
+      },
+    ],
+  },
 ];
