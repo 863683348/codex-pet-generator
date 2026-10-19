@@ -7096,4 +7096,206 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'pixel-pet-music-companion',
+    title: 'Pets and Music: A New Desktop Duo',
+    description:
+      'A pixel pet music setup is two quiet clocks: one reports that the Codex session moved, the other reports that time passed. How to pair them, how to place them, and which combinations to skip.',
+    date: '2026-10-20',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet music',
+      'music companion pet',
+      'pet with music player',
+      'aesthetic workspace',
+      'codex pet playlist',
+      'coding with music and pets',
+    ],
+    related: [
+      'coding-mood-journal-pixel-pet',
+      'why-developers-love-desktop-companions',
+      'dual-monitor-pet-placement',
+      'hide-codex-pet-screen-share',
+    ],
+    faq: [
+      {
+        question: 'Do Codex pets play any sound?',
+        answer: 'No. A pet is a spritesheet plus a pet.json, and there is no audio channel in either file. Anything you hear is coming from your music player.',
+      },
+      {
+        question: 'Can a pet and a music player run without one covering the other?',
+        answer: 'Yes, as long as only one of them floats. Pin the pet to a corner and keep the player in a normal window, or drive the player from the keyboard and never look at it.',
+      },
+      {
+        question: 'Does music actually help, or is it just habit?',
+        answer: 'For repetitive work it cuts the urge to switch tabs. Anything that needs you to read new prose goes better in silence, so the honest answer depends on the task.',
+      },
+      {
+        question: 'Will a pet distract me more than music does?',
+        answer: 'Movement in the corner of a screen is easier to tune out than sound you have to interpret. If it bothers you, hide it during calls and bring it back afterwards.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'What a pixel pet music setup looks like',
+        paragraphs: [
+          'Pixel pet music pairings sound like a gimmick until you try one for a week. The pet sits in the corner and swaps animation state as the Codex session moves, the playlist sets the tempo, and together they give a long stretch of solo work a shape you can feel. I doubted this for months. Then I noticed I had stopped checking the clock during the afternoon slump, which is the only measurement I actually trust.',
+          'The mechanics are plain, and that is the reason the pair works. A Codex pet reads session state and moves between nine animation states, so the corner of the screen tells you whether a run is still going or has been waiting on you for two minutes. Music fills the gap where you would otherwise reach for your phone. Neither one carries the load alone.',
+        ],
+        list: [
+          'Idle state, mid playlist: nothing needs you yet, keep going',
+          'Running state, familiar album: the stretch where you stop fidgeting',
+          'Blocked state, quiet track: the moment you notice you have been staring at one line',
+          'Ready state, last track: write the commit message and stop for the day',
+        ],
+      },
+      {
+        heading: 'Why the music companion pet idea sticks',
+        paragraphs: [
+          'A music companion pet works because both halves report on time rather than on output. Your editor tells you what the code does; it never tells you that forty minutes went by. A pet reacting to state and a playlist running down are two quiet clocks, and both are easier to ignore politely than a timer that beeps.',
+          'There is a less flattering reason too. Most of us keep something moving on a second screen. A pet and a music player are that habit, relocated somewhere that costs no context switch. I would rather have both in the corner of my eye than a tab I have to turn toward.',
+        ],
+        list: [
+          'Skip pets with sound effects; two audio sources is one too many',
+          'Skip lyrics in a language you write in, at least during writing sessions',
+          'Skip autoplay video next to the pet; movement on two sides of the screen pulls the eye apart',
+          'Skip shuffling a discovery playlist into deep work, it turns music back into a task',
+        ],
+      },
+      {
+        heading: 'Pairing a pet with your music player',
+        paragraphs: [
+          'The practical question is whether the pet and the player fight over the same corner. They do if you let both float. Give the pet a fixed corner, keep the player in a normal window or under keyboard control, and the two stop competing for the same 200 pixels.',
+          'Volume matters more than layout. If the pet is visible, the music is background by definition, so pick records you would not stop to listen to. The pet already answers the question you keep wanting to ask, which is whether the run is still alive. That frees the music to do nothing but set a pace.',
+        ],
+        list: [
+          'One monitor: pet bottom right, player minimised, no floating lyrics window',
+          'Two monitors: pet on the screen you read, player on the other one',
+          'Screen share: hide the pet first, steps at /blog/hide-codex-pet-screen-share, and pause the player',
+          'Headphones on: keep the pet, it is the only one of the two that still works',
+        ],
+      },
+      {
+        heading: 'An aesthetic workspace you still get work done in',
+        paragraphs: [
+          'The risk with an aesthetic workspace is spending an evening arranging it and then never finishing anything inside it. Set yourself a limit: pick a palette, pick a pet, pick a playlist, then leave all three alone for a month. The setups that last are the ones nobody fiddles with.',
+          'Two colours plus one accent is enough, and the accent should match the pet rather than the wallpaper, because the pet is the thing you actually look at. Four pets is a distraction with extra steps. Three or four albums you already know by heart, on repeat, beat any curated list.',
+        ],
+        list: [
+          'Palette: two colours plus one accent, matched to the pet',
+          'Pet: one, not four, and do not rotate them by hand',
+          'Playlist: records you have heard a hundred times, on repeat',
+          'Wallpaper: dark enough that the pet reads at a glance',
+        ],
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet at codexpetgenerator.com, drop the folder into your pets directory, and put on one album you already know by heart. Two changes, five minutes. If the afternoon stops dragging, keep them, and if it does not, you are out one generation from your quota.',
+          'Placement questions are answered at /blog/dual-monitor-pet-placement, long sessions have their own write-up at /blog/coding-marathon-pet-guide, keeping a record of the day is at /blog/coding-mood-journal-pixel-pet, and the rest of the archive is at /blog.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'pixel-pet-music-companion-zh',
+    title: '宠物 + 音乐：桌面陪伴的新组合',
+    description:
+      '把像素宠物和音乐放在一起是什么体验：宠物报状态，音乐定节奏，两者都不抢你的注意力。这篇讲怎么配、怎么摆，以及哪几种组合别试。',
+    date: '2026-10-20',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet music',
+      '像素宠物 音乐',
+      '桌面宠物 播放器搭配',
+      '音乐陪伴宠物',
+      '桌面美学 工作区',
+      '写代码听音乐',
+    ],
+    related: [
+      'coding-mood-journal-pixel-pet',
+      'why-developers-love-desktop-companions',
+      'dual-monitor-pet-placement',
+      'hide-codex-pet-screen-share',
+    ],
+    faq: [
+      {
+        question: '像素宠物本身会发出声音吗？',
+        answer: '不会。一只宠物就是一张精灵图加一个 pet.json，两个文件里都没有音轨。你听到的任何声音都来自你自己的播放器。',
+      },
+      {
+        question: '宠物和播放器会互相挡住吗？',
+        answer: '只要别让两个都浮在桌面上就不会。把宠物固定在某个角，播放器放在普通窗口里，或者干脆用键盘控制播放器、一次都不看它。',
+      },
+      {
+        question: '听音乐真的有用，还是只是习惯？',
+        answer: '做重复性工作时，它能压住你想切走的念头。需要读新文字的任务则更适合安静。答案取决于你当下在做什么，而不是音乐本身。',
+      },
+      {
+        question: '宠物会不会比音乐更分心？',
+        answer: '屏幕角落里的动作比需要你去理解的声音更容易忽略。真觉得碍事，开会时先把它藏起来，散会再放出来。',
+      },
+    ],
+    sections: [
+      {
+        heading: '把宠物和音乐放在一起是什么样',
+        paragraphs: [
+          '像素宠物配音乐这事儿，听着像噱头，试上一周就不这么想了。宠物待在屏幕角落，随着 Codex 会话的推进切换动画状态；播放列表定出节奏；两个东西合起来给了长时间独坐一段能感觉到的形状。我一开始怀疑了好几个月，后来发现下午那段最难熬的时间里我不再看表了，而这是唯一我愿意信的指标。',
+          '原理很平常，而这正是这套组合成立的原因。宠物读取会话状态，在九种动画状态之间切换，所以屏幕角落会告诉你任务是还在跑，还是已经等你两分钟了。音乐填的是你本来会去摸手机的那个空档。两个都不单独承担什么。',
+        ],
+        list: [
+          '待机状态 + 播放列表中段：还不需要你，继续做',
+          '运行状态 + 熟悉的专辑：你不再坐立不安的那一段',
+          '阻塞状态 + 安静的曲子：你发现自己盯着同一行看的时候',
+          '就绪状态 + 最后一首：写提交信息，然后收工',
+        ],
+      },
+      {
+        heading: '为什么这种音乐陪伴宠物留得下来',
+        paragraphs: [
+          '它留得下来，是因为两半都在报时间，而不是报产出。编辑器会告诉你代码做了什么，从来不会告诉你四十分钟过去了。宠物跟着状态动，播放列表一首首往下走，这是两个安静的钟，而且都比一个会响的计时器好商量。',
+          '还有一个没那么体面的原因。大多数人都会在旁边放一块屏幕，上面有点东西在动。宠物加播放器就是这个习惯，只是搬到了不需要切换注意力的地方。我宁可让这两样留在余光里，也不要一个得转头去看的标签页。',
+        ],
+        list: [
+          '别选自带音效的宠物，两个声源就多了一个',
+          '写作时避开你用来写作的那门语言的歌词',
+          '宠物旁边别放自动播放的视频，屏幕两侧都在动会把视线撕开',
+          '深度工作时别把推荐歌单开成随机，那样音乐又变回一件要处理的事',
+        ],
+      },
+      {
+        heading: '宠物怎么和播放器搭配',
+        paragraphs: [
+          '实操层面的问题是宠物和播放器会不会抢同一个角。两个都设成悬浮窗口就会抢。给宠物一个固定的角，播放器放进普通窗口或者交给键盘控制，两者就不会再争那两百个像素。',
+          '音量比布局更重要。宠物既然看得见，音乐就天然是背景，那就挑你不会停下来细听的唱片。宠物已经回答了你最想问的那句「还在跑吗」，音乐于是只需要负责定速度。',
+        ],
+        list: [
+          '一块屏幕：宠物放右下角，播放器最小化，不要浮动歌词窗',
+          '两块屏幕：宠物在你读的那块上，播放器放另一块',
+          '屏幕共享：先藏宠物，步骤在 /blog/hide-codex-pet-screen-share，同时暂停播放器',
+          '戴着耳机：宠物留着，这两个里只有它还在起作用',
+        ],
+      },
+      {
+        heading: '好看，但还能干活的工作区',
+        paragraphs: [
+          '桌面美学的风险是花一晚上布置，之后在里面一件正事都没干完。给自己定个限度：挑一套配色、一只宠物、一张播放列表，然后一个月别动它们。能留下来的布置，都是没人去折腾的布置。',
+          '两个颜色加一个强调色就够了，而且强调色要跟宠物配，不是跟壁纸配，因为你真正会看的是宠物。四只宠物只是多了几步操作的分心。三四张你已经听烂的专辑循环，胜过任何精心挑选的歌单。',
+        ],
+        list: [
+          '配色：两个颜色加一个强调色，跟宠物对齐',
+          '宠物：一只，不要四只，也别手动轮换',
+          '播放列表：听过一百遍的唱片，循环播放',
+          '壁纸：暗到能一眼看清宠物',
+        ],
+      },
+      {
+        heading: '接下来去哪儿',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，把文件夹丢进 pets 目录，再放一张你已经听熟的专辑。两个改动，五分钟。如果下午不再难熬就留着，不好使也就花掉一次生成额度。',
+          '摆位问题写在 /blog/dual-monitor-pet-placement，长时间作战有 /blog/coding-marathon-pet-guide，把一天记下来这件事在 /blog/coding-mood-journal-pixel-pet，其余内容从 /blog 进去。',
+        ],
+      },
+    ],
+  }
 ];
