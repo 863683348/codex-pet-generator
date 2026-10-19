@@ -7297,5 +7297,196 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
+  },
+  {
+    slug: 'pixel-pet-design-balance',
+    title: 'From Cute to Useful: Design Balance in Pets',
+    description:
+      'Most pixel pet design decisions get made in four seconds, on looks alone. What separates a useful desktop pet from decoration, and how to judge the balance before you generate one.',
+    date: '2026-10-19',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet design',
+      'useful desktop pet',
+      'functional pixel pet',
+      'pet design balance',
+      'codex pet animation states',
+      'readable pixel art pet',
+    ],
+    related: [
+      'pixel-art-pet-design-guide',
+      'custom-color-palettes-codex-pet',
+      'dual-monitor-pet-placement',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: 'Can a pet be genuinely cute and still useful?',
+        answer: 'Yes, and most of the good ones are both. Cute is what keeps you from closing it in the first week. Useful is what keeps it on screen in month three, because a pet that reports session state stops being something you have to check.',
+      },
+      {
+        question: 'How many animation states does a pet need before it carries information?',
+        answer: 'Two clean ones beat nine muddy ones. If you cannot tell idle from running without stopping to look, the extra frames are decoration. The built-in nine states only pay off when each one changes the silhouette or the motion, not just the colour.',
+      },
+      {
+        question: 'Should the pet match my wallpaper or my editor theme?',
+        answer: 'Your editor theme. The wallpaper sits behind everything and mostly reads as noise, while the pet sits next to the panel you actually stare at. Match the pet to the surface it has to survive against.',
+      },
+      {
+        question: 'Does a busier pet actually cost attention?',
+        answer: 'It does, but not the way people assume. Motion in the corner of your eye is cheap to ignore until the motion changes. A pet that loops the same two frames is nearly free; a pet that fires a big transition every few seconds will pull your head around while you are mid-sentence.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Cute gets the pet onto your screen',
+        paragraphs: [
+          'Cuteness is the entry fee, not the product. A pet nobody wants to look at gets closed on day one, and no amount of state mapping saves it. This is the part everyone gets right by accident, because the generator preview already shows you the good ones.',
+          'The trouble starts later. Cute has a half-life of roughly two weeks, and when it wears off you are left with whatever the pet does. If the answer is nothing, the pet joins the pile of desktop decorations that got turned off during a busy week and never came back.',
+        ],
+      },
+      {
+        heading: 'What a useful desktop pet does',
+        paragraphs: [
+          'A useful desktop pet answers one question you would otherwise have to open a window for. In Codex that question is nearly always some version of whether the session is still moving. The editor tells you what the code did; it never tells you that four minutes went by.',
+          'The pet reads session state and switches between the animation set that ships with it, so the corner of your screen reports idle, running, blocked, or ready without you asking. That is the whole function, and it is worth more than any amount of shading.',
+          'Two things follow from treating it as a readout. The states have to be distinguishable at a glance, and the pet has to live somewhere you can actually glance at. Everything else is taste.',
+        ],
+        list: [
+          'Idle versus running has to read in under a second, from the corner of your eye',
+          'The blocked state is the one that earns its keep: it is the moment you would otherwise sit and wait',
+          'Ready is the signal to stop reading and go write the commit message',
+          'A pet that only has idle and happy is decoration with better art',
+        ],
+      },
+      {
+        heading: 'Where pet design balance breaks',
+        paragraphs: [
+          'I have made every one of these mistakes, and the pattern is always the same: the pet looks better in the preview than it behaves on the desk. Here is what actually kills them.',
+        ],
+        list: [
+          'Nine states that all read as the same colour. More frames, no more information.',
+          'Transitions big enough to pull your eye out of a paragraph you were reading.',
+          'A sprite drawn for a 27-inch monitor, then used on a laptop where it is 40 pixels of mush.',
+          'Text labels on the pet. Anything you have to read is anything you have to stop for.',
+          'A palette chosen against the preview background instead of against your editor.',
+        ],
+      },
+      {
+        heading: 'Functional pixel art: the constraints that help',
+        paragraphs: [
+          'Constraints are the good news here, because pixel art at pet scale does not leave you many choices and the wrong ones are obvious. Work inside the limits instead of fighting them.',
+        ],
+        list: [
+          'Change the silhouette between states, not just the colour. Shape survives being small.',
+          'Use motion before detail. A two-frame loop reads faster than a carefully shaded sprite.',
+          'Check contrast against your editor background, not against the generator swatch.',
+          'Size the pet for the smallest screen you actually work on, then leave it there.',
+          'Keep the accent colour for the states that matter. If everything is bright, nothing is.',
+        ],
+      },
+      {
+        heading: 'Where to go next',
+        paragraphs: [
+          'Generate one at codexpetgenerator.com and judge it on the second question, not the first: can you tell what the session is doing without looking directly at it? If yes, you are done picking, and you can stop touching it.',
+          'Drawing the sprite yourself is covered in /blog/pixel-art-pet-design-guide. Colour choices that survive a real editor background are in /blog/custom-color-palettes-codex-pet. Where to put the thing once it works is /blog/dual-monitor-pet-placement, and if you want to know whether any of this changed your day, /blog/coding-mood-journal-pixel-pet has a cheap way to find out. The rest is at /blog.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'pixel-pet-design-balance-zh',
+    title: '从「好看」到「好用」：宠物的设计平衡',
+    description: '大多数人挑像素宠物只花四秒，全凭看着顺眼。这篇讲清好看和好用的分界在哪，以及在生成之前怎么判断一只宠物会不会留下来。',
+    date: '2026-10-19',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet design',
+      '像素宠物 设计',
+      '桌面宠物 实用',
+      '宠物 状态可读性',
+      '像素画 宠物 配色',
+      'codex 宠物 动画状态',
+    ],
+    related: [
+      'pixel-art-pet-design-guide',
+      'custom-color-palettes-codex-pet',
+      'dual-monitor-pet-placement',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: '宠物能既好看又好用吗？',
+        answer: '能，而且留下来的基本都是两者都占。好看决定你第一周会不会把它关掉，好用决定第三个月它还在不在屏幕上——一只会报会话状态的宠物，是不需要你去查的那件东西。',
+      },
+      {
+        question: '多少种动画状态才算真的有信息量？',
+        answer: '两种分得清的，胜过九种糊在一起的。如果你不盯着看就分不出待机和运行，多出来的帧就只是装饰。内置那九种状态只有在每种都改了轮廓或动作时才值回票价，只换颜色不值。',
+      },
+      {
+        question: '宠物该配壁纸还是配编辑器主题？',
+        answer: '配编辑器主题。壁纸在最后一层，看久了基本是噪声；宠物贴着你真正盯着的面板。拿它要长期待着的那块底色去比。',
+      },
+      {
+        question: '宠物动作多了真的会分心吗？',
+        answer: '会，但和大家想的不太一样。余光里一直在动的东西很便宜，直到这个动法变了。两帧循环的宠物几乎不花注意力；每几秒来一次大动作的宠物，会在你写到一半时把头拽过去。',
+      },
+    ],
+    sections: [
+      {
+        heading: '好看，负责把宠物放上屏幕',
+        paragraphs: [
+          '好看是入场券，不是产品本身。一只没人愿意看的宠物第一天就被关掉，再多的状态映射也救不回来。这一步大家反而不会错，因为生成器的预览已经帮你筛过一遍了。',
+          '问题出在后面。好看的半衰期大概两周，等它过去，剩下就是这只宠物到底干了什么。如果答案是「什么也没干」，它就会归到那一堆在忙起来的一周里被关掉、之后再没打开的桌面摆件里去。',
+        ],
+      },
+      {
+        heading: '一只好用的桌面宠物在做什么',
+        paragraphs: [
+          '好用的桌面宠物只回答一个你本来得开个窗口才能确认的问题。在 Codex 里，这个问题几乎总是「会话还在动吗」。编辑器会告诉你代码做了什么，从来不会告诉你四十分钟过去了。',
+          '宠物读会话状态，在自带的动画集之间切换，于是屏幕角落会告诉你待机、运行、阻塞还是就绪，不用你去问。这就是它的全部功能，比任何精细的描边都值钱。',
+          '把它当成一个读数器，两件事就跟着来了：状态必须一眼能分出来，宠物必须待在你真能扫到的地方。剩下的都是审美问题。',
+        ],
+        list: [
+          '待机和运行必须在一秒之内、用余光就能分清',
+          '阻塞状态是最值钱的那个：它正好是你本来会干坐着等的时刻',
+          '就绪是让你停下阅读、去写提交信息的信号',
+          '只有待机和开心两种状态的宠物，是画得更好的装饰品',
+        ],
+      },
+      {
+        heading: '设计平衡在哪里崩掉',
+        paragraphs: [
+          '下面每一条我都踩过，套路都一样：宠物在预览里比在桌面上好看。真正让它死掉的通常是这些。',
+        ],
+        list: [
+          '九种状态，扫一眼全是同一个颜色。帧更多，信息没多。',
+          '动作大到能把你从正在读的那一段里拽出来。',
+          '按 27 寸显示器画的图，搬到笔记本上只剩 40 像素的糊团。',
+          '宠物上带文字。凡是得读的东西，都是得停下来的东西。',
+          '配色对着预览背景挑，而不是对着你自己的编辑器挑。',
+        ],
+      },
+      {
+        heading: '功能性像素画：那些帮得上忙的限制',
+        paragraphs: [
+          '限制在这里是好消息。宠物这个尺寸上的像素画本来就没留给你多少选择，选错的那些又一眼就能看出来。顺着限制走，别跟它较劲。',
+        ],
+        list: [
+          '状态之间改轮廓，不只改颜色。缩小之后还能活下来的是形状。',
+          '先做动作，再做细节。两帧循环比一张精心描边的立绘更快被读懂。',
+          '对比度对着编辑器背景查，别对着生成器里的色卡查。',
+          '按你真正会用的那块最小的屏幕定尺寸，定完就别再动。',
+          '强调色留给要紧的那几个状态。全都亮，等于全都不亮。',
+        ],
+      },
+      {
+        heading: '接下来去哪儿',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，然后用第二个问题而不是第一个去判断它：不直视它，你能知道会话在干什么吗？能，就选完了，之后别再去折腾它。',
+          '自己画精灵图写在 /blog/pixel-art-pet-design-guide，能在真实编辑器背景上活下来的配色在 /blog/custom-color-palettes-codex-pet，画好之后摆哪儿是 /blog/dual-monitor-pet-placement，想知道这整套有没有真的改变你的一天，/blog/coding-mood-journal-pixel-pet 里有个很便宜的办法。其余内容从 /blog 进去。',
+        ],
+      },
+    ],
   }
 ];
