@@ -7489,4 +7489,218 @@ export const posts: BlogPost[] = [
       },
     ],
   }
+,
+  {
+    slug: 'pixel-pet-personality',
+    title: 'Give Your Pet a Personality: The Fun of Personas',
+    description:
+      'A pixel pet personality is what separates decoration from something you glance at on purpose. How to pick a persona, map it onto the nine animation states, and write pet lore that fits in three sentences.',
+    date: '2026-10-21',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet personality',
+      'pet persona codex',
+      'character personality pixel',
+      'codex pet lore',
+      'codex pet persona setup',
+      'pixel pet character design',
+    ],
+    related: [
+      'pixel-art-pet-design-guide',
+      'custom-color-palettes-codex-pet',
+      'codex-pet-9-animation-states',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: 'What is a pixel pet personality?',
+        answer: 'The set of traits you decide your Codex pet has, expressed through which animations you keep and how the pet behaves in each state. It is a design choice, not a field in pet.json.',
+      },
+      {
+        question: 'Do I have to write pet lore?',
+        answer: 'No. Three sentences is already generous, and the pet works fine with none. Lore earns its keep when you are choosing between two similar idle animations and want to stay consistent.',
+      },
+      {
+        question: 'Can one pet carry two personas?',
+        answer: 'It can, and it usually reads badly. Pick one and let the nine states support it. If you want contrast, make a second pet and switch between them.',
+      },
+      {
+        question: 'Does a persona change how the pet is installed?',
+        answer: 'No. The folder, the spritesheet and pet.json are identical. Persona only affects which animation frames you keep and what you name the pet.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Why a persona changes how you use the pet',
+        paragraphs: [
+          'A pixel pet personality is the difference between a decoration and something you glance at on purpose. Two pets generated from the same photo can behave very differently once you decide what the creature is like, and making that decision costs a few minutes of thought.',
+          'I noticed this after swapping pets for a week. The one I kept was not the better drawing. Its idle animation read as "waiting patiently" while the other one looked bored. Same frames, different story.',
+        ],
+        list: [
+          'A persona gives you a rule for cutting animations that do not fit',
+          'It makes state changes readable without looking directly at the screen',
+          'A pet with a character is worth naming, and named pets survive',
+          'It gives you something concrete to compare against when you generate a second one',
+        ],
+      },
+      {
+        heading: 'Choosing a pet persona for Codex that fits your hour',
+        paragraphs: [
+          'Start from the worst hour of your day, not the best. If your afternoons are mostly waiting on long runs, a calm companion beats one that celebrates every finished command. If your mornings are review-heavy, pick something that reads as attentive rather than cheerful.',
+          'The pet persona codex crowd converges on four families: stoic, eager, grumpy, sleepy. None of them is better. They suit different rooms and different people, and a bad pairing is the main reason a pet gets switched off after two weeks.',
+        ],
+        list: [
+          'Stoic: minimal idle motion, quiet ready state. Good beside a terminal you watch for long stretches',
+          'Eager: wide state transitions, visible celebration. Good when runs are short and frequent',
+          'Grumpy: reads as unimpressed when blocked. Funnier than it sounds during a long debugging session',
+          'Sleepy: slow loops everywhere. Good when the pet sits beside text you are reading',
+        ],
+      },
+      {
+        heading: 'Mapping character personality onto the nine states',
+        paragraphs: [
+          'Character personality pixel work is mostly subtraction. Nine states at eight frames each is not enough room for a nuanced performance. Pick the two states your persona actually cares about and leave the rest neutral.',
+          'The states that carry the most personality are idle, running, blocked and ready. Those four are the ones you watch for minutes at a time. Sleep, error and the rest flash past, and they only need to avoid contradicting what you have already established.',
+        ],
+        list: [
+          'Decide what the pet does when nothing is happening. That frame is on screen more than all the others combined',
+          'Give blocked a distinct silhouette. It is the state you actually learn to recognise',
+          'Keep ready short. The third long celebration in an hour turns into noise',
+        ],
+      },
+      {
+        heading: 'Writing codex pet lore in three sentences',
+        paragraphs: [
+          'Codex pet lore is the small backstory you attach to the creature, and it is worth about three sentences. Two is fine. Twenty is a writing project you will abandon, and the pet does not need it.',
+          'What works: one line about where it came from, one about what it wants, one about what annoys it. Put it in displayName or a note in the pet folder, never in the spritesheet. Text at 192x208 is unreadable, and it costs you the cheapest clarity you had.',
+          'Mine says "found in a server rack, wants the run to finish, hates merge conflicts." That is enough to make the blocked animation feel deliberate.',
+        ],
+      },
+      {
+        heading: 'Where personas fall apart',
+        paragraphs: [
+          'Every one of these killed a pet I liked, and the pattern is always the same: the persona was written for the preview, not for the desktop.',
+        ],
+        list: [
+          'Persona and palette disagreeing. A grumpy pet in pastel pink looks like a mistake',
+          'Too many states doing the same thing. If blocked and error look alike, the character has nothing to say',
+          'Lore that requires reading. Anything you have to stop and decode is out',
+          'Copying someone else\'s pet wholesale. The persona has to match your day, and your day is not theirs',
+        ],
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet on codexpetgenerator.com, then spend five minutes deciding what it is like before you install it. That is the whole trick.',
+          'Design basics sit at /blog/pixel-art-pet-design-guide if the sprite itself needs work, palettes that survive a real editor background are at /blog/custom-color-palettes-codex-pet, and the nine states are broken down at /blog/codex-pet-9-animation-states. To check whether any of this changed your day, /blog/coding-mood-journal-pixel-pet has a cheap way to measure it. Everything else is at /blog.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'pixel-pet-personality-zh',
+    title: '给宠物做「人设」：性格设定的乐趣',
+    description: '像素宠物的人设，是装饰品和你愿意主动瞟一眼的东西之间的分界线。这篇讲怎么挑性格、怎么把它落到九个动画状态上、怎么写三句话就够的背景设定。',
+    date: '2026-10-21',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet personality',
+      '像素宠物 人设',
+      '宠物 性格设定',
+      'codex 宠物 背景设定',
+      '像素角色 性格',
+      'codex 宠物 动画状态',
+    ],
+    related: [
+      'pixel-art-pet-design-guide',
+      'custom-color-palettes-codex-pet',
+      'codex-pet-9-animation-states',
+      'coding-mood-journal-pixel-pet',
+    ],
+    faq: [
+      {
+        question: '什么是像素宠物的人设？',
+        answer: '你给 Codex 宠物定的那套性格，通过保留哪些动画、它在每个状态下怎么表现来体现。这是设计选择，不是 pet.json 里的某个字段。',
+      },
+      {
+        question: '一定要写背景设定吗？',
+        answer: '不用。三句话已经很多，一句不写宠物照样能用。背景设定的用处是在两个差不多的待机动画之间帮你做选择时保持一致。',
+      },
+      {
+        question: '一只宠物能有两种性格吗？',
+        answer: '能，但读起来通常很糟。选一种，让九个状态去支撑它。想要反差就再做一只，两只换着用。',
+      },
+      {
+        question: '人设会影响安装方式吗？',
+        answer: '不会。文件夹、精灵图、pet.json 完全一样。人设只影响你保留哪些动画帧，以及给宠物起什么名字。',
+      },
+    ],
+    sections: [
+      {
+        heading: '人设改变的是你用它的方式',
+        paragraphs: [
+          '像素宠物的人设，是装饰品和你愿意主动瞟一眼的东西之间的分界线。同一张照片生成的两只宠物，在你决定它是什么性格之后，表现可以差很远，而做这个决定只需要花几分钟想清楚。',
+          '连着换了一周的宠物之后我才意识到这件事。最后留下的那只画得并不更好，只是它待机时像「在耐心等」，另一只看着像无聊。帧是一样的，讲的故事不一样。',
+        ],
+        list: [
+          '人设给了你一条标准，用来删掉不合适的动画',
+          '状态切换因此变得不用直视也能读懂',
+          '有性格的宠物才值得起名字，起了名字的宠物才留得住',
+          '它让你在生成第二只时有个明确的对比对象',
+        ],
+      },
+      {
+        heading: '挑一个配得上你那一小时的宠物性格',
+        paragraphs: [
+          '从你一天里最难熬的那个小时开始想，别从最顺的那个小时想。如果下午基本都在等长任务跑完，安静的陪伴比一有命令完成就欢呼的那种更合适；如果上午都在做评审，选一个看着认真而不是开心的。',
+          '宠物性格在 Codex 圈子里大致收敛成四类：沉稳、雀跃、暴躁、嗜睡。没有哪类更好，它们配不同的房间和不同的人，配错了是宠物两周后被关掉的主要原因。',
+        ],
+        list: [
+          '沉稳：待机动得少，就绪很安静。适合摆在你要长时间盯着的终端旁边',
+          '雀跃：状态切换幅度大，完成时有明显的庆祝动作。适合任务短而密的时候',
+          '暴躁：阻塞时看着像在表达不满。长时间调试时比想象中好笑',
+          '嗜睡：所有循环都慢。适合宠物就摆在你正在读的文字旁边',
+        ],
+      },
+      {
+        heading: '把性格落到九个状态上',
+        paragraphs: [
+          '像素角色的性格表达，主要靠做减法。九个状态、每个八帧，这点空间不够演一场细腻的表演。挑出你的性格真正在乎的两个状态，剩下的保持中性就行。',
+          '最能撑住性格的是待机、运行、阻塞、就绪。这四个是你一次会盯上好几分钟的。睡眠、报错那些一闪而过，只要别和已经立住的东西打架就够了。',
+        ],
+        list: [
+          '先定它在什么都没发生时干什么。那一帧出现在屏幕上的时间比其它所有帧加起来还长',
+          '阻塞必须有个能分辨的轮廓。这是你真正会学会辨认的状态',
+          '就绪要短。一个小时的第三次长庆祝，就变成噪声了',
+        ],
+      },
+      {
+        heading: '宠物背景设定写三句就够',
+        paragraphs: [
+          'Codex 宠物的背景设定，就是给这只生物安的那点故事，值三句话。两句也行。写二十句是一个你迟早会放弃的写作项目，而宠物并不需要。',
+          '能用的写法：一句说它从哪来，一句说它想要什么，一句说什么会惹到它。写在 displayName 里或者宠物文件夹的备注里，别写进精灵图。192x208 上的字是读不出来的，还会把本来最便宜的那点清晰度赔进去。',
+          '我自己那只写的是「在机柜里捡到的，希望这次能跑完，讨厌合并冲突」。够了，够让阻塞那个动画显得是故意的。',
+        ],
+      },
+      {
+        heading: '人设最容易崩在哪',
+        paragraphs: [
+          '下面每一条我都踩过，套路都一样：人设是照着预览写的，不是照着桌面写的。',
+        ],
+        list: [
+          '性格和配色打架。一只暴躁的宠物配马卡龙粉，看着像做错了',
+          '太多状态在做同一件事。阻塞和报错长得一样，这个角色就没话可说',
+          '背景设定需要读才能懂。凡是得停下来解码的东西，都出局',
+          '整只照搬别人的宠物。人设要配的是你自己的一天，而你的一天不是他的',
+        ],
+      },
+      {
+        heading: '接下来去哪儿',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，装之前花五分钟想清楚它是什么样的。整套诀窍就这么多。',
+          '精灵图本身要改的话，基础在 /blog/pixel-art-pet-design-guide；能在真实编辑器背景上活下来的配色在 /blog/custom-color-palettes-codex-pet；九个状态的拆解在 /blog/codex-pet-9-animation-states。想确认这些有没有真的改变你的一天，/blog/coding-mood-journal-pixel-pet 里有个很便宜的办法。其余内容从 /blog 进去。',
+        ],
+      },
+    ],
+  }
 ];
