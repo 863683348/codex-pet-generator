@@ -7702,5 +7702,241 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
+  },
+  {
+    slug: 'pixel-pet-notifications-and-nudge-timing',
+    title: 'Pixel Pet Notifications: Timing Nudges Without Breaking Focus',
+    description: 'Pixel pet notifications are the small nudges your Codex companion can surface while a run is going. What deserves one, when to fire it, and why most reminder settings should stay switched off.',
+    date: '2026-10-22',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet notifications',
+      'codex pet reminder settings',
+      'pet notification timing',
+      'do pet notifications help focus',
+      'codex pet nudge setup',
+      'pixel pet reminder schedule',
+      'codex desktop pet alert settings'
+    ],
+    related: [
+      'pixel-pet-personality',
+      'codex-pet-9-animation-states',
+      'coding-mood-journal-pixel-pet',
+      'sync-codex-pet-across-machines'
+    ],
+    faq: [
+      {
+        question: 'Do pet notifications help focus?',
+        answer: 'In one narrow way, yes. A run-finished nudge stops you from checking the terminal every couple of minutes. Every other notification category I tried cost more attention than it returned, and repeat nudges were the worst of them.'
+      },
+      {
+        question: 'How many notifications should a Codex pet send?',
+        answer: 'Start with one rule: fired only when a run crosses a length threshold you set yourself. Four nudges a day is plenty for most people. If you are counting more than that, the threshold is too low.'
+      },
+      {
+        question: 'Can I change codex pet reminder settings without reinstalling the pet?',
+        answer: 'Yes. The reminder block lives in pet.json inside the pet folder. Edit it, restart Codex, and the new rules apply to the pet you already have installed. Nothing about the spritesheet changes.'
+      },
+      {
+        question: 'Do pet notifications work on both macOS and Windows?',
+        answer: 'They run the same way on both, because the pet reads the same pet.json on either. The one thing that differs is how the operating system handles notification permissions, so check your system settings if a nudge never appears.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'What a pixel pet notification actually is',
+        paragraphs: [
+          'Pixel pet notifications are the small nudges your companion surfaces while Codex is working. A pet can react when a run finishes, when a command blocks waiting on you, or after a stretch where nothing has moved. None of it touches your model, your prompts or your code. It is a desktop companion telling you that something happened, and the only real design question is whether you wanted to be told.',
+          'I expected to hate this. Notifications from a decorative pet sounded like the least useful category of interruption anyone could invent. Three weeks later I keep one rule switched on, and the reason is narrower than I expected: it is good at exactly one job, which is telling me a long run finished while I was reading something else.',
+          'That is the honest framing. A pet notification is not a productivity system and it will not make you focused. It is a way to stop glancing at the terminal every ninety seconds, and it only works while the bar for firing one stays high.'
+        ],
+        list: [
+          'Run finished: the pet changes state and holds that state until you look up',
+          'Run blocked: something needs input and the queue has stopped moving',
+          'Idle too long: the pet has been waiting on you rather than the other way round',
+          'Error: the run failed and whatever it produced is already wrong'
+        ]
+      },
+      {
+        heading: 'Codex pet reminder settings: the four knobs that matter',
+        paragraphs: [
+          'Codex pet reminder settings live in pet.json, the same file that holds displayName and the animation map. There is no separate preferences screen and nothing is relayed off your machine. Whatever you set applies to that one pet folder on that one computer.',
+          'Most pets ship with every notification off. That default is correct, and I would leave it alone for the first few days. Switch one on only after you catch yourself refreshing the terminal deliberately, waiting for a result.',
+          'Four fields change anything at all: whether a nudge fires, how long the run has to be before it qualifies, whether quiet hours apply, and whether an unanswered nudge repeats. Everything else in the file is cosmetic and has no bearing on timing.'
+        ],
+        list: [
+          'enabled: the master switch. Off means the pet animates freely and never tries to get your attention',
+          'minRunSeconds: skip short runs. Set it above your median command length or every nudge turns into noise',
+          'quietHours: a window where the pet animates silently. Point it at whatever your regular meeting block or bedtime is',
+          'repeat: whether an unanswered nudge fires again. I keep this off, because a repeat is a second decision I never asked for'
+        ]
+      },
+      {
+        heading: 'Pet notification timing: when a nudge lands well',
+        paragraphs: [
+          'Pet notification timing is mostly about run length, not hour of day. A nudge after a four second command is an insult. A nudge after a six minute build is the entire reason the feature exists. Put minRunSeconds above your median command and the pet stops commenting on things you were going to see anyway.',
+          'The second factor is whether you were already looking. If Codex is the frontmost window, the animation is visible without help and a nudge adds nothing. Timing rules that account for window focus do real work here. Timing rules that ignore it are a noise generator with a pet drawn on top.',
+          'Third, what happens afterwards matters more than the nudge itself. A pet that moves into a distinctive state and stays there beats one that flashes and resets, because you might not look up for another minute. The pet should still be telling the story when you arrive.'
+        ],
+        list: [
+          'Long runs: fire. This is the case the feature was built for',
+          'Short runs: never. You will read the result before the animation finishes',
+          'Codex already focused on screen: skip it unless the run failed',
+          'Blocked runs: fire, and hold that state until you respond'
+        ]
+      },
+      {
+        heading: 'Do pet notifications help focus? What three weeks of notes showed',
+        paragraphs: [
+          'Do pet notifications help focus? For me the answer is yes in one narrow way and no in every other configuration I tried. The narrow win: I stopped switching windows to check whether a run had finished. Across a week that was maybe sixty fewer glances, and each one used to cost me a paragraph of whatever I was reading.',
+          'The losses were real as well. With repeat switched on, an unanswered nudge became a low grade irritation that pushed me toward closing Codex altogether. Without quiet hours set, a late session meant the pet was commenting on builds at an hour I should not have been working at all.',
+          'I tracked it the same way I track mood in the journal method at /blog/coding-mood-journal-pixel-pet: one line a day, noting whether the pet interrupted something I cared about. Three weeks in, the number settled at roughly one genuinely useful nudge per day, with the rest of the animation being decoration I happened to like.'
+        ],
+        list: [
+          'Notifications off: zero interruptions, but I checked the terminal about 12 times a day',
+          'Run finished only, 60 second minimum: about 4 nudges a day, 1 of them worth having',
+          'Run finished plus repeat: about 9 nudges a day, and I switched the whole thing off on day four',
+          'Every category enabled: I lasted six hours before uninstalling the pet'
+        ]
+      },
+      {
+        heading: 'Where notification settings go wrong',
+        paragraphs: [
+          'Every one of these annoyed a pet out of my rotation, and the failure is always the same: the rule was written for the settings screen instead of for an actual working day.'
+        ],
+        list: [
+          'Switching everything on because the fields were there. Most people uninstall within a day',
+          'Setting minRunSeconds below your median command length, so the pet comments on everything',
+          'Forgetting quiet hours, which makes the pet most talkative exactly when you should have stopped',
+          'Assuming reminder settings travel with the pet when you copy it to another machine. They do not, and /blog/sync-codex-pet-across-machines explains what does move',
+          'Giving blocked and error the same animation, so the one nudge you actually needed is unreadable'
+        ]
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet on codexpetgenerator.com and leave every notification off for the first week. The moment you notice yourself checking the terminal on purpose, switch on the single rule that covers it, and nothing else.',
+          'Which states are worth nudging on is broken down at /blog/codex-pet-9-animation-states, and whether a nudge reads as helpful or smug depends on the persona work at /blog/pixel-pet-personality. If you run the same pet on a second machine, /blog/sync-codex-pet-across-machines covers what does and does not copy over. Everything else is listed at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'pixel-pet-notifications-and-nudge-timing-zh',
+    title: '像素宠物的提醒与通知节奏：什么时候该打扰你',
+    description: '像素宠物通知是 Codex 跑任务时宠物给你的小提醒。这篇讲哪些事配得上一个提醒、时机该怎么卡，以及为什么大多数提醒开关应该保持关闭。',
+    date: '2026-10-22',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet notifications',
+      '像素宠物 通知',
+      'codex 宠物 提醒设置',
+      '宠物 通知时机',
+      'codex 宠物 专注',
+      '像素宠物 提醒节奏',
+      'codex 桌面宠物 通知开关'
+    ],
+    related: [
+      'pixel-pet-personality',
+      'codex-pet-9-animation-states',
+      'coding-mood-journal-pixel-pet',
+      'sync-codex-pet-across-machines'
+    ],
+    faq: [
+      {
+        question: '宠物通知真的有助于专注吗？',
+        answer: '只有一个很窄的用处：跑完的提醒能让你不再每隔几分钟切回终端看一眼。我试过的其它通知类别，消耗掉的注意力都比换来得多，其中重复提醒是最糟的一种。'
+      },
+      {
+        question: '一只 Codex 宠物一天该提醒几次？',
+        answer: '先只开一条规则：只有运行时长超过你自己设的阈值才提醒。一天四次对大多数人已经够用。如果你数出来的次数更多，说明阈值设低了。'
+      },
+      {
+        question: '改提醒设置需要重装宠物吗？',
+        answer: '不需要。提醒配置就在宠物文件夹里的 pet.json，改完重启 Codex 就生效，装好的那只宠物不用动。精灵图完全不受影响。'
+      },
+      {
+        question: 'macOS 和 Windows 上通知表现一样吗？',
+        answer: '宠物这层是一样的，因为两边读的都是同一份 pet.json。差别在操作系统怎么处理通知权限，所以如果提醒一直不出现，先去系统设置里看一眼。'
+      }
+    ],
+    sections: [
+      {
+        heading: '像素宠物通知到底是什么',
+        paragraphs: [
+          '像素宠物通知，就是 Codex 干活时宠物给你的那些小提醒。跑完了可以提醒，卡住等你输入可以提醒，长时间没动静也可以提醒。它不碰你的模型、不碰你的提示词、也不碰代码。说白了就是桌面上的一只宠物告诉你出了件事，唯一值得考虑的问题是：你想不想被告诉。',
+          '我一开始是准备讨厌这个功能的。一只装饰性宠物发通知，听起来是我能想到的最没用的打扰。三周后我只留了一条规则开着，原因比我想的窄得多：它只擅长一件事，就是在我读别的东西时告诉我那个长任务跑完了。',
+          '这就是实话。宠物通知不是生产力系统，也不会让你变专注。它只是让你不用每九十秒瞟一次终端，而且只有在触发门槛设得够高的时候才成立。'
+        ],
+        list: [
+          '跑完了：宠物切到某个状态，并且一直保持到你抬头',
+          '卡住了：需要你输入，队列已经不动了',
+          '闲置太久：这次是它在等你，不是你等它',
+          '报错：任务失败了，产出的东西已经是错的'
+        ]
+      },
+      {
+        heading: 'Codex 宠物提醒设置：真正有用的四个开关',
+        paragraphs: [
+          'Codex 宠物提醒设置写在 pet.json 里，跟 displayName 和动画映射是同一个文件。没有单独的设置页面，也不会往本机之外传任何东西。你填什么，就只对这台机器上这个宠物文件夹生效。',
+          '大多数宠物默认是全部关闭的。这个默认值是对的，头几天我建议你别动它。等到你发现自己正专门刷新终端等结果时，再打开对应那一条。',
+          '真正会改变结果的只有四个字段：要不要提醒、任务跑多久才算数、有没有免打扰时段、没被回应的提醒要不要重发。文件里其它内容都是外观，跟时机没关系。'
+        ],
+        list: [
+          'enabled：总开关。关掉后宠物照常动，但绝不主动找你',
+          'minRunSeconds：跳过短任务。要设得比你命令时长的中位数高，否则每条提醒都是噪音',
+          'quietHours：这段时间里宠物只动不出声。把值设成你固定的会议时段或者睡觉时间',
+          'repeat：没回应的提醒要不要再发一次。我一律关掉，因为重发是我没要过的第二个决定'
+        ]
+      },
+      {
+        heading: '通知时机：什么时候提醒是合适的',
+        paragraphs: [
+          '宠物通知的时机主要跟任务长度有关，跟几点钟关系不大。一个四秒的命令跑完就提醒，是冒犯；一个六分钟的构建跑完提醒，正是这个功能存在的理由。把 minRunSeconds 设到高于你命令时长的中位数，宠物就不会再对那些你本来就会看到的事情评头论足。',
+          '第二个因素是你当时有没有在看。如果 Codex 就在最前面的窗口，动画你本来就看得见，提醒毫无增量。会考虑窗口焦点的时机规则在这里是真干活；不考虑焦点的规则，就是一台装了宠物图案的噪音发生器。',
+          '第三点，提醒之后发生什么比提醒本身更重要。切到一个明显状态并停在那里的宠物，比闪一下就复位的宠物有用，因为你可能一分钟后才抬头。你抬头的时候，它应该还在讲那件事。'
+        ],
+        list: [
+          '长任务：提醒。这就是这个功能被做出来的场景',
+          '短任务：永远别提醒。动画还没放完你就已经读到结果了',
+          'Codex 已经在最前面：跳过，除非任务失败',
+          '卡住的任务：提醒，并且保持那个状态直到你回应'
+        ]
+      },
+      {
+        heading: '宠物通知真的有助于专注吗：三周记录',
+        paragraphs: [
+          '宠物通知真的有助于专注吗？对我来说，答案是「只有一种配置有用，其它都没用」。有用的那一点很具体：我不再切窗口去确认任务跑没跑完。一周下来大概少看了六十次，而每一次都会让我丢掉正在读的那一段。',
+          '代价也是真的。开着重复提醒时，一个没被回应的提醒会变成持续的低度烦躁，最后促使我干脆把 Codex 关掉。没设免打扰时段时，晚上加班意味着宠物会在我根本不该干活的时间点评构建。',
+          '我用 /blog/coding-mood-journal-pixel-pet 里那个心情记录法来记：每天一行，写宠物有没有打断我在乎的事。三周下来数字稳定在每天大约一条真正有用的提醒，其余动画都是我恰好喜欢的装饰。'
+        ],
+        list: [
+          '全部关闭：零打扰，但我一天大概要手动看终端 12 次',
+          '只开跑完提醒 + 60 秒阈值：一天约 4 条，其中 1 条值得',
+          '跑完提醒 + 重复提醒：一天约 9 条，第四天我把整套关了',
+          '所有类别全开：撑了六小时就把宠物卸了'
+        ]
+      },
+      {
+        heading: '提醒设置最容易出错的地方',
+        paragraphs: [
+          '下面每一条都把一只我本来喜欢的宠物赶出了轮换，而且失败方式都一样：规则是照着设置页写的，不是照着真实的一天写的。'
+        ],
+        list: [
+          '因为字段在那儿就全打开。多数人撑不过一天就会卸载',
+          'minRunSeconds 设得比命令中位数还低，宠物于是对每件事都发言',
+          '忘了设免打扰时段，结果宠物最话痨的时刻恰好是你该停手的时候',
+          '以为把宠物拷到另一台机器时提醒设置会跟着走。并不会，/blog/sync-codex-pet-across-machines 里写了哪些东西会一起过去',
+          '把卡住和报错做成同一个动画，于是你真正需要的那条提醒反而读不出来'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，第一周把所有通知都关掉。等你发现自己正有意识地去查看终端，就只打开能覆盖这种情况的那一条规则，别的都别动。',
+          '哪些状态值得提醒，拆解在 /blog/codex-pet-9-animation-states；提醒读起来是帮忙还是阴阳怪气，取决于 /blog/pixel-pet-personality 里的人设工作。要在第二台机器上用同一只宠物，/blog/sync-codex-pet-across-machines 讲清了什么会跟着走、什么不会。其余内容从 /blog 进去。'
+        ]
+      }
+    ]
   }
 ];
