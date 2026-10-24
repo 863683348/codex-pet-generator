@@ -7938,5 +7938,443 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'pixel-pet-on-streams-and-podcasts',
+    title: 'Pixel Pet on Streams and Podcasts: Getting It to Look Right on Camera',
+    description: 'A pixel pet reads very differently through OBS or a screen share than it does on your own monitor. Which settings matter, size and contrast rules that survive a downscale, and a two minute checklist before you go live.',
+    date: '2026-10-24',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet streaming',
+      'stream overlay pet',
+      'pet on camera',
+      'podcast desktop pet',
+      'codex pet obs setup',
+      'pixel pet screen share',
+      'streamer desktop companion',
+      'codex pet visibility on stream'
+    ],
+    related: [
+      'hide-codex-pet-screen-share',
+      'dual-monitor-pet-placement',
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-design-balance'
+    ],
+    faq: [
+      {
+        question: 'Can I put a pixel pet on stream without distracting viewers?',
+        answer: 'Yes, if it moves less than you think it should. Pick the calmest idle state, scale it up, and keep it away from the corner where alerts and chat sit. Constant motion is what pulls eyes away from the editor.'
+      },
+      {
+        question: 'How large should a pet be on a 1080p stream?',
+        answer: 'Larger than feels right on your own monitor. Aim for roughly 8 to 10 percent of the height of the captured area, then record thirty seconds and watch it back at half scale.'
+      },
+      {
+        question: 'Does a pet show up in OBS automatically?',
+        answer: 'It does if you capture the whole display, because the pet draws on top of the desktop. If you capture a single window it will not appear, and you would need a display capture source to include it.'
+      },
+      {
+        question: 'Should I run a pet during an audio-only podcast?',
+        answer: 'No. Hide it. Nobody listening can see it and it pulls your own eye while you are talking. It earns its place on video, and the audio-only case is the one place it costs you something.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'Why a pixel pet looks wrong the first time you stream it',
+        paragraphs: [
+          'Pixel pet streaming has one problem nobody warns you about. Your pet was designed to be glanced at on a 27 inch monitor from two feet away, while your viewers are watching it through a 1080p downscale on a phone. Everything gets softer, and the details you liked are the ones that disappear first.',
+          'Two things go wrong at the same time. Fine detail in the spritesheet stops reading, and the pet stops separating from whatever sits behind it, because on stream the background is your entire desktop rather than the two windows you actually look at.',
+          'I ran four sessions with a pet visible before it reached the point where people mentioned it for the right reason. These are the settings that made the difference.'
+        ],
+        list: [
+          'Detail below about four screen pixels does not survive the downscale',
+          'A dark pet on a dark wallpaper turns into a smear',
+          'Idle timing that feels slow in person reads as frozen on stream',
+          'The bottom right corner is exactly where your webcam box and chat overlay go'
+        ]
+      },
+      {
+        heading: 'Stream overlay pet settings that change anything',
+        paragraphs: [
+          'The stream overlay pet question comes down to three fields in pet.json and one decision in OBS. None of it requires reinstalling the pet, and none of it changes how the pet behaves when you are not streaming.'
+        ],
+        list: [
+          'Scale: push it up. A pet that reads well on your own monitor is usually too small for stream',
+          'Rim or outline: if your palette supports it, add a light rim. One palette entry fixes most contrast problems',
+          'Idle animation: choose the state that moves least. Constant motion competes with your editor',
+          'OBS layer order: put the pet above the desktop and below alerts, not on top of everything'
+        ]
+      },
+      {
+        heading: 'Pet on camera: size, contrast and motion',
+        paragraphs: [
+          'For a pet on camera, meaning a webcam shot of your desk rather than a screen capture, the rules change completely. You are dealing with a camera sensor and a shallow depth of field, and the pet is a small object inside a large frame.',
+          'Two practical notes. A pet on a second monitor behind you reads better than one on your main screen, because the camera catches it at an angle instead of head on. And backlight matters more than the pet itself.'
+        ],
+        list: [
+          'Aim for the pet to take up roughly 4 to 6 percent of frame height',
+          'Put a light behind the monitor rather than in front of it',
+          'Angled placement reads better than dead-on',
+          'Freeze the idle animation. Camera sensors and fast sprite loops do not get along'
+        ]
+      },
+      {
+        heading: 'Podcast desktop pet: the audio-first case',
+        paragraphs: [
+          'A podcast desktop pet is a different job again. If the episode is audio only, the pet is doing nothing for anybody and you should hide it. If you are recording video for clips, the streaming rules above apply unchanged.',
+          'The case worth planning for is the screen-share episode, where your guest and the recording both see your desktop. Decide before you press record whether the pet is part of the bit. Being half committed is the worst of the three options.'
+        ],
+        list: [
+          'Audio only: hide it. Nobody can see it and it draws your own eye',
+          'Video for clips: follow the streaming rules',
+          'Screen share with a guest: mention it once, then move on',
+          'Live streamed podcast: same as streaming, plus decide what alerts can cover it'
+        ]
+      },
+      {
+        heading: 'A checklist before you go live',
+        paragraphs: [
+          'Five checks, about two minutes in total. Every one of them is something that went wrong for me on a real recording.'
+        ],
+        list: [
+          'Record thirty seconds locally and watch it back at half scale',
+          'Check the pet against your brightest and your darkest window, not just the editor',
+          'Make sure it is not sitting under an alert box or a webcam frame',
+          'Confirm quiet hours if you stream late into the evening',
+          'Keep a hotkey ready to hide it. Two sessions in, somebody will ask'
+        ]
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet on codexpetgenerator.com and record thirty seconds before you stream anything. Watching your own footage at half scale teaches you more than any amount of configuring while blind.',
+          'Hiding the pet on demand is covered at /blog/hide-codex-pet-screen-share, and where it should physically sit on a multi display setup is at /blog/dual-monitor-pet-placement. Palettes that survive a dark desktop are at /blog/custom-color-palettes-codex-pet, and how much personality is too much on camera is argued at /blog/pixel-pet-design-balance. Everything else is listed at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'pixel-pet-on-streams-and-podcasts-zh',
+    title: '像素宠物上播客和直播：出镜前要调的那些设置',
+    description: '同一只像素宠物，在 OBS 或屏幕共享里和你自己的显示器上完全是两种观感。这篇讲哪些设置真正有用、缩小后还能看清的尺寸与对比度规则，以及开播前的两分钟检查清单。',
+    date: '2026-10-24',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet streaming',
+      '像素宠物 直播',
+      '直播叠加 宠物',
+      '播客 桌面宠物',
+      'codex 宠物 obs 设置',
+      '像素宠物 屏幕共享',
+      '主播 桌面陪伴',
+      'codex 宠物 出镜'
+    ],
+    related: [
+      'hide-codex-pet-screen-share',
+      'dual-monitor-pet-placement',
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-design-balance'
+    ],
+    faq: [
+      {
+        question: '把像素宠物放上直播，会分散观众注意力吗？',
+        answer: '只要它比你以为的更安静就不会。挑最平和的待机状态，把它放大，并且避开通知和聊天框所在的那个角。持续的动作才会把视线从编辑器上拉走。'
+      },
+      {
+        question: '1080p 直播里宠物该多大？',
+        answer: '要比在你自己显示器上看着顺眼时更大。大致按采集区域高度的 8% 到 10% 来定，然后录三十秒，用一半尺寸回看一遍。'
+      },
+      {
+        question: 'OBS 会自动把宠物录进去吗？',
+        answer: '如果你采集的是整个显示器就会，因为宠物是画在桌面之上的。如果只采集单个窗口就不会出现，这时需要换成显示器采集源才能带上它。'
+      },
+      {
+        question: '纯音频播客要开着宠物吗？',
+        answer: '不要，藏起来。听众看不见它，而它会在你说话时扯走你自己的视线。它只在视频里才值回票价，纯音频是唯一一个它会让你付出代价的场景。'
+      }
+    ],
+    sections: [
+      {
+        heading: '为什么第一次上直播的宠物都很难看',
+        paragraphs: [
+          '像素宠物上直播有一个没人提前告诉你的问题。它是按「在 27 寸显示器上、离你两英尺、被瞥一眼」来设计的，而你的观众是在手机上看一段 1080p 压缩后的画面。所有细节都会变糊，而且你最喜欢的那些细节是最先消失的。',
+          '同时会出问题的是两件事。精灵图里的精细部分读不出来了；宠物也和它背后的东西分不开了，因为在直播里背景是你整个桌面，而不是你真正在看的那两个窗口。',
+          '我带着一只可见的宠物跑了四场，才到观众因为它该被注意的原因而提到它。下面是真正带来差别的设置。'
+        ],
+        list: [
+          '小于四个屏幕像素的细节撑不过压缩',
+          '深色宠物配深色壁纸会糊成一团',
+          '你本人觉得慢的待机节奏，在直播里看起来就是卡住了',
+          '右下角恰好是你的摄像头框和聊天框的位置'
+        ]
+      },
+      {
+        heading: '真正有用的直播叠加设置',
+        paragraphs: [
+          '直播叠加宠物这件事，归根到底是 pet.json 里三个字段加 OBS 里一个决定。全部都不需要重装宠物，也不会改变你不直播时宠物的行为。'
+        ],
+        list: [
+          'scale：往上调。在自己显示器上看着顺眼的尺寸，通常对直播来说太小',
+          '描边：如果配色支持，加一层浅色描边。改一个调色板项就能解决大部分对比度问题',
+          '待机动画：选动得最少的那个状态。持续动作会和你的编辑器抢视线',
+          'OBS 图层顺序：放在桌面之上、通知之下，不要盖在所有东西最上面'
+        ]
+      },
+      {
+        heading: '镜头里的宠物：尺寸、对比度和动作',
+        paragraphs: [
+          '如果是摄像头拍你的桌面，而不是屏幕采集，规则完全变了。你要对付的是相机传感器和很浅的景深，而宠物只是一个大画面里的小物件。',
+          '两条实用经验。放在你身后第二块显示器上的宠物，比放在主屏上更好看，因为相机是斜着拍到它的，而不是正面怼着。另外，背光比宠物本身更重要。'
+        ],
+        list: [
+          '让宠物大约占画面高度的 4% 到 6%',
+          '把灯放在显示器后面，而不是前面',
+          '斜着摆比正对着摆更好看',
+          '把待机动画停掉。相机传感器和快速的精灵循环合不来'
+        ]
+      },
+      {
+        heading: '播客里的桌面宠物：音频优先的场景',
+        paragraphs: [
+          '播客桌面宠物又是另一份工作。如果这一期是纯音频，宠物对任何人都没有作用，你应该把它藏起来。如果你是在录视频切片，上面那套直播规则原样适用。',
+          '值得提前规划的是共享屏幕的那类节目：嘉宾和录制都能看到你的桌面。按下录制之前就要决定宠物算不算节目的一部分。三种选择里，半吊子是最糟的。'
+        ],
+        list: [
+          '纯音频：藏起来。没人看得见，它还会扯走你自己的视线',
+          '录视频切片：按直播规则来',
+          '和嘉宾共享屏幕：提一次就够了，然后接着往下走',
+          '直播型播客：同直播规则，另外还要决定通知能不能盖住它'
+        ]
+      },
+      {
+        heading: '开播前的检查清单',
+        paragraphs: [
+          '五项检查，加起来大约两分钟。每一条都是我在真实录制中踩过的坑。'
+        ],
+        list: [
+          '本地录三十秒，然后用一半尺寸回看',
+          '拿你最亮和最暗的窗口各测一遍，别只测编辑器',
+          '确认它没有被通知框或者摄像头框压住',
+          '如果播到很晚，先确认免打扰时段',
+          '准备好一个隐藏宠物的快捷键。播到第二场，一定会有人问'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，开播之前先录三十秒。用一半尺寸回看自己的素材，比盲调半天设置学到的多得多。',
+          '按需隐藏宠物写在 /blog/hide-codex-pet-screen-share；多显示器上它该摆在哪儿在 /blog/dual-monitor-pet-placement；能在深色桌面上活下来的配色在 /blog/custom-color-palettes-codex-pet；镜头前多少人设算太多，/blog/pixel-pet-design-balance 里吵过。其余内容从 /blog 进去。'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'coding-loneliness-pixel-pet',
+    title: 'Coding Loneliness and Pixel Pets: What a Month of Notes Showed',
+    description: 'Coding loneliness hits solo developers in a narrow set of moments rather than as a constant mood. A month of daily notes on whether a pixel pet changed anything, which moments it helped with, and where a desktop companion stops mattering.',
+    date: '2026-10-25',
+    author: 'PetGen',
+    keywords: [
+      'coding loneliness pet',
+      'solo dev companion',
+      'coding isolation',
+      'ai pet comfort',
+      'codex pet wellbeing',
+      'remote developer loneliness',
+      'pixel pet long coding session',
+      'desktop companion for solo devs'
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'pixel-pet-personality',
+      'coding-mood-journal-pixel-pet',
+      'codex-pet-9-animation-states'
+    ],
+    faq: [
+      {
+        question: 'Can a pixel pet really help with coding loneliness?',
+        answer: 'In a narrow way, yes. It makes long solo hours less blank and marks the fact that time passed. It does nothing for the organisational causes of isolation, such as having nobody review your code or being the only person who understands a system.'
+      },
+      {
+        question: 'How long before a pet stops feeling novel?',
+        answer: 'About ten days in my notes. After that it stopped being something I looked at and became something I noticed at the edges of a session, which is exactly when it started being useful.'
+      },
+      {
+        question: 'Should I turn on notifications to get the companionship effect?',
+        answer: 'No. Notifications exist to tell you a long run finished, and they cost attention. Companionship comes from the animation being on screen, which needs no notification at all.'
+      },
+      {
+        question: 'Does this work if I share my screen all day?',
+        answer: 'It works differently. Hide the pet while you are sharing, which is covered at /blog/hide-codex-pet-screen-share, so the effect is limited to the hours you spend off camera.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'What coding loneliness feels like on a long session',
+        paragraphs: [
+          'Coding loneliness is not the same thing as being alone in a room. It is the narrower feeling that nobody knows what you spent six hours on, and that when the build fails at 2am there is nobody to tell. Remote work turned this into the default condition for a lot of people rather than an occasional bad week.',
+          'The coding loneliness pet question came up in our community often enough that I stopped rolling my eyes at it. The claim people make is modest: something on your desktop notices that you are still there. It does not review your code and it does not understand your project. It reacts, and that turns out to be the part that matters.',
+          'So I ran it properly for a month. One line a day in a plain text file, noting whether I had noticed the pet and whether noticing it changed anything I did. This post is what those thirty lines say.'
+        ],
+        list: [
+          'The moment a long run finishes and there is nobody to tell it worked',
+          'The fourth hour of a bug where you have stopped being sure the bug is real',
+          'Switching back after meetings, when the screen looks exactly as you left it',
+          'Evenings where the only thing marking the time was the clock'
+        ]
+      },
+      {
+        heading: 'What a pixel pet actually adds to a solo session',
+        paragraphs: [
+          'Three things, and I would not claim a fourth. A pixel pet gives you a marker that time has passed, a reaction to state changes you would otherwise only see in a log, and a small reason to look up from the editor.',
+          'The second one is the useful one. When a run finishes or blocks, the animation changes and stays changed until you look up. That is a nudge without a notification attached, which matters, because notifications from a decorative pet are a bad idea and I have written about why before.',
+          'Compare it with the honest alternatives. A group chat where nobody answers at 2am does nothing here. Music does something different: it fills silence rather than marking change. A pet sits closer to the work than either of them.'
+        ],
+        list: [
+          'A visible marker that this session has been going for a while',
+          'Persistent state on run finished or blocked, readable from across the room',
+          'Something to glance at that is not a log line or a metric',
+          'A persona you picked yourself, which is why the personality work pays off here'
+        ]
+      },
+      {
+        heading: 'What a month of daily notes showed',
+        paragraphs: [
+          'The method was deliberately cheap. One line a day, written at the end of the session, answering two questions: did I notice the pet, and did noticing it change anything. I used the same file as the mood journal method, so the two sets of notes line up.',
+          'Across thirty days the pattern held. The pet was invisible while I was in flow and useful at the edges of a session, which is roughly where you would want a companion to sit anyway.'
+        ],
+        list: [
+          'Days I actively noticed the pet: 19 of 30, almost all at session edges',
+          'Days it changed what I did: 6, and every one was a blocked run I would have missed',
+          'Days it annoyed me: 2, both during meetings when the animation was on camera',
+          'Days I wanted to uninstall: 0, down from 3 in the first week before I set quiet hours',
+          'Reported session length feeling shorter by: about 20 minutes, a number I do not fully trust'
+        ]
+      },
+      {
+        heading: 'Where coding isolation does not respond to a pet',
+        paragraphs: [
+          'This is where I part company with the stronger versions of the claim. Coding isolation has causes that a desktop companion does not touch, and pretending otherwise is how this whole topic gets a reputation for being silly.'
+        ],
+        list: [
+          'No code review culture: a pet is not a second pair of eyes',
+          'Being dropped into a codebase that nobody has documented',
+          'Working across timezones where your team is asleep for all of your working day',
+          'The specific isolation of being the only person who understands one system'
+        ]
+      },
+      {
+        heading: 'Where to go from here',
+        paragraphs: [
+          'Generate a pet on codexpetgenerator.com and leave it completely alone for the first week. Do not configure anything. If you notice it at all during that week, it will be at the edges of a session, and that is the signal that it is doing something.',
+          'Why developers keep desk companions at all is covered at /blog/why-developers-love-desktop-companions, and whether a reaction reads as kind or smug depends on the persona work at /blog/pixel-pet-personality. If you want to measure any of this yourself, the one line a day method at /blog/coding-mood-journal-pixel-pet costs nothing. Everything else is listed at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'coding-loneliness-pixel-pet-zh',
+    title: '长时间写代码有多孤独？一只像素宠物能改变什么',
+    description: '编程孤独感不是「一个人待着」，而是没人知道你这六小时干了什么。这篇用一个月的每日记录，讲像素宠物在哪些时刻起作用、哪些时刻完全帮不上。',
+    date: '2026-10-25',
+    author: 'PetGen',
+    keywords: [
+      'coding loneliness pet',
+      '编程孤独感 宠物',
+      '独处开发 陪伴',
+      'codex 宠物 情绪',
+      '远程开发 孤独',
+      '像素宠物 长时间写代码',
+      '桌面陪伴 独立开发者',
+      'codex 宠物 心情'
+    ],
+    related: [
+      'why-developers-love-desktop-companions',
+      'pixel-pet-personality',
+      'coding-mood-journal-pixel-pet',
+      'codex-pet-9-animation-states'
+    ],
+    faq: [
+      {
+        question: '像素宠物真的能缓解编程孤独感吗？',
+        answer: '只在一个很窄的层面能。它让那些漫长的独处小时不那么空白，也给时间流逝留了个标记。但孤独的组织性成因它一点都碰不到，比如没人评审你的代码，或者只有你一个人懂这套系统。'
+      },
+      {
+        question: '多久之后宠物就不新鲜了？',
+        answer: '我的记录里是十天左右。之后它不再是我会去看的东西，而是我在会话边缘会注意到的东西，而这恰好是它开始有用的时刻。'
+      },
+      {
+        question: '想要陪伴感，需要打开通知吗？',
+        answer: '不需要。通知的用途是告诉你长任务跑完了，而且它消耗注意力。陪伴感来自动画本身就在屏幕上，这跟通知没有任何关系。'
+      },
+      {
+        question: '如果我整天都在共享屏幕呢？',
+        answer: '起作用的样子不一样。共享时把宠物藏起来，做法写在 /blog/hide-codex-pet-screen-share，所以效果只剩下你不在镜头里的那些小时。'
+      }
+    ],
+    sections: [
+      {
+        heading: '长时间写代码时的孤独感到底是什么',
+        paragraphs: [
+          '编程孤独感不等于一个人待在房间里。它更窄：没人知道你这六个小时做了什么，凌晨两点构建挂了也没人可说。远程办公把这件事从偶发的坏一周，变成了很多人的常态。',
+          '「宠物能不能缓解编程孤独」这个问题在社区里出现得够多，我不再翻白眼了。大家的说法其实很克制：桌面上有个东西知道你还在这儿。它不审你的代码，也不理解你的项目，它只是有反应，而有反应恰好是管用的那部分。',
+          '于是我正经记了一个月。每天一行，写在一个纯文本文件里，记录今天有没有注意到宠物、以及注意到它有没有改变我做了什么。这篇就是那三十行说的话。'
+        ],
+        list: [
+          '一个长任务跑完，但没人可以说它成了',
+          '调试到第四小时，你已经不确定这个 bug 是不是真的',
+          '开完会切回来，屏幕和你离开时一模一样',
+          '晚上只有时钟在提醒你时间过去了'
+        ]
+      },
+      {
+        heading: '一只像素宠物到底能给独处的会话加什么',
+        paragraphs: [
+          '三件事，我不会说第四件。像素宠物给你一个「时间过去了」的标记，给你一个对你本来只会在日志里看到的状态变化的反应，还有一个让你从编辑器里抬头的很小理由。',
+          '第二件是有用的那件。任务跑完或者卡住时，动画会变，而且会一直保持到你抬头。这是一个不带通知的提醒，这点很重要，因为装饰性宠物发通知是个坏主意，我之前写过为什么。',
+          '跟诚实的替代方案比一下。凌晨两点没人回的群聊对此毫无帮助。音乐做的是另一件事：它填的是安静，不是标记变化。宠物比这两者都更贴近工作本身。'
+        ],
+        list: [
+          '一个看得见的标记，说明这次会话已经持续了一段时间',
+          '跑完或卡住时的持续状态，隔着房间也读得出来',
+          '一个可以瞥一眼的东西，而且不是日志行也不是指标',
+          '一个你自己挑的人设，这也是人设工作在这里有回报的原因'
+        ]
+      },
+      {
+        heading: '一个月的每日记录说了什么',
+        paragraphs: [
+          '方法故意做得很便宜。每天一行，写在会话结束时，回答两个问题：我今天有没有注意到宠物，注意到它有没有改变我做了什么。用的就是心情记录法那个文件，所以两组笔记能对上。',
+          '三十天下来，模式是一致的。进入心流时宠物是隐形的，在会话的边缘才有用，而这大致就是你希望一个陪伴者待的位置。'
+        ],
+        list: [
+          '主动注意到宠物的天数：30 天里 19 天，几乎都在会话边缘',
+          '它改变了我行为的天数：6 天，每一次都是我本来会漏掉的卡住任务',
+          '它让我烦的天数：2 天，都是开会时动画上了镜头',
+          '想卸载的天数：0 天，第一周是 3 天，那时我还没设免打扰时段',
+          '感觉会话变短了大约 20 分钟，这个数字我自己也不太信'
+        ]
+      },
+      {
+        heading: '哪些孤独是宠物帮不上的',
+        paragraphs: [
+          '这是我和更强版本的说法分道扬镳的地方。编程孤独有些成因是桌面陪伴根本碰不到的，假装它碰得到，就会让整个话题显得很傻。'
+        ],
+        list: [
+          '没有代码评审文化：宠物替代不了第二双眼睛',
+          '被丢进一个没人写文档的代码库',
+          '跨时区工作，团队在你整个工作日里都在睡觉',
+          '那种「只有你懂这套系统」的特定孤独'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '在 codexpetgenerator.com 生成一只，第一周什么都别配。如果你那一周里有注意到它，那一定是在会话的边缘，这就是它在起作用的信号。',
+          '开发者为什么离不开桌面陪伴，写在 /blog/why-developers-love-desktop-companions；一个反应读起来是体贴还是阴阳怪气，取决于 /blog/pixel-pet-personality 里的人设工作。想自己量一量，/blog/coding-mood-journal-pixel-pet 那个每天一行的方法不花任何成本。其余内容从 /blog 进去。'
+        ]
+      }
+    ]
   }
 ];
