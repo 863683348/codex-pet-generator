@@ -8376,5 +8376,461 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'dev-desktop-aesthetic-pixel-pet',
+    title: 'From a Pixel Pet to a Whole Setup: A Developer Desktop Aesthetic That Survives a Bad Week',
+    description:
+      'Developer desktop aesthetic matters at hour seven, not in a screenshot. How one pixel pet turned into a full coding desk setup, where the companion goes on screen, and the three rules that keep a good-looking workspace usable.',
+    date: '2026-10-26',
+    author: 'PetGen',
+    keywords: [
+      'dev desktop aesthetic',
+      'developer setup aesthetic',
+      'pixel pet setup',
+      'workspace inspiration',
+      'coding desk setup',
+      'codex pet workspace',
+      'developer desk layout'
+    ],
+    related: [
+      'pixel-pet-design-balance',
+      'custom-color-palettes-codex-pet',
+      'dual-monitor-pet-placement',
+      'codex-pet-showcase'
+    ],
+    faq: [
+      {
+        question: 'Does a developer desktop aesthetic really change how much work gets done?',
+        answer: 'Less than the setup posts claim. What changes is the tail of a long day: a screen that still reads correctly at hour seven costs you fewer small recoveries than one that turns into noise. I would not claim more than that.'
+      },
+      {
+        question: 'Where should the pet go on an ultrawide?',
+        answer: 'Pick the corner nearest your editor and keep it there. On a 34 inch ultrawide the temptation is to centre it, which puts it behind whatever you are reading. Mine is about 90 pixels tall in the bottom right of the right third.'
+      },
+      {
+        question: 'How many animated elements can a desk hold before it gets noisy?',
+        answer: 'One that carries meaning. Two animated things compete, and you stop being able to tell which one changed, which is the whole reason to have one. Everything else on the screen should be static.'
+      },
+      {
+        question: 'Do I need a custom palette, or is the default fine?',
+        answer: 'The default is fine for about a week, then it starts fighting your editor theme. Matching the pet palette to your syntax theme takes ten minutes and is described at /blog/custom-color-palettes-codex-pet.'
+      }
+    ],
+    howTo: {
+      name: 'Rebuild your coding desk setup in 30 minutes',
+      steps: [
+        'Pick one accent colour and set it in both the editor and the terminal',
+        'Place the pet, then lean back a metre and check that its state changes are still readable',
+        'Delete every widget that needs you to feed it',
+        'Take one screenshot with the room lights off and fix whatever disappeared'
+      ]
+    },
+    sections: [
+      {
+        heading: 'What a developer desktop aesthetic is actually for',
+        paragraphs: [
+          'Developer desktop aesthetic usually gets sold as screenshots. The part I care about is narrower: how the screen looks at hour seven, when you have stopped choosing what to look at.',
+          'I came at this backwards. The pixel pet was the only thing on my desktop that reacted to my work, and once one thing reacted, everything else looked dead next to it. That is what pushed me into redoing the whole setup, not any interest in desk photos.',
+          'So the bar I use now is simple. A workspace is good if it still reads correctly when you are tired. Lower than the setups people post, and it is the one that survives a real week.'
+        ],
+        list: [
+          'Legible from a metre away, not just in a screenshot',
+          'One element that changes when your code changes',
+          'Nothing that needs you to remember to maintain it',
+          'Dark enough that a 9pm session does not feel like a hospital corridor'
+        ]
+      },
+      {
+        heading: 'Pixel pet setup: where the companion goes on screen',
+        paragraphs: [
+          'The pet goes in the corner your eyes already drift to. On one monitor that is almost always bottom right; on two, it is the seam between panels. I went through the geometry at /blog/dual-monitor-pet-placement, and the short version is that the seam is wasted space on nearly every layout.',
+          'Size matters more than position. On a 27 inch 2560x1440 display mine is about 90 pixels tall. Taller and it competes with the editor; shorter and the state changes stop being readable from across the room, which is the only reason to have it there at all.',
+          'One mistake I made for a month: I put it over the terminal. Terminal output scrolls, the pet sat on top of it, and I lost error lines behind a pixel cat. Put it somewhere static.'
+        ],
+        list: [
+          'Bottom right on one screen, the seam between two',
+          'About 90 to 120 pixels tall on a 1440p display',
+          'Never over a scrolling pane: terminal, log tail, test output',
+          'Palette matched to the editor theme, see /blog/custom-color-palettes-codex-pet'
+        ]
+      },
+      {
+        heading: 'Workspace inspiration that survives a bad Tuesday',
+        paragraphs: [
+          'Workspace inspiration posts show a desk on setup day. The question worth asking is what the same desk looks like after a week of merge conflicts.',
+          'Three rules came out of mine. Anything that needs daily attention goes. Anything that only looks good in a screenshot goes. Anything that costs a context switch to read moves off screen.',
+          'What is left is boring: one accent colour, one monospace font, one animated element. /blog/pixel-pet-design-balance covers why cute and useful fight each other, and the balance point sits further toward useful than most people guess.'
+        ],
+        list: [
+          'One accent colour, used in the editor chrome and nowhere else',
+          'One animated element, so movement still means something',
+          'Fonts set once, then left alone for a quarter',
+          'A wallpaper dark enough to read white text on without a shadow'
+        ]
+      },
+      {
+        heading: 'A 30-minute pass to rebuild your coding desk setup',
+        paragraphs: [
+          'This is the order I use, and it is deliberately short. A setup pass that takes an afternoon stops being a workspace and turns into a hobby.',
+          'Do it in the evening. Half of what you can learn about a desk only shows up with the room lights off.'
+        ],
+        list: [
+          '0 to 5 minutes: pick the accent colour and set it in the editor and the terminal',
+          '5 to 15: place the pet, then lean back a metre and check the state changes are readable',
+          '15 to 25: delete every widget that needs you to feed it',
+          '25 to 30: one screenshot in the dark, then fix whatever disappeared'
+        ]
+      },
+      {
+        heading: 'What to do with this',
+        paragraphs: [
+          'Generate one at codexpetgenerator.com and place it before you change anything else. The pet is the piece that reacts, so it tells you whether the rest of the desk is worth keeping.',
+          'The balance question sits at /blog/pixel-pet-design-balance, the geometry at /blog/dual-monitor-pet-placement, and palettes at /blog/custom-color-palettes-codex-pet. Everything else is at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'dev-desktop-aesthetic-pixel-pet-zh',
+    title: '从一只像素宠物到整套桌面：能撑过糟糕一周的开发者桌面美学',
+    description:
+      '开发者桌面美学真正起作用的时刻是第七个小时，而不是截图里。讲讲一只像素宠物怎么带出整套编码桌面布置、伙伴该放在屏幕哪里，以及让好看的工作区不至于变成噪音的三条规则。',
+    date: '2026-10-26',
+    author: 'PetGen',
+    keywords: [
+      '开发者桌面美学',
+      '编码桌面布置',
+      '像素宠物摆位',
+      '工作区灵感',
+      'codex pet 桌面布置',
+      '开发者工作台',
+      '像素宠物配色'
+    ],
+    related: [
+      'pixel-pet-design-balance',
+      'custom-color-palettes-codex-pet',
+      'dual-monitor-pet-placement',
+      'codex-pet-showcase'
+    ],
+    faq: [
+      {
+        question: '桌面美学真的能改变产出吗？',
+        answer: '没有那些布置帖说的那么多。真正变的是长日子的尾巴：一块到第七个小时还能读得懂的屏幕，比一块变成噪音的屏幕少花你几次「找回状态」的成本。再多我就不说了。'
+      },
+      {
+        question: '超宽屏上宠物该放哪里？',
+        answer: '挑离编辑器最近的那个角，然后就别动了。34 寸超宽屏的诱惑是把它放中间，那等于把它垫在你正在读的东西后面。我的是右三分之一区域的右下角，高约 90 像素。'
+      },
+      {
+        question: '桌面上能放几个会动的东西？',
+        answer: '一个，而且这个要带含义。两个会动的东西会互相抢注意力，你就分不清刚才是哪个变了，而能分清恰恰是放一个的全部理由。其余一律静态。'
+      },
+      {
+        question: '默认配色够用吗，还是非得自定义？',
+        answer: '默认大概够用一周，然后就会跟你的编辑器主题打架。把宠物调色板配成你语法高亮的颜色大概十分钟，做法写在 /blog/custom-color-palettes-codex-pet。'
+      }
+    ],
+    howTo: {
+      name: '用 30 分钟重做你的编码桌面',
+      steps: [
+        '挑一个主色，同时在编辑器和终端里设好',
+        '摆好宠物，然后往后退一米，确认状态变化还看得清',
+        '删掉所有需要你手动喂数据的挂件',
+        '关灯截一张图，把消失的东西补回来'
+      ]
+    },
+    sections: [
+      {
+        heading: '开发者桌面美学到底解决什么',
+        paragraphs: [
+          '开发者桌面美学通常被当成截图来卖。我在意的那一块要窄得多：第七个小时屏幕长什么样，那时候你已经不再主动选择看哪里了。',
+          '我是反着走进这个话题的。像素宠物是我桌上唯一会对我工作有反应的东西，一旦有东西会反应，其余所有东西在旁边就显得是死的。把我推进去重做整套布置的是这件事，而不是什么桌面摄影的爱好。',
+          '所以我现在用的标准很简单：一个工作区好不好，看你累了之后它还读不读得懂。这比大家贴出来的那些布置低得多，但它是能扛过一整周的那个标准。'
+        ],
+        list: [
+          '隔一米也读得出，而不只是在截图里好看',
+          '有一个元素会随着你的代码变',
+          '没有需要你记得去维护的东西',
+          '暗到晚上九点开工也不像在医院走廊'
+        ]
+      },
+      {
+        heading: '像素宠物摆位：伙伴放在屏幕哪里',
+        paragraphs: [
+          '宠物放在你眼睛本来就飘过去的那个角。单屏几乎总是右下角；双屏就是两块面板之间的缝。几何我在 /blog/dual-monitor-pet-placement 里算过，简短版是：那条缝在几乎任何布局里都是浪费掉的空间。',
+          '尺寸比位置更要紧。27 寸 2560x1440 上我的是大约 90 像素高。再高就开始跟编辑器抢地方；再矮，状态变化隔着房间就读不出来了，而那正是放它的唯一理由。',
+          '有一个错我犯了一个月：我把它盖在终端上。终端输出是会滚动的，宠物压在上面，我把报错行丢在一只像素猫后面了。放在不动的地方。'
+        ],
+        list: [
+          '单屏放右下角，双屏放两块屏之间的缝',
+          '1440p 下大约 90 到 120 像素高',
+          '别压在会滚的窗格上：终端、日志尾、测试输出',
+          '调色板跟编辑器主题对齐，见 /blog/custom-color-palettes-codex-pet'
+        ]
+      },
+      {
+        heading: '能撑过糟糕一周的工作区',
+        paragraphs: [
+          '工作区灵感帖展示的是布置当天的桌子。值得问的问题是：经历了一周的合并冲突之后，同一张桌子长什么样。',
+          '我的三条规矩就是从这里出来的。需要每天打理的，删。只在截图里好看的，删。要切一次上下文才读得到的，挪出屏幕。',
+          '剩下的部分很无聊：一个主色，一种等宽字体，一个会动的元素。/blog/pixel-pet-design-balance 讲的是「好看」和「有用」为什么会互相打架，而那个平衡点比多数人猜的更靠近有用这一边。'
+        ],
+        list: [
+          '一个主色，只用在编辑器边框，别处不用',
+          '一个会动的元素，这样「动」才仍然有意义',
+          '字体一次设好，然后一个季度都别碰',
+          '壁纸张度要暗到白字不加阴影也能读'
+        ]
+      },
+      {
+        heading: '用 30 分钟重做你的编码桌面',
+        paragraphs: [
+          '这是我用的顺序，而且故意做得很短。一次要花一下午的桌面整理，最后不是工作区，变成爱好了。',
+          '放在晚上做。你能从一张桌子身上学到的东西，有一半只在关灯之后才显出来。'
+        ],
+        list: [
+          '第 0 到 5 分钟：挑主色，在编辑器和终端里各设一次',
+          '第 5 到 15 分钟：摆好宠物，往后退一米，检查状态变化看得清',
+          '第 15 到 25 分钟：删掉所有需要你喂数据的挂件',
+          '第 25 到 30 分钟：关灯截一张图，把消失的东西修回来'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '去 codexpetgenerator.com 生成一只，在动别的之前先把它摆好。宠物是会反应的那一个，所以它能告诉你这张桌子其余部分值不值得留。',
+          '平衡问题在 /blog/pixel-pet-design-balance，几何在 /blog/dual-monitor-pet-placement，配色在 /blog/custom-color-palettes-codex-pet。其余从 /blog 进去。'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'halloween-pet-skins-collection',
+    title: 'Halloween Pet Skins: Five Ideas That Still Look Like Your Pet',
+    description:
+      'A Halloween pixel pet that works keeps its silhouette and changes its palette. Five costume ideas tested at the 192x208 cell size, the contrast trap that makes dark skins vanish on a dark theme, and how to swap the skin without breaking pet.json.',
+    date: '2026-10-22',
+    author: 'PetGen',
+    keywords: [
+      'halloween pixel pet',
+      'spooky pet skin',
+      'halloween codex pet',
+      'costume pixel art',
+      'pumpkin pixel pet',
+      'codex pet skins',
+      'pixel pet halloween palette'
+    ],
+    related: [
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-personality',
+      'hand-drawn-vs-ai-pixel-pets',
+      'codex-pet-showcase'
+    ],
+    faq: [
+      {
+        question: 'Can I put a Halloween skin on a pet I already installed?',
+        answer: 'Yes. Replace spritesheet.webp using the same file name and the same cell grid, and pet.json does not need to change, because it only points at the path and the frame count. Back the folder up first; the steps are at /blog/backup-codex-pets-guide.'
+      },
+      {
+        question: 'Will a dark spooky skin disappear on a dark theme?',
+        answer: 'It can, and mine did. Fix it with one light accent that holds on both light and dark backgrounds rather than by lightening the whole pet, which washes out the pixel look entirely.'
+      },
+      {
+        question: 'Is it fine to dress my pet as a character from a film?',
+        answer: 'Keep it to generic costumes. A recognisable character pulls in someone else\'s design, and where that line sits is written up at /blog/celebrity-pet-copyright-guidelines.'
+      },
+      {
+        question: 'Do holiday skins make the animation slower?',
+        answer: 'No. Frame count and cell size stay identical, so the animation cost is the same. File size moves a little with palette complexity and that is the whole difference.'
+      }
+    ],
+    howTo: {
+      name: 'Put a Halloween skin on an installed Codex pet',
+      steps: [
+        'Copy the whole pet folder to a backup location',
+        'Replace spritesheet.webp, keeping the same file name and cell grid',
+        'Leave pet.json alone if the path did not change',
+        'Reload Codex and check all nine states, not just idle'
+      ]
+    },
+    sections: [
+      {
+        heading: 'What makes a Halloween pixel pet work',
+        paragraphs: [
+          'A Halloween pixel pet lives in a 1536x1872 spritesheet, nine states by eight frames, which works out at roughly 192x208 pixels per cell. That is the whole animal plus a hat, in a space where a hat brim is maybe six pixels tall.',
+          'Most costume art is drawn at 512 and falls apart here. Two rules got me through five ideas: keep the silhouette your pet already has, and change the palette instead of the shape.',
+          'The reason is size, not taste. Details you can describe in words, like a stitch line on a cloak, are one pixel wide at this scale and read as noise.'
+        ],
+        list: [
+          'Keep the existing silhouette; skip the full body costume',
+          'Change four to six palette colours, not the outline',
+          'One prop, and it has to sit above the head',
+          'Judge it at 100 percent zoom, not at 400 percent'
+        ]
+      },
+      {
+        heading: 'Five spooky pet skins that read at small sizes',
+        paragraphs: [
+          'These are the five that survived being generated and put on a real desk, in the order I would try them.',
+          'The lantern one is my favourite and the least obvious: no costume at all, just a warm rim light along one edge of the pet.'
+        ],
+        list: [
+          'Pumpkin: orange body wash, dark stem, two triangle eyes',
+          'Ghost sheet: near white body, two dark eye pixels, everything else untouched',
+          'Witch hat: one cone above the ears with a two row brim',
+          'Vampire collar: a red band at the neck with a single highlight pixel',
+          'Lantern glow: no costume, warm rim light along one edge'
+        ]
+      },
+      {
+        heading: 'The contrast trap that makes spooky skins vanish',
+        paragraphs: [
+          'Dark purple and near black are the default Halloween palette and the worst possible choice on a dark editor theme. My first attempt was a black cat in a black hat over a black terminal, which is a pet you can only see when it moves.',
+          'Test it by flipping your editor theme to light for one session. If the pet disappears there as well, the palette has no mid tone holding it together.',
+          'Palette editing is at /blog/custom-color-palettes-codex-pet. What you want is one light accent, somewhere around 20 percent of the pixels, that survives on both backgrounds.'
+        ],
+        list: [
+          'Keep one light accent that reads on dark and light backgrounds',
+          'Avoid near black outlines over a near black wallpaper',
+          'Test once with the editor in light mode before you commit',
+          'If the pet only shows when it moves, the palette is wrong'
+        ]
+      },
+      {
+        heading: 'Swapping the skin without breaking pet.json',
+        paragraphs: [
+          'You do not need to edit pet.json if the file name and the frame count stay the same. Most of the install breakage I see comes from people renaming the spritesheet and leaving the old path in the JSON.',
+          'Order matters: back up first, then replace, then reload. Backing up is at /blog/backup-codex-pets-guide and takes about thirty seconds.'
+        ],
+        list: [
+          'Copy the whole pet folder to a backup location first',
+          'Replace spritesheet.webp, keeping the same file name and cell grid',
+          'Leave pet.json alone if the path did not change',
+          'Reload Codex and check all nine states, not just idle'
+        ]
+      },
+      {
+        heading: 'What to do with this',
+        paragraphs: [
+          'Make one at codexpetgenerator.com from a photo you already like, then do the palette pass instead of regenerating. Regenerating changes the pet; a palette change keeps it.',
+          'Persona work that pairs well with a costume is at /blog/pixel-pet-personality, and whether to draw the costume by hand instead is at /blog/hand-drawn-vs-ai-pixel-pets. The rest is at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'halloween-pet-skins-collection-zh',
+    title: '万圣节宠物皮肤：五个仍然像你那只的做法',
+    description:
+      '能用的万圣节像素宠物皮肤保留轮廓、只换配色。五个在 192x208 单元格尺寸下试过的装扮思路、让深色皮肤在深色主题里消失的对比度陷阱，以及不弄坏 pet.json 的换肤步骤。',
+    date: '2026-10-22',
+    author: 'PetGen',
+    keywords: [
+      '万圣节像素宠物',
+      '万圣节宠物皮肤',
+      '宠物装扮像素画',
+      'codex pet 皮肤',
+      '南瓜像素宠物',
+      '像素宠物换色',
+      '桌面宠物节日皮肤'
+    ],
+    related: [
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-personality',
+      'hand-drawn-vs-ai-pixel-pets',
+      'codex-pet-showcase'
+    ],
+    faq: [
+      {
+        question: '已经装好的宠物能换万圣节皮肤吗？',
+        answer: '能。用同样的文件名和同样的单元格网格替换 spritesheet.webp，pet.json 就不用改，因为它只指向路径和帧数。先备份整个文件夹，步骤在 /blog/backup-codex-pets-guide。'
+      },
+      {
+        question: '深色皮肤会不会在深色主题里消失？',
+        answer: '会，我的第一版就没了。用一个在深浅两种背景上都立得住的亮色点缀来修，不要把整只调亮，那样像素味就没了。'
+      },
+      {
+        question: '把宠物打扮成电影里的角色可以吗？',
+        answer: '只用通用装扮就好。一个有辨识度的角色等于把别人的设计拿进来，这条线画在哪写在 /blog/celebrity-pet-copyright-guidelines。'
+      },
+      {
+        question: '节日皮肤会让动画变慢吗？',
+        answer: '不会。帧数和单元格尺寸都没变，动画开销完全一样。文件大小会随配色复杂度动一点，就这点差别。'
+      }
+    ],
+    howTo: {
+      name: '给已安装的 Codex 宠物换上万圣节皮肤',
+      steps: [
+        '先把整个宠物文件夹复制到备份位置',
+        '替换 spritesheet.webp，保持文件名和单元格网格不变',
+        '路径没变就别动 pet.json',
+        '重载 Codex，检查全部九个状态，而不只是待机'
+      ]
+    },
+    sections: [
+      {
+        heading: '什么样的万圣节像素宠物才算成立',
+        paragraphs: [
+          '一只万圣节像素宠物活在 1536x1872 的精灵图里，九个状态乘八帧，算下来每个单元格大约 192x208 像素。整只动物加一顶帽子都在这块地方，而帽檐大概只有六个像素高。',
+          '多数装扮画是在 512 尺寸画的，到这里就散了。让我把五个思路做完的是两条规矩：保留你这只宠物本来就有的轮廓，改配色，不改形状。',
+          '原因是尺寸，不是审美。那些你能用话描述出来的细节，比如斗篷上的一道缝线，在这个尺度上只有一个像素宽，读起来就是噪点。'
+        ],
+        list: [
+          '保留原有轮廓，别做全身戏服',
+          '改四到六个配色，不动描边',
+          '道具只留一个，而且必须落在头顶上方',
+          '在 100% 缩放上判断，别在 400% 上判断'
+        ]
+      },
+      {
+        heading: '五个在小尺寸下仍读得出的皮肤',
+        paragraphs: [
+          '这五个是生成出来、真放到桌上之后活下来的，按我会尝试的顺序排。',
+          '灯笼那个是我的最爱，也最不显眼：完全不加装扮，只在宠物一侧加一道暖色轮廓光。'
+        ],
+        list: [
+          '南瓜：橙色铺身，深色瓜蒂，两个三角形眼睛',
+          '幽灵床单：近白色身体，两个深色眼睛像素，其余不动',
+          '巫师帽：耳朵上方一个锥体，帽檐压到两行',
+          '吸血鬼领子：脖子上一圈红色，加一个高光像素',
+          '灯笼光：不加装扮，单侧暖色轮廓光'
+        ]
+      },
+      {
+        heading: '让节日皮肤消失的对比度陷阱',
+        paragraphs: [
+          '深紫和近黑是万圣节默认配色，也是深色编辑器主题上最糟的选择。我的第一版是黑猫戴黑帽压在黑终端上，那是一只只有在动的时候才看得见的宠物。',
+          '把编辑器主题切到浅色跑一个会话就能测出来。如果浅色下它也消失了，说明这套配色没有一个中间调在撑着。',
+          '改配色的方法在 /blog/custom-color-palettes-codex-pet。你要的是一个亮色点缀，大概占两成像素，在两种背景下都立得住。'
+        ],
+        list: [
+          '留一个在深浅背景上都读得出的亮色点缀',
+          '别让近黑描边压在近黑壁纸上',
+          '定稿前用浅色模式测一次',
+          '如果宠物只有动的时候才看得见，那就是配色错了'
+        ]
+      },
+      {
+        heading: '换肤但不弄坏 pet.json',
+        paragraphs: [
+          '文件名和帧数不变的话，pet.json 根本不用改。我见到的安装翻车，多数是把精灵图改了名，JSON 里还留着旧路径。',
+          '顺序有讲究：先备份，再替换，最后重载。备份方法在 /blog/backup-codex-pets-guide，大概三十秒。'
+        ],
+        list: [
+          '先把整个宠物文件夹复制到备份位置',
+          '替换 spritesheet.webp，保持文件名和单元格网格不变',
+          '路径没变就别动 pet.json',
+          '重载 Codex，检查全部九个状态，而不只是待机'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '去 codexpetgenerator.com 用一张你本来就喜欢的照片做一只，然后做配色那一步，别重新生成。重新生成会把宠物换掉，改配色则保留它。',
+          '跟装扮很搭的人设工作在 /blog/pixel-pet-personality，要不要干脆手画装扮在 /blog/hand-drawn-vs-ai-pixel-pets。其余从 /blog 进去。'
+        ]
+      }
+    ]
   }
 ];
