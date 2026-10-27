@@ -9064,5 +9064,237 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'is-the-pet-generator-private',
+    title: 'Is the Pet Generator Private? What Happens to Your Photo',
+    description:
+      'A pixel pet starts with a photo leaving your machine, so the question is fair. Where the upload goes, how long it stays, what gets stripped from it, and the route for people who would rather not upload at all.',
+    date: '2026-10-27',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet privacy',
+      'pet photo privacy',
+      'upload security pixel pet',
+      'does generator store photos',
+      'codex pet privacy',
+      'is the pet generator private',
+      'pixel pet photo upload',
+      'desktop pet data handling'
+    ],
+    related: [
+      'codex-pets-folder-structure',
+      'backup-codex-pets-guide',
+      'hide-codex-pet-screen-share',
+      'best-photos-for-pixel-pet-generator'
+    ],
+    faq: [
+      {
+        question: 'Does the pet generator store my photo?',
+        answer: 'It holds the file for the generation job and deletes it on a 24 hour timer. No account is attached to the upload, so nothing on our side links the photo back to you.'
+      },
+      {
+        question: 'Can I make a pixel pet without uploading anything?',
+        answer: 'Not with the generator, because the pixel conversion runs on a server. You can crop hard and strip the location data first, which is what I do.'
+      },
+      {
+        question: 'Is my pet photo used to train a model?',
+        answer: 'No. One upload produces one spritesheet and then the file is gone. There is no training queue behind it and no account to collect uploads under.'
+      },
+      {
+        question: 'Does the finished pet send anything back?',
+        answer: 'No. Once the folder is on your machine it is a local file. The animation is nine states of frames inside a WebP, and nothing in it makes a network call.'
+      }
+    ],
+    howTo: {
+      name: 'Upload a photo for a pixel pet without leaking location data',
+      steps: [
+        'Crop the photo down to the animal before you upload it',
+        'Strip the EXIF block, including the GPS coordinate',
+        'Upload the crop and wait for the nine state spritesheet',
+        'Delete the pet folder afterwards if you were only testing'
+      ]
+    },
+    sections: [
+      {
+        heading: 'What actually leaves your machine',
+        paragraphs: [
+          'Every photo you hand to a pet generator gets uploaded, because the pixel conversion runs on a server. People ask about that constantly and it is a fair question. The part that matters is what happens next.',
+          'The file goes over TLS, sits in a job queue while the spritesheet is built, and is deleted on a 24 hour timer. No account is attached to the upload, so there is nothing on our side that ties the photo back to a person.'
+        ]
+        ,
+        list: [
+          'Transport is TLS, the same as any form post',
+          'The file waits in a job queue, not a storage bucket',
+          'Deletion is a 24 hour timer, not a manual review',
+          'No account means no profile to attach the photo to'
+        ]
+      },
+      {
+        heading: 'The parts I would still be careful about',
+        paragraphs: [
+          'I would not upload a photo with a child in it, and not because of us. Any upload to any service is a copy you no longer control, and a 24 hour timer still leaves 24 hours.',
+          'The other one is metadata. Most phone photos carry a GPS coordinate in the EXIF block. We strip it before generation, and I strip it myself on the phone anyway, because I would rather it never leave.'
+        ]
+        ,
+        list: [
+          'Skip photos with children or documents in frame',
+          'Strip location data before the upload, not after',
+          'Use a crop, since the generator only needs the subject',
+          'If a photo has to stay private, do not upload it'
+        ]
+      },
+      {
+        heading: 'How to check it yourself',
+        paragraphs: [
+          'You do not have to take my word for any of this. Open the network tab in your browser, start an upload, and watch the requests go out. You will see one POST carrying the image and nothing that looks like a profile call.',
+          'Doing this once with a throwaway image is worth the two minutes. It also tells you what every other upload tool on your machine is doing, which is the part nobody checks.'
+        ]
+        ,
+        list: [
+          'Open the network tab, then upload a throwaway image',
+          'Confirm a single image POST and no analytics call on it',
+          'Delete the pet afterwards if you were only testing',
+          'Run the same check on the next upload tool you install'
+        ]
+      },
+      {
+        heading: 'Keeping the result private on your own machine',
+        paragraphs: [
+          'Once the pet is built, the privacy question moves to your machine, and that part is entirely yours. A Codex pet lives in ~/.codex/pets on macOS and %USERPROFILE%\\.codex\\pets on Windows, and nothing in that folder talks to the network.',
+          'The generated spritesheet is a local file. The nine animation states are frames inside a WebP, and the folder makes no outbound calls at all.'
+        ]
+        ,
+        list: [
+          'The pet folder is local and makes no network calls',
+          'Sharing a pet means sharing the folder, which stays your choice',
+          'Backups you make are yours, and we hold no copy',
+          'Deleting the folder removes every trace on that machine'
+        ]
+      },
+      {
+        heading: 'What to do with this',
+        paragraphs: [
+          'Make one at codexpetgenerator.com from a photo you are comfortable uploading, then keep the folder local. The folder layout is explained at /blog/codex-pets-folder-structure, and the backup steps are at /blog/backup-codex-pets-guide.',
+          'If you want the pet to disappear during screen shares, that switch is at /blog/hide-codex-pet-screen-share, and picking a photo that converts well is at /blog/best-photos-for-pixel-pet-generator. The rest is at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'is-the-pet-generator-private-zh',
+    title: '宠物生成器隐私吗？你的照片会被怎么处理',
+    description:
+      '做像素宠物得先把照片传出去，所以这个问题问得对。这篇说清楚上传去哪、留多久、哪些信息会被剥掉，以及完全不想上传的人还能怎么走。',
+    date: '2026-10-27',
+    author: 'PetGen',
+    keywords: [
+      '像素宠物隐私',
+      '宠物照片隐私',
+      '上传安全 像素宠物',
+      '生成器会存照片吗',
+      'codex pet 隐私',
+      '像素宠物上传',
+      '桌面宠物数据处理',
+      '本地宠物文件'
+    ],
+    related: [
+      'codex-pets-folder-structure',
+      'backup-codex-pets-guide',
+      'hide-codex-pet-screen-share',
+      'best-photos-for-pixel-pet-generator'
+    ],
+    faq: [
+      {
+        question: '宠物生成器会存我的照片吗？',
+        answer: '它在生成任务期间保留文件，然后按 24 小时定时删除。上传不绑定任何账号，所以我们这边没有任何东西能把照片和人对应起来。'
+      },
+      {
+        question: '完全不上传能做出像素宠物吗？',
+        answer: '用生成器不行，因为像素转换跑在服务器上。可以先狠裁剪、再剥掉位置信息，我自己就是这么做的。'
+      },
+      {
+        question: '我的宠物照片会被拿去训练模型吗？',
+        answer: '不会。一次上传产出一张精灵图，然后文件就没了。后面没有训练队列，也没有账号可以把上传攒起来。'
+      },
+      {
+        question: '做好的宠物会往回发东西吗？',
+        answer: '不会。文件夹落到你机器上之后就是本地文件。动画是 WebP 里的九个状态帧，整个文件夹一个出站请求都不发。'
+      }
+    ],
+    howTo: {
+      name: '上传照片做像素宠物，但不泄露位置信息',
+      steps: [
+        '先把照片裁到只剩那只动物',
+        '剥掉 EXIF 块，含 GPS 坐标',
+        '上传裁剪后的文件，等九个状态的精灵图',
+        '只是测试的话，用完就把宠物文件夹删掉'
+      ]
+    },
+    sections: [
+      {
+        heading: '到底什么东西离开了你的机器',
+        paragraphs: [
+          '你交给宠物生成器的每张照片都会被上传，因为像素转换跑在服务器上。这件事被问得很多，问得也对。真正要紧的是接下来发生什么。',
+          '文件走 TLS 出去，在生成精灵图的这段时间里待在任务队列里，然后按 24 小时定时删除。上传不绑定账号，所以我们这边没有任何东西能把这张照片和一个人对应起来。'
+        ]
+        ,
+        list: [
+          '传输是 TLS，跟任何表单提交一样',
+          '文件待在任务队列，不在存储桶里',
+          '删除是 24 小时定时器，不是人工审核',
+          '没有账号，就没有可挂照片的档案'
+        ]
+      },
+      {
+        heading: '换成我自己仍然会小心的部分',
+        paragraphs: [
+          '我不会上传有小孩入镜的照片，原因不在我们这边。往任何服务上传任何东西，都是一份你不再掌握的副本，24 小时定时器也还是留出 24 小时。',
+          '另一样是元数据。多数手机照片的 EXIF 块里都带 GPS 坐标。我们在生成前会剥掉它，而我在手机上还会自己再剥一次，因为我更希望它根本没出去过。'
+        ]
+        ,
+        list: [
+          '有小孩或证件入镜的照片别传',
+          '位置信息在上传前剥掉，别等上传后',
+          '用裁剪图，生成器只需要主体',
+          '必须保密的照片，就不要上传'
+        ]
+      },
+      {
+        heading: '怎么自己验证一遍',
+        paragraphs: [
+          '这些你都不必信我。打开浏览器的网络面板，发起一次上传，看着请求出去就行。你会看到一条带着图片的 POST，没有任何像拿用户资料的请求。',
+          '拿一张用完就扔的图做一次，值那两分钟。它顺便还能告诉你机器上别的上传工具在干什么，而这一部分通常没人查。'
+        ]
+        ,
+        list: [
+          '打开网络面板，上传一张用完就扔的图',
+          '确认只有一条图片 POST，没有挂在上面的分析请求',
+          '只是测试的话，用完就把宠物删掉',
+          '下一个装的上传工具，也照这个查一遍'
+        ]
+      },
+      {
+        heading: '让做好的宠物只留在你自己机器上',
+        paragraphs: [
+          '宠物做出来之后，隐私问题就转到你的机器上，而这一部分完全是你的。Codex 宠物在 macOS 上放在 ~/.codex/pets，在 Windows 上放在 %USERPROFILE%\\.codex\\pets，这个文件夹里没有任何东西会联网。',
+          '生成的精灵图是一个本地文件。九个动画状态就是 WebP 里的帧，整个文件夹一个出站请求都不发。'
+        ]
+        ,
+        list: [
+          '宠物文件夹是本地的，不发网络请求',
+          '分享宠物等于分享文件夹，这仍然由你决定',
+          '你自己做的备份归你，我们不留存副本',
+          '删掉文件夹，那台机器上就不留痕迹'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '去 codexpetgenerator.com 用一张你愿意上传的照片做一只，然后把文件夹留在本地。文件夹结构说明在 /blog/codex-pets-folder-structure，备份步骤在 /blog/backup-codex-pets-guide。',
+          '想让宠物在屏幕共享时消失，开关在 /blog/hide-codex-pet-screen-share；怎么挑一张转换效果好的照片在 /blog/best-photos-for-pixel-pet-generator。其余从 /blog 进去。'
+        ]
+      }
+    ]
   }
 ];
