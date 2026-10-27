@@ -8832,5 +8832,237 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'shopping-festival-pet-skins',
+    title: 'Shopping Festival Pet Skins: Three That Hold at 192x208',
+    description:
+      'A shopping festival pet usually ends up as a red blob under a gold hat. Three festive pet skins built for the 192x208 spritesheet cell instead, the color trap that hides them on a warm wallpaper, and the swap steps that leave pet.json untouched.',
+    date: '2026-10-28',
+    author: 'PetGen',
+    keywords: [
+      'shopping festival pet',
+      'festive pet',
+      'shopping season pixel art',
+      'fun pet skins',
+      'pixel pet holiday skin',
+      'codex pet skins',
+      'pixel pet palette swap',
+      'seasonal codex pet'
+    ],
+    related: [
+      'halloween-pet-skins-collection',
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-personality',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'Can I put a shopping festival skin on a pet I already installed?',
+        answer: 'Yes. Replace spritesheet.webp using the same file name and the same cell grid, and pet.json does not need to change. Back the folder up first; the steps are at /blog/backup-codex-pets-guide.'
+      },
+      {
+        question: 'Will a red pet disappear on a warm wallpaper?',
+        answer: 'It can. Fix it with one light accent that holds on both warm and cool backgrounds rather than by lightening the whole pet, which washes the pixel look out entirely.'
+      },
+      {
+        question: 'Do seasonal skins slow the animation down?',
+        answer: 'No. Frame count and cell size stay identical, so the animation cost is unchanged. File size moves a little with palette complexity and that is the whole difference.'
+      },
+      {
+        question: 'Is it fine to put a real brand logo on my pet?',
+        answer: 'Keep it to generic shapes. A recognisable logo pulls in someone else\'s design, and where that line sits is written up at /blog/celebrity-pet-copyright-guidelines.'
+      }
+    ],
+    howTo: {
+      name: 'Put a shopping festival skin on an installed Codex pet',
+      steps: [
+        'Copy the whole pet folder to a backup location',
+        'Replace spritesheet.webp, keeping the same file name and cell grid',
+        'Leave pet.json alone if the path did not change',
+        'Reload Codex and check all nine states, not just idle'
+      ]
+    },
+    sections: [
+      {
+        heading: 'What a shopping festival pet is up against',
+        paragraphs: [
+          'A shopping festival pet sounds easy until you try it. Every November someone recolors their pixel pet red, adds a gold hat, and wonders why it now reads as a notification badge. The reason is the grid. A Codex pet lives in a 1536x1872 spritesheet, nine states by eight frames, which puts each cell at roughly 192x208 pixels.',
+          'On a canvas that small, saturated red fills most of the body and gold reads as two muddy rows. I have made that mistake three years running, and a narrower palette fixes it faster than a smarter costume does.'
+        ]
+        ,
+        list: [
+          'Two accent colors beat a full recolour',
+          'Metallic gold does not exist at this size, so use a light ochre',
+          'Keep the silhouette, or it stops looking like your pet',
+          'Judge it at 100 percent zoom on your real wallpaper'
+        ]
+      },
+      {
+        heading: 'Three shopping season pixel art skins that hold up',
+        paragraphs: [
+          'These are the three I would build first, in the order I would try them. Each one changes four or five palette entries and nothing else.',
+          'The cart is the one people notice. It is a two-tone basket hung off one flank, and it moves with the walk cycle because it sits inside the silhouette rather than on top of it.'
+        ]
+        ,
+        list: [
+          'Delivery box: kraft brown body, two tape pixels, one label highlight',
+          'Full cart: a two-tone basket on the flank, handles two pixels wide',
+          'Coupon ribbon: one diagonal band across the chest, two colors total'
+        ]
+      },
+      {
+        heading: 'The color trap that hides festive pet skins',
+        paragraphs: [
+          'Sales season art is red on red, and the wallpapers people switch to in November tend to be warm as well. A red pet on a warm background has no edge, and at 192 pixels wide the edge is most of the drawing.',
+          'Test it the boring way: switch your editor to light mode and take a screenshot. If you have to hunt for the pet, the palette is the problem, not the costume.',
+          'Palette editing is at /blog/custom-color-palettes-codex-pet. What you want is one light accent, somewhere around 20 percent of the pixels, that survives on a warm and a cool background alike.'
+        ]
+        ,
+        list: [
+          'Keep one accent that reads on warm and cool backgrounds',
+          'Skip pure red, since a desaturated brick reads better at this size',
+          'Do not outline a dark pet in an even darker color',
+          'Test on the wallpaper you actually use, not the theme preview'
+        ]
+      },
+      {
+        heading: 'Swapping the skin without breaking pet.json',
+        paragraphs: [
+          'You do not need to edit pet.json while the file name and the frame count stay the same. Most of the install breakage I see comes from renaming the spritesheet and leaving the old path in the JSON.',
+          'Order matters: back up, then replace, then reload. Backing up is at /blog/backup-codex-pets-guide and takes about thirty seconds.'
+        ]
+        ,
+        list: [
+          'Copy the whole pet folder to a backup location first',
+          'Replace spritesheet.webp, keeping the same file name and cell grid',
+          'Leave pet.json alone if the path did not change',
+          'Reload Codex and check all nine states, not just idle'
+        ]
+      },
+      {
+        heading: 'What to do with this',
+        paragraphs: [
+          'Make one at codexpetgenerator.com from a photo you already like, then do the palette pass instead of regenerating. Regenerating changes the pet, while a palette pass keeps it.',
+          'Whether to draw the ribbon by hand instead is argued at /blog/hand-drawn-vs-ai-pixel-pets, and persona work that pairs well with a shopping theme is at /blog/pixel-pet-personality. Last month\'s costume set is at /blog/halloween-pet-skins-collection, and the rest is at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'shopping-festival-pet-skins-zh',
+    title: '购物节宠物皮肤：三个在 192x208 网格里还站得住的做法',
+    description:
+      '购物节像素宠物做出来通常是一团红加一顶金帽子。换成三个按 192x208 精灵图单元格做的节日皮肤、让它们在暖色壁纸上消失的配色陷阱，以及不动 pet.json 的换肤步骤。',
+    date: '2026-10-28',
+    author: 'PetGen',
+    keywords: [
+      '购物节像素宠物',
+      '节日宠物皮肤',
+      '购物季像素画',
+      'fun pet skins',
+      '像素宠物节日皮肤',
+      'codex pet 皮肤',
+      '像素宠物换色',
+      '季节性桌面宠物'
+    ],
+    related: [
+      'halloween-pet-skins-collection',
+      'custom-color-palettes-codex-pet',
+      'pixel-pet-personality',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: '已经装好的宠物能换购物节皮肤吗？',
+        answer: '能。用同样的文件名和同样的单元格网格替换 spritesheet.webp，pet.json 就不用改。先备份整个文件夹，步骤在 /blog/backup-codex-pets-guide。'
+      },
+      {
+        question: '红色宠物会不会在暖色壁纸上消失？',
+        answer: '会。用一个在冷暖两种背景上都立得住的亮色点缀来修，别把整只调亮，那样像素味就没了。'
+      },
+      {
+        question: '节日皮肤会让动画变慢吗？',
+        answer: '不会。帧数和单元格尺寸都没变，动画开销完全一样。文件大小会随配色复杂度动一点，就这点差别。'
+      },
+      {
+        question: '可以把真实品牌 logo 放到宠物上吗？',
+        answer: '只用通用形状就好。一个有辨识度的 logo 等于把别人的设计拿进来，这条线画在哪写在 /blog/celebrity-pet-copyright-guidelines。'
+      }
+    ],
+    howTo: {
+      name: '给已安装的 Codex 宠物换上购物节皮肤',
+      steps: [
+        '先把整个宠物文件夹复制到备份位置',
+        '替换 spritesheet.webp，保持文件名和单元格网格不变',
+        '路径没变就别动 pet.json',
+        '重载 Codex，检查全部九个状态，而不只是待机'
+      ]
+    },
+    sections: [
+      {
+        heading: '购物节宠物皮肤到底难在哪',
+        paragraphs: [
+          '购物节像素宠物听着简单，做起来不是。每年十一月都有人把宠物整只刷成红色、加一顶金帽子，然后发现它看起来像个未读角标。原因在网格上：一只 Codex 宠物活在 1536x1872 的精灵图里，九个状态乘八帧，算下来每个单元格大约 192x208 像素。',
+          '在这么小的画布上，高饱和的红会铺满整个身体，金色则变成两行糊掉的东西。这个错我连着犯了三年，收窄配色比想出更聪明的戏服管用得多。'
+        ]
+        ,
+        list: [
+          '两个点缀色胜过整只换色',
+          '这个尺寸里没有金属金，用浅赭色代替',
+          '保住轮廓，不然就不像你那只宠物了',
+          '在 100% 缩放和真实壁纸上判断'
+        ]
+      },
+      {
+        heading: '三个在小尺寸下仍站得住的皮肤',
+        paragraphs: [
+          '下面三个是我会先做的，按尝试顺序排。每个只改四到五个配色，别的都不动。',
+          '购物车那个最容易被注意到。它是挂在侧腹的一个双色篮子，因为是长在轮廓里面而不是贴在轮廓上面，它会跟着走路循环一起动。'
+        ]
+        ,
+        list: [
+          '快递箱：牛皮纸色铺身，两个胶带像素，一个面单高光',
+          '满载购物车：侧腹一个双色篮子，提手两像素宽',
+          '优惠券飘带：胸前一条斜向色带，总共只用两个颜色'
+        ]
+      },
+      {
+        heading: '让节日皮肤消失的配色陷阱',
+        paragraphs: [
+          '大促视觉是红压红，而大家在十一月换上的壁纸也多半偏暖。红宠物压在暖背景上没有边缘线，而在 192 像素宽的地方，边缘线几乎就是整张画。',
+          '用最笨的办法测：把编辑器切到浅色模式截一张图。如果你得找一下才看到宠物，问题在配色，不在戏服。',
+          '改配色的方法在 /blog/custom-color-palettes-codex-pet。你要的是一个亮色点缀，大概占两成像素，在冷暖两种背景下都立得住。'
+        ]
+        ,
+        list: [
+          '留一个在冷暖背景上都读得出的点缀色',
+          '别用纯红，这个尺寸下降饱和的砖红更清楚',
+          '别给深色宠物描一圈更深的边',
+          '在你真在用的壁纸上测，别在主题预览上测'
+        ]
+      },
+      {
+        heading: '换肤但不弄坏 pet.json',
+        paragraphs: [
+          '文件名和帧数不变的话，pet.json 根本不用改。我见到的安装翻车，多数是把精灵图改了名，JSON 里还留着旧路径。',
+          '顺序有讲究：先备份，再替换，最后重载。备份方法在 /blog/backup-codex-pets-guide，大概三十秒。'
+        ]
+        ,
+        list: [
+          '先把整个宠物文件夹复制到备份位置',
+          '替换 spritesheet.webp，保持文件名和单元格网格不变',
+          '路径没变就别动 pet.json',
+          '重载 Codex，检查全部九个状态，而不只是待机'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '去 codexpetgenerator.com 用一张你本来就喜欢的照片做一只，然后做配色那一步，别重新生成。重新生成会把宠物换掉，改配色则保留它。',
+          '要不要干脆手画那条飘带，这个争论在 /blog/hand-drawn-vs-ai-pixel-pets；跟大促主题很搭的人设工作在 /blog/pixel-pet-personality。上个月的装扮合集在 /blog/halloween-pet-skins-collection，其余从 /blog 进去。'
+        ]
+      }
+    ]
   }
 ];
