@@ -9296,5 +9296,249 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'codex-pet-faq',
+    title: 'Codex Pet FAQ: The Ten Questions Readers Ask Most',
+    description:
+      'This codex pet FAQ collects the questions that arrive every month: which image formats load, why a pet vanishes after an update, and what happens to the photo you upload.',
+    date: '2026-10-29',
+    author: 'PetGen',
+    keywords: [
+      'codex pet faq',
+      'codex pet questions',
+      'reader qa',
+      'pet troubleshooting faq',
+      'Codex pet常见问题',
+      'pet troubleshooting guide',
+      'pixel pet questions',
+      'Codex desktop pet support',
+      'pet generator questions'
+    ],
+    related: [
+      'codex-pet-image-formats-jpg-png-webp',
+      'installation-troubleshooting',
+      'is-the-pet-generator-private',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'Does a Codex pet change how the model answers?',
+        answer: 'No. The pet renders beside the conversation and touches nothing in the request path. Token counts are identical whether the pet is on or off.'
+      },
+      {
+        question: 'Can I use one pet on two machines?',
+        answer: 'Yes, by copying the pets folder across. There is no background sync, so that copy is the entire process. The steps are written up at /blog/backup-codex-pets-guide.'
+      },
+      {
+        question: 'Why does my pet look blockier than the preview?',
+        answer: 'Pixel pets sit on a small grid, so fine detail in the source photo collapses once it drops toward 64 pixels wide. A tighter crop around the animal fixes most of it.'
+      },
+      {
+        question: 'How do I remove a pet completely?',
+        answer: 'Delete its folder from the pets directory and reload the Codex desktop app. Nothing is held anywhere else, so there is no server side copy left to clean up.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'Codex pet questions about images and files',
+        paragraphs: [
+          'Every month the same twenty codex pet questions arrive, and about five of them carry most of the volume. This codex pet FAQ is that end-of-month pile, answered in one place instead of one reply at a time.',
+          'Uploads sit at the top of the list, and the fix is nearly always the source photo rather than the generator. WebP is the format Codex loads. JPG and PNG upload fine and come back converted. A photo around 2000 pixels on the long edge gives a cleaner spritesheet than a full resolution phone shot, and cropping to the animal first does more than any setting after the fact.'
+        ]
+        ,
+        list: [
+          'WebP is what Codex loads; JPG and PNG upload fine',
+          'Crop to the animal before you upload, not afterwards',
+          'Around 2000 pixels on the long edge is plenty',
+          'A spritesheet that refuses to play is usually a renamed file, not a broken conversion'
+        ]
+      },
+      {
+        heading: 'Pet troubleshooting FAQ: my pet stopped showing up',
+        paragraphs: [
+          'Three causes cover almost every invisible pet, and none of them is the pet file itself. A Codex desktop update moves the pets folder lookup path on a small share of installs. Hiding during screen share is on by default in some builds. And a pet whose WebP was swapped out by hand renders nothing at all, without throwing an error.',
+          'Check them in that order. Two minutes spent here saves reinstalling the whole thing.'
+        ]
+        ,
+        list: [
+          'Turn off the screen share hiding toggle first, it catches more people than anything else',
+          'Confirm the folder still sits under the pets directory on that machine',
+          'Reinstall the pet rather than editing the WebP yourself',
+          'If pets vanish after every update, keep your backup outside the app directory'
+        ]
+      },
+      {
+        heading: 'Privacy questions from the reader QA pile',
+        paragraphs: [
+          'Photo privacy is the second biggest thread. The upload travels over TLS, waits in a job queue while the spritesheet renders, and is deleted on a 24 hour timer. No account is attached to it. Once the folder lands on your machine, nothing inside it makes a network request.',
+          'What I still refuse to do is upload anything with a recognizable child or a document in frame. Any upload to any service becomes a copy you no longer control, and 24 hours is still 24 hours.'
+        ]
+        ,
+        list: [
+          'Strip EXIF data yourself before the upload goes out',
+          'Upload a crop rather than the original full frame',
+          'Assume any upload exists somewhere else afterwards',
+          'Skip photos you cannot afford to have copied'
+        ]
+      },
+      {
+        heading: 'Reader QA: how many pets should one machine carry',
+        paragraphs: [
+          'There is no hard limit, the pets folder is just a folder. Past four or five, people stop noticing the extras, and the animation frames start competing for attention whenever anything moves. Two is where most readers settle after experimenting.',
+          'One thing worth knowing early: pet state is per machine. A pet you install at the office stays at the office until you copy the folder over, and that copy is the only sync mechanism that exists.'
+        ]
+        ,
+        list: [
+          'Two pets is where people land after trying more',
+          'Each one adds nine animation states of frames to render',
+          'Nothing syncs on its own, copying the folder is the whole story',
+          'Old pets cost nothing to keep, they cost attention'
+        ]
+      },
+      {
+        heading: 'The odd ones worth keeping from this month',
+        paragraphs: [
+          'Two reader qa entries deserve a permanent home because the questions were better than my answers. Can you make a pet from a drawing instead of a photo? Yes, and flat color illustrations convert more cleanly than most photographs. Does the pet slow the model down? No, it draws beside the conversation and touches nothing in the request path.',
+          'Can a pet react to failing builds? Not in a way I would trust yet. Custom state hooks exist, and almost nobody wires them up, myself included.'
+        ]
+        ,
+        list: [
+          'Drawings convert better than busy photographs',
+          'The pet sits beside the model, not inside it',
+          'Token usage does not move when a pet is on',
+          'Custom state hooks exist and stay unused by nearly everyone'
+        ]
+      },
+      {
+        heading: 'Where to go next',
+        paragraphs: [
+          'Formats get their own side by side comparison at /blog/codex-pet-image-formats-jpg-png-webp, and the invisible pet walkthrough is at /blog/installation-troubleshooting. If the question was about your photo rather than the pet, that answer sits at /blog/is-the-pet-generator-private.',
+          'The rest of the archive is at /blog. Month end answers like this one get pulled from whatever actually landed in the inbox, so if yours did not make the cut this time, send it again.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'codex-pet-faq-zh',
+    title: 'Codex 宠物 FAQ：读者每月都在问的十个问题',
+    description:
+      '这份 codex 宠物 FAQ 收的是每个月必到的十个问题：图片格式用哪个、宠物为什么不见了、上传的照片去哪了、一台机器养几只合适，逐条答了一遍。',
+    date: '2026-10-29',
+    author: 'PetGen',
+    keywords: [
+      'codex pet faq',
+      'codex pet questions',
+      'reader qa',
+      'pet troubleshooting faq',
+      'Codex 宠物常见问题',
+      '像素宠物问答',
+      '宠物排错',
+      'Codex 桌面宠物答疑',
+      '宠物生成器问题'
+    ],
+    related: [
+      'codex-pet-image-formats-jpg-png-webp',
+      'installation-troubleshooting',
+      'is-the-pet-generator-private',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: '宠物会影响模型的回答吗？',
+        answer: '不会。宠物画在对话旁边，不碰请求链路。开不开它，token 消耗是一样的。'
+      },
+      {
+        question: '同一只宠物能在两台机器上用吗？',
+        answer: '可以，把宠物文件夹复制过去就行。没有后台同步，这次复制就是全部操作。步骤写在 /blog/backup-codex-pets-guide。'
+      },
+      {
+        question: '为什么做出来的宠物比预览糊？',
+        answer: '像素宠物跑在小网格上，原图里的细节在缩到 64 像素左右时会塌掉。把裁剪收紧到动物身上，大部分问题就解决了。'
+      },
+      {
+        question: '怎么彻底删掉一只宠物？',
+        answer: '把它在宠物目录里的文件夹删掉，重启 Codex 桌面应用。其他地方没有留存副本，所以没有服务端残留要清理。'
+      }
+    ],
+    sections: [
+      {
+        heading: '关于图片和文件的 codex 宠物问题',
+        paragraphs: [
+          '每个月都会到大约二十个重复的问题，其中五六个占了绝大部分。这份 codex 宠物 FAQ 就是把月底那摞邮件集中答一遍，而不是一封封回。',
+          '排在最先的是上传，而问题几乎都出在原图身上，不在生成器。Codex 读的是 WebP，JPG 和 PNG 可以上传，转换后出来的就是 WebP。长边两千像素左右出图最干净，比手机原图直接丢上去强得多；上传前先把动物裁出来，比事后调任何参数都管用。'
+        ]
+        ,
+        list: [
+          'Codex 读 WebP，JPG 和 PNG 都能传',
+          '先把动物裁出来再上传，别事后补',
+          '长边两千像素上下就够用',
+          '精灵图放不出来，多半是文件被改过名，不是转换坏了'
+        ]
+      },
+      {
+        heading: '宠物排错 FAQ：它怎么不见了',
+        paragraphs: [
+          '宠物不显示基本就三种原因，没有一种是宠物文件本身坏了。少数机器上，Codex 桌面端更新会把宠物目录的查找路径挪走；有些版本的屏幕共享自动隐藏是默认开的；还有一种是手动替换过 WebP 文件，结果什么都不显示，也不报错。',
+          '按这个顺序查一遍，两分钟能省掉一次重装。'
+        ]
+        ,
+        list: [
+          '先关掉屏幕共享自动隐藏，栽在这上面的人最多',
+          '确认文件夹还在那台机器的宠物目录里',
+          '重装宠物，别自己编辑那个 WebP',
+          '每次更新都掉的话，备份就别放在应用目录里'
+        ]
+      },
+      {
+        heading: '读者问答里的隐私问题',
+        paragraphs: [
+          '照片隐私是第二大块。上传走 TLS，在任务队列里等精灵图渲染完，然后按 24 小时定时删除，不挂任何账号。文件夹落到你机器上之后，里面没有任何东西会发网络请求。',
+          '但有两类图我自己是坚决不传的：画面里有能认出来的小孩，或者有证件。任何服务、任何一次上传，都等于多了一份你控制不了的副本，而 24 小时仍然是 24 小时。'
+        ]
+        ,
+        list: [
+          '上传前自己先清掉 EXIF',
+          '传裁剪图，别传完整原图',
+          '默认传上去的东西在别处仍然存在',
+          '复制出去会有风险的照片就别上传'
+        ]
+      },
+      {
+        heading: '读者问答：一台机器养几只合适',
+        paragraphs: [
+          '硬性上限没有，宠物目录就是个文件夹。但超过四五只之后，多出来的那些人自己都不会再看，而且只要有东西动，几张精灵图就开始互相抢注意力。折腾过一轮的人大多停在两只。',
+          '还有一件早点知道比较好：宠物状态是按机器算的。公司机器上装的宠物就留在公司，除非你把文件夹复制过来，而这也就是唯一存在的同步方式。'
+        ]
+        ,
+        list: [
+          '试过一轮之后，大家多半停在两只',
+          '每只都要多渲染九个动画状态的帧',
+          '没有自动同步，复制文件夹就是全部',
+          '留着旧宠物不花钱，花的是注意力'
+        ]
+      },
+      {
+        heading: '这个月值得一留的怪问题',
+        paragraphs: [
+          '有两三个读者问答我觉得应该留下来，因为问得比我的回答好。能不能用画代替照片做宠物？可以，而且平涂插画转出来的效果比大多数照片干净。宠物会不会拖慢模型？不会，它画在对话旁边，不碰请求链路。',
+          '能不能让宠物对构建失败有反应？目前没有我信得过的方式。自定义状态钩子是有的，但几乎没人接，包括我。'
+        ]
+        ,
+        list: [
+          '平涂插画比杂乱照片转换效果好',
+          '宠物在模型旁边，不在模型里面',
+          '开着宠物，token 消耗不会变',
+          '自定义状态钩子有，基本没人用'
+        ]
+      },
+      {
+        heading: '接下来',
+        paragraphs: [
+          '格式的横向对比在 /blog/codex-pet-image-formats-jpg-png-webp，宠物不显示的排查步骤在 /blog/installation-troubleshooting。如果你问的是照片而不是宠物，答案在 /blog/is-the-pet-generator-private。',
+          '其余归档在 /blog。月底这类问答的选题直接从收件箱里捞，这次如果你的问题没被挑进来，下次再问一遍就好。'
+        ]
+      }
+    ]
   }
 ];
