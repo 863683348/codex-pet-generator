@@ -9540,5 +9540,211 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'codex-pet-faq-october',
+    title: 'October Codex Pet FAQ: Your Top 10 Pet Questions',
+    description:
+      'The October batch of codex pet questions answered in one place: upload size limits, why a pet resets after an update, two monitors at once, and what happens to your photo afterwards.',
+    date: '2026-10-30',
+    author: 'PetGen',
+    keywords: [
+      'codex pet faq',
+      'codex pet questions',
+      'reader qa',
+      'pet troubleshooting faq',
+      'Codex pet upload limit',
+      'pixel pet after update',
+      'Codex pet dual monitor',
+      'pet generator support'
+    ],
+    related: [
+      'codex-pet-upload-limit',
+      'installation-troubleshooting',
+      'is-the-pet-generator-private',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'Why does my pet reset after a Codex desktop update?',
+        answer: 'The update replaces part of the application directory, and on a minority of installs the pets lookup path moves with it. The folder itself survives, so copy it back into the pets directory and fully restart the app once.'
+      },
+      {
+        question: 'How large can an upload be before the generator refuses it?',
+        answer: 'Files above roughly 12MB get turned away, which in practice means an uncompressed phone photo. Export a copy at about 2000 pixels on the long edge and it goes through without trouble.'
+      },
+      {
+        question: 'Can I put a different pet on each monitor?',
+        answer: 'No. One companion renders at a time and every window draws the same active pet. What you can tune is docking and placement, covered in the walkthrough at /blog/dual-monitor-pet-placement.'
+      },
+      {
+        question: 'Where does my photo go after the spritesheet is made?',
+        answer: 'It waits in the job queue while the render runs, then gets deleted on a 24 hour timer. No account is attached to the upload, and the full process is written out at /blog/is-the-pet-generator-private.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'Codex pet questions about upload limits',
+        paragraphs: [
+          'Every October batch of codex pet questions starts in the same place, which is why this codex pet FAQ opens with uploads. The generator accepts files up to about 12MB. Anything bigger is nearly always a straight export from a phone camera, where one frame can clear 8MB before you touch it. Resizing to roughly 2000 pixels on the long edge drops most files under 2MB, and at pet scale you cannot see the difference.',
+          'Format behaves differently from size. WebP, JPG and PNG all upload. AVIF and HEIC come back rejected on some builds, and the failure message does not always say why. When an upload refuses three times, convert the file locally before hunting for anything more exotic.'
+        ],
+        list: [
+          'Under 12MB uploads without complaint',
+          'Around 2000 pixels on the long edge is the sweet spot',
+          'WebP, JPG and PNG are all accepted',
+          'Reject three times, convert locally and try once more'
+        ]
+      },
+      {
+        heading: 'Pet troubleshooting FAQ: the pet resets after an update',
+        paragraphs: [
+          'This one dominates the October inbox. A Codex desktop update replaces part of the application directory, and on a minority of installs the pets lookup path moves with it. The folder you built is still on disk. Copy it back into the pets directory, quit the app fully, then open it again.',
+          'Where people lose pets for good is keeping the only copy inside that directory. Put the backup somewhere else entirely and an update turns into a two minute fix instead of starting over.'
+        ],
+        list: [
+          'Your pet folder survives, the lookup path moves',
+          'Copy it back, then quit and relaunch the app',
+          'Keep the backup outside the app directory',
+          'A missing pet rarely means a deleted pet'
+        ]
+      },
+      {
+        heading: 'Reader QA: two monitors, one pet',
+        paragraphs: [
+          'A reader qa thread that surfaced three separate times this month asked whether each monitor can hold a different pet. It cannot. One companion renders per window, and every window draws whichever companion is active. Move the window and the pet travels with it rather than staying on one screen.',
+          'What you can change is placement behaviour. Several builds let you dock the pet to the left or right edge, which matters once your editor window and your terminal sit on different displays. The walkthrough is at /blog/dual-monitor-pet-placement.'
+        ],
+        list: [
+          'One active companion across every window',
+          'The pet travels with the window you move',
+          'Edge docking depends on the Codex build',
+          'Placement tuning beats adding more pets'
+        ]
+      },
+      {
+        heading: 'Reader QA on pets and the model behind them',
+        paragraphs: [
+          'Two entries in this month of reader mail ask whether a pet changes how the assistant behaves. It does not. The companion renders beside the conversation and never enters the request path, so token counts and replies stay identical whether the pet is switched on or off.',
+          'The follow up asks whether a pet can react to a failing test run. Custom state hooks exist for exactly that, and across two years of reading this inbox I have met maybe three people who wired them up. Most readers pick one pet and leave it alone, which is a reasonable outcome.'
+        ],
+        list: [
+          'Pets sit beside the model, not inside it',
+          'Token usage does not move when a pet is active',
+          'State hooks exist and stay mostly unused',
+          'One pet you like beats four you forget'
+        ]
+      },
+      {
+        heading: 'Where to read next',
+        paragraphs: [
+          'Upload limits and file types get the full comparison at /blog/codex-pet-upload-limit. The invisible pet walkthrough lives at /blog/installation-troubleshooting, and everything about what happens to a photo after the render sits at /blog/is-the-pet-generator-private.',
+          'The rest of the archive is at /blog. Questions for the November round can go to the same inbox, and yes, the ones that land on the last day of the month do get read.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'codex-pet-faq-october-zh',
+    title: '月末问答：读者最关心的 10 个宠物问题',
+    description:
+      '十月这一轮读者提问集中回答：上传体积上限、桌面端更新后宠物消失、双屏能不能各放一只，以及照片上传之后到底去了哪里。',
+    date: '2026-10-30',
+    author: 'PetGen',
+    keywords: [
+      'codex pet faq',
+      'codex pet questions',
+      'reader qa',
+      'pet troubleshooting faq',
+      'Codex 宠物常见问题',
+      '宠物上传体积上限',
+      '更新后宠物消失',
+      '双屏宠物放置'
+    ],
+    related: [
+      'codex-pet-upload-limit',
+      'installation-troubleshooting',
+      'is-the-pet-generator-private',
+      'dual-monitor-pet-placement'
+    ],
+    faq: [
+      {
+        question: '为什么更新之后宠物会重置？',
+        answer: '更新会替换应用目录的一部分，少数机器上宠物查找路径随之变化。文件夹本身没有被删，拷回 pets 目录再彻底重启一次就能恢复。'
+      },
+      {
+        question: '上传的文件多大就会被拒绝？',
+        answer: '大约超过 12MB 会被挡回来，多数情况下是没压缩过的手机原图。导出一份长边 2000 像素左右的副本，基本都能顺利上传。'
+      },
+      {
+        question: '两块屏幕可以各放一只宠物吗？',
+        answer: '不可以。同一时刻只有一只宠物渲染，所有窗口共用同一只。能调的是停靠位置和显示边缘，完整步骤在 /blog/dual-monitor-pet-placement。'
+      },
+      {
+        question: '生成完之后，我的照片去哪了？',
+        answer: '渲染期间照片留在任务队列里，之后按 24 小时定时删除，全程不绑定账号。细节写在 /blog/is-the-pet-generator-private。'
+      }
+    ],
+    sections: [
+      {
+        heading: '关于上传体积的宠物问题',
+        paragraphs: [
+          '每个月的第一批提问几乎都卡在上传这一步，所以这一期 FAQ 也从这里开始。生成器接受的单张文件上限是 12MB 左右。超过这个值的基本都是手机原图，一张照片没做任何处理就可能已经超过 8MB。把长边压到 2000 像素上下，多数文件会掉到 2MB 以内，而在这个尺寸下肉眼几乎看不出差别。',
+          '格式和体积是两件事。WebP、JPG、PNG 都能上传；AVIF 和 HEIC 在部分版本里会被直接拒绝，而且报错信息常常说不清原因。如果连续三次都被拒，先在本地转一次格式，再去排查别的问题。'
+        ],
+        list: [
+          '12MB 以内基本不会遇到拦截',
+          '长边 2000 像素上下是最省心的选择',
+          'WebP、JPG、PNG 三种格式都支持',
+          '连试三次失败，就先本地转格式'
+        ]
+      },
+      {
+        heading: '排错：更新之后宠物不见了',
+        paragraphs: [
+          '这个问题是本月收件箱里出现频率最高的。Codex 桌面端更新会替换应用目录的一部分，少数机器上宠物查找路径跟着一起改动。你原来做好的文件夹还在硬盘上，并没有被删掉。把它拷回 pets 目录，彻底退出应用再打开一次就好。',
+          '真正让人永远丢掉宠物的做法，是把唯一一份备份放在那个目录里。备份另找一个位置存放，一次更新就从「重做一遍」变成「两分钟搞定」。'
+        ],
+        list: [
+          '文件夹还在，变的是查找路径',
+          '拷回去之后记得彻底退出再重开',
+          '备份不要放在应用目录里',
+          '宠物不显示，多半不等于被删除'
+        ]
+      },
+      {
+        heading: '读者问答：双屏能各放一只吗',
+        paragraphs: [
+          '本月有三位读者在不同时间问了同一件事：两块屏幕能不能各显示一只宠物。答案是不行。同一时刻只有一只宠物渲染，每个窗口画到的都是当前激活的那一只。你把窗口挪到哪块屏幕，宠物就跟着走，不会留在原地。',
+          '可以调整的是停靠行为。部分版本支持把宠物贴在左边缘或右边缘，当编辑器窗口和终端分处两块屏幕时，这个设置挺有用。完整步骤在 /blog/dual-monitor-pet-placement。'
+        ],
+        list: [
+          '同一时刻只渲染一只宠物',
+          '窗口挪动，宠物跟着挪',
+          '边缘停靠要看 Codex 版本',
+          '调位置比多加几只宠物更实际'
+        ]
+      },
+      {
+        heading: '读者问答：宠物会不会影响模型',
+        paragraphs: [
+          '这个月的来信里还有两条在担心宠物会不会改变助手的行为。不会。宠物画在对话旁边，不进入请求链路，开与不开，token 消耗和回复内容都完全一样。',
+          '追问的那条是宠物能不能响应失败的测试流程。自定义状态钩子确实存在，做了两年收件箱整理，我只遇到过大概三个人真的接了起来。多数人挑一只然后一直用下去，这也挺好。'
+        ],
+        list: [
+          '宠物在模型旁边，不在模型里面',
+          '开关宠物，token 消耗不变',
+          '状态钩子存在，但用的人很少',
+          '一只喜欢的宠物胜过四只记不住的'
+        ]
+      },
+      {
+        heading: '接下来读哪篇',
+        paragraphs: [
+          '上传限制和文件格式的完整对比在 /blog/codex-pet-upload-limit，宠物不显示的完整排查流程在 /blog/installation-troubleshooting，照片上传之后的去向写在 /blog/is-the-pet-generator-private。',
+          '其余文章都在 /blog 归档里。十一月这一轮的提问照旧发到同一个邮箱，月底最后一天到的那些也一样会被看到。'
+        ]
+      }
+    ]
   }
 ];
