@@ -269,6 +269,9 @@ export const zh: Dict = {
     tryItYourselfDesc: '准备好把你自己的照片变成像素宠物了吗？在 PetGen 上传照片，几分钟内就能拿到 spritesheet + pet.json。',
     generateYourPet: '立即生成你的宠物 →',
   },
+  changelog: {
+    title: '更新记录',
+  },
   collections: {
     title: '标签合集',
     desc: '按分类浏览像素宠物——猫咪、狗狗、奇幻生物、机器人、动漫、游戏角色、名人，以及社区原创作品。',

@@ -270,6 +270,9 @@ export const en = {
     tryItYourselfDesc: 'Ready to turn your own photo into a pixel-art pet? Upload it on PetGen and get your spritesheet + pet.json in minutes.',
     generateYourPet: 'Generate your pet now →',
   },
+  changelog: {
+    title: 'Changelog',
+  },
   collections: {
     title: 'Collections',
     desc: 'Browse pixel pets by category — cats, dogs, fantasy creatures, robots, anime, game characters, celebrities, and originals made by the community.',

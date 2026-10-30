@@ -9746,5 +9746,203 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'codex-pet-history-timeline',
+    title: 'The Codex Pet Timeline: From Launch to Today',
+    description:
+      'A dated walk through codex pet history: what the first codex pet launch shipped, how codex pet versions changed the folder format, and where the pixel companion sits in late 2026.',
+    date: '2026-10-31',
+    author: 'PetGen',
+    keywords: [
+      'codex pet history',
+      'codex pet launch',
+      'codex pets evolution',
+      'codex pet versions',
+      'codex pet changelog',
+      'codex pet first release',
+      'codex pet update timeline',
+      'pixel pet format history'
+    ],
+    related: [
+      'codex-desktop-updates-pets',
+      'how-to-install-codex-pet',
+      'installation-troubleshooting',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'When did Codex pets first launch?',
+        answer: 'The folder format circulated in the community in mid July 2026, and the generator shipped its v1.0.0 on 2026-07-27 with photo to pixel pet conversion, nine animation states, and transparent WebP output. Codex never published a pet release note of its own, so those two dates are the ones worth keeping.'
+      },
+      {
+        question: 'Do pets built in July still work with the current version?',
+        answer: 'They do. The spritesheet grid, the row order, and the frame count have stayed identical since the first release, so an early pet still loads today. The thing that actually breaks pets is a desktop update moving the lookup path, and copying the folder back fixes that.'
+      },
+      {
+        question: 'How many codex pet versions are there?',
+        answer: 'Four are recorded in the changelog: v1.0.0 in July, v1.5.0 in August with site plumbing, then v2.0.0 and v2.1.0 with the hamster and tortoise templates. Two changed anything a pet owner would notice.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'Codex pet launch: what the first version shipped',
+        paragraphs: [
+          'Ask five people when Codex pets arrived and you get five answers, which is roughly the problem. Codex pet history has no single launch date. What exists instead is a stack of small releases, each one changing a single file or a single folder. This page puts them in order: the first pet.json that went around the community, the codex pet launch of the generator itself, and the version running on desktops today.',
+          'One caveat on sourcing. The pet feature never shipped release notes of its own, so the dates below come from three places: the generator changelog at /changelog, the Codex desktop release notes, and a community thread where people pasted the contents of their pets folder to compare. Where two of them disagree, I have said so.'
+        ],
+        list: [
+          'Mid July 2026: the first pet.json example circulates in the community forum',
+          '2026-07-27: generator v1.0.0 ships photo to pixel pet conversion',
+          'Nine animation states have been in the format since day one',
+          'Transparent WebP output, so a pet sits on any background'
+        ]
+      },
+      {
+        heading: 'Codex pet versions from v1.0.0 to v2.1.0',
+        paragraphs: [
+          'Four releases are recorded in the changelog, and only two of them changed anything a pet owner touches. v1.5.0 was entirely site plumbing: FAQ schema on articles, English titles on blog and guide pages, internal linking. Useful, invisible.',
+          'v2.0.0 added the hamster template, clipboard paste for uploads, the /changelog page, and blog category filtering. v2.1.0 added the tortoise template, a service worker so the site works offline, share buttons on posts, and blog category navigation. That is the whole codex pets evolution on the tooling side.',
+          'The full table lives at /changelog. It is the only list I trust for dates, mostly because it gets edited within a day of a release while the forum thread does not.'
+        ],
+        list: [
+          'v1.0.0, 2026-07-27: conversion, nine states, WebP output, macOS and Windows',
+          'v1.5.0, 2026-08-20: article schema, English page titles, internal links',
+          'v2.0.0, 2026-08-25: hamster template, clipboard paste, /changelog page',
+          'v2.1.0, 2026-08-29: tortoise template, offline support, share buttons'
+        ]
+      },
+      {
+        heading: 'Codex pets evolution inside the folder',
+        paragraphs: [
+          'Here is the part that surprises people. Across all four releases the folder contract barely moved. The spritesheet is still 1536 by 1872 pixels laid out as eight columns and nine rows, and every cell measures 192 by 208 pixels. Nine rows, nine animation states, same order since July.',
+          'What grew is everything around it. Export went from one size to two, with 4K doubling the linear resolution to 3072 by 3744, four times the pixel count on an unchanged grid. Custom palettes arrived later and stayed an Unlimited feature. The template list picked up hamster and tortoise without dropping anything.'
+        ],
+        list: [
+          'Grid, row order and frame count have never changed',
+          '4K export quadruples the pixel count and leaves the grid alone',
+          'Custom palettes came later and remain an Unlimited feature',
+          'Templates were added, never replaced'
+        ]
+      },
+      {
+        heading: 'Where the timeline leaves you in late 2026',
+        paragraphs: [
+          'Install today and you get v2.1.0 behaviour: nine states, two export sizes, clipboard paste, and the site works offline. The install walkthrough has not changed since July and it is at /blog/how-to-install-codex-pet.',
+          'The one lesson worth taking from codex pet history is where pets live. Every report of a pet vanishing after a desktop update traces back to that folder, and the pet itself is sitting on disk the whole time. Copy it back, quit the app fully, relaunch. The longer troubleshooting path is at /blog/installation-troubleshooting, and the backup habit that survives updates is at /blog/backup-codex-pets-guide.'
+        ],
+        list: [
+          'Pets live in the pets folder, nowhere else',
+          'A missing pet usually means a moved lookup path',
+          'Keep the backup outside the app directory and updates stop being scary',
+          'Nine states and the grid have been stable the entire time'
+        ]
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop. Start at the homepage / to upload a photo, compare the Pro and Unlimited tiers on /pricing, and read the rest of the archive at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'codex-pet-history-timeline-zh',
+    title: 'Codex 宠物功能时间线：从发布到现在的进化',
+    description:
+      '按时间顺序梳理 codex pet history：第一次 codex pet launch 到底发布了什么，codex pet versions 各自改了哪些东西，以及 2026 年秋天这套像素伙伴处在什么状态。',
+    date: '2026-10-31',
+    author: 'PetGen',
+    keywords: [
+      'codex pet history',
+      'codex pet launch',
+      'codex pets evolution',
+      'codex pet versions',
+      'Codex 宠物历史',
+      'Codex 宠物发布时间线',
+      'Codex 宠物版本',
+      '像素宠物格式演变'
+    ],
+    related: [
+      'codex-desktop-updates-pets',
+      'how-to-install-codex-pet',
+      'installation-troubleshooting',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'Codex 宠物最早是什么时候发布的？',
+        answer: '目录格式在 2026 年 7 月中旬就在社区里流传，生成器自己的 v1.0.0 于 2026-07-27 上线，带来照片转像素宠物、九种动画状态和透明 WebP 输出。Codex 官方没有单独发过宠物功能的说明，所以记住这两个日期就够。'
+      },
+      {
+        question: '七月做的宠物现在还能用吗？',
+        answer: '能用。精灵图的网格、行顺序和帧数从第一次发布到现在没变过，早期做的宠物今天照样加载。真正会让宠物失效的是桌面端更新挪动了查找路径，把文件夹拷回去就恢复正常。'
+      },
+      {
+        question: 'codex pet 一共有几个版本？',
+        answer: '更新记录里是四个：七月的 v1.0.0，八月以站点改动为主的 v1.5.0，然后是带来仓鼠和陆龟模板的 v2.0.0 与 v2.1.0。四个里只有两个改动了养宠物的人会注意到的东西。'
+      }
+    ],
+    sections: [
+      {
+        heading: '第一次发布：v1.0.0 里到底有什么',
+        paragraphs: [
+          '问五个人 Codex 宠物是什么时候出现的，大概能拿到五个答案，问题就出在这儿。Codex 宠物的历史没有一个统一的发布日期，它是一串小版本叠起来的，每次只改动一个文件或者一个目录。这一篇按时间排好：社区里最早流传的那份 pet.json、生成器自己的第一次发布，以及今天跑在桌面上的版本。只想看现状的话，直接跳到最后一节。',
+          '先说清楚来源。宠物功能从来没有单独的发布说明，所以下面的日期来自三处：/changelog 上的生成器更新记录、Codex 桌面端的版本说明，还有一个社区帖子里大家互相贴 pets 目录内容做对比。两处对不上的地方我都标了出来。'
+        ],
+        list: [
+          '2026 年 7 月中旬：社区里出现第一份 pet.json 示例',
+          '2026-07-27：生成器 v1.0.0 上线，支持照片转像素宠物',
+          '九种动画状态从第一天就在格式里',
+          '透明 WebP 输出，宠物放在什么背景上都成立'
+        ]
+      },
+      {
+        heading: '四个版本各自改了什么',
+        paragraphs: [
+          '更新记录里一共四个版本，其中只有两个改动了养宠物的人真正会碰到的东西。v1.5.0 全是站点层面的活：文章加 FAQ 结构化数据、博客和指南页换英文标题、补内链。有用，但看不见。',
+          'v2.0.0 加了仓鼠模板、上传支持剪贴板粘贴、/changelog 页面和博客分类筛选。v2.1.0 加了陆龟模板、让站点离线可用的 Service Worker、文章分享按钮和博客分类导航。工具这一侧的进化基本就这些。',
+          '完整表格在 /changelog。日期我只信这一份，因为它在发布当天就会被更新，而论坛那个帖子不会。'
+        ],
+        list: [
+          'v1.0.0（2026-07-27）：转换、九种状态、WebP 输出、macOS 与 Windows',
+          'v1.5.0（2026-08-20）：文章结构化数据、页面英文标题、内链',
+          'v2.0.0（2026-08-25）：仓鼠模板、剪贴板粘贴、/changelog 页面',
+          'v2.1.0（2026-08-29）：陆龟模板、离线支持、分享按钮'
+        ]
+      },
+      {
+        heading: '目录里面的东西是怎么变的',
+        paragraphs: [
+          '这一点大概会让人意外。四个版本下来，目录里的约定几乎没有动过。精灵图还是 1536×1872 像素，八列九行，每格 192×208 像素。九行对应九种动画状态，顺序从七月到现在没变过。',
+          '变的是外围。导出从一个尺寸变成两个，4K 把线性分辨率翻倍到 3072×3744，网格不动而像素数变成四倍。自定义调色板是后加的，一直属于 Unlimited。模板多了仓鼠和陆龟，没有换掉任何一个。'
+        ],
+        list: [
+          '网格、行顺序和帧数从来没改过',
+          '4K 导出让像素数变成四倍，网格照旧',
+          '自定义调色板是后来的功能，属于 Unlimited',
+          '模板只增不换'
+        ]
+      },
+      {
+        heading: '到 2026 年秋天，这条时间线把你带到了哪',
+        paragraphs: [
+          '现在装一次，拿到的就是 v2.1.0 的行为：九种状态、两种导出尺寸、剪贴板粘贴，站点本身也能离线打开。安装步骤从七月起没变过，写在 /blog/how-to-install-codex-pet。',
+          '这条时间线最该让人记住的，是宠物到底住在哪。每次桌面端更新后有人报宠物消失，最后都追回那个目录，而宠物本身在硬盘上好好的。拷回去，彻底退出应用，再打开。更完整的排查在 /blog/installation-troubleshooting，能扛住更新的备份习惯写在 /blog/backup-codex-pets-guide。'
+        ],
+        list: [
+          '宠物只住在 pets 目录里，别处没有',
+          '宠物不显示，通常是查找路径挪了',
+          '备份放在应用目录之外，更新就不可怕',
+          '九种状态和网格从头到尾都稳定'
+        ]
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面上的像素伙伴。从首页 / 上传照片开始，Pro 和 Unlimited 的区别在 /pricing，其余文章都在 /blog。'
+        ]
+      }
+    ]
   }
 ];
