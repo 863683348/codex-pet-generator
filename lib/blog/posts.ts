@@ -9944,5 +9944,183 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+{
+    slug: 'thanksgiving-pixel-pet',
+    title: 'Thanksgiving Special: Grateful for Your Pixel Companion',
+    description: 'A thanksgiving pixel pet is worth five minutes before you close the laptop for the week. This post covers a cozy pet theme that keeps the spritesheet intact, cheap ways to show a gratitude pet some appreciation, and four checks before you apply a thanksgiving pet skin.',
+    date: '2026-11-01',
+    author: 'PetGen',
+    keywords: [
+      'thanksgiving pixel pet',
+      'gratitude pet',
+      'thanksgiving pet skin',
+      'cozy pet theme',
+      'holiday pixel pet palette',
+      'Codex pet holiday skin',
+      'pixel pet gift idea',
+      'Codex pet Thanksgiving'
+    ],
+    related: [
+      'custom-color-palettes-codex-pet',
+      'halloween-pet-skins-collection',
+      'share-codex-pet-with-friends',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: 'Can I keep a thanksgiving pixel pet after the holiday?',
+        answer: 'Yes. Nothing in the pet file carries a date, so a warm palette stays exactly as you left it. Most people switch back in January anyway, because a bright orange accent stops reading as festive and starts reading as a warning light.'
+      },
+      {
+        question: 'Does a cozy pet theme slow down my desktop?',
+        answer: 'No. A theme is a palette swap inside the same spritesheet, so the frame count and the file size stay the same. Slowdowns come from oversized wallpapers, not from the pet itself.'
+      },
+      {
+        question: 'How do I share my pet with family over Thanksgiving?',
+        answer: 'Export the spritesheet and pet.json together in one folder and send that folder. The other person needs the Codex desktop app installed, then copies the folder into their pets directory and restarts the app.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'What a thanksgiving pixel pet is actually good for',
+        paragraphs: [
+          'Thanksgiving week is when most of us close the laptop for a few days, which is a strange moment to think about a desktop pet. Still, a thanksgiving pixel pet is worth five minutes. Your pet has sat in the corner of your screen through every failed build since you installed it, and it never once asked for anything. Mine watched me rewrite the same test four times in one afternoon and just kept blinking.',
+          'What follows is the short version: what people keep on screen during the holiday, how to warm up the colors without wrecking the spritesheet, and a few ways to show the thing some gratitude that cost nothing.'
+        ]
+      },
+      {
+        heading: 'Building a cozy pet theme without touching the frames',
+        paragraphs: [
+          'A cozy pet theme is mostly a palette change: warm browns and muted orange, with a background that does not fight the sprite. The animation frames stay exactly where they are, so the nine states behave the same as they did in July.',
+          'I have gone through maybe a dozen of these palettes. The ones that survive a full day are the boring ones: two warm tones, one dark outline, nothing else.'
+        ],
+        list: [
+          'Warm base: rust, amber, and a deep brown for outlines',
+          'Lower contrast between background and sprite, which reads calmer after dark',
+          'Keep the outline dark. Pets without outlines vanish on light wallpapers',
+          'Check it on a second monitor before you commit, brightness differs per panel'
+        ]
+      },
+      {
+        heading: 'Gratitude pet habits that cost nothing',
+        paragraphs: [
+          'The gratitude pet idea sounds like a marketing line until you do it once. People in the community write a short note next to their pet, rename it after someone who helped them this year, or record a ten second clip and send it to a friend. None of that needs a purchase.'
+        ],
+        list: [
+          'Rename the pet folder after someone you want to thank, then tell them',
+          'Record the idle animation and send it as a holiday message',
+          'Post the spritesheet in the community gallery so someone else can use it',
+          'Back up the pets folder before the holiday, family tech support season is real'
+        ]
+      },
+      {
+        heading: 'Before you apply a thanksgiving pet skin',
+        paragraphs: [
+          'Holiday skins are fun, and they are also the main source of "my pet looks wrong" messages. Two checks take under a minute and save you an afternoon.'
+        ],
+        list: [
+          'Confirm the frame grid still matches. A skin that changes frame size breaks the animation',
+          'Keep the transparent background, a flattened PNG leaves a white box around your pet',
+          'Export at the original spritesheet size so the desktop app does not rescale it',
+          'Save the old skin in a separate folder so you can go back on Monday'
+        ]
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop. Start at the homepage / and upload a photo, compare Pro and Unlimited on /pricing, and find the rest of the guides at /blog.'
+        ]
+      }
+    ]
+  },
+{
+    slug: 'thanksgiving-pixel-pet-zh',
+    title: '感恩节特辑：感谢你的像素伙伴',
+    description: '感恩节这周关机之前，给 thanksgiving pixel pet 留五分钟是值得的。这篇讲怎么在不破坏精灵图的前提下换一套暖色 cozy pet theme、几种不花钱的 gratitude pet 表达方式，以及换 thanksgiving pet skin 之前必须做完的四项检查。',
+    date: '2026-11-01',
+    author: 'PetGen',
+    keywords: [
+      'thanksgiving pixel pet',
+      'gratitude pet',
+      'thanksgiving pet skin',
+      'cozy pet theme',
+      'Codex 宠物感恩节',
+      '节日像素宠物配色',
+      'Codex 宠物节日皮肤',
+      '像素宠物送礼'
+    ],
+    related: [
+      'custom-color-palettes-codex-pet',
+      'halloween-pet-skins-collection',
+      'share-codex-pet-with-friends',
+      'backup-codex-pets-guide'
+    ],
+    faq: [
+      {
+        question: '感恩节过了还能继续用这套像素宠物吗？',
+        answer: '可以。宠物文件里没有任何日期信息，暖色配色会原样留着。不过大多数人到一月就换回来了，因为亮橙色看久了不再像节日装饰，更像一个告警灯。'
+      },
+      {
+        question: '暖色主题会让桌面变卡吗？',
+        answer: '不会。主题只是在同一张精灵图里换配色，帧数和体积都没变。真正拖慢桌面的通常是尺寸过大的壁纸，不是宠物。'
+      },
+      {
+        question: '怎么把宠物分享给家人？',
+        answer: '把精灵图和 pet.json 放在同一个文件夹里导出，然后把整个文件夹发出去。对方需要装好 Codex 桌面端，把文件夹拷进自己的 pets 目录，重启应用就能看到。'
+      }
+    ],
+    sections: [
+      {
+        heading: '给像素宠物过个感恩节，图什么',
+        paragraphs: [
+          '感恩节这周大多数人会把笔记本合上几天，按理说不是该惦记桌面宠物的时刻。但 thanksgiving pixel pet 这件事值得你留五分钟。从装上那天起，你的宠物就待在屏幕角落里陪你熬过每一次构建失败，从没要求过什么。我那只看着我把同一个测试改写了四遍，就一直在眨眼。',
+          '下面讲三件事：节日里大家到底在屏幕上留什么，怎么把配色调暖又不破坏精灵图，以及几种不花钱就能表达 gratitude pet 的做法。'
+        ]
+      },
+      {
+        heading: '换一套暖色 cozy pet theme，帧一帧都别动',
+        paragraphs: [
+          '暖色 cozy pet theme 本质上就是换配色。暖棕、低饱和的橙、不跟精灵图抢戏的背景色。动画帧一帧都不用改，所以九种状态的行为和七月份完全一致。',
+          '这类配色我大概试过十来套。能撑住一整天的都是最无聊的那几套：两个暖色、一个深色描边，没了。'
+        ],
+        list: [
+          '暖色基底：铁锈红、琥珀色，描边用深棕',
+          '背景与精灵图对比度压低，晚上看着更安静',
+          '描边一定要深，没有描边的宠物在浅色壁纸上会消失',
+          '接第二块显示器再看一眼，不同面板亮度差很多'
+        ]
+      },
+      {
+        heading: '不花钱的 gratitude pet 做法',
+        paragraphs: [
+          'gratitude pet 这个说法听着像营销话术，真做一次就不一样了。社区里有人在宠物旁边写一句短话，有人把宠物改名成今年帮过自己的人，有人录十秒动画发给朋友。这些都不需要花钱。'
+        ],
+        list: [
+          '把宠物文件夹改成你想感谢的人的名字，然后告诉他',
+          '录一段待机动画，当作节日问候发出去',
+          '把精灵图发到社区画廊，让别人也能用',
+          '节前先备份 pets 文件夹，亲戚的电脑总有得修'
+        ]
+      },
+      {
+        heading: '换 thanksgiving pet skin 之前先做完四项检查',
+        paragraphs: [
+          '节日皮肤好玩，但它们也是「我的宠物怎么不对了」这类留言的最大来源。下面四项检查花不到一分钟，能省一下午。'
+        ],
+        list: [
+          '确认帧网格没变，改了帧尺寸的主题会让动画错位',
+          '保留透明背景，压平的 PNG 会在宠物周围留一圈白框',
+          '按原始精灵图尺寸导出，避免桌面端二次缩放',
+          '旧皮肤单独存一个文件夹，周一好换回来'
+        ]
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面上的像素伙伴。从首页 / 上传照片开始，Pro 和 Unlimited 的区别在 /pricing，其余文章都在 /blog。'
+        ]
+      }
+    ]
   }
 ];
