@@ -10122,5 +10122,194 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'codex-pet-gallery',
+    title: 'A Pet Gallery: Showcase Your Collection Like a Pro',
+    description: 'A pixel pet gallery is not a folder dump. This post covers how to group a Codex pet collection, name files so they survive a reinstall, export thumbnails that stay sharp, and where to publish the page.',
+    date: '2026-11-02',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet gallery',
+      'showcase pixel pets',
+      'pet collection display',
+      'pet gallery page',
+      'codex pet collection',
+      'organize codex pets',
+      'pet gallery layout',
+      'Codex pet collection page'
+    ],
+    related: [
+      'codex-pet-showcase',
+      'share-codex-pet-with-friends',
+      'backup-codex-pets-guide',
+      'codex-pet-history-timeline'
+    ],
+    faq: [
+      {
+        question: 'How many pets before a gallery is worth building?',
+        answer: 'Five. Below that you remember every file by name and a gallery page is overhead. Past five, the folder stops being scannable and you end up opening pet.json one file at a time just to see what is inside.'
+      },
+      {
+        question: 'Should the gallery show the original photo next to the pet?',
+        answer: 'Only if the photo is yours to publish. The side-by-side is the part people actually look at, but a picture of someone else\'s cat or a friend\'s face is not yours to put on a public page.'
+      },
+      {
+        question: 'Can I put the gallery on a community site instead of my own page?',
+        answer: 'Yes, and it gets you an audience faster. The tradeoff is presentation: you lose control over thumbnail size, and you cannot repair the page when that site changes its layout.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'What a pixel pet gallery is actually for',
+        paragraphs: [
+          'I have fourteen pets in my folder and no idea which one I made in March. That is what a pixel pet gallery solves. Not showing off, just finding things again.',
+          'Once you pass five or six pets, the pets directory stops behaving like a list and starts behaving like a junk drawer. Every pet looks the same in a file manager, because the thumbnail is a single frame of one animation and the folder name was whatever you typed at 1am.'
+        ]
+      },
+      {
+        heading: 'Sort the collection before you show it',
+        paragraphs: [
+          'Sorting by animal is the default and it is usually the wrong call. A cat, a dog and a parrot grouped by species tells you nothing about when you made them or why. Group by the thing you will search for later.'
+        ],
+        list: [
+          'By project: one folder per repo, so the pet matches the work you were doing that month',
+          'By date: a YYYY-MM prefix on the folder name keeps them in order in any file manager',
+          'By palette: worth it if you rotate themes often and want a matching pet ready to go'
+        ]
+      },
+      {
+        heading: 'Naming that survives a reinstall',
+        paragraphs: [
+          'displayName inside pet.json is what the desktop app shows, and for most people it is the only field they ever edit. Give it a name you can still search for in six months. The string "cat-01" fails that test and "mochi-orange-cat-march" does not.',
+          'Keep the folder name and displayName roughly aligned. After a reinstall you restore from a backup by hand, and mismatched names are how people end up with two copies of the same pet fighting over one slot.'
+        ],
+        list: [
+          'Put the month in the folder name, not only in the file',
+          'Back up pet.json and the spritesheet together, never one without the other',
+          'Keep a plain text note listing each pet and the photo it came from'
+        ]
+      },
+      {
+        heading: 'Exporting thumbnails that stay sharp',
+        paragraphs: [
+          'Pixel art dies at the wrong scale. Screenshot a pet at 200 percent on a HiDPI display, then open it on a regular monitor, and the edges go soft. Export the thumbnail at 1x and offer 2x and 4x as separate files named for what they are.',
+          'WebP keeps the transparent background, which matters more than file size here. A flattened PNG wraps your pet in a white box and there is no clean way to undo that afterwards.'
+        ],
+        list: [
+          'Screenshot at 1x for the gallery thumbnail',
+          'Ship the original 1536x1872 spritesheet as the download',
+          'Keep the alpha channel instead of flattening onto a white or black background'
+        ]
+      },
+      {
+        heading: 'Where to publish the page',
+        paragraphs: [
+          'You do not need a CMS for this. A static page with a grid of thumbnails, one line of text under each pet and a download link is enough, and it loads faster than any gallery plugin you could bolt on.',
+          'Add the date you made each pet. Someone searching for a pet gallery page mostly wants to know whether the collection is still maintained, and a last-updated line answers that faster than a paragraph of introduction.'
+        ]
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop. Start at the homepage / and upload a photo, compare Pro and Unlimited on /pricing, and find the rest of the guides at /blog.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'codex-pet-gallery-zh',
+    title: '宠物图鉴：教你像画廊一样展示宠物',
+    description: 'pixel pet gallery 不是把文件夹截图发出去就完事。这篇讲怎么给 Codex 宠物收藏分组、怎么命名才能在重装后还找得回来、缩略图怎么导出才不糊，以及图鉴页面该放在哪儿。',
+    date: '2026-11-02',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet gallery',
+      'showcase pixel pets',
+      'pet collection display',
+      'Codex 宠物收藏',
+      '像素宠物图鉴',
+      '宠物画廊页面',
+      'Codex 宠物整理',
+      'Codex pet collection page'
+    ],
+    related: [
+      'codex-pet-showcase',
+      'share-codex-pet-with-friends',
+      'backup-codex-pets-guide',
+      'codex-pet-history-timeline'
+    ],
+    faq: [
+      {
+        question: '收藏几只宠物才值得做图鉴？',
+        answer: '五只。少于五只，你记得住每个文件名，做图鉴纯属额外负担。超过五只，文件夹就没法一眼扫完，你得一个个打开 pet.json 才知道里面是哪只。'
+      },
+      {
+        question: '图鉴里要不要放原始照片？',
+        answer: '照片是你的才可以放。照片和宠物的对比图确实是大家最爱看的部分，但别人家的猫、朋友的脸，不该出现在你的公开页面上。'
+      },
+      {
+        question: '图鉴放在社区站可以吗？',
+        answer: '可以，而且更快被人看到。代价是展示方式不由你控制：缩略图尺寸由站点决定，站点改版时你也没法自己修。'
+      }
+    ],
+    sections: [
+      {
+        heading: '宠物图鉴到底解决什么问题',
+        paragraphs: [
+          '我文件夹里有十四只宠物，完全想不起三月做的是哪一只。图鉴解决的就是这件事，不是为了炫，是为了下次还能找得到。',
+          '宠物超过五六只之后，pets 目录就不再像一个清单，更像一个杂物抽屉。文件管理器里每只宠物看起来都一样，因为缩略图只是某一帧动画，而文件夹名是凌晨一点随手敲的。'
+        ]
+      },
+      {
+        heading: '先分组，再展示',
+        paragraphs: [
+          '按动物种类分组是默认做法，通常也是错的做法。猫、狗、鹦鹉按物种摆在一起，看不出什么时候做的，也看不出为什么做。按你以后会搜的那个维度分组。'
+        ],
+        list: [
+          '按项目分：一个仓库一个文件夹，宠物和那个月在做的事对得上',
+          '按日期分：文件夹名加 YYYY-MM 前缀，任何文件管理器里都会自动排序',
+          '按配色分：经常换主题的人提前备好几只配套宠物，会省不少事'
+        ]
+      },
+      {
+        heading: '重装之后还认得出来的命名',
+        paragraphs: [
+          'pet.json 里的 displayName 是桌面端显示出来的名字，也是大多数人唯一会改的字段。给它一个半年后还能搜到的名字。写成 cat-01 过不了这关，写成 mochi-orange-cat-march 可以。',
+          '文件夹名和 displayName 尽量保持一致。重装之后你是手动从备份里恢复的，名字对不上，就容易出现同一只宠物有两份、互相抢位置的情况。'
+        ],
+        list: [
+          '月份写进文件夹名，别只写在文件里',
+          'pet.json 和精灵图一起备份，别只备份其中一个',
+          '单独留一份纯文本，记下每只宠物对应的原始照片'
+        ]
+      },
+      {
+        heading: '缩略图怎么导出才不糊',
+        paragraphs: [
+          '像素画最怕缩错尺寸。在 HiDPI 屏上放大到 200% 截图，换到普通显示器上打开，边缘就糊了。缩略图按 1x 导出，2x 和 4x 单独存成名字说得清楚的文件。',
+          'WebP 能保住透明背景，这点比文件体积重要得多。压平成 PNG 之后，宠物周围会多一圈白框，而且事后没法干净地还原。'
+        ],
+        list: [
+          '缩略图按 1x 截图',
+          '下载包里放原始 1536x1872 精灵图',
+          '保留 alpha 通道，别压到白色或黑色底上'
+        ]
+      },
+      {
+        heading: '图鉴页面放哪儿',
+        paragraphs: [
+          '这件事用不上 CMS。一个静态页面，缩略图铺成网格，每只宠物下面一行字加一个下载链接，就够了，加载速度还比任何画廊插件快。',
+          '记得写上每只宠物的制作日期。搜宠物画廊页面的人，多半只是想知道这份收藏是不是还在更新，一行「最后更新」比一大段开场白更快回答这个问题。'
+        ]
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面上的像素伙伴。从首页 / 上传照片开始，Pro 和 Unlimited 的区别在 /pricing，其余文章都在 /blog。'
+        ]
+      }
+    ]
   }
+
 ];
