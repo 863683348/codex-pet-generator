@@ -10310,6 +10310,190 @@ export const posts: BlogPost[] = [
         ]
       }
     ]
+  },
+
+  {
+    slug: 'pixel-pet-interview',
+    title: 'Creator Interview: A Designer Who Pixelated Her Family',
+    description: 'A pixel pet interview with Mira Okafor, a product designer who turned all five family pets into desktop companions. Her photo rules, the palette calls she regrets, and what she changed after pet number fourteen.',
+    date: '2026-11-03',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet interview',
+      'codex pet creator story',
+      'designer pixel pet',
+      'user interview pet',
+      'codex pet from photo',
+      'pixel pet workflow',
+      'pet photo tips',
+      'codex pet spritesheet',
+    ],
+    related: ['codex-pet-vm', 'codex-pet-gallery', 'pixel-art-pet-design-guide', 'codex-pet-showcase'],
+    faq: [
+      {
+        question: 'How do I get a good pixel pet from a photo?',
+        answer: 'Use a front-facing shot with both eyes visible and light coming from the front. Crop to square before you upload. Backlit photos and photos with two animals in frame are the two most common reasons a result looks wrong.',
+      },
+      {
+        question: 'Can I make a pixel pet from a drawing instead of a photo?',
+        answer: 'Yes. Draw at 384x468 or a clean multiple of it, export the nine animation states as one spritesheet, and drop it into your pets folder next to a pet.json. Hand-drawn pets are also easier to keep on a fixed palette.',
+      },
+      {
+        question: 'How many pets can one person run at once?',
+        answer: 'There is no limit. Each pet is its own folder with a pet.json and a spritesheet. Past about six, most people start grouping folders by month or project, because a flat list of folders stops telling you anything.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Where this codex pet creator story starts',
+        paragraphs: [
+          'Mira Okafor is a product designer in Lisbon, and this pixel pet interview opens with an apology: she was eleven minutes late because the tortoise knocked a mug onto her keyboard. She has five animals, two cats, a dog with one eye, a rabbit, and that tortoise. In March she made pixel pets for all five, then kept going until she had fourteen.'
+        ]
+      },
+      {
+        heading: 'A designer pixel pet workflow, start to finish',
+        paragraphs: [
+          'She stopped using the web page. Everything runs from a local folder now, and her reason is boring on purpose: she wants the output sitting in version control next to the project it belongs to.'
+        ],
+        list: [
+          'One photo per animal, front-facing, eyes in frame, no second animal in the shot',
+          'Crop square before uploading. The generator guesses at crops and guesses badly on long faces',
+          'Name the folder animal-colour-month, so a restore six months later still tells you something',
+          'Keep the source photo beside the spritesheet. Three of her pets have no surviving original, and she cannot reproduce those palettes'
+        ]
+      },
+      {
+        heading: 'User interview pet questions, and the answers we did not expect',
+        paragraphs: [
+          'We ask the same four questions in every creator interview. Two of them came from Mira, and the one we now ask first is hers.',
+          'That last question is her wording. Her answer was the animation preview, which she has not opened once in eight months. We put the same question to four other people and got three different answers, so we stopped reading it as a signal.'
+        ],
+        list: [
+          'What did you try first, and how long before you gave up on it?',
+          'Which pet stays on screen when you are actually working?',
+          'What did you assume was automatic that turned out to be manual?',
+          'If one feature disappeared tomorrow, which one would you not notice?'
+        ]
+      },
+      {
+        heading: 'Photo, palette, and the nine animation states',
+        paragraphs: [
+          'On photos she is blunt. The generator can rescue a bad crop and cannot rescue a bad photo. A pet lit from behind comes back grey, and a pet turned even slightly away comes back with one eye.',
+          'On colour she cuts the palette to twelve before regenerating. It costs an extra pass and she says it pays off every time, because the default palette drifts warm under office lighting.'
+        ],
+        list: [
+          'Head filling about half the frame, both eyes visible',
+          'Light from the front. Window light at midday works, on-camera flash does not',
+          'Plain background. A patterned carpet gets read as fur',
+          'One animal per photo. Two animals usually comes back as one animal with four ears'
+        ]
+      },
+      {
+        heading: 'What she does differently now',
+        paragraphs: [
+          'She runs two pets at once. One is generated from a photo, the other she drew in a pixel editor and imported as a spritesheet. The hand-drawn one is the tortoise, which no photo ever got right. Tortoises read as rocks.',
+          'She also gave up on renaming folders by hand. There is one plain text file at the top of her pets directory, one line per animal, and that file is what she searches when she wants to find something.'
+        ]
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that sits on your desktop. Start from the home page with a single photo, compare plans on /pricing, and find the rest of the writing in /blog.'
+        ]
+      },
+    ]
+  },
+
+  {
+    slug: 'pixel-pet-interview-zh',
+    title: '创作者访谈：一位把全家宠物做成桌宠的设计师',
+    description: 'pixel pet interview 的主角是里斯本的产品设计师 Mira Okafor，她把家里五只动物全做成了桌宠。这篇聊她的选图标准、配色上后悔过的决定，以及做完第十四只之后改掉的习惯。',
+    date: '2026-11-03',
+    author: 'PetGen',
+    keywords: [
+      'pixel pet interview',
+      'codex pet creator story',
+      'designer pixel pet',
+      'user interview pet',
+      '桌宠制作流程',
+      '宠物照片怎么选',
+      '像素宠物配色',
+      'codex 宠物精灵图',
+    ],
+    related: ['codex-pet-vm-zh', 'codex-pet-gallery-zh', 'pixel-art-pet-design-guide-zh', 'codex-pet-showcase-zh'],
+    faq: [
+      {
+        question: '怎么用一张照片做出好看的像素宠物？',
+        answer: '用正面照，两只眼睛都在画面里，光从正面来。上传之前先裁成方形。逆光、以及画面里有两只动物，是效果出问题最常见的两个原因。',
+      },
+      {
+        question: '可以不传照片，自己画一只吗？',
+        answer: '可以。按 384x468 或者它的整数倍画，把九个动画状态导出成一张精灵图，配上 pet.json 一起放进 pets 目录就行。手绘的宠物还有个好处，配色能自己锁死。',
+      },
+      {
+        question: '一个人能同时用几只宠物？',
+        answer: '数量没有限制。每只宠物是一个独立文件夹，里面有自己的 pet.json 和精灵图。超过六只之后，大多数人会开始按月份或者项目分文件夹，因为平铺在那儿已经看不出区别了。',
+      },
+    ],
+    sections: [
+      {
+        heading: '这位设计师的桌宠起点',
+        paragraphs: [
+          'Mira Okafor 是里斯本的产品设计师。这次 pixel pet interview 开场是她道歉：迟到了十一分钟，因为乌龟把杯子撞翻在键盘上。她家里五只动物，两只猫、一只独眼狗、一只兔子，还有那只在作案的乌龟。三月她给五只全做了像素宠物，然后没停下来，一直做到第十四只。'
+        ]
+      },
+      {
+        heading: '她的桌宠制作流程',
+        paragraphs: [
+          '她现在不用网页版了，全部在本地文件夹里跑。理由故意很无聊：她想让产物进版本库，跟它所属的项目放在一起。'
+        ],
+        list: [
+          '一只动物一张照片，正面、眼睛在画面里、画面里不能有第二只动物',
+          '上传之前先裁成方形。生成器会自己猜裁剪范围，长脸的动物基本都猜错',
+          '文件夹名写成 动物-颜色-月份，半年后从备份恢复时还看得懂',
+          '原始照片和精灵图放在一起。她有三只宠物的原图已经找不到了，配色没法复现'
+        ]
+      },
+      {
+        heading: '用户访谈里她留下的那几个问题',
+        paragraphs: [
+          '我们每场创作者访谈都问同样的四个问题，其中两个是 Mira 提的，现在排在最前面的那个就是她的问题。',
+          '排在最末的那个问题是她的原话。她的答案是动画预览，八个月里一次都没打开过。同样的问题我们又问了四个人，拿到三个不同答案，所以后来不把它当成有效信号了。'
+        ],
+        list: [
+          '你最开始试的是什么，多久之后放弃的？',
+          '真正写代码的时候，屏幕上留的是哪一只？',
+          '你以为全自动、结果要手动的是哪一步？',
+          '如果明天有个功能消失，你不会察觉的是哪个？'
+        ]
+      },
+      {
+        heading: '选图、配色和九个动画状态',
+        paragraphs: [
+          '说到照片她很直接。生成器能救一张裁坏的图，救不了一张坏照片。逆光的宠物做出来是灰的，脸稍微偏一点，做出来就只剩一只眼睛。',
+          '配色上她会把调色板压到十二色再重新生成。多一道工序，她说每次都值，因为默认配色在办公室灯下会偏暖。'
+        ],
+        list: [
+          '头占画面一半左右，两只眼睛都能看到',
+          '光从正面来。中午的窗光可以，机顶闪光灯不行',
+          '背景干净。带花纹的地毯会被当成毛色',
+          '一张照片只放一只动物。两只进去，通常出来一只四只耳朵的'
+        ]
+      },
+      {
+        heading: '做完第十四只之后改掉的习惯',
+        paragraphs: [
+          '她现在同时跑两只。一只从照片生成，另一只是她在像素编辑器里手绘、再当精灵图导入的。手绘的那只是乌龟，照片从来没有处理对过，乌龟在模型眼里就是块石头。',
+          '她也不再手工改文件夹名了。pets 目录最上面放一个纯文本文件，一只动物一行，要找东西的时候她搜的是这个文件。'
+        ]
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面上的像素伙伴。从首页 / 传一张照片开始，/pricing 看套餐区别，其余文章都在 /blog。'
+        ]
+      },
+    ]
   }
 
 ];
