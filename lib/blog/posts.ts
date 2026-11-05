@@ -10494,6 +10494,166 @@ export const posts: BlogPost[] = [
         ]
       },
     ]
-  }
+  },
+  {
+  slug: 'pixel-art-toolchains-what-we-recommend',
+  title: 'Pixel Art Toolchains: What We Recommend',
+  description: 'The pixel art tools our team uses every week, from sprite editors to palette utilities, and where a generated Codex pet fits into that chain.',
+  date: '2026-11-06',
+  author: 'PetGen',
+  keywords: [
+    'pixel art tools',
+    'best pixel art tools',
+    'pixel art software 2026',
+    'sprite editors',
+    'pixel art palette tools',
+    'codex pet toolchain'
+  ],
+  related: [
+    'why-developers-love-desktop-companions',
+    'hand-drawn-vs-ai-pixel-pets',
+    'what-is-pet-spritesheet'
+  ],
+  faq: [
+    {
+      question: 'What are the best pixel art tools for beginners?',
+      answer: 'Piskel or Pixilart, because both run in the browser and need no install. Once you outgrow them, Aseprite is the usual next step.'
+    },
+    {
+      question: 'Do I need a sprite editor if I generate my Codex pet from a photo?',
+      answer: 'Not for the first result. You will want one when a detail bothers you, like an eye that landed one pixel off. Generate first, adjust after.'
+    },
+    {
+      question: 'Which pixel art software should I pay for in 2026?',
+      answer: 'Aseprite, if you animate. If your Codex pets stay static, the free options such as Libresprite, Pixelorama and Piskel cover that completely.'
+    }
+  ],
+  sections: [
+    {
+      heading: 'The pixel art tools we keep coming back to',
+      paragraphs: [
+        'Picking pixel art tools is easier once you know what the chain looks like: a sprite editor for drawing, a palette utility for color control, and a converter for the jobs you would rather automate. We build desktop pets for Codex every day, so this list is not theoretical. These are the pixel art tools we actually open, and where each one earns its place.'
+      ],
+      list: [
+        'Aseprite: the paid reference among sprite editors, with onion skinning, an animation timeline and a scripting layer for repetitive work',
+        'Libresprite: the free fork of an older Aseprite build, fine for static sprites at zero cost',
+        'Pixelorama: open source, runs in the browser or as a desktop app, with animation support better than most free options',
+        'Piskel: browser based and instant, good for a five minute edit when you do not want to install anything',
+        'Pixilart: drawing canvas plus a community gallery, useful for browsing what other people are making'
+      ]
+    },
+    {
+      heading: 'Pixel art software 2026: what actually changed',
+      paragraphs: [
+        'Reading pixel art software 2026 release notes, two shifts stand out. Color management got serious: several editors now speak OKLCH, which makes palette ramps predictable across displays. And canvas rendering moved to GPU paths, so 2048px sheets scroll without stutter.',
+        'A quieter change matters just as much for our workflow: import pipelines matured. Editors increasingly accept a photo or a generated sheet and give you layer controls over the result, which blurs the line between drawing and converting.'
+      ]
+    },
+    {
+      heading: 'Sprite editors versus generators: where each one wins',
+      paragraphs: [
+        'Sprite editors shine when you already know the pixels you want. Changing a headband color, cleaning up an ear, fixing a two frame walk cycle: that is manual work, and a good editor makes it fast. Generators shine when you are starting from something that is not pixels, like a photo of your cat. Drawing that from scratch takes hours; converting it takes seconds, then you hand-tune in the editor.'
+      ],
+      list: [
+        'Photo to sprite conversion: the generator does the whole job',
+        'Palette tightening to 12 or 16 colors: generator first, editor for exceptions',
+        'Animation fixes and detail passes: sprite editor, always',
+        'Batch variations of one pet (winter scarf, team colors): generator with edited source sheets'
+      ]
+    },
+    {
+      heading: 'How the tools connect to a Codex pet',
+      paragraphs: [
+        'A Codex pet is just a spritesheet (WebP) plus a pet.json manifest in your pets folder, so the toolchain ends at two files. If you generate, the converter emits both and you are done. If you draw, pick a sprite editor, keep the canvas square, export a WebP sheet and write the manifest by hand. If you mix both, generate first, then open the sheet in your editor and adjust before importing. One warning from experience: reverse the order and you will redo work, because regeneration overwrites hand edits.'
+      ]
+    },
+    {
+      heading: 'About Codex Pet Generator',
+      paragraphs: [
+        'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop while you code. Start from the homepage at /, compare plans on /pricing, and read the rest of the guides in /blog, including why developers keep a desktop companion around in the first place.'
+      ]
+    }
+  ]
+},
+  {
+  slug: 'pixel-art-toolchains-what-we-recommend-zh',
+  title: '从宠物出发：像素艺术的工具链推荐',
+  description: '从精灵图编辑器到调色板工具，这份清单来自我们每周真实在用的像素艺术工具组合，并说明照片生成在链路里站在哪一环。',
+  date: '2026-11-06',
+  author: 'PetGen',
+  keywords: [
+    'pixel art tools',
+    '像素艺术工具',
+    '最佳像素绘画软件',
+    '像素艺术软件 2026',
+    '精灵图编辑器',
+    'Codex 桌面宠物'
+  ],
+  related: [
+    'why-developers-love-desktop-companions-zh',
+    'hand-drawn-vs-ai-pixel-pets-zh',
+    'what-is-pet-spritesheet'
+  ],
+  faq: [
+    {
+      question: '新手该从哪个像素艺术工具入手？',
+      answer: 'Piskel 或 Pixilart，浏览器打开就能画，不用安装。不够用了再上 Aseprite，这是大多数人的路径。'
+    },
+    {
+      question: '用照片生成 Codex 宠物的话，还需要精灵图编辑器吗？',
+      answer: '第一版结果不需要。等你对某个细节不满，比如一只眼睛偏了一像素，编辑器就派上用场了。先生成再微调，别反着来。'
+    },
+    {
+      question: '2026 年值得付费的像素软件是哪一款？',
+      answer: '如果你做动画，Aseprite。宠物保持静态的话，Libresprite、Pixelorama、Piskel 这些免费工具完全够。'
+    }
+  ],
+  sections: [
+    {
+      heading: '我们反复在用的像素艺术工具',
+      paragraphs: [
+        '选像素艺术工具这件事，先把链路想清楚就简单了：一支画像素的笔（精灵图编辑器）、一套管颜色的调色板工具、一个替你干脏活的转换器。我们每天在做 Codex 桌面宠物，下面列的是真的会打开的 pixel art tools，以及每一件在链路里挣饭吃的位置。'
+      ],
+      list: [
+        'Aseprite：付费阵营的参照物，洋葱皮、动画时间轴、脚本层，重复劳动都能交给它',
+        'Libresprite：旧版 Aseprite 的免费分支，只画静态精灵的话够用',
+        'Pixelorama：开源，浏览器和桌面版都有，动画支持比多数免费工具强',
+        'Piskel：浏览器打开就能画，五分钟的小修改不用装任何东西',
+        'Pixilart：画布加社区画廊，想看看别人在画什么的时候很有用'
+      ]
+    },
+    {
+      heading: '像素艺术软件 2026：真正变了什么',
+      paragraphs: [
+        '翻 2026 年的更新记录，像素艺术软件 2026 有两条变化最显眼。一是色彩管理变认真了，好几家编辑器开始支持 OKLCH，配色坡道在不同屏幕上终于可预测。二是画布渲染上了 GPU 路径，2048 像素的精灵图拖动不卡。',
+        '更新记录里还有一条对工作流影响不小的安静变化：导入链路成熟了，编辑器愿意直接吃一张照片或一张生成好的精灵图，再把图层控制权交给你，画和转换的界线因此变模糊。'
+      ]
+    },
+    {
+      heading: '精灵图编辑器与生成器：各自擅长什么',
+      paragraphs: [
+        'sprite editors 强在你已经知道要哪些像素的时候。换一条发带的颜色、修一只耳朵、补一个两帧的走路循环，都是手工活，好编辑器让它变快。生成器强在起点不是像素的时候，比如你家猫的照片。从零画要几个小时，转换只要几秒，之后进编辑器微调。'
+      ],
+      list: [
+        '照片转精灵图：生成器全包',
+        '调色板压到 12 或 16 色：先生成，例外情况进编辑器',
+        '动画修补和细节：永远用精灵图编辑器',
+        '一只宠物出批量变体（围巾版、战队配色版）：编辑过源图后再生成'
+      ]
+    },
+    {
+      heading: '这些工具如何接上 Codex 宠物',
+      paragraphs: [
+        '一只 Codex 宠物本质就是两张东西：一张 WebP 精灵图加一份 pet.json，所以工具链的终点只有两个文件。走生成路线，转换器直接吐出两个文件，完事。走手绘路线，选一个精灵图编辑器，画布保持正方形，导出 WebP 精灵图，再手写 manifest。两条路混着走的话，先生成再进编辑器改，别反过来，因为重新生成会覆盖手工修改，这是踩过坑的教训。'
+      ]
+    },
+    {
+      heading: '关于 Codex Pet Generator',
+      paragraphs: [
+        'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 传一张照片开始，/pricing 看套餐区别，其余教程都在 /blog，包括为什么开发者愿意留一只桌面同伴。'
+      ]
+    }
+  ]
+}
 
 ];
