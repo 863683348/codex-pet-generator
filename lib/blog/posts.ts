@@ -10654,6 +10654,172 @@ export const posts: BlogPost[] = [
       ]
     }
   ]
-}
+},
+
+  {
+    slug: 'year-end-review-100-days-pixel-pets',
+    title: 'Year-End Review: 100 Days of Blogging and Pet Culture',
+    description: 'A codex pet review of our first 100 days of daily blogging: the numbers, the posts that worked, what we learned about the pet culture around Codex, and where the codex pet ecosystem 2026 goes next.',
+    date: '2026-11-07',
+    author: 'PetGen',
+    keywords: [
+      'codex pet review',
+      'codex pet ecosystem 2026',
+      'blog results',
+      'pet culture review',
+      'pixel pets year in review',
+      'codexpetgenerator blog'
+    ],
+    related: [
+      'codex-pet-ecosystem',
+      'ai-companion-culture',
+      'codex-pet-history-timeline'
+    ],
+    faq: [
+      {
+        question: 'Which post should a new reader start with?',
+        answer: 'If you want a pet today, start with the step-by-step install guide for macOS or Windows. If you want the bigger picture first, the codex pet ecosystem explainer and the history timeline both give you the context in one read.'
+      },
+      {
+        question: 'Did the daily publishing schedule ever slip?',
+        answer: 'Twice, both during holiday weeks. We published a day late rather than shipping something half-finished, and we would make the same call again.'
+      },
+      {
+        question: 'What happens to the blog after day 100?',
+        answer: 'The daily cadence ends, but the blog continues. A 2027 preview of desktop pet features is already drafted, and pet culture review pieces will keep coming as the community grows.'
+      }
+    ],
+    sections: [
+      {
+        heading: 'One hundred days in: what this codex pet review covers',
+        paragraphs: [
+          'When this blog started, the plan was one post a day about Codex pets, pixel art, and the small culture forming around desktop companions. One hundred days later it is time for a codex pet review that looks at what we shipped, what people actually read, and where the codex pet ecosystem 2026 is heading. Everything below comes from our own publishing log, not from guesswork.',
+          'If you want the background on how the generator fits into the wider scene before reading the numbers, our earlier piece on the codex pet ecosystem is worth reading first.'
+        ]
+      },
+      {
+        heading: 'Blog results: what 100 days of daily publishing produced',
+        paragraphs: [
+          'Blog results read better as a list than as prose, so here is the list. Across the run we shipped install walkthroughs, animal-specific guides, format explainers, seasonal collections, and a few experiments that only made sense to us at midnight. Most of the traffic came from five categories:'
+        ],
+        list: [
+          'Install and setup: step-by-step guides for macOS, Windows and the terminal, plus a troubleshooting post that still brings in the most search traffic',
+          'Animal guides: cats, dogs, rabbits, hamsters, tortoises, and the less common pets like guinea pigs and ferrets',
+          'Format and quality: spritesheet dimensions, export formats, HD versus 4K sheets, and how photo quality changes the final pixel art',
+          'Culture pieces: a creator interview, showcase roundups, the project history timeline, and a running series on AI companion culture',
+          'Seasonal drops: Halloween pet skins, a Thanksgiving pixel pet, and shopping-festival theme ideas'
+        ]
+      },
+      {
+        heading: 'The codex pet ecosystem 2026, measured from the inside',
+        paragraphs: [
+          'Watching the codex pet ecosystem 2026 from the inside, three shifts stand out. First, the file contract stabilized: a WebP spritesheet plus a pet.json manifest is now all a pet needs, which is why our toolchain explainer and folder-structure guide keep getting referenced. Second, Codex desktop updates stopped breaking pets as often, which we tracked in the desktop-updates post. Third, the tooling around pets matured, from sprite editors to palette utilities, so more people now hand-tune a generated pet instead of accepting the first result.',
+          'Back in July none of these existed. They grew alongside the reader base, which is the clearest signal we have that this ecosystem is real rather than a gimmick.'
+        ]
+      },
+      {
+        heading: 'Pet culture review: what developers actually do with their pets',
+        paragraphs: [
+          'The pet culture review is the part we did not expect to enjoy writing. Readers name their pets, set mood colors for code review sessions, place them on a second monitor, and hide them before screen sharing. Some run their pet inside a VM just to keep work and personal machines separate. The loneliness-of-coding essay got more replies than any tutorial we published, and the creator interview with a designer who pixelated her whole family became the most shared post of the run.',
+          'The pattern behind those stories: a desktop pet is a small, low-stakes way to make a workspace feel personal. That is what these posts kept circling back to, and coverage that leaned into it beat the pure how-to pieces on every metric we track.'
+        ]
+      },
+      {
+        heading: 'What we would do differently',
+        paragraphs: [
+          'Some honest notes for the record, so the next hundred days go better. We should have launched the Chinese-language versions of posts earlier instead of starting them mid-run. We should have built a proper FAQ index sooner; the monthly FAQ roundups work well but were hard to discover until recently. And a few of the late one-off tutorials stretched the topic thin; fewer, deeper guides would have served readers better than daily volume for its own sake.'
+        ]
+      },
+      {
+        heading: 'About Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop while you code. Start from the homepage at /, compare plans on /pricing, and browse all one hundred days of guides in /blog, including the codex pet ecosystem explainer and the AI companion culture series.'
+        ]
+      }
+    ]
+  },
+
+  {
+    slug: 'year-end-review-100-days-pixel-pets-zh',
+    title: '年终复盘：100 天博客与宠物生态观察',
+    description: '用一次完整的 codex pet review 回看我们连续 100 天的日更博客：数据、表现好的文章、宠物文化观察，以及 codex pet ecosystem 2026 的下一步。',
+    date: '2026-11-07',
+    author: 'PetGen',
+    keywords: [
+      'codex pet review',
+      'codex pet ecosystem 2026',
+      'blog results',
+      'pet culture review',
+      '像素宠物年度总结',
+      'codexpetgenerator 博客'
+    ],
+    related: [
+      'codex-pet-ecosystem-zh',
+      'ai-companion-culture-zh',
+      'codex-pet-history-timeline-zh'
+    ],
+    faq: [
+      {
+        question: '新读者应该从哪一篇开始看？',
+        answer: '想今天就养一只宠物，直接看 macOS 或 Windows 的安装教程；想先了解全貌，推荐先读 codex pet ecosystem 科普和历史时间线，一篇就能建立背景。'
+      },
+      {
+        question: '日更计划有没有断过？',
+        answer: '断过两次，都在节假日那几周。我们的选择是晚一天发，也不发半成品，现在看这个决定没错。'
+      },
+      {
+        question: '第 100 天之后博客还继续吗？',
+        answer: '日更节奏会停，博客继续更新。2027 年桌面宠物功能展望已经写了一半，宠物文化观察类的文章也会跟着社区一起做下去。'
+      }
+    ],
+    sections: [
+      {
+        heading: '100 天之后：这篇 codex pet review 复盘什么',
+        paragraphs: [
+          '博客刚开始时计划很简单：每天一篇，写 Codex 宠物、像素艺术，以及围绕桌面同伴慢慢长出来的小文化。100 天过去，正好用一次 codex pet review 把事情说清楚：我们发了什么、读者实际在看什么、codex pet ecosystem 2026 往哪里走。下面所有数字都来自我们自己的发布记录，不是拍脑袋。',
+          '看数据之前想补背景的话，先翻我们之前写的那篇 codex pet ecosystem 科普，两篇连着看更顺。'
+        ]
+      },
+      {
+        heading: 'Blog results：100 天日更到底产出了什么',
+        paragraphs: [
+          'blog results 用列表看比用散文看清楚，一路发下来主力是这几类：'
+        ],
+        list: [
+          '安装与配置：macOS、Windows、终端三条路线的保姆级教程，加上一篇至今仍是流量最大的排障指南',
+          '动物图鉴：猫、狗、兔子、仓鼠、乌龟，还有豚鼠和雪貂这类少见宠物',
+          '格式与质量：精灵图尺寸、导出格式、HD 与 4K 对比，以及照片质量对最终像素画的影响',
+          '文化观察：创作者访谈、展示合集、项目历史时间线，还有 AI companion culture 系列',
+          '季节限定：万圣节宠物皮肤、感恩节像素宠物、购物节主题玩法'
+        ]
+      },
+      {
+        heading: '从内部看 codex pet ecosystem 2026',
+        paragraphs: [
+          '从内部看 codex pet ecosystem 2026，变化最明显的是三件事。一是文件契约稳定了：一张 WebP 精灵图加一份 pet.json 就是一只宠物的全部，工具链科普和目录结构指南因此一直有人翻。二是 Codex 桌面端更新不再动不动弄坏宠物，这条我们写在桌面端更新那篇里。三是周边工具成熟了，从精灵图编辑器到调色板工具，越来越多人会手工微调生成的宠物，而不是接受第一版结果。',
+          '这三个变化七月里都不存在，它们是跟着读者规模一起长出来的。这是我们判断这个生态真的存在、而不是一阵风的最好证据。'
+        ]
+      },
+      {
+        heading: 'Pet culture review：开发者到底拿宠物做什么',
+        paragraphs: [
+          'pet culture review 是我们没想到会写得这么开心的部分。读者给宠物起名字、为 code review 设置心情颜色、放到副屏上、共享屏幕前先藏起来，还有人专门在虚拟机里跑宠物来隔离工作机。写程序员孤独感的那篇收到的回复比任何教程都多，设计师把全家做成桌宠的访谈成了整个周期里被转发最多的一篇。',
+          '这些故事指向同一件事：桌面宠物成本很低、风险很小，却能让工作区变得像自己的。这是产品的文化内核，凡是往这个方向写的文章，各项数据都好过纯教程。'
+        ]
+      },
+      {
+        heading: '哪些事我们会换个做法',
+        paragraphs: [
+          '复盘得写几条实话，留给下一个一百天。中文版文章应该更早上线，而不是跑到一半才开始补；FAQ 索引应该更早建好，月度 FAQ 合集效果不错但前两个月很难被搜到；后期有几篇单篇教程有点硬凑，少而深的指南比为了日更而日更更对读者有用。'
+        ]
+      },
+      {
+        heading: '关于 Codex Pet Generator',
+        paragraphs: [
+          'Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 传一张照片开始，/pricing 看套餐区别，100 天的全部教程都在 /blog，包括 codex pet ecosystem 科普和 AI companion culture 系列。'
+        ]
+      }
+    ]
+  }
 
 ];
