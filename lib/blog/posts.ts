@@ -10822,4 +10822,455 @@ export const posts: BlogPost[] = [
     ]
   }
 
+,
+
+  {
+    "slug": "black-friday-cyber-monday-pixel-pet",
+    "title": "Black Friday & Cyber Monday: Pixel Pet Deals Worth It",
+    "description": "A practical pixel pet deals guide for Black Friday and Cyber Monday 2026: what a holiday sale is worth, what stays free all year, and how to pick a plan without overspending.",
+    "date": "2026-11-08",
+    "author": "PetGen",
+    "keywords": [
+      "pixel pet deals",
+      "pixel pet gift ideas",
+      "holiday pet deals",
+      "pet accessories sale",
+      "codex pet pricing"
+    ],
+    "related": [
+      "shopping-festival-pet-skins",
+      "codex-pet-pro-vs-unlimited",
+      "thanksgiving-pixel-pet"
+    ],
+    "faq": [
+      {
+        "question": "Are there Black Friday coupon codes for Codex Pet Generator?",
+        "answer": "No hidden coupon codes and no fake countdown timers. If holiday pricing changes anything, it shows up directly on the pricing page, and the free starter plan stays free through the season."
+      },
+      {
+        "question": "What is actually worth paying for during holiday pet deals?",
+        "answer": "Upgrades you will use weekly: HD or 4K spritesheets, extra animation states, and more upload slots if you keep one pet per project. The codex pet pro vs unlimited comparison explains which tier fits which workflow."
+      },
+      {
+        "question": "Can I give a pixel pet as a gift without buying anything?",
+        "answer": "Yes. Create a pet from a photo of your friend or their actual pet, export the spritesheet, and send it over. The sharing guide walks through the exact steps."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Pixel pet deals start with what is already free",
+        "paragraphs": [
+          "Search interest in pixel pet deals spikes every late November, and most of the upgrades people end up paying for were sitting there all year. Before you compare a single holiday pet deal, check the free starter plan on the homepage: one photo, one spritesheet, no card required. A surprising number of Black Friday shoppers discover afterward that the free tier already covered what they wanted.",
+          "If you are new to the whole thing, the what-is-a-codex-pet explainer takes five minutes and saves you from buying features you will never open."
+        ]
+      },
+      {
+        "heading": "What a pet accessories sale actually includes for a desktop pet",
+        "paragraphs": [
+          "A pet accessories sale for a desktop companion is not collars and toys. It is the export and customization layer, and only some of it matters depending on how you use your pet:"
+        ],
+        "list": [
+          "HD and 4K spritesheet exports, which matter if you want to print the pet or use it as a large avatar",
+          "Extra animation states, useful when your pet doubles as a build or notification indicator",
+          "Custom color palettes, so the pet matches your editor theme instead of fighting it",
+          "Additional upload slots, for people who keep a different pet per project or per machine",
+          "Sync across machines, covered in the sync-codex-pet-across-machines guide, if you switch between a laptop and a desktop daily"
+        ]
+      },
+      {
+        "heading": "Holiday pet deals versus the buy-it-and-forget-it trap",
+        "paragraphs": [
+          "The honest rule we use internally: never buy an upgrade during a sale that you would not buy at full price next week. Our year-end review post looked back at a hundred days of usage data, and the pattern was clear. Readers who bought one targeted upgrade (usually HD export) used it constantly. Readers who bought everything because a banner told them to used none of it by January.",
+          "Black Friday and Cyber Monday are good moments to buy, but they are better moments to plan. Make the list of what you actually do with your pet first, then check the pricing page once."
+        ]
+      },
+      {
+        "heading": "Pixel pet gift ideas for the teammate who has everything",
+        "paragraphs": [
+          "A pixel pet gift beats another mug because it is personal and it costs you an afternoon, not a paycheck. Take a photo of your teammate, their cat, or the office dog, generate a pet, and drop the spritesheet in the team chat on a Friday afternoon. The pet gallery showcase post has real examples of pets made this way, including a designer who pixelated her entire family.",
+          "For the gift to land, follow the best-photos guide: good lighting, a clear face, one subject. Bad photos produce blurry pets, and a blurry gift is still a mug."
+        ]
+      },
+      {
+        "heading": "About Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that lives on your desktop while you code. Start from the homepage at /, compare every plan on /pricing before any sale banner pressures you, and read the full back catalog in /blog, including the shopping-festival theme ideas from our earlier seasonal posts."
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "black-friday-cyber-monday-pixel-pet-zh",
+    "title": "黑五/网购星期一套装：宠物周边买什么",
+    "description": "一份不讲废话的 pixel pet deals 指南：黑五和网购星期一期间哪些宠物升级值得买，哪些功能平时就免费，以及怎么选套餐不花冤枉钱。",
+    "date": "2026-11-08",
+    "author": "PetGen",
+    "keywords": [
+      "pixel pet deals",
+      "pixel pet gift ideas",
+      "holiday pet deals",
+      "pet accessories sale",
+      "像素宠物黑五",
+      "codexpetgenerator 套餐"
+    ],
+    "related": [
+      "shopping-festival-pet-skins-zh",
+      "thanksgiving-pixel-pet-zh",
+      "halloween-pet-skins-collection-zh"
+    ],
+    "faq": [
+      {
+        "question": "黑五期间 Codex Pet Generator 有优惠码吗？",
+        "answer": "没有藏起来的优惠码，也没有假装在倒计时的弹窗。节假日如果价格有变化，会直接体现在定价页上，免费入门套餐整个假期都保持免费。"
+      },
+      {
+        "question": "节日宠物促销里真正值得花钱的是哪些？",
+        "answer": "每周都会用的升级：HD 或 4K 精灵图导出、更多动画状态、以及一个项目一只宠物时需要的更多上传位。定价页的套餐说明把每个档位适合的用法写得很清楚。"
+      },
+      {
+        "question": "不花钱能把像素宠物当礼物送吗？",
+        "answer": "可以。用朋友或他家宠物的照片生成一只宠物，导出精灵图发过去就行。分享教程里有完整步骤。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "看 pixel pet deals 之前，先看哪些东西本来就免费",
+        "paragraphs": [
+          "每年十一月底 pixel pet deals 的搜索量都会涨一截，而大多数人最后买的升级，平时就摆在那里。比较任何 holiday pet deals 之前，先去首页看看免费入门套餐：一张照片、一份精灵图，不用绑卡。不少黑五买家付完款才发现，免费档早就够用了。",
+          "如果你还没用过这个工具，先去博客的入门系列看一篇五分钟的科普，能帮你避开买回来永远不会打开的功能。"
+        ]
+      },
+      {
+        "heading": "桌宠的 pet accessories sale 到底卖什么",
+        "paragraphs": [
+          "桌面宠物的宠物周边促销卖的不是项圈和逗猫棒，而是导出和自定义层。哪些值得买取决于你怎么用宠物："
+        ],
+        "list": [
+          "HD 与 4K 精灵图导出：想把宠物打印出来或当大头像用，这个最实在",
+          "更多动画状态：宠物兼职构建或通知指示器的人会天天用",
+          "自定义调色板：让宠物配色跟着编辑器主题走，而不是互相打架",
+          "额外上传位：一个项目养一只宠物、或者多台机器各养一只的读者需要它",
+          "多机同步：具体做法在 sync-codex-pet-across-machines 那篇，笔记本和台式机来回换的人值得看"
+        ]
+      },
+      {
+        "heading": "节日促销与「买完就忘」陷阱",
+        "paragraphs": [
+          "我们内部用的判断标准很朴素：打折时不会买的东西，原价时你也不会买，那就别因为便宜而买。年终复盘那篇回看了一百天的使用数据，规律很明显：只买一项针对性升级（通常是 HD 导出）的读者天天在用；看到横幅就把全家桶搬回家的读者，一月之前就再也没打开过。",
+          "黑五和网购星期一适合买东西，但更适合先列清单。先想清楚你拿宠物做什么，再去看一次定价页。"
+        ]
+      },
+      {
+        "heading": "给什么都不缺的同事挑 pixel pet gift",
+        "paragraphs": [
+          "像素宠物礼物比又一个马克杯强，因为它花的是一个下午而不是一个月工资，而且是真的个人化。拍一张同事、他家的猫或办公室狗的照片，生成宠物，周五下午把精灵图丢进团队群。宠物展示合集那篇有真实的例子，包括那位把全家都做成桌宠的设计师。",
+          "想让礼物拿得出手，先读最佳照片指南：光线好、脸清晰、画面里只有一个主体。差照片生成的是糊掉的宠物，糊掉的礼物本质还是马克杯。"
+        ]
+      },
+      {
+        "heading": "关于 Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 开始，任何促销横幅出现之前先去 /pricing 把套餐看一遍，全部季节性玩法都收在 /blog，包括之前写的购物节主题那篇。"
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "developer-gift-guide-pixel-pet",
+    "title": "A Christmas Gift Guide for Developer Friends",
+    "description": "A developer gift guide built around daily use: a pixel pet gift for the desk, cheap desk upgrades that survive January, and the gifts developers quietly stop using.",
+    "date": "2026-11-09",
+    "author": "PetGen",
+    "keywords": [
+      "developer gift guide",
+      "gift for programmer",
+      "pixel pet gift",
+      "dev desk gift ideas",
+      "christmas gift for developers"
+    ],
+    "related": [
+      "dev-desktop-aesthetic-pixel-pet",
+      "share-codex-pet-with-friends",
+      "turn-photo-into-pixel-art"
+    ],
+    "faq": [
+      {
+        "question": "What makes a pixel pet a good gift for a programmer?",
+        "answer": "It is personal, it takes one photo to make, and it sits on the desktop all day without demanding anything. Unlike hardware, there is nothing to charge, pair, or return."
+      },
+      {
+        "question": "How much should I spend on a dev desk gift?",
+        "answer": "Less than you think. The gifts developers mention months later in our comments are almost all under twenty dollars or free; the expensive gadgets get regifted."
+      },
+      {
+        "question": "Can I make a pixel pet gift if I am not technical?",
+        "answer": "Yes. Upload a photo on the homepage and the generator does the rest. The whole flow is covered in the turn-photo-into-pixel-art guide, no coding involved."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "This developer gift guide only includes things that get daily use",
+        "paragraphs": [
+          "Every December the same generic gift for programmer lists go around, full of led lights and novelty keyboards nobody keeps. This developer gift guide takes a different filter: it only includes things a developer will still be using in March. The number one pick costs nothing, which is why we put it first: a pixel pet made from a photo of them, their cat, or their code review face."
+        ]
+      },
+      {
+        "heading": "Dev desk gift ideas, sorted by what they actually do",
+        "paragraphs": [
+          "The best dev desk gift ideas fall into three budget bands, and the cheap band wins more often than it should:"
+        ],
+        "list": [
+          "Free: a pixel pet generated from a photo, delivered as a spritesheet in the team chat, or a hand-picked desktop theme to match their editor",
+          "Under twenty dollars: a decent wrist rest, a small desk plant that tolerates neglect, a cable management kit, sticky note refills for the monitor bezel",
+          "Splurge territory: a second monitor arm or a proper desk mat. Useful, but ask first; monitor arms are a personal-fit purchase like shoes"
+        ]
+      },
+      {
+        "heading": "Why a pixel pet gift works when gadgets fail",
+        "paragraphs": [
+          "Gadgets fail as gifts because they make assumptions about how someone works. A pixel pet makes no assumptions: it does not need a port, a driver, or a preference. We wrote a whole piece about the developer desktop aesthetic, and the common thread in every desk photo readers sent us was a small personal thing with no productivity justification at all. That is the niche a pixel pet gift fills.",
+          "It also survives the awkward-gift test. Nobody has to pretend to use it; it just sits in the corner of the screen looking busy."
+        ]
+      },
+      {
+        "heading": "How to make one in an afternoon",
+        "paragraphs": [
+          "Pick the best photo you have of the person or their pet, following the best-photos guide for lighting and framing. Upload it on the homepage, pick a style, and export the spritesheet. If you want to hand over something they can keep updating, share the pet using the sharing guide instead of sending a static file, so they can regenerate it later in their own account.",
+          "Wrap-up tip: pair the pet with a one-line note like \"for your desktop, not another mug\". It lands better than the pet alone."
+        ]
+      },
+      {
+        "heading": "About Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop while you code. Make a gift pet from the homepage at /, check plan limits on /pricing, and browse more gift and desk ideas in /blog, including the desktop aesthetic series."
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "developer-gift-guide-pixel-pet-zh",
+    "title": "给开发者朋友的圣诞礼物指南",
+    "description": "一份按「三月后还在用」筛选的 developer gift guide：像素宠物礼物、低成本桌面升级，以及那些开发者拿到手就悄悄闲置的礼物。",
+    "date": "2026-11-09",
+    "author": "PetGen",
+    "keywords": [
+      "developer gift guide",
+      "gift for programmer",
+      "pixel pet gift",
+      "dev desk gift ideas",
+      "程序员圣诞礼物",
+      "像素宠物礼物"
+    ],
+    "related": [
+      "dev-desktop-aesthetic-pixel-pet-zh",
+      "pixel-art-toolchains-what-we-recommend-zh",
+      "codex-pet-gallery-zh"
+    ],
+    "faq": [
+      {
+        "question": "像素宠物为什么适合送给程序员？",
+        "answer": "它够个人化、一张照片就能做、全天挂在桌面上还不用伺候。不像硬件礼物，不需要充电、配对，也不存在退货。"
+      },
+      {
+        "question": "开发者桌面礼物该花多少钱？",
+        "answer": "比你以为的少。评论区里几个月后还被提起的礼物几乎都在二十美元以内，甚至免费；贵的电子产品大多被转送了。"
+      },
+      {
+        "question": "我完全不懂技术，能做像素宠物礼物吗？",
+        "answer": "能。在首页上传一张照片，剩下的生成器搞定，全程不用写代码，几分钟就能导出精灵图。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "这份 developer gift guide 只收三月后还在用的东西",
+        "paragraphs": [
+          "每年十二月，千篇一律的 gift for programmer 清单都会准时出现，塞满了没人留到一月的 LED 灯带和整活键盘。这份 developer gift guide 换了一个筛子：只收开发者三月之后还会用的东西。排第一的不花一分钱，所以我们把它放最前面：用一张照片做的像素宠物，照片可以是对方本人、他家的猫，或者他 code review 时的表情。"
+        ]
+      },
+      {
+        "heading": "dev desk gift ideas：按实际用途分类",
+        "paragraphs": [
+          "最好用的 dev desk gift ideas 天然分成三个预算档，而且最便宜的档位胜率一直偏高："
+        ],
+        "list": [
+          "零成本：用照片生成一只像素宠物，精灵图直接丢团队群；或者挑一个和他编辑器配色搭的桌面主题",
+          "二十美元以内：像样的腕托、耐旱的小桌面绿植、理线套装、贴在显示器边框上的便利贴补充装",
+          "预算充足：第二块屏幕的显示器支架或一张像样的桌垫。实用，但一定要先问，显示器支架跟鞋一样是个人适配品"
+        ]
+      },
+      {
+        "heading": "电子产品做礼物为什么总翻车，像素宠物却不会",
+        "paragraphs": [
+          "电子产品当礼物容易翻车，因为它们对「别人怎么工作」做了太多假设。像素宠物不做任何假设：不用接口、不用驱动、也不挑偏好。我们写过一篇开发者桌面美学的文章，读者发来的每一张桌面照里都有同一样东西：一件毫无生产力理由、纯粹为了好看的小物件。像素宠物礼物填的就是这个位置。",
+          "它还能通过「尴尬礼物测试」：没人需要假装在用它，它就在屏幕角落安静地忙自己的事。"
+        ]
+      },
+      {
+        "heading": "一个下午就能做完",
+        "paragraphs": [
+          "挑一张对方本人或他家宠物的最好照片，光线好、脸拍清楚、画面里只留一个主体。在首页上传，选个风格，导出精灵图。如果想让对方以后能自己更新，就把生成时的照片一起发过去，他随时能在自己的账号里重新生成一只。",
+          "加一句附言效果更好，比如「给你的桌面，不是又一个马克杯」，比宠物本身还管用。"
+        ]
+      },
+      {
+        "heading": "关于 Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 开始做礼物宠物，套餐限制看 /pricing，更多礼物和桌面灵感都在 /blog，包括桌面美学系列。"
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "double-12-year-end-pixel-pet",
+    "title": "Double 12: Year-End Wrap Themes with Your Pet",
+    "description": "Turn a year end pixel pet into your annual wrap: mood timelines, recap galleries, and year in review pet ideas for solo devs and whole teams, plus pixel art recap formats that people actually share.",
+    "date": "2026-11-10",
+    "author": "PetGen",
+    "keywords": [
+      "year end pixel pet",
+      "annual wrap pet",
+      "year in review pet",
+      "pixel art recap",
+      "double 12 pet theme"
+    ],
+    "related": [
+      "codex-pet-gallery",
+      "year-end-review-100-days-pixel-pets",
+      "shopping-festival-pet-skins"
+    ],
+    "faq": [
+      {
+        "question": "What is a year in review pet, exactly?",
+        "answer": "It is your pet styled or staged to summarize your year: a mood color timeline, a screenshot series of the pet beside each big project, or a recap gallery of every pet you generated this year."
+      },
+      {
+        "question": "Do I need a paid plan to make an annual wrap?",
+        "answer": "No. Recaps are screenshots and galleries, which the free tier handles fine. A paid plan only helps if you want HD exports for printing the wrap."
+      },
+      {
+        "question": "Can a team do this together?",
+        "answer": "Yes, and it works well as an end-of-year retro opener. Everyone generates a pet for the team gallery, then each person presents their year next to it."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why the year end pixel pet beats another stats card",
+        "paragraphs": [
+          "Every December, apps hand you a stats card: minutes listened, commits pushed, steps taken. A year end pixel pet gives the same ritual a face. Instead of a chart, your annual wrap pet becomes the mascot of the year: the pet you generated in February next to the project it helped you survive, the mood colors you cycled through during crunch week. The wrap reads as a story because the pet was actually there for all of it."
+        ]
+      },
+      {
+        "heading": "Four annual wrap pet formats that people actually share",
+        "paragraphs": [
+          "After a hundred days of watching readers show off their pets, these are the year in review pet formats that get reactions in team chats and timelines:"
+        ],
+        "list": [
+          "The mood timeline: one screenshot of the pet per month, with the mood color you kept it on that month",
+          "The project companions: one pet per project from the year, arranged like a cast photo for your repos",
+          "The recap gallery: every pet you generated this year in one grid, wobbly first attempts included",
+          "The before-and-after: your first-ever pet next to your latest one, which doubles as a pixel art recap of how your taste changed"
+        ]
+      },
+      {
+        "heading": "Build a recap gallery in one sitting",
+        "paragraphs": [
+          "The gallery showcase guide explains how collectors arrange their pets, and a year-end wrap is just a gallery with a deadline. Open your pets library, screenshot each pet on a plain background, and paste them into a grid. Label each with the month and the project it belonged to. Ten pets make a full grid; three make a honest one.",
+          "If you kept mood colors tied to work modes, the color psychology guide helps you name what the colors meant, which is the part that makes people reply to the post."
+        ]
+      },
+      {
+        "heading": "Double 12 as a team ritual, not a shopping day",
+        "paragraphs": [
+          "Double 12 has turned into one more sale date, but teams have quietly repurposed it as a wrap-up deadline. The format that worked best in our community: everyone brings their annual wrap pet to the last retro of the year and presents their year in three screenshots. It lowers the stakes of a retro, and the pets give quiet teammates something concrete to point at.",
+          "Our own year-end review of the hundred-day blog run was written with exactly this method, and it was the easiest retro we ever ran."
+        ]
+      },
+      {
+        "heading": "About Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop while you code. Start your year-end wrap from the homepage at /, check export options on /pricing, and browse the full seasonal series in /blog, from Halloween skins to the shopping-festival post."
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "double-12-year-end-pixel-pet-zh",
+    "title": "双十二冲业绩：宠物主题年度总结玩法",
+    "description": "把 year end pixel pet 变成你的年度总结：心情时间线、回顾画廊、适合个人和团队的 annual wrap pet 玩法，还有真的会被人转发的像素回顾格式。",
+    "date": "2026-11-10",
+    "author": "PetGen",
+    "keywords": [
+      "year end pixel pet",
+      "annual wrap pet",
+      "year in review pet",
+      "pixel art recap",
+      "双十二桌面宠物",
+      "年度总结像素宠物"
+    ],
+    "related": [
+      "codex-pet-gallery-zh",
+      "year-end-review-100-days-pixel-pets-zh",
+      "shopping-festival-pet-skins-zh"
+    ],
+    "faq": [
+      {
+        "question": "「年度回顾宠物」具体是什么？",
+        "answer": "就是用你的宠物来总结这一年：一条心情颜色时间线、宠物陪每个大项目的截图系列，或者把你今年生成过的所有宠物拼成一张回顾画廊。"
+      },
+      {
+        "question": "做年度总结需要付费套餐吗？",
+        "answer": "不需要。总结靠截图和画廊，免费档完全够用。只有想把总结打印出来要 HD 导出时，付费档才有意义。"
+      },
+      {
+        "question": "团队可以一起玩吗？",
+        "answer": "可以，而且很适合当年底复盘的开场。每人给团队画廊生成一只宠物，然后对着自己的宠物讲这一年的故事。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "为什么 year end pixel pet 比又一张数据卡片有意思",
+        "paragraphs": [
+          "每年十二月，各种应用都会塞给你一张数据卡片：听了多少分钟、推了多少 commit、走了多少步。year end pixel pet 给这套仪式添了一张脸。你的 annual wrap pet 不再是图表，而是这一年的吉祥物：二月生成的那只宠物，旁边是它陪你熬过的项目；冲刺那一周你给它换过的心情颜色。这份总结读起来像故事，因为宠物真的全程在场。"
+        ]
+      },
+      {
+        "heading": "四种真的会被人转发的 year in review pet 格式",
+        "paragraphs": [
+          "看了一百天读者晒宠物之后，这几种 year in review pet 格式在团队群和时间线上拿到的回应最多："
+        ],
+        "list": [
+          "心情时间线：每月一张宠物截图，配上那个月你给它设的心情颜色",
+          "项目阵容：今年每个项目配一只宠物，摆成你代码仓库的「全家福」",
+          "回顾画廊：把今年生成过的宠物拼成一张网格图，最早的失败作也要放进去",
+          "前后对比：你人生第一只宠物和最近一只并排放，顺便当一份反映眼光变化的 pixel art recap"
+        ]
+      },
+      {
+        "heading": "一次坐下来把回顾画廊做完",
+        "paragraphs": [
+          "画廊展示指南讲了收藏者怎么摆放宠物，年终总结无非是给画廊加了个截止日期。打开宠物图鉴，给每只宠物在纯色背景上截图，拼进网格，标上月份和对应的项目。十只宠物是一张完整的网格，三只也是一份诚实的总结。",
+          "如果你平时把心情颜色和工作模式绑在一起，给每种颜色配一句当时在做什么的注释，这正是让别人愿意回复你帖子的部分。"
+        ]
+      },
+      {
+        "heading": "把双十二过成团队仪式，而不是购物节",
+        "paragraphs": [
+          "双十二已经变成了又一个购物节点，但不少团队悄悄把它改成了总结的截止日。在我们社区里效果最好的玩法：最后一次复盘会上，每人带着自己的年度总结宠物来，用三张截图讲完这一年。复盘的门槛降下来了，安静的同事也因为手里有具体的东西而愿意开口。",
+          "我们自己那篇一百天博客的年终复盘，用的就是这套方法，也是我们做过最轻松的一次复盘。"
+        ]
+      },
+      {
+        "heading": "关于 Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 开始你的年度总结，导出选项看 /pricing，万圣节皮肤到购物节玩法的全部季节系列都在 /blog。"
+        ]
+      }
+    ]
+  }
+
 ];
