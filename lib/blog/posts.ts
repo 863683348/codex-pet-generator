@@ -11273,4 +11273,160 @@ export const posts: BlogPost[] = [
     ]
   }
 
+,
+
+  {
+    "slug": "pixel-pet-journey-starts-today",
+    "title": "Day 100: Your Pixel Pet Journey Starts Today",
+    "description": "One hundred days of desktop pet stories are behind this blog. Here is how to start your own pixel pet journey today: pick your first pet, install it, and join the pet community.",
+    "date": "2026-11-11",
+    "author": "PetGen",
+    "keywords": [
+      "pixel pet journey",
+      "start codex pet today",
+      "join the pet community",
+      "your first pet",
+      "codex desktop pet",
+      "pixel art companion"
+    ],
+    "related": [
+      "make-your-first-codex-pixel-pet",
+      "codex-pet-gallery",
+      "year-end-review-100-days-pixel-pets",
+      "how-to-install-codex-pet"
+    ],
+    "faq": [
+      {
+        "question": "Do I need any design skills to start a pixel pet journey?",
+        "answer": "No. PetGen turns one photo into a finished spritesheet for you. Your first pet takes about five minutes: upload a picture, generate, and install the ZIP into your Codex pets folder. The guide to your first pet walks through every screen."
+      },
+      {
+        "question": "What does it cost to start codex pet today?",
+        "answer": "The free plan covers generating and installing a pet, which is everything you need for day one. Paid tiers only matter later, mainly for HD export when you want crisp wallpapers or printed grids of your collection. Check the pricing page when you get there."
+      },
+      {
+        "question": "Can I change or replace my pet later?",
+        "answer": "Anytime. Pets are just folders in ~/.codex/pets/, so you can generate a new one, keep several, or swap between them per project. Many people in the community run a different pet for work and side projects."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "One hundred days in, the pixel pet journey starts with day one",
+        "paragraphs": [
+          "This is post number 100 on this blog, and if you have read any of the previous ones you already know the drill: pets do not change how Codex codes, they change how coding feels. But here is the thing we keep hearing from readers, the pixel pet journey looks intimidating from the outside. A hundred posts, a gallery full of collections, mood-color experiments, VM setups, interview stories. Starting can feel like joining a book club at volume twelve.",
+          "It is not. The whole hundred-day experiment started with one person uploading one photo. That is still the entire entry requirement. If you want to start codex pet today, you only need a picture of something you like and five minutes."
+        ]
+      },
+      {
+        "heading": "Your first pet, in the order that actually works",
+        "paragraphs": [
+          "The roadmap we wish we had on day one, condensed:",
+        ],
+        "list": [
+          "Pick a photo with a clear subject: your cat, a game character, a rubber duck. The photo quality guide explains what makes a good source image",
+          "Generate it on the homepage, then download the ZIP",
+          "Unzip into ~/.codex/pets/ (or %USERPROFILE%\\.codex\\pets\\ on Windows) and restart Codex. The install guide covers both systems",
+          "Watch it idle for a minute. Nine animation states are explained in the animation states post, and knowing what they are makes the pet feel alive instead of random"
+        ]
+      },
+      {
+        "heading": "Join the pet community at your own pace",
+        "paragraphs": [
+          "You do not have to join the pet community by posting anything. Most people start as lurkers, and that is fine. Two low-pressure entry points work well: the gallery, where you can browse what others generated and pin favorites for inspiration, and the community interview series, where readers describe their setups in their own words. Reading one interview tells you more about how people actually live with pets than any spec sheet.",
+          "When you feel like sharing, a single screenshot in your team chat counts. That is how most collections started, one person showing a pet to one coworker."
+        ]
+      },
+      {
+        "heading": "Where the journey goes after day one",
+        "paragraphs": [
+          "A hundred days of posts map the whole territory, but three make good next stops. The year-end review of this blog explains why we ran the experiment and what we learned. The history timeline post traces pixel companions from 8-bit mascots to desktop pets. And the toolchain recommendations post is for readers who catch the pixel-art bug and want to draw their own sprites.",
+          "If you would rather just look at pets, open the gallery, pick a style you like, and regenerate your own with those colors. That loop, look, generate, tweak, is the entire hobby."
+        ]
+      },
+      {
+        "heading": "About Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator (codexpetgenerator.com) turns one photo into a pixel companion that runs on your desktop while you code. Start your pixel pet journey from the homepage at /, compare plans on /pricing, and find every post from day 1 to day 100 in /blog."
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "pixel-pet-journey-starts-today-zh",
+    "title": "第 100 天：你的像素宠物旅程从今天开始",
+    "description": "一百天的桌面宠物故事写完了，你的像素宠物旅程从今天开始：选好第一只宠物、装进 Codex、按自己的节奏加入宠物社区。",
+    "date": "2026-11-11",
+    "author": "PetGen",
+    "keywords": [
+      "pixel pet journey",
+      "start codex pet today",
+      "join the pet community",
+      "your first pet",
+      "像素宠物旅程",
+      "Codex 桌面宠物"
+    ],
+    "related": [
+      "codex-pet-gallery-zh",
+      "year-end-review-100-days-pixel-pets-zh",
+      "pixel-pet-interview-zh",
+      "codex-pet-faq-october-zh"
+    ],
+    "faq": [
+      {
+        "question": "开始像素宠物旅程需要会画像素画吗？",
+        "answer": "不需要。PetGen 会把一张照片直接生成成品的精灵图。第一只宠物大概五分钟：上传图片、生成、把 ZIP 装进 Codex 宠物目录。「第一只宠物」指南里有每一步的截图。"
+      },
+      {
+        "question": "今天就开始 codex 宠物要花多少钱？",
+        "answer": "免费档就够第一天用，生成和安装都包含在内。付费档是以后的事，主要是想要高清导出、把宠物拼成壁纸或打印网格图时才有意义。到时候再看定价页也不迟。"
+      },
+      {
+        "question": "以后可以换宠物吗？",
+        "answer": "随时可以。宠物就是 ~/.codex/pets/ 里的文件夹，重新生成一只、同时养几只、按项目切换都行。社区里很多人都是工作用一只、side project 用另一只。"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "写满一百天，像素宠物旅程的入口还是第一天",
+        "paragraphs": [
+          "这是博客的第 100 篇。如果你读过前面的任何一篇，都知道我们反复在讲的那件事：宠物不会改变 Codex 怎么写代码，它改变的是写代码的感觉。但读者反馈里有个现象值得说出来：pixel pet journey 从外面看有点吓人。一百篇文章、满满一页画廊、心情颜色实验、虚拟机玩法、读者访谈。想入坑的人容易觉得自己像在第 12 卷才加入读书会。",
+          "其实不是。这一百天的实验，起点就是一个人上传了一张照片。这个门槛今天也没变过。想 start codex pet today，你只需要一张你喜欢的图片和五分钟。"
+        ]
+      },
+      {
+        "heading": "你的第一只宠物：按这个顺序做",
+        "paragraphs": [
+          "把我们希望第一天就有的路线图压缩成四步：",
+        ],
+        "list": [
+          "挑一张主体清晰的照片：你家猫、游戏角色、办公桌上的橡皮鸭都行，照片质量指南讲了什么样的源图效果好",
+          "在首页生成，然后下载 ZIP",
+          "解压到 ~/.codex/pets/（Windows 是 %USERPROFILE%\\.codex\\pets\\），重启 Codex，安装指南两种系统都写了",
+          "让它闲置一分钟。九种动画状态那篇文章解释了每个状态是什么，知道之后宠物就从「随机动」变成了「活着」"
+        ]
+      },
+      {
+        "heading": "按自己的节奏加入宠物社区",
+        "paragraphs": [
+          "join the pet community 不等于要发帖。大多数人都是从潜水开始的，这完全没问题。两个低压力的入口：一是画廊，翻别人生成的宠物、收藏喜欢的风格找灵感；二是社区访谈系列，读者用自己的话讲他们的桌面 setup。读一篇访谈，比任何规格表都更能让你知道大家和宠物实际相处是什么样子。",
+          "等你想分享了，在团队群里发一张截图就算数。大多数收藏就是这么开始的：一个人给一个同事看了自己的宠物。"
+        ]
+      },
+      {
+        "heading": "第一天之后的旅程往哪走",
+        "paragraphs": [
+          "一百篇文章把这块地图画全了，但三个地方适合当下一站。博客的年终复盘讲了为什么要做这个实验、我们学到了什么。历史时间线文章从 8-bit 吉祥物一路讲到今天的桌面宠物。想自己动手画像素的读者，工具链推荐那篇是入门路线。",
+          "如果你只是想看看宠物，那就打开画廊，挑一个喜欢的风格，用自己的照片照着颜色重新生成。看、生成、微调，这个循环就是全部玩法。"
+        ]
+      },
+      {
+        "heading": "关于 Codex Pet Generator",
+        "paragraphs": [
+          "Codex Pet Generator（codexpetgenerator.com）把一张照片变成跑在你桌面的像素伙伴，写代码的时候它就在屏幕角落陪你。从首页 / 开始你的像素宠物旅程，套餐对比看 /pricing，第 1 天到第 100 天的全部文章都在 /blog。"
+        ]
+      }
+    ]
+  }
+
 ];
